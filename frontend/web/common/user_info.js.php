@@ -1,0 +1,13 @@
+<?php
+ 
+/*отключаем кеширование*/
+header("Last-Modified: ".gmdate("D, d M Y H:i:s")." GMT");
+header("Cache-Control: no-cache, must-revalidate");
+header("Cache-Control: post-check=0,pre-check=0");
+header("Cache-Control: max-age=0");
+header("Pragma: no-cache");
+ 
+/*Заголовок о том что это java script (необязательно) (для красоты)*/
+header("Content-type: text/javascript");
+?>
+{"ip":  "<?=$_SERVER['REMOTE_ADDR'];?>"}

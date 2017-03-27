@@ -1,0 +1,137 @@
+
+#overlay {
+	/* display: none; */
+	position: fixed;
+	background: url("../i/dark-bg.png");
+	width: 100%; 
+	height: 100%;
+	top: 0; 
+	left: 0;
+	/*cursor: pointer;*/
+	z-index: 1000;
+}
+
+.modal-order {
+	background: url("../i/dark-bg.png");
+	border-radius: 15px;
+}
+
+.modal-order, .modal-quest, .modal-thx {
+	display: none; 
+	position: fixed;
+	top: 45%;
+	left: 50%;
+	opacity: 0;
+	z-index: 1100;
+	text-align: center;
+	width: 420px;
+	margin-left: -210px;
+	margin-top: -195px;
+	/*padding: 15px;*/
+}
+
+.modal-quest textarea {
+	height: 80px;
+}
+textarea::-webkit-input-placeholder {color: #87bfc6;}
+textarea:-moz-placeholder {color: #87bfc6;}
+
+.modal-thx p {
+	color: #fff;
+	margin: 0;
+	font-size: 22px;
+}
+.modal-thx img {margin: 20px 0}
+.modal-order p:first-child {
+	margin-top: 30px;
+	margin-bottom: 0;
+}
+.modal-order p:first-child, .modal-order .big-p {
+	font-size: 30px;
+	margin-top: 20px;
+	
+}
+.modal-thx a {
+    color: #054756;
+	font-size: 22px;
+	margin-top: 12px;
+    display: block;
+}
+
+.form span {
+	width: 70px;
+	float: left;
+	color: rgba(255,255,255,.5);
+	font-size: 20px;
+	text-align: center;
+	background-color: rgba(255,255,255,.2);
+	border: 1px solid rgba(255,255,255,.5);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+	margin-bottom: 15px;
+	padding: 5px 0;
+}
+
+.modal-order-form input {
+	width: 100%;
+	padding: 1px 0px 0px 9px;
+	box-sizing: border-box;
+	font-size: 19px;
+	line-height: 29px;
+	margin-top: 5px;
+}
+
+.modal-order-form input[type=submit] {
+	cursor: pointer;
+	background: url("/images/footer-feedback-button.png") no-repeat center 0px;
+	height: 33px;
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.modal-order-form input[type=submit]:hover {
+	background-position: center -33px;
+}
+
+.modal-order-form input[type=submit]:active {
+	background-position: center -66px;
+}
+
+.modal-order-form input.error {
+	background: pink;
+}
+
+.modal-order-form label.error {
+	position: absolute;
+	top: -2px;
+	right: -90px;
+	background: #fff;
+	color: red;
+	border-radius: 8px;
+	padding: 1px 6px 0px 8px;
+	border: 1px dashed red;
+	font-size: 14px;
+}
+
+.modal-order .form {
+	text-align: center;
+}
+
+.modal-order-form .input-field {
+	position: relative;
+	margin-bottom: 22px;
+}
+
+.modal-order-title {
+	font-size: 44px;
+	text-transform: uppercase;
+	margin-bottom: 12px;
+}
+
+.modal-notice {
+	margin-bottom: 10px;
+}
