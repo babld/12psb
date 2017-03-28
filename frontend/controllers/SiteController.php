@@ -13,6 +13,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use pistol88\shop\models\Product;
+use pistol88\shop\models\Image;
 
 /**
  * Site controller
@@ -74,6 +75,9 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $articles = Product::getAll();
+        $images = Image::find()->where(['itemid' => 906])->all();
+        #echo "<pre>"; var_dump($images); exit;
+
         return $this->render('index', ['goods' => $articles]);
     }
 
