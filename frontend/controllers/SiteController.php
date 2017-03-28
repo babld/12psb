@@ -73,7 +73,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $articles = Product::getAll();
+        return $this->render('index', ['goods' => $articles]);
     }
 
     public function actionCatalog() {

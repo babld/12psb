@@ -229,9 +229,14 @@ a {
 	background-position: 0 -50px;
 }
 
+.block-title {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
 
 .main-block {
-	background: url("../i/main-block-bg.png") center;
     margin-top: 47px;
     padding-top: 49px;
     padding-bottom: 17px;

@@ -71,7 +71,7 @@ $menuItems = [
                             <span class="caret"></span>
                         </a>
                         <ul id="topnav" class="dropdown-menu" style="display: none;">
-                            <li><a href="/uslugi">Все услуги</a></li>
+                            <li><a href="/catalog"><?=$catalogLabel?></a></li>
                             <li><a href="uslugi/dostavka-gruzov/">Доставка грузов</a></li>
                             <li><a href="uslugi/logistic/">Логистическая обработка и сопровождение</a></li>
                             <li><a href="uslugi/finansovoe-soprovozhdenie-ved/">Финансовое сопровождение ВЭД сделок</a></li>
