@@ -1,5 +1,6 @@
 <?php
 use pistol88\shop\models\Image;
+use pistol88\shop\models\Price;
 ?>
 <div class="main-block">
     <div class="container">
@@ -10,6 +11,7 @@ use pistol88\shop\models\Image;
                     <div class="main-block-slider-item">
                         <?php
                         $image = Image::find()->where(['itemid' => $good->id])->one();
+                        $price = Price::find()->where(['product_id' => $good->id])->all();
                         ?>
                         <img width="348" height="309" src="/images/store/<?=$image->filePath?>" class="main-block-12psb"/>
                         <div class="main-block-stock">В Наличии </div>
@@ -17,8 +19,12 @@ use pistol88\shop\models\Image;
                             <div class="main-block-annonce">
                                 <div class="main-block-title"><?=$good->name?></div>
                                 <div class="main-block-prices">
-                                    <div class="main-block-old-price">459 000 р.</div>
-                                    <div class="main-block-new-price">379 000 р.</div>
+                                    <?php if($price[0]->price != NULL):?>
+                                        <div class="main-block-old-price"><?=$price[0]->price?></div>
+                                    <?php endif;?>
+                                    <?php if($price[1]->price != NULL):?>
+                                        <div class="main-block-new-price"><?=$price[1]->price?></div>
+                                    <?php endif;?>
                                 </div>
                                 <div class="main-block-desc">
                                     <p>
