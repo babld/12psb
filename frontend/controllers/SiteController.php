@@ -75,9 +75,6 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $articles = Product::getAll();
-        $images = Image::find()->where(['itemid' => 906])->all();
-        #echo "<pre>"; var_dump($images); exit;
-
         return $this->render('index', ['goods' => $articles]);
     }
 
@@ -87,7 +84,8 @@ class SiteController extends Controller
     }
 
     public function actionView($id) {
-        return $this->render('view', ["id" => $id]);
+        $model = new Product();
+        return $this->render('view', ["id" => $id, 'model' => $model]);
     }
     /**
      * Logs in a user.

@@ -12,6 +12,7 @@ use pistol88\shop\models\Price;
                         <?php
                         $image = Image::find()->where(['itemid' => $good->id])->one();
                         $price = Price::find()->where(['product_id' => $good->id])->all();
+
                         ?>
                         <img width="348" height="309" src="/images/store/<?=$image->filePath?>" class="main-block-12psb"/>
                         <div class="main-block-stock">В Наличии </div>
