@@ -18,9 +18,13 @@ class AppAsset extends AssetBundle
         'css/index.css',
         'css/overlay.css',
         '/css/jquery.fancybox.css',
-        'css/font-awesome.css'
+        'css/font-awesome.css',
+        '/css/owl.carousel.min.css',
+        '/css/owl.theme.default.min.css'
     ];
     public $js = [
+        '/js/bootstrap.js',
+        '/js/owl.carousel.min.js',
         '/js/jquery.fancybox.pack.js',
         '/js/jquery.cookie.js',
         '/js/jquery.inputmask.bundle.min.js',
@@ -32,8 +36,7 @@ class AppAsset extends AssetBundle
         '/js/jquery.placeholder.js',
         '/js/jquery.carouFredSel-6.0.0-packed.js',
         '/js/common.js',
-        '/js/audio.min.js',
-        '/js/bootstrap.js'
+        '/js/audio.min.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',

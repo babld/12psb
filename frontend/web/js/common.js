@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
 
 	var search = ' newuser=';
@@ -9,6 +8,25 @@ $(document).ready(function() {
 	}, function() {
 		$(this).find('.dropdown-menu').stop(true, true).delay(50).fadeOut();
 	});
+
+
+
+	var owl = $('.order-stend-list');
+	owl.owlCarousel({
+		margin: 10,
+		nav: true,
+		loop: true,
+		responsive: {
+			0: {
+				items: 1
+			},
+			600: {
+				items: 3
+			}
+		}
+	});
+
+
 
     if (!$.cookie("newuser")) {
 		//console.log("новый юзер");

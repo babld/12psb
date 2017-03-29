@@ -311,7 +311,6 @@ a {
     left: 31px;
     width: 168px;
     transform: rotate(-9deg);
-    height: 43px;
     border-radius: 10px;
     text-transform: uppercase;
     color: #165e00;
@@ -319,7 +318,7 @@ a {
     font-size: 23px;
     text-align: center;
     font-weight: bold;
-    line-height: 44px;
+    line-height: 32px;
 }
 
 .main-block-new-price, .main-block-old-price {
@@ -488,11 +487,12 @@ a {
 .order-stend {
     background: url(../i/order-stend-bg.png) no-repeat;
     width: 324px;
-    height: 485px;
+    height: 321px;
     padding-top: 8px;
 	position: relative;
 	float: left;
 	margin-right: 13px;
+    margin-bottom:20px;
 }
 
 .order-image-wrap {
@@ -529,6 +529,7 @@ a {
     color: #fff;
     position: absolute;
     bottom: 0;
+    width: 100%;
     text-align: center;
     font-size: 17px;
     padding: 5px 5px 0 5px;
@@ -541,14 +542,16 @@ a {
     line-height: 16px;
     text-align: justify;
     padding-right: 17px;
-	height: 163px;
+    height: 145px;
+    overflow: hidden;
+    margin-bottom: 14px;
 }
 
 .order-stend-list {
 	margin-bottom: 17px;
 }
 
-.order-stend-list li:last-child {
+.order-stend-list li:nth-child(3) {
 	margin: 0 !important;
 }
 
