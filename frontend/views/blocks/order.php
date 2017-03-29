@@ -13,23 +13,25 @@ use pistol88\shop\models\Price;
             <?php foreach($goods as $good):
                 $image = Image::find()->where(['itemid' => $good->id])->one();
                 $price = Price::find()->where(['product_id' => $good->id])->all();
-                ?>
-                <li class="order-stend">
-                    <?php if($price[0]->price != NULL):?>
-                        <div class="order-stend-birk"><?=$price[0]->price?></div>
-                    <?php endif;?>
+                if($good->is_popular == "yes"):?>
+                    <li class="order-stend">
+                        <?php if($price[0]->price != NULL):?>
+                            <div class="order-stend-birk"><?=$price[0]->price?></div>
+                        <?php endif;?>
 
-                    <div class="order-image-wrap">
+                        <div class="order-image-wrap">
+                            <a href="/view?id=<?=$good->id?>">
+                                <img src="/images/store/<?=$image->filePath?>" class="order-stend-image"/>
+                            </a>
+                            <div class="order-stend-title"><?=$good->name?></div>
+                        </div>
 
-                        <img src="/images/store/<?=$image->filePath?>" class="order-stend-image"/>
-                        <div class="order-stend-title"><?=$good->name?></div>
-                    </div>
-
-                    <div class="block-buts">
-                        <a class="order-but fancybox fancybox.ajax" href="zakaz?model=12PSDW">Подробнее</a>
-                    </div>
-                </li>
-            <?php endforeach;?>
+                        <div class="block-buts">
+                            <a class="order-but fancybox fancybox.ajax" href="zakaz?model=12PSDW">Подробнее</a>
+                        </div>
+                    </li>
+            <?php endif;
+            endforeach;?>
         </ul>
 
        <div class="order-notice">А также любые стенды для тестирования Common Rail и ТНВД

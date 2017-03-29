@@ -84,6 +84,7 @@ class SiteController extends Controller
     }
 
     public function actionView($id) {
+
         $model = new Product();
         return $this->render('view', ["id" => $id, 'model' => $model]);
     }
