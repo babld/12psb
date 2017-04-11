@@ -1,5 +1,5 @@
 <div class="footer-form" id="4">
-    <div class="layout-width">
+    <div class="container">
         <div class="footer-form-block">
             <div class="footer-manager-wrap">
                 <img src="../i/manager.png"/>

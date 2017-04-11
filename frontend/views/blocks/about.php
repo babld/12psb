@@ -1,5 +1,5 @@
 <div class="about">
-    <div class="layout-width">
+    <div class="container">
         <h3 class="about-title">О производителе оборудования для тестирования ТНВД и Common Rail</h3>
         <div class="about-fabric-info">NANTAI AUTOMOTIVE TECHNOLOGY CO., LTD.</div>
         <div class="about-descr">

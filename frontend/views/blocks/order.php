@@ -4,7 +4,7 @@ use pistol88\shop\models\Price;
 ?>
 <div class="order">
     <div class="order-head-bg" id="2"></div>
-    <div class="layout-width">
+    <div class="container">
         <div class="order-head">
             Популярные модели топливного оборудования
         </div>

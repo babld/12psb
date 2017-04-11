@@ -1,45 +1,57 @@
 <?php
-
-/* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
-/* @var $model \frontend\models\ContactForm */
-
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
-use yii\captcha\Captcha;
 
 $this->title = 'Contact';
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = "Контакты";
 ?>
-<div class="site-contact">
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
-    </p>
-
+<script src="http://api-maps.yandex.ru/2.0/?load=package.full&amp;lang=ru-RU" type="text/javascript"></script>
+<div class="container contacts">
+    <h1>Контакты</h1>
     <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
-
-                <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
-
-                <?= $form->field($model, 'email') ?>
-
-                <?= $form->field($model, 'subject') ?>
-
-                <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
-
-                <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
-                    'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
-                ]) ?>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+        <div class="col-md-6">
+            <p>ООО "Консул", ОГРН 1155476008643</p>
+            <p>ИНН 5407203878 / КПП 540701001</p>
+            <div id="YMap"></div>
+            <script>
+                function init () {
+                    var myMap = new ymaps.Map(
+                        "YMap",
+                        {
+                            center: [55.793353332847,37.591329961971],
+                            zoom: 16,
+                        }
+                    );
+                    myMap.controls.add('zoomControl');//.add('typeSelector').add('mapTools');
+                    myPlacemark = new ymaps.Placemark([55.793353332847,37.591329961971]);
+                    myMap.geoObjects.add(myPlacemark);
+                }
+                ymaps.ready(init);
+            </script>
+        </div>
+        <div class="col-md-6">
+            <div class="contacts__manager-wrap">
+                <p class="corp-col">
+                    Директор
+                </p>
+                <p>Балабанов Дмитрий Викторович</p>
+                <div class="contacts__manager-img">
+                    <img src="/i/manager.png"/>
                 </div>
-
-            <?php ActiveForm::end(); ?>
+            </div>
+            <div class="contacts__form-wrap">
+                <p class="corp-col">
+                    <a href="skype:coswart">coswart</a>
+                </p>
+                <p class="corp-col">
+                    <a href="mailto:info@12psb.ru">info@12psb.ru</a>
+                </p>
+                <form>
+                    <textarea placeholder="Есть вопросы по покупке стендов ТНВД и Common Rail? Я оперативно отвечу на них! Напишите Ваш вопрос здесь"></textarea>
+                    <input type="text" name="phone" placeholder="Ваш телефон" />
+                    <input type="submit" value="Связаться со мной" />
+                </form>
+            </div>
         </div>
     </div>
-
 </div>

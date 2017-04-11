@@ -41,7 +41,16 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '<action>' => 'site/<action>'
+                #'<action>/test' => 'site/<action>',
+                #'<action>/hello' => 'site/<action>',
+                #'<action>' => 'site/<action>',
+                #'<action>/<id:\d+>' => 'site/view',
+                '<catalog:[\w_\/-]+>/<id:[\d]+>'=>'site/view',
+                '<action:contacts>' => 'site/<action>',
+                '<action:contacts/>' => 'site/<action>',
+                '<catalog:[\w_\/-]+>'=>'site/catalog',
+
+
             ],
         ],
 

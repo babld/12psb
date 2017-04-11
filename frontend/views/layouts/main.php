@@ -21,10 +21,8 @@ $this->beginPage(); ?>
     <meta http-equiv="keywords" content="Стенд 12psb, 12 psb Доставка из китая, 12psb в наличии в Новосибирске">
     <link rel="shortcut icon" href="/i/favicon.png" type="image/x-icon" />
     <?php $this->head() ?>
-    <script type="text/javascript" async="" src="http://mc.yandex.ru/metrika/watch.js"></script>
-    <meta name='yandex-verification' content='7761988de9d78f78' />
-    <link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic&amp;subset=latin,cyrillic" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&amp;subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <!--script type="text/javascript" async="" src="http://mc.yandex.ru/metrika/watch.js"></script>
+    <meta name='yandex-verification' content='7761988de9d78f78' /-->
 </head>
 
 <body>
@@ -71,15 +69,9 @@ $menuItems = [
                             <span class="caret"></span>
                         </a>
                         <ul id="topnav" class="dropdown-menu" style="display: none;">
-                            <li><a href="/catalog"><?=$catalogLabel?></a></li>
-                            <li><a href="uslugi/dostavka-gruzov/">Доставка грузов</a></li>
-                            <li><a href="uslugi/logistic/">Логистическая обработка и сопровождение</a></li>
-                            <li><a href="uslugi/finansovoe-soprovozhdenie-ved/">Финансовое сопровождение ВЭД сделок</a></li>
-                            <li><a href="uslugi/svh/">Хранение и оформление грузов на собственном СВХ</a></li>
-                            <li><a href="uslugi/sertification/">Сертификация товаров из Китая</a></li>
-                            <li><a href="uslugi/outsourcing-ved/">Аутсорсинг ВЭД</a></li>
-                            <li><a href="uslugi/poisk-tovarov-v-kitae/">Поиск товаров</a></li>
-                            <li><a href="uslugi/tamozhennoe-oformlenie/">Таможенное оформление</a></li>
+                            <li><a href="/stanki-i-oborudovanie"><?=$catalogLabel?></a></li>
+                            <li><a href="/stanki-i-oborudovanie/stendy-tnvd">Стенды ТНВД</a></li>
+                            <li><a href="/stanki-i-oborudovanie/common-rail">Стенды Common Rail</a></li>
                         </ul>
                     </li>
                     <li>
@@ -123,38 +115,32 @@ $menuItems = [
     </div>
 </div>
 
-<!--div class="container"-->
+<div class="container">
     <?= Breadcrumbs::widget([
         'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : []
     ]) ?>
-    <?= Alert::widget() ?>
-    <?= $content ?>
-<!--/div-->
+</div>
 
+<?= Alert::widget() ?>
+<?= $content ?>
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; 12psb <?= date('Y'); ?></p>
-
-        <p class="pull-right"><?= Yii::powered(); ?></p>
-    </div>
-</footer>
+<?=$this->render('/blocks/footer');?>
 
 <?php $this->endBody(); ?>
 <script type="text/javascript">
     jQuery(function($){$('input[placeholder],textarea[placeholder]').placeholder();});
-</script>
-<script>
+
     audiojs.events.ready(function() {
         audiojs.createAll();
     });
-</script>
-<script>
+
     $(document).ready(function(){
         $(".main-block-slider").carouFredSel({
-            items               : {
-                visible			: 1,
-                start			: 0				},
+            items               :
+                {
+                    visible			: 1,
+                    start			: 0
+                },
             direction           : "up",
             auto				: true,
             scroll : {
@@ -167,6 +153,7 @@ $menuItems = [
         });
     });
 </script>
+<?php ?>
 </body>
 </html>
 <?php $this->endPage(); ?>

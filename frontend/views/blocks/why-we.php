@@ -1,5 +1,5 @@
 <div class="why-we">
-    <div class="layout-width">
+    <div class="container">
         <h3>Почему выбирают нас?</h3>
         <table class="why-we-table">
             <tr>

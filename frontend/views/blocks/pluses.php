@@ -1,5 +1,5 @@
 <div class="pluses">
-    <div class="layout-width">
+    <div class="container">
         <h3>Преимущества фабрики NANTAI</h3>
         <ul class="pluses-list">
             <li class="plus-item fabric">Фабрика на своих производственных мощностях использует передовое оборудование</li>

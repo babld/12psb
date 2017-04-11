@@ -6,6 +6,3 @@
 <?=$this->render('/blocks/why-we');?>
 <?=$this->render('/blocks/reviews');?>
 <?=$this->render('/blocks/footer-form');?>
-<?=$this->render('/blocks/footer');?>
-</body>
-</html>

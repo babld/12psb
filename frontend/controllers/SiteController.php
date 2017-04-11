@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use pistol88\shop\models\Category;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -13,7 +14,6 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use pistol88\shop\models\Product;
-use pistol88\shop\models\Image;
 
 /**
  * Site controller
@@ -78,15 +78,68 @@ class SiteController extends Controller
         return $this->render('index', ['goods' => $articles]);
     }
 
-    public function actionCatalog() {
-        $model = new Product();
-        return $this->render('catalog', ["model" => $model]);
+    public function actionCatalog($catalog) {
+        # Вытаскиваем из url категорию
+        $currentCategory = array_reverse(explode('/', $catalog))[0];
+
+        # Находим в базе id этой категории
+        $model = new Category();
+
+        $categoryData = $model->find()->
+            select('id, text, name')->
+            where(["slug" => $currentCategory])->
+            one();
+
+        $categoryId = $categoryData->id;
+
+        $categoryIds[] = $categoryId;
+        $queryIds = $model->find()->
+            select('id, slug, name')->
+            where(['parent_id' => $categoryId])->
+            all();
+
+        foreach($queryIds as $item) {
+            $categoryIds[] = $item->id;
+        }
+
+        $productModel = new Product();
+        $products = $productModel->find()->where(["category_id" => $categoryIds])->limit(10)->all();
+
+        $categoryIdTNVD = 13;
+        $productsTNVD = $productModel->find()->where(['category_id' => $categoryIdTNVD])->limit(4)->all();
+
+        $productsIdCR = 14;
+        $productsCR = $productModel->find()->where(['category_id' => $productsIdCR])->limit(10)->all();
+
+        $productsIdDopTNVD = 15;
+        $productsDopTNVD = $productModel->find()->where(['category_id' => $productsIdDopTNVD])->limit(2)->all();
+
+        $productsIdDopCR = 16;
+        $productsDopCR = $productModel->find()->where(['category_id' => $productsIdDopCR])->limit(2)->all();
+
+        return $this->render('catalog', [
+            "catalog"           => $catalog,
+            'categoryId'        => $categoryId,
+            'products'          => $products,
+            'productsTNVD'      => $productsTNVD,
+            'productsCR'        => $productsCR,
+            'productsDopTNVD'   => $productsDopTNVD,
+            'productsDopCR'     => $productsDopCR,
+            'categoryText'      => $categoryData->text,
+            'categoryTitle'     => $categoryData->name
+        ]);
     }
 
-    public function actionView($id) {
-
+    public function actionView($catalog, $id) {
+        echo "$catalog, $id";
         $model = new Product();
         return $this->render('view', ["id" => $id, 'model' => $model]);
+    }
+
+    public function actionContacts() {
+        return $this->render('contact', [
+
+        ]);
     }
     /**
      * Logs in a user.

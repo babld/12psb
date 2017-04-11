@@ -1,5 +1,5 @@
 <div class="certs">
-    <div class="layout-width">
+    <div class="container">
         <a href="i/cert1-big.jpg" rel="fancybox-button" class="lbox" alt="Сертификат" title="Сертификат">
             <img width="322" height="422" class="" alt="Сертификат" title="Сертификат" src="/i/cert1-big.jpg">
         </a>

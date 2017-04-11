@@ -5,16 +5,17 @@ use pistol88\shop\models\Price;
 <div class="main-block">
     <div class="container">
         <h3 class="block-title">Акционные предложения</h3>
-        <div class="layout-width main-block-slider-wrap">
+        <div class="container main-block-slider-wrap">
             <div class="main-block-slider">
                 <?php foreach($goods as $good) :
                     if($good->is_promo == "yes"):?>
-                        <div class="main-block-slider-item">
-                            <?php
+                        <div class="main-block-slider-item"><?php
                             $image = Image::find()->where(['itemid' => $good->id])->one();
                             $price = Price::find()->where(['product_id' => $good->id])->all();?>
                             <a href="/view?id=<?=$good->id?>">
-                                <img width="348" height="309" src="/images/store/<?=$image->filePath?>" class="main-block-12psb"/>
+                                <img width="348" height="309"
+                                     src="/images/store/<?=$image->filePath?>"
+                                     class="main-block-12psb"/>
                             </a>
                             <?php if($good->available == "yes"):?>
                                 <div class="main-block-stock">В Наличии</div>
@@ -33,9 +34,7 @@ use pistol88\shop\models\Price;
                                         <?php endif;?>
                                     </div>
                                     <div class="main-block-desc">
-                                        <p>
-                                            <?=$good->text?>
-                                        </p>
+                                        <p><?=$good->text?></p>
                                     </div>
                                 </div>
                             </div>

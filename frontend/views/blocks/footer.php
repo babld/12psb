@@ -1,27 +1,39 @@
+<div class="gray-line"></div>
 <div class="footer">
-    <div class="layout-width">
-        <div class="clear"></div>
+    <div class="container clearfix">
         <div class="footer-info">
             <div class="footer-company-info">
-                <div class="footer-company-name">ГК &laquo;СибирьТрансАзия&raquo;</div>
-                <div class="footer-logo"></div>
+                <div class="clearfix">
+                    <a href="/" class="footer-logo"></a>
+                </div>
+
+                <div class="footer-company-name">
+                    Стенды ТНВД и Common Rail
+                </div>
             </div>
+            <ul class="footer__info">
+                <li class="footer__info-item">Топливное оборудование напрямую от поставщиков в наличии и под заказ</li>
+                <li class="footer__info-item">Полный каталог оборудования</li>
+                <li class="footer__info-item">Оборудование для диагностики Common Rail</li>
+                <li class="footer__info-item">Стенды для тестирования ТНВД</li>
+            </ul>
             <div class="footer-company-cities">
                 <ul class="footer-fillials">
                     <li data-city="nsk" class='active'>Новосибирск</li>
-                    <li data-city="omsk" >Омск</li>
+                    <li data-city="omsk">Омск</li>
                     <li data-city="ekb" >Екатеринбург</li>
                     <li data-city="msk" >Москва</li>
                     <li data-city="spb" >Санкт-Петербург</li>
                 </ul>
             </div>
             <div class="footer-right">
-                <div class="footer-contacts">
-                    <div class="footer-contacts-phone">8-383-207-8860</div>
-                    <div class="footer-contacts-address">пр. Дзержинского, 1/1, оф. 71</div>
-                </div>
-                <div class="footer-slogan">Продажа стендов ТНВД и Common <br/>Rail в наличии и под заказ</div>
+                <div class="footer-contacts-phone">8-383-207-8860</div>
             </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="layout-width">
+
         </div>
     </div>
 </div>
