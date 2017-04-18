@@ -142,7 +142,7 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
 
                     <input type="submit" class="but-default feedback__submit" value="Связаться со мной"/>
                 </form>
-
+фывафыва
             </div>
         </div>
     </div>
