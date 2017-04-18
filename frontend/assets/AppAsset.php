@@ -20,7 +20,7 @@ class AppAsset extends AssetBundle
         '/css/jquery.fancybox.css',
         'css/font-awesome.css',
         '/css/owl.carousel.min.css',
-        '/css/owl.theme.default.min.css'
+        '/css/owl.theme.default.css'
     ];
     public $js = [
         '/js/bootstrap.js',

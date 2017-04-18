@@ -29,14 +29,14 @@ $cur = 'р.';
                     <?php if($priceOld):?>
                         <div class="fl-l">
                             <div class="gray-bg">
-                                <div class="oborud__old-price">
+                                <div class="crossing oborud__old-price">
                                     <?=number_format($priceOld, 0, '', ' ') . ' ' . $cur?>
                                 </div>
                             </div>
                         </div>
                     <?php endif;?>
                     <div class="oborud__price fl-l"><?=number_format($price, 0, '', ' ') . ' ' . $cur?></div>
-                    <a href="/catalog/<?=$product->id?>" class="oborud__more fl-l">Подробнее</a>
+                    <a href="/catalog/<?=$product->id?>" class="but-default oborud__more fl-l">Подробнее</a>
                 </div>
             </div>
         </div>

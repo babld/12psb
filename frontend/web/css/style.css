@@ -303,10 +303,15 @@ h2.title {
     display: inline-block;
 }
 
-.breadcrumb:last-child:before {
+.breadcrumb:before {
     content: '>';
     display: inline-block;
     margin-right: 5px;
+}
+
+.breadcrumb:first-child:before {
+    content: '';
+    margin: 0;
 }
 
 .oborud {
@@ -370,6 +375,7 @@ h2.title {
 
 .metal-bg {
     background: url('/i/bg-dark.jpg');
+    padding-bottom: 20px;
 }
 
 .oborud__title a {
@@ -384,7 +390,7 @@ h2.title {
     color: #ff6624;
 }
 
-.oborud__old-price {
+.crossing {
     background: linear-gradient(
         to top left,
         rgba(255,0,0,0) 0%,
@@ -403,6 +409,10 @@ h2.title {
 }
 
 .oborud__more {
+
+}
+
+.but-default {
     float: right;
     color: #fff;
     background: #fff0e5;
@@ -415,7 +425,7 @@ h2.title {
 .light-block-separator {
     background: url(/i/pluses-bottom-line.png) center 0;
     height: 36px;
-    margin-bottom: 20px;
+    margin-bottom: 88px;
 }
 
 .dark-block-separator {
@@ -1434,7 +1444,6 @@ table.reviews-table td {
 
 .thankyou span {
     font-size: 20px;
-
 }
 /* / lightbox */
 
@@ -1451,5 +1460,148 @@ table.reviews-table td {
     font-size: 20px;
 }
 
+.tovar__gallery {
+    position: relative;
+}
 
+.tovar__gallery-wrap {
+    float: left;
+    padding-right: 20px;
+    width: 50%;
+}
 
+.tovar__info {
+    float: right;
+    width:50%;
+}
+
+.article h1 {
+    font-size: 23px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    float: left;
+    max-width: 298px;
+    line-height: 40px;
+    width: 53%;
+}
+
+.article .tovar__price-old {
+    padding: 5px;
+    width: 50%;
+    text-align: center;
+    line-height: 21px;
+}
+
+.tovar__text {
+    line-height: 19px;
+    font-size: 16px;
+    text-align: justify;
+}
+
+.tovar__price {
+    text-align: center;
+    float: right;
+    line-height:31px;
+    color: #fff;
+    width: 50%;
+}
+
+.tovar__price {
+    background: #ff6624;
+    background: -moz-linear-gradient(-45deg,  #ff6624 0%, #ffaf84 50%, #ff8952 61%, #ff6421 100%);
+    background: -webkit-linear-gradient(-45deg,  #ff6624 0%,#ffaf84 50%,#ff8952 61%,#ff6421 100%);
+    background: linear-gradient(135deg,  #ff6624 0%,#ffaf84 50%,#ff8952 61%,#ff6421 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff6624', endColorstr='#ff6421',GradientType=1 );
+}
+
+.tovar__prices {
+    float: right;
+    width:47%;
+}
+
+.tovar__order {
+    padding: 0 29px;
+    border-radius: 5px;
+}
+
+.tovar__controls {
+    line-height: 34px;
+}
+
+.tab-content {
+    background: url(/i/white-bg.png);
+    padding: 15px;
+}
+
+.article__left-col {
+    width: 73%;
+    float: left;
+}
+
+.article__right-col {
+    width: 25%;
+    max-width: 262px;
+    float: right;
+}
+
+.feedback__border {
+    border-top: 3px solid #fff;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#000), to(transparent));
+    background-image: -webkit-linear-gradient(#000, transparent);
+    background-image: -moz-linear-gradient(#000, transparent), -moz-linear-gradient(#000, transparent);
+    background-image: -o-linear-gradient(#000, transparent), -o-linear-gradient(#000, transparent);
+    background-image: linear-gradient(#fff, #929292, #fff), linear-gradient(#fff, #929292, #fff);
+    -moz-background-size: 3px 100%;
+    background-size: 3px 100%;
+    background-position: 0 0, 100% 0;
+    background-repeat: no-repeat;
+    border-bottom: 3px solid #fff;
+    margin-bottom:16px;
+    width:100%;
+}
+
+.feedback__textarea {
+    resize: none;
+    height: 86px;
+    padding: 0px 10px;
+    line-height: 19px;
+    outline:none;
+}
+
+.feedback__manager-rang {
+    color: #ff6624;
+}
+
+.feedback__manager-head {
+    background: url(../i/white-bg.png);
+    padding: 0px 5px 0 14px;
+    font-size: 15px;
+    line-height: 24px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #929292;
+}
+
+.feedback__manager-img {
+    display: block;
+    margin:0 auto;
+}
+
+.feedback__input {
+    padding: 0px 10px;
+}
+
+.feedback__submit {
+    width: 100%;
+    border: 3px solid #929292;
+    border-radius: 10px;
+    height: 41px;
+}
+
+input::-webkit-input-placeholder {color:#ccc;}
+input::-moz-placeholder          {color:#ccc;}/* Firefox 19+ */
+input:-moz-placeholder           {color:#ccc;}/* Firefox 18- */
+input:-ms-input-placeholder      {color:#ccc;}
+textarea::-webkit-input-placeholder {color:#ccc;}
+textarea::-moz-placeholder          {color:#ccc;}/* Firefox 19+ */
+textarea:-moz-placeholder           {color:#ccc;}/* Firefox 18- */
+textarea:-ms-input-placeholder      {color:#ccc;}

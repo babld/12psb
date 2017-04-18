@@ -9,9 +9,17 @@ $(document).ready(function() {
 		$(this).find('.dropdown-menu').stop(true, true).delay(50).fadeOut();
 	});
 
+	$(".tovar__gallery").owlCarousel({
+        items: 1,
+        autoplay: true,
+        //animateOut: 'fadeOut',
+        loop: true,
+        margin: 10,
+        nav:false
+    });
 
 
-	var owl = $('.order-stend-list');
+    var owl = $('.order-stend-list');
 	owl.owlCarousel({
 		margin: 10,
 		nav: true,

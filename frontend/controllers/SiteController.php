@@ -74,64 +74,90 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $model = new Product();
+
         $articles = Product::getAll();
+
         return $this->render('index', ['goods' => $articles]);
     }
 
     public function actionCatalog($catalog) {
+        $productModel = new Product();
+
         # Вытаскиваем из url категорию
-        $currentCategory = array_reverse(explode('/', $catalog))[0];
+        $currentCategory = array_reverse(array_filter(explode('/', $catalog)))[0];
 
         # Находим в базе id этой категории
         $model = new Category();
 
         $categoryData = $model->find()->
+            select('id, text, name, cond')->
+            where(["slug" => $currentCategory])->
+            one();
+
+        if($categoryData != null){
+            $categoryId = $categoryData->id;
+
+            $categoryIds[] = $categoryId;
+            $queryIds = $model->find()->
+                select('id, slug, name')->
+                where(['parent_id' => $categoryId])->
+                all();
+
+            if(!empty($queryIds)){
+                foreach($queryIds as $item) {
+                    $categoryIds[] = $item->id;
+                }
+
+                $categoryIdTNVD = 13;
+                $productsTNVD = $productModel->find()->where(['category_id' => $categoryIdTNVD])->limit(4)->all();
+
+                $productsIdCR = 14;
+                $productsCR = $productModel->find()->where(['category_id' => $productsIdCR])->limit(10)->all();
+
+                $productsIdDopTNVD = 15;
+                $productsDopTNVD = $productModel->find()->where(['category_id' => $productsIdDopTNVD])->limit(2)->all();
+
+                $productsIdDopCR = 16;
+                $productsDopCR = $productModel->find()->where(['category_id' => $productsIdDopCR])->limit(2)->all();
+
+                return $this->render('catalog', [
+                    'catalog'           => $catalog,
+                    'categoryId'        => $categoryId,
+                    'productsTNVD'      => $productsTNVD,
+                    'productsCR'        => $productsCR,
+                    'productsDopTNVD'   => $productsDopTNVD,
+                    'productsDopCR'     => $productsDopCR,
+                    'categoryText'      => $categoryData->text,
+                    'categoryTitle'     => $categoryData->name
+                ]);
+            } else {
+                $categoryId = $categoryIds;
+                $products = $productModel->find()->where(["category_id" => $categoryId])->limit(10)->all();
+
+                return $this->render('subcatalog',[
+                    'catalog'       => $catalog,
+                    'products'      => $products,
+                    'categoryTitle' => $categoryData->name,
+                ]);
+            }
+        } else {
+            $model = new Product();
+
+            $modelData = $model->find()->
             select('id, text, name')->
             where(["slug" => $currentCategory])->
             one();
 
-        $categoryId = $categoryData->id;
+            $model = $model::findOne($modelData->id);
+            #echo "<pre>"; var_dump($model->getFieldValues('seson')); exit;
 
-        $categoryIds[] = $categoryId;
-        $queryIds = $model->find()->
-            select('id, slug, name')->
-            where(['parent_id' => $categoryId])->
-            all();
-
-        foreach($queryIds as $item) {
-            $categoryIds[] = $item->id;
+            #var_dump($modelData);
+            return $this->render('view', ["id" => $modelData->id, 'model' => $model]);
         }
-
-        $productModel = new Product();
-        $products = $productModel->find()->where(["category_id" => $categoryIds])->limit(10)->all();
-
-        $categoryIdTNVD = 13;
-        $productsTNVD = $productModel->find()->where(['category_id' => $categoryIdTNVD])->limit(4)->all();
-
-        $productsIdCR = 14;
-        $productsCR = $productModel->find()->where(['category_id' => $productsIdCR])->limit(10)->all();
-
-        $productsIdDopTNVD = 15;
-        $productsDopTNVD = $productModel->find()->where(['category_id' => $productsIdDopTNVD])->limit(2)->all();
-
-        $productsIdDopCR = 16;
-        $productsDopCR = $productModel->find()->where(['category_id' => $productsIdDopCR])->limit(2)->all();
-
-        return $this->render('catalog', [
-            "catalog"           => $catalog,
-            'categoryId'        => $categoryId,
-            'products'          => $products,
-            'productsTNVD'      => $productsTNVD,
-            'productsCR'        => $productsCR,
-            'productsDopTNVD'   => $productsDopTNVD,
-            'productsDopCR'     => $productsDopCR,
-            'categoryText'      => $categoryData->text,
-            'categoryTitle'     => $categoryData->name
-        ]);
     }
 
     public function actionView($catalog, $id) {
-        echo "$catalog, $id";
         $model = new Product();
         return $this->render('view', ["id" => $id, 'model' => $model]);
     }
@@ -206,6 +232,8 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
+
 
     /**
      * Signs user up.
