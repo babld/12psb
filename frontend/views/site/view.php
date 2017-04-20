@@ -50,7 +50,6 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
         <span class="breadcrumb"><?=$product->name?></span>
     </div>
 
-
     <div class="tovar__main">
         <div class="tovar__gallery-wrap">
             <div class="tovar__gallery owl-carousel owl-theme">
@@ -137,12 +136,9 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
                 </div>
                 <form class="feedback__form">
                     <textarea class="feedback__border feedback__textarea" placeholder="Есть вопросы по покупке стендов ТНВД и Common Rail? Я оперативно отвечу на них! Напишите Ваш вопрос здесь"></textarea>
-
                     <input class="feedback__border feedback__input" placeholder="Ваш телефон" />
-
                     <input type="submit" class="but-default feedback__submit" value="Связаться со мной"/>
                 </form>
-фывафыва
             </div>
         </div>
     </div>

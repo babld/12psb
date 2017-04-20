@@ -14,6 +14,8 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use pistol88\shop\models\Product;
+use pistol88\shop\models\Image;
+use pistol88\shop\models\Price;
 
 /**
  * Site controller
@@ -74,11 +76,55 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $model = new Product();
+        $products = Product::getAll();
+        $categoryModel = new Category();
+        $goods = [];
 
-        $articles = Product::getAll();
+        foreach($products as $good) {
+            $category = [];
+            $mainImage = Image::find()->where(['itemid' => $good->id, 'isMain' => 1])->one();
+            $images = Image::find()->where(['itemid' => $good->id])->all();
+            $price = Price::find()->where(['product_id' => $good->id])->all();
 
-        return $this->render('index', ['goods' => $articles]);
+            if(!$mainImage) $mainImage = $images[0];
+            $categoryId = $good->category_id;
+            $categoryData = $categoryModel->find()->
+                select('slug, parent_id')->
+                where(['id' => $categoryId])->
+                one();
+
+            $category[] = $categoryData->slug;
+
+            $categoryData = $categoryModel->find()->
+                select('slug, parent_id')->
+                where(['id' => $categoryData->parent_id])->
+                one();
+
+            $category[] = $categoryData->slug;
+
+            $category = array_reverse($category);
+
+            $detailUrl = "/";
+            foreach($category as $item) $detailUrl .= $item . '/';
+            $detailUrl .= $good->slug;
+
+            $goods[] = [
+                'mainImage'     => $mainImage,
+                'images'        => $images,
+                'price'         => $price,
+                'is_promo'      => $good->is_promo,
+                'category'      => $category,
+                'detailUrl'     => $detailUrl,
+                'available'     => $good->available,
+                'text'          => $good->text,
+                'name'          => $good->name,
+                'is_popular'    => $good->is_popular
+            ];
+        }
+
+        return $this->render('index', [
+            'goods'         => $goods
+        ]);
     }
 
     public function actionCatalog($catalog) {
