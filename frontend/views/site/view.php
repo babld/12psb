@@ -92,8 +92,6 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
     </div>
 </div>
 
-
-
 <div class="metal-bg">
     <div class="light-block-separator"></div>
     <div class="container">
@@ -126,7 +124,7 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
             </div>
         </div>
         <div class="article__right-col">
-            <div class="feedback">
+            <div class="feedback form-wrapper">
                 <div class="feedback__manager feedback__border">
                     <div class="feedback__manager-head">
                         <div class="feedback__manager-rang">Директор</div>
@@ -135,9 +133,9 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
                     <img src="/i/manager.png" class="feedback__manager-img" />
                 </div>
                 <form class="feedback__form">
-                    <textarea class="feedback__border feedback__textarea" placeholder="Есть вопросы по покупке стендов ТНВД и Common Rail? Я оперативно отвечу на них! Напишите Ваш вопрос здесь"></textarea>
-                    <input class="feedback__border feedback__input" placeholder="Ваш телефон" />
-                    <input type="submit" class="but-default feedback__submit" value="Связаться со мной"/>
+                    <textarea name="message" class="feedback__border feedback__textarea" placeholder="Есть вопросы по покупке стендов ТНВД и Common Rail? Я оперативно отвечу на них! Напишите Ваш вопрос здесь"></textarea>
+                    <input name="phone" class="feedback__border feedback__input" placeholder="Ваш телефон" />
+                    <input name="submit" type="submit" class="but-default feedback__submit" value="Связаться со мной"/>
                 </form>
             </div>
         </div>
