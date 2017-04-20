@@ -37,7 +37,7 @@ $menuItems = [
 ];?>
 <div class="fixed-menu">
     <div class="container">
-        <div class="navigator navbar">
+        <div class="navigator navbar row">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#responsive-menu">
                     <span class="sr-only">Открыть навигацию</span>
@@ -51,13 +51,13 @@ $menuItems = [
                     <div class="header-email">
                         <a href="mailto:info@12psb.ru">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
-                            info@12psb.ru
+                            <span>info@12psb.ru</span>
                         </a>
                     </div>
                     <div class="header-phone">
                         <a href="tel:88007756758">
                             <i class="fa fa-phone" aria-hidden="true"></i>
-                            8-800-775-6758
+                            <span>8-800-775-6758</span>
                         </a>
                     </div>
                 </div>
@@ -104,13 +104,11 @@ $menuItems = [
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3">
-                <form class="header-form">
-                    <i>+7</i>
-                    <input type="text" placeholder="(___) ___ __ __" name="phone" class="header-form-phone">
-                    <input type="submit" name="submit" class="header-form-submit" value="Жду звонка">
-                </form>
-            </div>
+            <form class="header-form">
+                <i>+7</i>
+                <input type="text" placeholder="(___) ___ __ __" name="phone" class="header-form-phone">
+                <input type="submit" name="submit" class="header-form-submit" value="Жду звонка">
+            </form>
         </div>
     </div>
 </div>

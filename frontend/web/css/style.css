@@ -1,5 +1,5 @@
 body {
-    background: #f7f7f8;
+    /*background: #f7f7f8;*/
 }
 a {
     text-decoration: none;
@@ -18,7 +18,7 @@ h2.title {
 }
 
 .header {
-    padding-top: 95px;
+    padding-top: 82px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     padding-bottom: 25px;
     margin-bottom: 15px;
@@ -74,8 +74,7 @@ h2.title {
 }
 
 .header-phone {
-    color: #ff6600;
-    margin: 0 4px;
+    line-height: 37px;
 }
 
 .header-phone a {
@@ -83,13 +82,22 @@ h2.title {
 }
 
 .header-email {
-    color: #2ca106;
-    margin: 0 9px;
+    margin-right: 38px;
+    line-height: 39px;
 }
 
-.header-email .fa,
+.header-email .fa {
+    color: #ff6624;
+    margin-right: 4px;
+}
+
+
 .header-phone .fa {
     color: #ff6624;
+    font-size: 22px;
+    margin-right: 7px;
+    margin-top: 7px;
+    float: left;
 }
 
 .header-email a {
@@ -102,9 +110,9 @@ h2.title {
 
 .header-form {
     float: right;
-    margin-top: 11px;
+    margin-top: 4px;
     font-size: 15px;
-    width: 245px;
+    width: 290px;
     position: relative;
 }
 
@@ -129,7 +137,7 @@ h2.title {
 }
 
 .header-form-phone {
-    width: 140px;
+    width: 185px;
     line-height: 24px;
     border: none;
     padding: 0 5px 0 25px;
@@ -578,13 +586,13 @@ a {
 
 .fixed-menu {
     background: url("/i/header-bg.png") no-repeat;
-    height: 55px;
     font-size: 15px;
     line-height: 47px;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 4;
+    height: 46px;
 }
 
 .layout-width {
