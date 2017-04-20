@@ -5,7 +5,8 @@
     </div>
     <?=$this->render('/blocks/oboruds', [
         'title'     => 'Стенды для тестирования ТНВД',
-        'products'  => $productsTNVD
+        'products'  => $productsTNVD,
+        'catalog'   => $catalog
     ]);?>
 </div>
 <div class="metal-bg">
@@ -13,7 +14,8 @@
     <div class="container">
         <?=$this->render('/blocks/oboruds', [
             'title'     => 'Дополнительное оборудование для диагностики ТНВД',
-            'products'  => $productsDopTNVD
+            'products'  => $productsDopTNVD,
+            'catalog'   => $catalog
         ]);?>
     </div>
 </div>
@@ -22,9 +24,9 @@
 <div class="container">
     <?=$this->render('/blocks/oboruds', [
         'title'     => 'Стенды и оборудование COMMON RAIL',
-        'products'  => $productsCR
+        'products'  => $productsCR,
+        'catalog'   => $catalog
     ]);?>
-
 </div>
 
 <div class="metal-bg">
@@ -32,7 +34,8 @@
     <div class="container">
         <?=$this->render('/blocks/oboruds', [
             'title'     => 'Дополнительное оборудование для диагностики COMMON RAIL',
-            'products'  => $productsDopCR
+            'products'  => $productsDopCR,
+            'catalog'   => $catalog
         ]);?>
     </div>
 </div>

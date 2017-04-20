@@ -10,7 +10,8 @@
 
     <?=$this->render('/blocks/oboruds', [
         'title'     => $categoryTitle,
-        'products'  => $products
+        'products'  => $products,
+        'catalog'   => $catalog
     ]);?>
 
 </div>

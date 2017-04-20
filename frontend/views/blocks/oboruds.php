@@ -7,6 +7,7 @@ $cur = 'р.';
 
 <div class="oboruds"><?php
     foreach($products as $product) {
+        $detailUrl = '/' . explode('/', $catalog)[0] . '/' . $product->category->slug . '/' . $product->slug;
         $image = Image::find()->where(['itemid' => $product->id])->one();
         $priceArr = Price::find()->where(['product_id' => $product->id])->all();
         $price = $priceArr[0]->price;
@@ -18,7 +19,7 @@ $cur = 'р.';
             </div>
             <div class="oborud__info">
                 <div class="oborud__title gray-bg">
-                    <a href="/catalog/<?=$product->id;?>">
+                    <a href="<?=$detailUrl?>">
                         <?=$product->name?>
                     </a>
                 </div>
