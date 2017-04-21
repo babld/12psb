@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use app\models\SearchForm;
 use pistol88\shop\models\Category;
 use Yii;
 use yii\base\InvalidParamException;
@@ -8,6 +9,7 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\helpers\Html;
 use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
@@ -51,6 +53,16 @@ class SiteController extends Controller
                 ],
             ],
         ];
+    }
+
+    public function beforeAction($action)
+    {
+        $model = new SearchForm();
+        if($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $query = Html::encode($model->query);
+            return $this->redirect(Yii::$app->urlManager->createUrl(['search', 'query' => $query]));
+        }
+        return true;
     }
 
     /**
@@ -117,6 +129,7 @@ class SiteController extends Controller
                 'detailUrl'     => $detailUrl,
                 'available'     => $good->available,
                 'text'          => $good->text,
+                'short_text'    => $good->short_text,
                 'name'          => $good->name,
                 'is_popular'    => $good->is_popular
             ];
@@ -191,9 +204,9 @@ class SiteController extends Controller
             $model = new Product();
 
             $modelData = $model->find()->
-            select('id, text, name')->
-            where(["slug" => $currentCategory])->
-            one();
+                select('id, text, name')->
+                where(["slug" => $currentCategory])->
+                one();
 
             $model = $model::findOne($modelData->id);
             #echo "<pre>"; var_dump($model->getFieldValues('seson')); exit;
@@ -211,6 +224,17 @@ class SiteController extends Controller
     public function actionContacts() {
         return $this->render('contact', [
 
+        ]);
+    }
+
+    public function actionSearch() {
+        $query = Yii::$app->getRequest()->getQueryParam('query');
+
+        $products = Product::find()->where("`name` like '%$query%' or `text` like '%$query%' or `short_text` like '%$query%' or `characteristics` like '%$query%' or `equipment` like '%$query%'")->all();
+
+        return $this->render('search',[
+            'query' => $query,
+            'products' => $products
         ]);
     }
     /**
