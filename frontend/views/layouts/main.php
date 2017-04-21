@@ -114,9 +114,9 @@ $menuItems = [
                     <input type="text" placeholder="(___) ___ __ __" name="phone" class="header-form-phone">
                     <input type="submit" name="submit" class="header-form-submit but-default" value="Жду звонка">
                 </form>
-                <form class="search-form">
-                    <input type="text" name="query" class="search-form__input"/>
-                    <input type="submit" value="" class="search-form__submit"/>
+                <form class="search-form" action="/search">
+                    <input type="text" name="query" class="search-form__input" placeholder="Поиск.." value="<?=Yii::$app->getRequest()->getQueryParam('query');?>"/>
+                    <button type="submit" value="" class="search-form__submit fa fa-search"></button>
                 </form>
             </div>
 

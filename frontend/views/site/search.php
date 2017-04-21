@@ -21,7 +21,7 @@ $this->registerMetaTag([
         <p>Ничего не найдено</p>
     <?php else:?>
         <?=$this->render('/blocks/oboruds', [
-            'title'     => '',
+            'title'     => $query,
             'products'  => $products,
             'catalog'   => ''
         ]);?>

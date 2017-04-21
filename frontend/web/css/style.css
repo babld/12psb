@@ -112,13 +112,14 @@ h2.title {
     float: right;
     font-size: 15px;
     width: 290px;
+    margin-bottom: 20px;
     position: relative;
 }
 
 .header-form i {
     position: absolute;
     top: 7px;
-    left: -18px;
+    left: 0px;
     font-size: 17px;
     z-index: 11;
 }
@@ -137,14 +138,13 @@ h2.title {
 }
 
 .header-form-phone {
-    width: 167px;
+    width: 151px;
     line-height: 21px;
     border: none;
-    padding: 0 5px 1px 24px;
+    padding: 0 0px 1px 24px;
     border-bottom: 1px dashed #000;
     position: absolute;
     top: 5px;
-    left: -19px;
     font-size: 17px;
 }
 
@@ -1610,16 +1610,24 @@ textarea:-ms-input-placeholder      {color:#ccc;}
 .search-form {
     position: relative;
     float: right;
-    border:1px solid ;
     width: 292px;
 }
 
 .search-form__input {
-    width:100%;
+    width: 100%;
+    border: 1px solid #ff7539;
+    height: 28px;
+    padding: 0 10px;
 }
 
 .search-form__submit {
     position: absolute;
     right:0;
     top:0;
+    background: none;
+    border: none;
+    color: #ff7539;
+    height: 26px;
+    padding-right: 9px;
+    outline:none;
 }
