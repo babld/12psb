@@ -20,7 +20,7 @@ h2.title {
 .header {
     padding-top: 82px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    padding-bottom: 25px;
+    padding-bottom: 28px;
     margin-bottom: 15px;
 }
 
@@ -1630,4 +1630,8 @@ textarea:-ms-input-placeholder      {color:#ccc;}
     height: 26px;
     padding-right: 9px;
     outline:none;
+}
+
+.main-block-slider.owl-carousel .owl-item img {
+    width: initial;
 }

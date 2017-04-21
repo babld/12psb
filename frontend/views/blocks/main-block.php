@@ -1,14 +1,11 @@
 <div class="main-block">
     <div class="container">
         <h3 class="block-title">Акционные предложения</h3>
-        <div class="container main-block-slider-wrap">
-            <div class="main-block-slider">
+        <div class="main-block-slider-wrap">
+            <div class="main-block-slider owl-carousel owl-theme">
                 <?php foreach($goods as $good) :
-
-
                     if($good['is_promo'] == "yes"):?>
                         <div class="main-block-slider-item">
-
                             <a href="<?=$good['detailUrl']?>">
                                 <img width="348" height="309"
                                      src="/images/store/<?=$good['mainImage']->filePath;?>"

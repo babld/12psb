@@ -123,12 +123,12 @@ $menuItems = [
         </div>
     </div>
 </div>
-
+<?php /*
 <div class="container">
     <?= Breadcrumbs::widget([
         'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : []
     ]) ?>
-</div>
+</div>*/ ?>
 
 <?= Alert::widget() ?>
 <?= $content ?>
@@ -141,25 +141,6 @@ $menuItems = [
 
     audiojs.events.ready(function() {
         audiojs.createAll();
-    });
-
-    $(document).ready(function(){
-        $(".main-block-slider").carouFredSel({
-            items               :
-                {
-                    visible			: 1,
-                    start			: 0
-                },
-            direction           : "up",
-            auto				: true,
-            scroll : {
-                items            : 1,
-                //easing            : "elastic",
-                duration        : 1000,
-                pauseOnHover    : true
-            },
-            pagination	: ".main-block-slider-pagination"
-        });
     });
 </script>
 <?php ?>

@@ -34,7 +34,6 @@ class AppAsset extends AssetBundle
         '/js/additional-methods.js',
         '/js/jquery.staFeedback.js',
         '/js/jquery.placeholder.js',
-        '/js/jquery.carouFredSel-6.0.0-packed.js',
         '/js/common.js',
         '/js/audio.min.js'
     ];
