@@ -48,9 +48,9 @@ return [
                 '<catalog:[\w_\/-]+>/<id:[\d]+>'=>'site/view',
                 '<action:contacts>' => 'site/<action>',
                 '<action:contacts/>' => 'site/<action>',
+                '<action:search>' => 'site/<action>',
+                '<action:search/>' => 'site/<action>',
                 '<catalog:[\w_\/-]+>'=>'site/catalog',
-
-
             ],
         ],
 

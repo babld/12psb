@@ -53,7 +53,7 @@ $(document).ready(function() {
 			return true;
 		}
     }, "Введите телефон правильно");
-	$("form").each(function (i) {
+	$("form.send").each(function (i) {
 		$(this).staFeedback();
 	});
 	

@@ -1,7 +1,14 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: babl
- * Date: 20.04.2017
- * Time: 21:46
- */
+namespace app\models;
+
+use yii\base\Model;
+
+class SearchForm extends Model {
+    public $query;
+
+    public function rules() {
+        return [
+            ['query', 'string']
+        ];
+    }
+}

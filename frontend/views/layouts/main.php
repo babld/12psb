@@ -7,6 +7,10 @@ use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
+use yii\widgets\ActiveForm;
+use app\models\SearchForm;
+
+$modelSearch = new SearchForm();
 
 AppAsset::register($this);
 $this->beginPage(); ?>
@@ -104,11 +108,18 @@ $menuItems = [
                     </div>
                 </div>
             </div>
-            <form class="header-form">
-                <i>+7</i>
-                <input type="text" placeholder="(___) ___ __ __" name="phone" class="header-form-phone">
-                <input type="submit" name="submit" class="header-form-submit" value="Жду звонка">
-            </form>
+            <div>
+                <form class="header-form">
+                    <i>+7</i>
+                    <input type="text" placeholder="(___) ___ __ __" name="phone" class="header-form-phone">
+                    <input type="submit" name="submit" class="header-form-submit but-default" value="Жду звонка">
+                </form>
+                <form class="search-form">
+                    <input type="text" name="query" class="search-form__input"/>
+                    <input type="submit" value="" class="search-form__submit"/>
+                </form>
+            </div>
+
         </div>
     </div>
 </div>

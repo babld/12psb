@@ -110,7 +110,6 @@ h2.title {
 
 .header-form {
     float: right;
-    margin-top: 4px;
     font-size: 15px;
     width: 290px;
     position: relative;
@@ -118,9 +117,10 @@ h2.title {
 
 .header-form i {
     position: absolute;
-    top: 6px;
-    left: 6px;
-    font-size: 14px;
+    top: 7px;
+    left: -18px;
+    font-size: 17px;
+    z-index: 11;
 }
 
 .header-form label {
@@ -137,11 +137,15 @@ h2.title {
 }
 
 .header-form-phone {
-    width: 185px;
-    line-height: 24px;
+    width: 167px;
+    line-height: 21px;
     border: none;
-    padding: 0 5px 0 25px;
+    padding: 0 5px 1px 24px;
     border-bottom: 1px dashed #000;
+    position: absolute;
+    top: 5px;
+    left: -19px;
+    font-size: 17px;
 }
 
 .header-form-phone.error {
@@ -151,20 +155,9 @@ h2.title {
 }
 
 .header-form-submit {
-    background: url("/i/header-form-submit.png") no-repeat;
-    height: 25px;
-    width: 105px;
+    height: 30px;
+    width: 137px;
     border: none;
-    color: #fff;
-    cursor: pointer;
-}
-
-.header-form-submit:hover {
-    background-position: 0 -25px;
-}
-
-.header-form-submit:active {
-    background-position: 0 -50px;
 }
 
 .footer-managet-notice {
@@ -1613,3 +1606,20 @@ textarea::-webkit-input-placeholder {color:#ccc;}
 textarea::-moz-placeholder          {color:#ccc;}/* Firefox 19+ */
 textarea:-moz-placeholder           {color:#ccc;}/* Firefox 18- */
 textarea:-ms-input-placeholder      {color:#ccc;}
+
+.search-form {
+    position: relative;
+    float: right;
+    border:1px solid ;
+    width: 292px;
+}
+
+.search-form__input {
+    width:100%;
+}
+
+.search-form__submit {
+    position: absolute;
+    right:0;
+    top:0;
+}
