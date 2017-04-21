@@ -31,7 +31,7 @@
                                         <?php endif;?>
                                     </div>
                                     <div class="main-block-desc">
-                                        <p><?=$good['text']?></p>
+                                        <p><?=$good['short_text']?></p>
                                     </div>
                                 </div>
                             </div>
