@@ -35,7 +35,7 @@ $(document).ready(function() {
 	});
 
 	$(".main-block-slider").owlCarousel({
-        
+
         loop: true,
         responsive: {
             0: {

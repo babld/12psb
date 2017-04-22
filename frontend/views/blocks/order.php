@@ -1,5 +1,4 @@
 <div class="order">
-    <div class="order-head-bg" id="2"></div>
     <div class="container">
         <div class="order-head">
             Популярные модели топливного оборудования

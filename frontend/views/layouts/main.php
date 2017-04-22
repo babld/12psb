@@ -92,7 +92,7 @@ $menuItems = [
         </div>
     </div>
 </div>
-<div class="header">
+<div class="header gray-block-bg">
     <div class="container">
         <div class="row">
             <div class="col-lg-4">

@@ -21,7 +21,7 @@ h2.title {
     padding-top: 82px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     padding-bottom: 28px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 .header-logo, .footer-logo {
@@ -601,8 +601,10 @@ a {
 
 .main-block {
     margin-top: 47px;
+    width: 883px;
     padding-top: 49px;
-    padding-bottom: 17px;
+    padding-bottom: 75px;
+    margin: 0 auto;
 }
 
 .main-block-12psb {
@@ -633,6 +635,7 @@ a {
 
 .main-block-slider-wrap {
     position: relative;
+    padding-bottom:20px;
 }
 
 .main-block-announce-wrap {
@@ -643,23 +646,28 @@ a {
     background: -webkit-linear-gradient(top, #cccccc 0%,#363636 100%);
     background: linear-gradient(to bottom, #cccccc 0%,#363636 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', endColorstr='#363636',GradientType=0 );
-    border-radius: 18px;
-    margin-left: 44px;
-    margin-top: 49px;
+    border-radius: 5px;
+    margin-left: 20px;
+    margin-top: 11px;
 }
 
 .main-block-annonce {
-    border-radius: 16px;
+    border-radius: 5px;
     background: #fff;
-    padding: 10px 15px 20px 22px;
-    width: 565px;
+    padding: 20px 15px 0px 13px;
+    width: 535px;
     position: relative;
+}
+
+.main-block__link {
+    margin-right: -15px;
+    padding: 6px 10px;
 }
 
 .main-block-title {
     font-size: 23px;
     font-weight: bold;
-    margin-bottom: 14px;
+    margin-bottom: 19px;
 }
 
 .main-block-slider-item {
@@ -686,36 +694,32 @@ a {
 
 .main-block-new-price, .main-block-old-price {
     position: absolute;
-    top: -3px;
-    width: 129px;
-    background: url("../i/birka.png") no-repeat;
+    top: 0px;
+    width: 125px;
+    background: #ccc;
     color: #fff;
     text-align: center;
-    height: 43px;
-    font-size: 22px;
-    font-weight: bold;
-    padding-left: 2px;
-    line-height: 49px;
+    font-size: 16px;
+    line-height: 32px;
 }
 
 .main-block-old-price:before {
     content: "";
     position: absolute;
-    top: 12px;
+    top: 3px;
     left: 8px;
-    width: 117px;
+    width: 107px;
     height: 24px;
-    background: url("../i/line-throw.png") no-repeat;
+    background: url(../i/line-throw.png) no-repeat;
 }
 
 .main-block-old-price {
     background-position: 0 0;
-    left: 308px;
+    left: 285px;
 }
 
 .main-block-new-price {
-    background-position: 0 -43px;
-    left: 445px;
+    left: 410px;
 }
 
 .main-block-desc {
@@ -797,6 +801,7 @@ a {
     background: url("../i/bg-dark.jpg") center 0;
     position: relative;
     padding-bottom: 29px;
+    padding-top:60px;
 }
 
 .order-bottom {
@@ -814,13 +819,15 @@ a {
 }
 
 .order-head {
-    background: url("../i/order-head-separator.png") no-repeat center 81px;
-    font-size: 27px;
+    background: url(../i/order-head-separator.png) no-repeat center 81px;
+    font-size: 24px;
     text-align: center;
-    line-height: 32px;
+    line-height: 34px;
     height: 110px;
     position: relative;
     margin-bottom: 21px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 /*.order-head:after {
@@ -1507,7 +1514,7 @@ table.reviews-table td {
     width: 50%;
 }
 
-.tovar__price {
+.tovar__price-bg {
     background: #ff6624;
     background: -moz-linear-gradient(-45deg,  #ff6624 0%, #ffaf84 50%, #ff8952 61%, #ff6421 100%);
     background: -webkit-linear-gradient(-45deg,  #ff6624 0%,#ffaf84 50%,#ff8952 61%,#ff6421 100%);
@@ -1634,4 +1641,12 @@ textarea:-ms-input-placeholder      {color:#ccc;}
 
 .main-block-slider.owl-carousel .owl-item img {
     width: initial;
+}
+
+.gray-block-bg {
+    background: #efeff0;
+    background: -moz-linear-gradient(-45deg, #efeff0 0%, #ffffff 31%, #efeff0 52%, #ffffff 76%, #efeff0 100%);
+    background: -webkit-linear-gradient(-45deg, #efeff0 0%,#ffffff 31%,#efeff0 52%,#ffffff 76%,#efeff0 100%);
+    background: linear-gradient(135deg, #efeff0 0%,#ffffff 31%,#efeff0 52%,#ffffff 76%,#efeff0 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efeff0', endColorstr='#efeff0',GradientType=1 );
 }
