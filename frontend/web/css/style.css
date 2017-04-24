@@ -1519,6 +1519,10 @@ table.reviews-table td {
     color: #fff;
 }
 
+.article tr td {
+    padding: 10px;
+}
+
 .article table {
     width: 100%;
     font-size: 14px;
@@ -1530,6 +1534,8 @@ table.reviews-table td {
 .article tr td:first-child {
     padding-left:15px;
 }
+
+
 
 .tovar__price-old {
     padding: 5px;
