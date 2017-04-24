@@ -146,6 +146,7 @@ h2.title {
     position: absolute;
     top: 5px;
     font-size: 17px;
+    background: transparent;
 }
 
 .header-form-phone.error {
@@ -341,7 +342,7 @@ h2.title {
     text-align: justify;
     padding: 2px 9px;
     line-height: 18px;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 .oborud:nth-child(odd) {
@@ -819,13 +820,11 @@ a {
 }
 
 .order-head {
-    background: url(../i/order-head-separator.png) no-repeat center 81px;
     font-size: 24px;
     text-align: center;
     line-height: 34px;
-    height: 110px;
     position: relative;
-    margin-bottom: 21px;
+    margin-bottom: 64px;
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -855,24 +854,20 @@ a {
 }
 
 .order-stend {
-    background: url(../i/order-stend-bg.png) no-repeat;
-    width: 324px;
-    height: 321px;
-    padding-top: 8px;
     position: relative;
     float: left;
-    margin-right: 13px;
-    margin-bottom:20px;
+    background: #fff;
+    padding: 3px;
+    border-radius: 13px;
 }
 
 .order-image-wrap {
     margin: 0 auto;
-    width: 308px;
+    width: 263px;
     border-radius: 12px;
     height: 250px;
     position: relative;
     overflow: hidden;
-    margin-bottom: 23px;
 }
 
 .order-stend-birk {
@@ -1625,6 +1620,7 @@ textarea:-ms-input-placeholder      {color:#ccc;}
     border: 1px solid #ff7539;
     height: 28px;
     padding: 0 10px;
+    background: transparent;
 }
 
 .search-form__submit {
