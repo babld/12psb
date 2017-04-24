@@ -859,13 +859,18 @@ a {
     background: #fff;
     padding: 3px;
     border-radius: 13px;
+    -webkit-box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.75);
+}
+
+.order-stend-list .owl-item {
+    padding: 5px;
 }
 
 .order-image-wrap {
     margin: 0 auto;
     width: 263px;
-    border-radius: 12px;
-    height: 250px;
     position: relative;
     overflow: hidden;
 }
@@ -913,13 +918,19 @@ a {
 }
 
 .order-stend-list {
-    margin-bottom: 17px;
+
 }
 
 .order-stend-list li:nth-child(3) {
     margin: 0 !important;
 }
 
+.order-stend__button {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+}
 .order-commonrail-list li:last-child {
     margin: 0 !important;
 }
@@ -1488,11 +1499,23 @@ table.reviews-table td {
     width: 53%;
 }
 
-.article .tovar__price-old {
+.tovar__price-old {
     padding: 5px;
     width: 50%;
     text-align: center;
     line-height: 21px;
+}
+
+.order-stend .tovar__price-old {
+    -webkit-border-radius: 10px 0 0 0;
+    -moz-border-radius: 10px 0 0 0;
+    border-radius: 10px 0 0 0;
+}
+
+.order-stend .tovar__price {
+    -webkit-border-radius: 0 10px 0 0;
+    -moz-border-radius: 0 10px 0 0;
+    border-radius: 0 10px 0 0;
 }
 
 .tovar__text {
@@ -1517,7 +1540,7 @@ table.reviews-table td {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff6624', endColorstr='#ff6421',GradientType=1 );
 }
 
-.tovar__prices {
+.article .tovar__prices {
     float: right;
     width:47%;
 }
