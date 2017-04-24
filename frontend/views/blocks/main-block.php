@@ -30,7 +30,7 @@ $cur = "р.";
                                         <?php endif;?>
                                         <?php if($good['price'][0]->price_old != NULL):?>
                                             <div class="main-block-new-price tovar__price-bg">
-                                                <?=number_format($good['price'][1]->price, 0, '', ' ') . " $cur"?>
+                                                <?=number_format($good['price'][0]->price_old, 0, '', ' ') . " $cur"?>
                                             </div>
                                         <?php endif;?>
                                     </div>
