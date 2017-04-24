@@ -92,7 +92,7 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
     </div>
 </div>
 
-<div class="metal-bg article content">
+<div class="metal-bg article">
     <div class="light-block-separator"></div>
     <div class="container">
         <div class="article__left-col">
@@ -105,7 +105,7 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
                 <li><a href="#extra" aria-controls="settings" role="tab" data-toggle="tab">Дополнительные опции</a></li>
             </ul>
             <!-- Содержимое вкладок -->
-            <div class="tab-content">
+            <div class="tab-content content">
                 <div role="tabpanel" class="tab-pane active" id="home"><?=$product->text?></div>
                 <div role="tabpanel" class="tab-pane" id="profile">
                     <?=$product->characteristics;?>

@@ -1589,6 +1589,7 @@ table.reviews-table td {
 .tab-content {
     background: url(/i/white-bg.png);
     padding: 15px;
+    border: 3px solid #a2a2a2;
 }
 
 .article__left-col {
@@ -1700,4 +1701,24 @@ textarea:-ms-input-placeholder      {color:#ccc;}
     background: -webkit-linear-gradient(-45deg, #efeff0 0%,#ffffff 31%,#efeff0 52%,#ffffff 76%,#efeff0 100%);
     background: linear-gradient(135deg, #efeff0 0%,#ffffff 31%,#efeff0 52%,#ffffff 76%,#efeff0 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efeff0', endColorstr='#efeff0',GradientType=1 );
+}
+
+.article .nav > li > a {
+    color: #fff;
+    padding: 3px 19px;
+    background: #575757;
+    background: -moz-linear-gradient(left,  #575757 0%, #808080 6%, #808080 6%, #808080 100%);
+    background: -webkit-linear-gradient(left,  #575757 0%,#808080 6%,#808080 6%,#808080 100%);
+    background: linear-gradient(to right,  #575757 0%,#808080 6%,#808080 6%,#808080 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#575757', endColorstr='#808080',GradientType=1 );
+}
+
+.nav-tabs > li.active > a {
+    color: #fff;
+    background: #b94a1a;
+    background: -moz-linear-gradient(left,  #b94a1a 0%, #ff6624 6%, #ff6624 6%, #ff6624 100%);
+    background: -webkit-linear-gradient(left,  #b94a1a 0%,#ff6624 6%,#ff6624 6%,#ff6624 100%);
+    background: linear-gradient(to right,  #b94a1a 0%,#ff6624 6%,#ff6624 6%,#ff6624 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b94a1a', endColorstr='#ff6624',GradientType=1 );
+
 }
