@@ -469,7 +469,7 @@ h2.title {
 .content ol li {
     position: relative;
     margin: 0 0 0px 12px;
-    padding: 2px 0px 3px 5px;
+    padding: 2px 0px 3px 10px;
 }
 
 .content ol li:before {
@@ -1497,6 +1497,37 @@ table.reviews-table td {
     max-width: 298px;
     line-height: 40px;
     width: 53%;
+}
+
+.article h2,
+.article h3 {
+    color: #ff6624;
+    font-size: 21px;
+    line-height: 33px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.article h3 {
+    font-size: 18px;
+}
+
+.article table tr:first-child td,
+.article table th td {
+    background: #333;
+    color: #fff;
+}
+
+.article table {
+    width: 100%;
+    font-size: 14px;
+    line-height: 30px;
+    margin-left: -15px;
+    margin-bottom: 20px;
+}
+
+.article tr td:first-child {
+    padding-left:15px;
 }
 
 .tovar__price-old {

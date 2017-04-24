@@ -38,11 +38,6 @@ $cur = " р.";
                 <?php endif;
             endforeach;?>
         </div>
-
-       <div class="order-notice">
-           А также любые стенды для тестирования Common Rail и ТНВД
-           <a href="zakaz" class="fancybox fancybox.ajax">с фабрики под заказ!</a>
-        </div>
     </div>
     <div class="order-bottom"></div>
 

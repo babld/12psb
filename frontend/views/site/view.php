@@ -92,7 +92,7 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
     </div>
 </div>
 
-<div class="metal-bg">
+<div class="metal-bg article content">
     <div class="light-block-separator"></div>
     <div class="container">
         <div class="article__left-col">
