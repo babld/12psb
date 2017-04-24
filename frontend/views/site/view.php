@@ -71,7 +71,7 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
                             <?=$priceOld . ' ' . $cur?>
                         </div>
                     </div>
-                    <div class="tovar__price">
+                    <div class="tovar__price tovar__price-bg">
                         <?=$price . ' ' . $cur?>
                     </div>
                 </div>
