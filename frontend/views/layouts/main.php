@@ -72,10 +72,10 @@ $menuItems = [
                             Каталог
                             <span class="caret"></span>
                         </a>
-                        <ul id="topnav" class="dropdown-menu" style="display: none;">
-                            <li><a href="/stanki-i-oborudovanie"><?=$catalogLabel?></a></li>
-                            <li><a href="/stanki-i-oborudovanie/stendy-tnvd">Стенды ТНВД</a></li>
-                            <li><a href="/stanki-i-oborudovanie/common-rail">Стенды Common Rail</a></li>
+                        <ul id="topnav" class="dropcatalogdown-menu" style="display: none;">
+                            <li><a href="/catalog"><?=$catalogLabel?></a></li>
+                            <li><a href="/catalog/stendy-tnvd">Стенды ТНВД</a></li>
+                            <li><a href="/catalog/common-rail">Стенды Common Rail</a></li>
                         </ul>
                     </li>
                     <li>
