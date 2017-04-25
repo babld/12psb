@@ -34,8 +34,6 @@ use pistol88\shop\models\Image;
 use pistol88\shop\models\Price;
 $cur = 'р.';
 
-$product = $model::findOne($id);
-
 $images     = Image::find()->where(['itemid' => $product->id])->all();
 $priceArr   = Price::find()->where(['product_id' => $product->id])->all();
 
@@ -117,9 +115,7 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
                     <?=$product->equipment;?>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="extra">
-                    <?php foreach($model->getFields() as $item) {
-                        echo $item->name . ' ' . $model->getField($item->slug) . "<br/>";
-                    }?>
+                    <?=$product->extra;?>
                 </div>
             </div>
         </div>

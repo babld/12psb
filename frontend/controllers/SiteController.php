@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 use app\models\SearchForm;
+use yii\web\HttpException;
 use pistol88\shop\models\Category;
 use Yii;
 use yii\base\InvalidParamException;
@@ -89,7 +90,6 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $products = Product::getAll();
-        $categoryModel = new Category();
         $goods = [];
 
         foreach($products as $good) {
@@ -100,14 +100,14 @@ class SiteController extends Controller
 
             if(!$mainImage) $mainImage = $images[0];
             $categoryId = $good->category_id;
-            $categoryData = $categoryModel->find()->
+            $categoryData = Category::find()->
                 select('slug, parent_id')->
                 where(['id' => $categoryId])->
                 one();
 
             $category[] = $categoryData->slug;
 
-            $categoryData = $categoryModel->find()->
+            $categoryData = Category::find()->
                 select('slug, parent_id')->
                 where(['id' => $categoryData->parent_id])->
                 one();
@@ -140,80 +140,76 @@ class SiteController extends Controller
         ]);
     }
 
+    /**
+     * @param $catalog
+     * @return string
+     * @throws HttpException
+     */
     public function actionCatalog($catalog) {
-        $productModel = new Product();
+        $category = $this->urlcheck($catalog);
 
-        # Вытаскиваем из url категорию
-        $currentCategory = array_reverse(array_filter(explode('/', $catalog)))[0];
+        if($categoryIds = $this->categoryIds($category)){
+            foreach($categoryIds as $id) {
 
-        # Находим в базе id этой категории
-        $model = new Category();
-
-        $categoryData = $model->find()->
-            select('id, text, name, cond')->
-            where(["slug" => $currentCategory])->
-            one();
-
-        if($categoryData != null){
-            $categoryId = $categoryData->id;
-
-            $categoryIds[] = $categoryId;
-            $queryIds = $model->find()->
-                select('id, slug, name')->
-                where(['parent_id' => $categoryId])->
-                all();
-
-            if(!empty($queryIds)){
-                foreach($queryIds as $item) {
-                    $categoryIds[] = $item->id;
-                }
-
-                $categoryIdTNVD = 13;
-                $productsTNVD = $productModel->find()->where(['category_id' => $categoryIdTNVD])->limit(4)->all();
-
-                $productsIdCR = 14;
-                $productsCR = $productModel->find()->where(['category_id' => $productsIdCR])->limit(10)->all();
-
-                $productsIdDopTNVD = 15;
-                $productsDopTNVD = $productModel->find()->where(['category_id' => $productsIdDopTNVD])->limit(2)->all();
-
-                $productsIdDopCR = 16;
-                $productsDopCR = $productModel->find()->where(['category_id' => $productsIdDopCR])->limit(2)->all();
-
-                return $this->render('catalog', [
-                    'catalog'           => $catalog,
-                    'categoryId'        => $categoryId,
-                    'productsTNVD'      => $productsTNVD,
-                    'productsCR'        => $productsCR,
-                    'productsDopTNVD'   => $productsDopTNVD,
-                    'productsDopCR'     => $productsDopCR,
-                    'categoryText'      => $categoryData->text,
-                    'categoryTitle'     => $categoryData->name
-                ]);
-            } else {
-                $categoryId = $categoryIds;
-                $products = $productModel->find()->where(["category_id" => $categoryId])->limit(10)->all();
-
-                return $this->render('subcatalog',[
-                    'catalog'       => $catalog,
-                    'products'      => $products,
-                    'categoryTitle' => $categoryData->name,
-                ]);
+                $products[] = [
+                    'category' => Category::findOne(['id' => $id]),
+                    'product' => Product::findAll(['category_id' => $id])
+                ];
             }
+
+            return $this->render('catalog', [
+                'products' => $products
+            ]);
         } else {
-            $model = new Product();
-
-            $modelData = $model->find()->
-                select('id, text, name')->
-                where(["slug" => $currentCategory])->
-                one();
-
-            $model = $model::findOne($modelData->id);
-            #echo "<pre>"; var_dump($model->getFieldValues('seson')); exit;
-
-            #var_dump($modelData);
-            return $this->render('view', ["id" => $modelData->id, 'model' => $model]);
+            return $this->render('view', ['product' => Product::findOne(['slug' => $category])]);
         }
+    }
+
+    /*
+     * Проверка урла на сущестование всех подкаталогов (/catalog/stendy-tnvd/dop/ или /asdasdf/stendy/).
+     * Если одного нет то выдает 404
+     */
+
+    public function urlcheck($catalog) {
+
+        foreach(array_filter(explode('/', $catalog)) as $item){
+            if(!Category::findOne(['slug' => $item])) {
+                if(!$product = Product::findOne(['slug' => $item]))
+                    throw new HttpException(404 ,'Page not found');
+            }
+        }
+        return $item;
+    }
+
+    public function categoryIds($category) {
+        # Находим в базе id категории
+        if(!$categoryData = Category::findOne(['slug' => $category])) return null;
+
+        $categoryIds[] = $categoryData->id;
+
+        $this->testids($categoryData->id, $categoryIds);
+
+        return $categoryIds;
+    }
+
+    public function testids($id, &$categoryIds) {
+        #Находим подкатегории текущей категории
+        $subcategories = Category::find()->
+            where(['parent_id' => $id])->
+            all();
+
+        foreach($subcategories as $category) {
+            if($category->parent_id) {
+                $categoryIds[] = $category->id;
+                $this->testids($category->id, $categoryIds);
+            }
+        }
+    }
+
+    public function debug($var) {
+        echo "<pre>";
+        var_dump($var);
+        exit;
     }
 
     public function actionView($catalog, $id) {

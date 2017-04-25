@@ -1,13 +1,15 @@
 <?php
+use pistol88\shop\models\Category;
 use pistol88\shop\models\Image;
 use pistol88\shop\models\Price;
 $cur = 'р.';
+$title = $products[0]->category->name;
 ?>
 <h2 class="text-center title"><?=$title?></h2>
 
 <div class="oboruds"><?php
     foreach($products as $product) {
-        $detailUrl = '/' . explode('/', $catalog)[0] . '/' . $product->category->slug . '/' . $product->slug;
+        $detailUrl = '/' . Category::findOne(['id' => $product->category->parent_id])->slug . '/' . $product->category->slug . '/' . $product->slug;
         $image = Image::find()->where(['itemid' => $product->id])->one();
         $priceArr = Price::find()->where(['product_id' => $product->id])->all();
         $price = $priceArr[0]->price;
@@ -15,7 +17,9 @@ $cur = 'р.';
 
         <div class="oborud">
             <div class="oborud__image">
-                <img src="/images/store/<?=$image->filePath?>">
+                <a href="<?=$detailUrl?>">
+                    <img src="/images/store/<?=$image->filePath?>">
+                </a>
             </div>
             <div class="oborud__info">
                 <div class="oborud__title gray-bg">
@@ -36,8 +40,9 @@ $cur = 'р.';
                             </div>
                         </div>
                     <?php endif;?>
-                    <div class="oborud__price fl-l"><?=number_format($price, 0, '', ' ') . ' ' . $cur?></div>
-                    <a href="/catalog/<?=$product->id?>" class="but-default oborud__more fl-l">Подробнее</a>
+                    <a href="<?=$detailUrl?>" class="but-default oborud__more fl-r">Подробнее</a>
+                    <div class="oborud__price fl-r"><?=number_format($price, 0, '', ' ') . ' ' . $cur?></div>
+
                 </div>
             </div>
         </div>
