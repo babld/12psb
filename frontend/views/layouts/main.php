@@ -79,7 +79,7 @@ $menuItems = [
                         </ul>
                     </li>
                     <li>
-                        <a href="/goods/">Доставка и оплата</a>
+                        <a href="/delivery/">Доставка и оплата</a>
                     </li>
                     <li>
                         <a href="/contacts/">Видео по работе</a>
