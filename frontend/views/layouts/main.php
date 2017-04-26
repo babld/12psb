@@ -80,10 +80,10 @@ $menuItems = [
                     </li>
                     <li>
                         <a href="/delivery/">Доставка и оплата</a>
-                    </li>
+                    </li><?php /*
                     <li>
                         <a href="/contacts/">Видео по работе</a>
-                    </li>
+                    </li>*/?>
                     <li>
                         <a href="/contacts/">Контакты</a>
                     </li>
