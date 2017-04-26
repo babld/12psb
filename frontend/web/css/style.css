@@ -169,12 +169,12 @@ h2.title {
     position: absolute;
     bottom: 0px;
     width: 100%;
-    background: url("../i/dark-bg.png");
+    background: url(../i/dark-bg.png);
     color: #fff;
     text-align: center;
     height: 48px;
-    font-size: 19px;
-    padding-top: 13px;
+    font-size: 14px;
+    padding-top: 4px;
     line-height: 20px;
     border-radius: 0 0 10px 10px;
 }
@@ -1275,13 +1275,11 @@ table.reviews-table td {
 .footer-manager-wrap {
     float: left;
     position: relative;
-    margin-left: 18px;
 }
 
 .footer-form-wrap {
     float: right;
-    width: 628px;
-    margin-right: 21px;
+    width: 818px;
 }
 
 .feedback-textarea {
@@ -1307,7 +1305,6 @@ table.reviews-table td {
     text-align: center;
     font-size: 19px;
     line-height: 21px;
-    margin-bottom: 33px;
 }
 
 .footer-form-title span {

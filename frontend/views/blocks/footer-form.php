@@ -10,7 +10,7 @@
                     <span>Нужна консультация</span> по выбору оборудования для <br/>тестирования ТНВД и Common Rail?
                 </div>
                 <div class="form-wrapper">
-                    <form class="feedback-form" onsubmit="ga('send', 'event', 'CALLBACK', '2'); yaCounter24717443.reachGoal('CALLBACK_BOT'); return true;">
+                    <form class="feedback-form send" onsubmit="ga('send', 'event', 'CALLBACK', '2'); yaCounter24717443.reachGoal('CALLBACK_BOT'); return true;">
                         <div class="feedback-input-wrapper">
                             <div class="feedback-input-text">Ваше сообщение:</div>
                             <textarea class="feedback-input feedback-textarea" placeholder="Не обязательно" name="mess"></textarea>

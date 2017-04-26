@@ -179,6 +179,10 @@ class SiteController extends Controller
         }
     }
 
+    public function actionDelivery() {
+        return $this->render('delivery');
+    }
+
     public function breadcrumb($category) {
         $id = Category::findOne(['slug' => $category])->id;
         $link = [];
