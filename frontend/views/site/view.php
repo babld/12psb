@@ -46,8 +46,7 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
         <?php foreach($breadcrumbs as $breadcrumb):?>
             <a href="/<?=$breadcrumb['link']?>" class="breadcrumb"><?=$breadcrumb['name']?></a>
         <?php endforeach;?>
-
-        <!--span class="breadcrumb">Каталог</span-->
+        <span class="breadcrumb"><?=$product->name?></span>
     </div>
 
     <div class="tovar__main">

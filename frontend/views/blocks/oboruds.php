@@ -8,8 +8,19 @@ $title = $products[0]->category->name;
 <h2 class="text-center title"><?=$title?></h2>
 
 <div class="oboruds"><?php
+
     foreach($products as $product) {
-        $detailUrl = '/' . Category::findOne(['id' => $product->category->parent_id])->slug . '/' . $product->category->slug . '/' . $product->slug;
+        #Временное решение. Переделать
+        $tmpUrl = '';
+        if(Category::findOne(['id' => Category::findOne(['id' => $product->category->parent_id])->parent_id])) {
+            $tmpUrl = Category::findOne(['id' => Category::findOne(['id' => $product->category->parent_id])->parent_id])->slug . '/';
+        }
+
+        $detailUrl = '/' .
+            $tmpUrl .
+            Category::findOne(['id' => $product->category->parent_id])->slug . '/' .
+            $product->category->slug . '/' .
+            $product->slug;
         $image = Image::find()->where(['itemid' => $product->id])->one();
         $priceArr = Price::find()->where(['product_id' => $product->id])->all();
         $price = $priceArr[0]->price;
@@ -42,7 +53,6 @@ $title = $products[0]->category->name;
                     <?php endif;?>
                     <a href="<?=$detailUrl?>" class="but-default oborud__more fl-r">Подробнее</a>
                     <div class="oborud__price fl-r"><?=number_format($price, 0, '', ' ') . ' ' . $cur?></div>
-
                 </div>
             </div>
         </div>
