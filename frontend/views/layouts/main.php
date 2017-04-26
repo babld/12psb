@@ -109,7 +109,7 @@ $menuItems = [
                 </div>
             </div>
             <div>
-                <form class="header-form">
+                <form class="header-form send">
                     <i>+7</i>
                     <input type="text" placeholder="(___) ___ __ __" name="phone" class="header-form-phone">
                     <input type="submit" name="submit" class="header-form-submit but-default" value="Жду звонка">

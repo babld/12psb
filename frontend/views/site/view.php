@@ -129,7 +129,7 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
                     </div>
                     <img src="/i/manager.png" class="feedback__manager-img" />
                 </div>
-                <form class="feedback__form">
+                <form class="feedback__form send">
                     <textarea name="message" class="feedback__border feedback__textarea" placeholder="Есть вопросы по покупке стендов ТНВД и Common Rail? Я оперативно отвечу на них! Напишите Ваш вопрос здесь"></textarea>
                     <input name="phone" class="feedback__border feedback__input" placeholder="Ваш телефон" />
                     <input name="submit" type="submit" class="but-default feedback__submit" value="Связаться со мной"/>
