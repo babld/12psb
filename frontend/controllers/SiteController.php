@@ -146,36 +146,74 @@ class SiteController extends Controller
      * @throws HttpException
      */
     public function actionCatalog($catalog) {
+
         $category = $this->urlcheck($catalog);
+
 
         if($categoryIds = $this->categoryIds($category)){
             foreach($categoryIds as $id) {
-
                 $products[] = [
-                    'category' => Category::findOne(['id' => $id]),
                     'product' => Product::findAll(['category_id' => $id])
                 ];
             }
 
+            foreach(array_filter(explode('/', $catalog)) as $item) {
+                $breadcrumbs[] = $this->breadcrumb($item);
+            }
+
             return $this->render('catalog', [
+                'breadcrumbs' => $breadcrumbs,
                 'products' => $products
             ]);
         } else {
-            return $this->render('view', ['product' => Product::findOne(['slug' => $category])]);
+            $path = array_filter(explode('/', $catalog));
+            array_pop($path);
+            foreach($path as $item) {
+                $breadcrumbs[] = $this->breadcrumb($item);
+            }
+
+            return $this->render('view', [
+                'product' => Product::findOne(['slug' => $category]),
+                'breadcrumbs' => $breadcrumbs
+            ]);
         }
+    }
+
+    public function breadcrumb($category) {
+        $id = Category::findOne(['slug' => $category])->id;
+        $link = [];
+        $breadcrumbsname = [];
+        $breadcrumbslinks = [];
+        while($breadcrumb = Category::findOne(['id' => $id])) {
+            $id = $breadcrumb->parent_id;
+            $link[] = $breadcrumb->slug ;
+
+            $breadcrumbsname[] = $breadcrumb->name;
+            $breadcrumbslinks[] = implode("/", array_reverse($link));
+        }
+
+        $breadcrumbs = [
+            'name' => $breadcrumbsname[0],
+            'link' => array_reverse($breadcrumbslinks)[0]
+        ];
+
+        return $breadcrumbs;
     }
 
     /*
      * Проверка урла на сущестование всех подкаталогов (/catalog/stendy-tnvd/dop/ или /asdasdf/stendy/).
      * Если одного нет то выдает 404
      */
-
     public function urlcheck($catalog) {
-
+        $i = 0;
         foreach(array_filter(explode('/', $catalog)) as $item){
             if(!Category::findOne(['slug' => $item])) {
                 if(!$product = Product::findOne(['slug' => $item]))
                     throw new HttpException(404 ,'Page not found');
+            } else if($i++ == 0 && Category::findOne(['slug' => $item])->parent_id != NULL) {
+                #Устраняем косяк с открытием одной и той же странице по разным ссылкам
+                # Пример: /catalog/stendy-tnvd и /stendy-tnvd
+                throw new HttpException(404 ,'Page not found');
             }
         }
         return $item;
