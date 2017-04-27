@@ -1,4 +1,7 @@
 <?php
+    function hidetab($val) {
+        return trim($val) == "" ? 'class="hidden"' : '';
+    }
   /*
   $w_o и h_o - ширина и высота выходного изображения
   */
@@ -97,14 +100,14 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
         <div class="article__left-col">
             <!-- Навигация -->
             <ul class="nav nav-tabs" role="tablist">
-                <li <?=empty(trim($product->text)) ? 'class="hidden"' : ''?> class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Описание</a></li>
-                <li <?=empty(trim($product->getField('video'))) ? 'class="hidden"' : ''?>>
+                <li <?=hidetab($product->text)?> class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Описание</a></li>
+                <li <?=hidetab($product->getField('video'))?>>
                     <a role="button" href="#video" aria-controls="video" role="tab" data-toggle="tab">Видео</a>
                 </li>
-                <li <?=empty(trim($product->characteristics)) ? 'class="hidden"' : ''?>><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Характеристики</a></li>
-                <li <?=empty(trim($product->photo)) ? 'class="hidden"' : ''?>><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Интерфейс</a></li>
-                <li <?=empty(trim($product->equipment)) ? 'class="hidden"' : ''?>><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Комплектация</a></li>
-                <li <?=empty(trim($product->extra)) ? 'class="hidden"' : ''?>><a href="#extra" aria-controls="extra" role="tab" data-toggle="tab">Доп. опции</a></li>
+                <li <?=hidetab($product->characteristics)?>><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Характеристики</a></li>
+                <li <?=hidetab(trim($product->photo))?>><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Интерфейс</a></li>
+                <li <?=hidetab(trim($product->equipment))?>><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Комплектация</a></li>
+                <li <?=hidetab(trim($product->extra))?>><a href="#extra" aria-controls="extra" role="tab" data-toggle="tab">Доп. опции</a></li>
             </ul>
             <!-- Содержимое вкладок -->
             <div class="tab-content content">
