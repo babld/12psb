@@ -97,12 +97,14 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
         <div class="article__left-col">
             <!-- Навигация -->
             <ul class="nav nav-tabs" role="tablist">
-                <li class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Описание</a></li>
-                <li><a href="#video" aria-controls="video" role="tab" data-toggle="tab">Видео</a></li>
-                <li><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Характеристики</a></li>
-                <li><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Интерфейс</a></li>
-                <li><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Комплектация</a></li>
-                <li><a href="#extra" aria-controls="extra" role="tab" data-toggle="tab">Доп. опции</a></li>
+                <li <?=empty(trim($product->text)) ? 'class="hidden"' : ''?> class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Описание</a></li>
+                <li <?=empty(trim($product->getField('video'))) ? 'class="hidden"' : ''?>>
+                    <a role="button" href="#video" aria-controls="video" role="tab" data-toggle="tab">Видео</a>
+                </li>
+                <li <?=empty(trim($product->characteristics)) ? 'class="hidden"' : ''?>><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Характеристики</a></li>
+                <li <?=empty(trim($product->photo)) ? 'class="hidden"' : ''?>><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Интерфейс</a></li>
+                <li <?=empty(trim($product->equipment)) ? 'class="hidden"' : ''?>><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Комплектация</a></li>
+                <li <?=empty(trim($product->extra)) ? 'class="hidden"' : ''?>><a href="#extra" aria-controls="extra" role="tab" data-toggle="tab">Доп. опции</a></li>
             </ul>
             <!-- Содержимое вкладок -->
             <div class="tab-content content">
@@ -120,10 +122,13 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
                     <?=$product->extra;?>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="video"><?php
-                    foreach(explode(',', $product->getField('video')) as $link) {
-                        $link = explode("watch?v=", $link)[1];?>
-                        <iframe width="391" height="238" src="https://www.youtube.com/embed/<?=$link?>" frameborder="0" allowfullscreen></iframe>
-                    <?php } ?>
+                    if(!empty(trim($product->getField('video')))) {
+                        foreach (explode(',', $product->getField('video')) as $link) {
+                            $link = explode("watch?v=", $link)[1]; ?>
+                            <iframe width="391" height="238" src="https://www.youtube.com/embed/<?= $link ?>"
+                                    frameborder="0" allowfullscreen></iframe>
+                        <?php }
+                    }?>
                 </div>
             </div>
         </div>
