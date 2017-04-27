@@ -121,7 +121,7 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
                     <?=$product->characteristics;?>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="messages">
-                    <img src="<?=$product->photo?>">
+                    <?=$product->photo;?>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="settings">
                     <?=$product->equipment;?>
