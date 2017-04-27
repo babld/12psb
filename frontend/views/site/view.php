@@ -37,7 +37,10 @@ use pistol88\shop\models\Image;
 use pistol88\shop\models\Price;
 $cur = 'р.';
 
-$images     = Image::find()->where(['itemid' => $product->id])->all();
+$images     = Image::find()->where(['itemid' => $product->id, 'isMain' => null])->all();
+$mainImg[]  = Image::find()->where(['itemid' => $product->id, 'isMain' => 1])->one();
+$images     = array_merge($mainImg, $images);
+
 $priceArr   = Price::find()->where(['product_id' => $product->id])->all();
 
 $price      = number_format($priceArr[0]->price, 0, "", " ");
