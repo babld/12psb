@@ -8,7 +8,6 @@ $title = $products[0]->category->name;
 <h2 class="text-center title"><?=$title?></h2>
 
 <div class="oboruds"><?php
-
     foreach($products as $product) {
         #Временное решение. Переделать
         $tmpUrl = '';
@@ -21,7 +20,9 @@ $title = $products[0]->category->name;
             Category::findOne(['id' => $product->category->parent_id])->slug . '/' .
             $product->category->slug . '/' .
             $product->slug;
-        $image = Image::find()->where(['itemid' => $product->id])->one();
+        $image = Image::find()->where(['itemid' => $product->id, 'isMain' => 1])->one()
+            ? Image::find()->where(['itemid' => $product->id, 'isMain' => 1])->one()
+            : Image::find()->where(['itemid' => $product->id])->one();
         $priceArr = Price::find()->where(['product_id' => $product->id])->all();
         $price = $priceArr[0]->price;
         $priceOld = $priceArr[0]->price_old;?>
