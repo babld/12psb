@@ -2,7 +2,7 @@
 use pistol88\shop\models\Category;
 use pistol88\shop\models\Image;
 use pistol88\shop\models\Price;
-$cur = 'р.';
+
 $title = $products[0]->category->name;
 ?>
 <h2 class="text-center title"><?=$title?></h2>
@@ -47,13 +47,13 @@ $title = $products[0]->category->name;
                         <div class="fl-l">
                             <div class="gray-bg">
                                 <div class="crossing oborud__old-price">
-                                    <?=number_format($priceOld, 0, '', ' ') . ' ' . $cur?>
+                                    <?=number_format($priceOld, 0, '', ' ') . Yii::getAlias('@cur')?>
                                 </div>
                             </div>
                         </div>
                     <?php endif;?>
                     <a href="<?=$detailUrl?>" class="but-default oborud__more fl-r">Подробнее</a>
-                    <div class="oborud__price fl-r"><?=number_format($price, 0, '', ' ') . ' ' . $cur?></div>
+                    <div class="oborud__price fl-r"><?=number_format($price, 0, '', ' ') . Yii::getAlias('@cur')?></div>
                 </div>
             </div>
         </div>

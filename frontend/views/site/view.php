@@ -35,7 +35,6 @@
 
 use pistol88\shop\models\Image;
 use pistol88\shop\models\Price;
-$cur = 'р.';
 
 $images     = Image::find()->where(['itemid' => $product->id, 'isMain' => null])->all();
 
@@ -78,12 +77,12 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
                     <?php if($priceArr[0]->price_old):?>
                         <div class="fl-l tovar__price-old gray-bg">
                             <div class="crossing">
-                                <?=$priceOld . ' ' . $cur?>
+                                <?=$priceOld . Yii::getAlias('@cur')?>
                             </div>
                         </div>
                     <?php endif;?>
                     <div class="tovar__price tovar__price-bg">
-                        <?=$price . ' ' . $cur?>
+                        <?=$price . Yii::getAlias('@cur')?>
                     </div>
                 </div>
             </div>

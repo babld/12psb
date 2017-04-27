@@ -1,6 +1,3 @@
-<?php
-
-?>
 <div class="container">
     <div class="breadcrumbs">
         <a href="/" class="breadcrumb">Главная</a>

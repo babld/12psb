@@ -1,5 +1,6 @@
 <?php
 $cur = " р.";
+
 ?>
 <div class="order">
     <div class="container">

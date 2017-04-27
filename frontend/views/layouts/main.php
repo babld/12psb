@@ -53,15 +53,15 @@ $menuItems = [
             <div class="navbar-collapse collapse" id="responsive-menu">
                 <div class="nav navbar-nav navbar-right">
                     <div class="header-email">
-                        <a href="mailto:info@12psb.ru">
+                        <a href="mailto:<?=Yii::getAlias('@mail')?>">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
-                            <span>info@12psb.ru</span>
+                            <span><?=Yii::getAlias('@mail')?></span>
                         </a>
                     </div>
                     <div class="header-phone">
-                        <a href="tel:88007756758">
+                        <a href="tel:<?=Yii::getAlias('@freephone')?>">
                             <i class="fa fa-phone" aria-hidden="true"></i>
-                            <span>8-800-775-6758</span>
+                            <span><?=Yii::getAlias('@freephone')?></span>
                         </a>
                     </div>
                 </div>

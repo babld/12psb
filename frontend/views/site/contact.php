@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = "Контакты";
                 <div class="contacts__phones-free">
                     <p><b>Бесплатный номер:</b></p>
                     <i class="fa fa-phone corp-col" aria-hidden="true"></i>
-                    <span>8-800-775-6758</span>
+                    <span><?=Yii::getAlias('@freephone')?></span>
                 </div>
                 <div class="contacts__phones-city">
                     <p><b>Телефоны в городах:</b></p>
@@ -71,9 +71,9 @@ $this->params['breadcrumbs'][] = "Контакты";
                     <i class="fa fa-skype corp-col" aria-hidden="true"></i>
                     <span>coswart</span>
                 </a>
-                <a href="mailto:info@12psb.ru" class="contacts__email">
+                <a href="mailto:<?=Yii::getAlias('@mail')?>" class="contacts__email">
                     <i class="fa fa-envelope corp-col" aria-hidden="true"></i>
-                    <span>info@12psb.ru</span>
+                    <span><?=Yii::getAlias('@mail')?></span>
                 </a>
                 <form class="send contacts__form">
                     <div class="border-emul mb-10">
