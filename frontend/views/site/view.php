@@ -125,7 +125,7 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
                     <?=$product->extra;?>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="video"><?php
-                    if(trim($product->getField('video')) == "") {
+                    if(!trim($product->getField('video')) == "") {
                         foreach (explode(',', $product->getField('video')) as $link) {
                             $link = explode("watch?v=", $link)[1]; ?>
                             <iframe width="391" height="238" src="https://www.youtube.com/embed/<?= $link ?>"
