@@ -3,6 +3,7 @@
 ?>
 <div class="container">
     <div class="breadcrumbs">
+        <a href="/" class="breadcrumb">Главная</a>
         <?php foreach($breadcrumbs as $breadcrumb):?>
             <a href="/<?=$breadcrumb['link']?>" class="breadcrumb"><?=$breadcrumb['name']?></a>
         <?php endforeach;?>

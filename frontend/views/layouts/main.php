@@ -29,7 +29,7 @@ $this->beginPage(); ?>
     <meta name='yandex-verification' content='7761988de9d78f78' /-->
 </head>
 
-<body>
+<body class="gray-block-bg">
 <?php $this->beginBody();
 $catalogLabel = 'Каталог';
 $menuItems = [

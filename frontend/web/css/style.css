@@ -13,12 +13,20 @@ h2.title {
     text-transform: uppercase;
 }
 
+.corp-col {
+    color: #ff6624;
+}
+
 .fl-l {
     float: left;
 }
 
 .fl-r {
     float: right;
+}
+
+.mb-10 {
+    margin-bottom:10px;
 }
 
 .header {
@@ -297,12 +305,32 @@ h2.title {
 }
 
 #YMap {
-    height:257px;
+    height:256px;
+    -moz-border-radius: 25px 25px 25px 25px;
+    -webkit-border-radius: 25px 25px 25px 25px;
+    -khtml-border-radius: 25px 25px 25px 25px;
+    border-radius: 9px;
+    overflow: hidden;
+    position: relative;
+}
+
+.YMapWrap {
+    margin-bottom: 20px;
+}
+
+.border-emul {
+    background: #666666;
+    background: -moz-linear-gradient(top, #666666 0%, #ececec 100%);
+    background: -webkit-linear-gradient(top, #666666 0%,#ececec 100%);
+    background: linear-gradient(to bottom, #666666 0%,#ececec 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#666666', endColorstr='#ececec',GradientType=0 );
+    padding: 3px;
+    border-radius: 9px;
 }
 
 
 .breadcrumbs {
-
+    margin-top: 20px;
 }
 
 .breadcrumb {
@@ -441,10 +469,11 @@ h2.title {
 }
 
 .content h1 {
-    font-size: 35px;
+    font-size: 25px;
     text-align: center;
     margin-bottom: 24px;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 .content h2 {
@@ -453,7 +482,7 @@ h2.title {
 }
 
 .content p {
-    font-size: 14px;
+    font-size: 15px;
     margin-bottom: 10px;
     line-height: 18px;
 }
@@ -531,7 +560,8 @@ footer, header, hgroup, menu, nav, section {
     display: block;
 }
 body {
-    line-height: 1;
+    line-height: 1.5em;
+    color: #000;
     font-family: "Intro", sans-serif;
 }
 ol, ul {
@@ -552,10 +582,6 @@ table {
 
 input {
     outline: none;
-}
-
-body {
-    color: #000;
 }
 
 .clear {
@@ -1728,4 +1754,52 @@ textarea:-ms-input-placeholder      {color:#ccc;}
     background: linear-gradient(to right,  #b94a1a 0%,#ff6624 6%,#ff6624 6%,#ff6624 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b94a1a', endColorstr='#ff6624',GradientType=1 );
 
+}
+
+
+.contacts__form-wrap {
+    width: 50%;
+    float: left;
+}
+
+.contacts__manager-wrap {
+    width: 47%;
+    margin-right:3%;
+    float: left;
+}
+
+.contacts__form-ta,
+.contacts__form input {
+    width: 100%;
+    border: none;
+    resize: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 15px;
+    line-height: 22px;
+}
+
+.contacts__form-ta {
+    height: 168px;
+}
+
+.contacts__form {
+    width:100%;
+}
+
+.contacts__phones-free,
+.contacts__phones-city {
+    width: 50%;
+    float: left;
+}
+
+.contacts__email {
+    float: right;
+}
+
+.contacts__manager-img {
+    -webkit-border-radius:5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 }
