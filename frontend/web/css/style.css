@@ -318,6 +318,17 @@ h2.title {
     margin-bottom: 20px;
 }
 
+.ymaps-block-address {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    color: #fff;
+    box-sizing: border-box;
+    z-index: 1;
+    width: 100%;
+    font-size: 14px;
+}
+
 .border-emul {
     background: #666666;
     background: -moz-linear-gradient(top, #666666 0%, #ececec 100%);
@@ -606,6 +617,19 @@ a {
 
 .audiojs {
     margin-bottom: 56px;
+    width:initial;
+}
+
+.audiojs .scrubber {
+    width: 67%;
+}
+
+.audiojs p {
+    height: 28px;
+}
+
+.audiojs .play-pause {
+    width: 7%;
 }
 
 .fixed-menu {
@@ -831,7 +855,7 @@ a {
 .order {
     background: url("../i/bg-dark.jpg") center 0;
     position: relative;
-    padding-bottom: 29px;
+    padding-bottom: 90px;
     padding-top:60px;
 }
 
@@ -896,6 +920,10 @@ a {
 
 .order-stend-list .owl-item {
     padding: 5px;
+}
+
+.order-stend-list.owl-theme .owl-dots {
+    bottom: -50px;
 }
 
 .order-image-wrap {
@@ -1253,6 +1281,7 @@ a {
 }
 
 table.reviews-table td {
+    width:50%;
     padding-left: 35px;
     color: #fff;
     padding-right: 37px;
@@ -1505,6 +1534,9 @@ table.reviews-table td {
     position: relative;
 }
 
+.tovar__prices {
+    height:31px;
+}
 .tovar__gallery-wrap {
     float: left;
     padding-right: 20px;

@@ -18,19 +18,26 @@ $this->params['breadcrumbs'][] = "Контакты";
             <div>ООО "Консул", ОГРН 1155476008643</div>
             <div>ИНН 5407203878 / КПП 540701001</div>
             <div class="YMapWrap border-emul">
-                <div id="YMap"></div>
+                <div id="YMap">
+                    <div class="ymaps-block-address">
+                        <span class="corp-col">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <i>Главный офис:</i>
+                        </span>630112, Новосибирск, пр. Дзержинского, 1/1, 5 этаж, оф. 71
+                    </div>
+                </div>
             </div>
             <script>
                 function init () {
                     var myMap = new ymaps.Map(
                         "YMap",
                         {
-                            center: [55.793353332847,37.591329961971],
+                            center: [55.04329723164, 82.949294433604],
                             zoom: 16,
                         }
                     );
                     myMap.controls.add('zoomControl');//.add('typeSelector').add('mapTools');
-                    myPlacemark = new ymaps.Placemark([55.793353332847,37.591329961971]);
+                    myPlacemark = new ymaps.Placemark([55.04329723164, 82.949294433604]);
                     myMap.geoObjects.add(myPlacemark);
                 }
                 ymaps.ready(init);

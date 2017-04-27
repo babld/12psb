@@ -21,8 +21,9 @@ $(document).ready(function() {
     var owl = $('.order-stend-list');
 	owl.owlCarousel({
 		margin: 10,
-		nav: true,
-		loop: true,
+        autoplay: true,
+		nav: false,
+		loop: false,
 		responsive: {
 			0: {
 				items: 1

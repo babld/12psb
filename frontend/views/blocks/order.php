@@ -7,12 +7,12 @@ $cur = " р.";
             Популярные модели топливного оборудования
         </div>
         <?php /*<div class="order-stends-title">Стенды для тестирования отечественных и импортных ТНВД</div>*/ ?>
-        <div class="w-clear order-stend-list owl-carousel owl-theme">
+        <div class="order-stend-list owl-carousel owl-theme">
             <?php foreach($goods as $good):
                 if($good['is_popular'] == "yes"):?>
                     <div class="order-stend">
                         <div class="tovar__prices">
-                            <?php if($good['price'][0]->price != NULL):?>
+                            <?php if($good['price'][0]->price_old != NULL):?>
                                 <div class="fl-l tovar__price-old gray-bg">
                                     <div class="crossing">
                                         <?=number_format($good['price'][0]->price_old, 0, "", " ") . $cur?>
