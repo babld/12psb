@@ -38,8 +38,12 @@ use pistol88\shop\models\Price;
 $cur = 'р.';
 
 $images     = Image::find()->where(['itemid' => $product->id, 'isMain' => null])->all();
-$mainImg[]  = Image::find()->where(['itemid' => $product->id, 'isMain' => 1])->one();
-$images     = array_merge($mainImg, $images);
+
+$mainImg = null;
+if($mainImage = Image::find()->where(['itemid' => $product->id, 'isMain' => 1])->one())
+    $mainImg[]  = $mainImage;
+
+$images     = $mainImg ? array_merge($mainImg, $images) : $images;
 
 $priceArr   = Price::find()->where(['product_id' => $product->id])->all();
 
