@@ -1851,4 +1851,8 @@ textarea:-ms-input-placeholder      {color:#ccc;}
 .overlay__form .error {
     border: 2px solid red;
 }
+
+.overlay {
+    width: 560px;
+}
 /* /overlay */
