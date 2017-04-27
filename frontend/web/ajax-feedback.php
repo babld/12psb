@@ -22,9 +22,7 @@ if($_POST['submit']) {
     $mes = $mes . "\n\n- -\nСообщение сгенерировано автоматически.";
 
     // $to - кому отправляем
-
-    $to = (isset($_COOKIE["from_direct"]) and $_COOKIE["from_direct"] == 1)?'order@sibtransasia.ru':'info@12psb.ru';
-    #$to = ($_COOKIE["from_direct"] == 1)?'kps@sibtransasia.ru':'kps@sibtransasia.ru';
+    $to = ($_COOKIE["from_direct"] == 1)?'kps@sibtransasia.ru':'kps@sibtransasia.ru';
     // $from - от кого
     $from='no-reply@12psb.ru';
 
