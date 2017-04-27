@@ -98,10 +98,11 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
             <!-- Навигация -->
             <ul class="nav nav-tabs" role="tablist">
                 <li class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Описание</a></li>
+                <li><a href="#video" aria-controls="video" role="tab" data-toggle="tab">Видео</a></li>
                 <li><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Характеристики</a></li>
                 <li><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Интерфейс</a></li>
                 <li><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Комплектация</a></li>
-                <li><a href="#extra" aria-controls="settings" role="tab" data-toggle="tab">Дополнительные опции</a></li>
+                <li><a href="#extra" aria-controls="extra" role="tab" data-toggle="tab">Доп. опции</a></li>
             </ul>
             <!-- Содержимое вкладок -->
             <div class="tab-content content">
@@ -117,6 +118,12 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
                 </div>
                 <div role="tabpanel" class="tab-pane" id="extra">
                     <?=$product->extra;?>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="video"><?php
+                    foreach(explode(',', $product->getField('video')) as $link) {
+                        $link = explode("watch?v=", $link)[1];?>
+                        <iframe width="391" height="238" src="https://www.youtube.com/embed/<?=$link?>" frameborder="0" allowfullscreen></iframe>
+                    <?php } ?>
                 </div>
             </div>
         </div>

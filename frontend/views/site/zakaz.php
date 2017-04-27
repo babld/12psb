@@ -18,7 +18,7 @@
             <input type="text" name="email" placeholder="Ваша эл. почта" />
         </div>
         <div class="border-emul mb-10">
-            <textarea class="overlay-ta" placeholder="Комментарий"></textarea>
+            <textarea name="mess" class="overlay-ta" placeholder="Комментарий"></textarea>
         </div>
         <div class="border-emul clearfix">
             <input name="submit" type="submit" value="Связаться со мной" class="but-default"/>

@@ -70,7 +70,7 @@ $this->params['breadcrumbs'][] = "Контакты";
                 </a>
                 <form class="send contacts__form">
                     <div class="border-emul mb-10">
-                        <textarea class="contacts__form-ta"
+                        <textarea name="mess" class="contacts__form-ta"
                                   placeholder="Есть вопросы по покупке стендов ТНВД и Common Rail? Я оперативно отвечу на них! Напишите Ваш вопрос здесь"></textarea>
                     </div>
                     <div class="border-emul mb-10">
