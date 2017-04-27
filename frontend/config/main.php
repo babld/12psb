@@ -49,7 +49,12 @@ return [
                 '<action:contacts>'     => 'site/<action>',
                 '<action:search>'       => 'site/<action>',
                 '<action:delivery>'     => 'site/<action>',
+                '<action:zakaz>'        => 'site/<action>',
                 '<catalog:[\w_\/-]+>'   => 'site/catalog',
+
+
+
+
             ],
         ],
 

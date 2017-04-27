@@ -1803,3 +1803,52 @@ textarea:-ms-input-placeholder      {color:#ccc;}
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
+
+/* overlay */
+.overlay {
+    padding:15px;
+}
+.overlay__manager {
+   background: #fafafa;
+}
+
+.overlay__manager img {
+    display: block;
+}
+
+.overlay__form {
+    float: right;
+    width: 50%;
+}
+
+.overlay input,
+.overlay textarea {
+    width: 100%;
+    resize: none;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    border:none;
+    padding: 0 10px;
+    outline:none;
+    display: block;
+}
+
+.overlay-ta {
+    height:144px;
+}
+
+.overlay__form label.error {
+    color: red;
+    width: 100%;
+    background: pink;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom:3px;
+    display: none !important;
+}
+
+.overlay__form .error {
+    border: 2px solid red;
+}
+/* /overlay */

@@ -18,7 +18,6 @@ $(document).ready(function() {
         nav:false
     });
 
-
     var owl = $('.order-stend-list');
 	owl.owlCarousel({
 		margin: 10,
@@ -120,8 +119,7 @@ $(document).ready(function() {
             } // success
         }); // ajax
     }); // on
-    
-    
+
     function cityIP(){
         $.getJSON('/common/user_info.js.php',
 		

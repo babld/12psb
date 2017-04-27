@@ -15,7 +15,6 @@ class AppAsset extends AssetBundle
         'css/fonts.css',
         'css/bootstrap.css',
         'css/style.css',
-        'css/index.css',
         'css/overlay.css',
         '/css/jquery.fancybox.css',
         'css/font-awesome.css',

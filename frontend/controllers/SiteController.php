@@ -183,6 +183,13 @@ class SiteController extends Controller
         return $this->render('delivery');
     }
 
+    public function actionZakaz($name) {
+
+        return $this->renderAjax('zakaz', [
+            'name' => $name
+        ]);
+    }
+
     public function breadcrumb($category) {
         $id = Category::findOne(['slug' => $category])->id;
         $link = [];

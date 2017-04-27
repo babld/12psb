@@ -84,7 +84,7 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
                     <a href="#">Рассчитать доставку</a>
                 </div>*/ ?>
                 <div class="but-default tovar__order">
-                    <a href="#">Заказать</a>
+                    <a href="/zakaz?name=<?=$product->code?>" class="fancybox fancybox.ajax">Заказать</a>
                 </div>
             </div>
         </div>
