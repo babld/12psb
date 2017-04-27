@@ -71,11 +71,13 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
             <div class="tovar__head clearfix">
                 <h1><?=$product->name?></h1>
                 <div class="tovar__prices">
-                    <div class="fl-l tovar__price-old gray-bg">
-                        <div class="crossing">
-                            <?=$priceOld . ' ' . $cur?>
+                    <?php if($priceArr[0]->price_old):?>
+                        <div class="fl-l tovar__price-old gray-bg">
+                            <div class="crossing">
+                                <?=$priceOld . ' ' . $cur?>
+                            </div>
                         </div>
-                    </div>
+                    <?php endif;?>
                     <div class="tovar__price tovar__price-bg">
                         <?=$price . ' ' . $cur?>
                     </div>

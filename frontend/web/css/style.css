@@ -1587,6 +1587,7 @@ table.reviews-table td {
     line-height: 19px;
     font-size: 16px;
     text-align: justify;
+    margin-bottom:20px;
 }
 
 .tovar__price {
