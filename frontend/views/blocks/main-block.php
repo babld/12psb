@@ -23,14 +23,14 @@ $cur = "р.";
                                 <div class="main-block-annonce">
                                     <div class="main-block-title"><?=$good['name']?></div>
                                     <div class="main-block-prices">
-                                        <?php if($good['price'][0]->price != NULL):?>
+                                        <?php if($good['price'][0]->price_old != NULL):?>
                                             <div class="main-block-old-price">
-                                                <?=number_format($good['price'][0]->price, 0, "", " ") . " $cur"?>
+                                                <?=number_format($good['price'][0]->price_old, 0, "", " ") . " $cur"?>
                                             </div>
                                         <?php endif;?>
-                                        <?php if($good['price'][0]->price_old != NULL):?>
+                                        <?php if($good['price'][0]->price != NULL):?>
                                             <div class="main-block-new-price tovar__price-bg">
-                                                <?=number_format($good['price'][0]->price_old, 0, '', ' ') . " $cur"?>
+                                                <?=number_format($good['price'][0]->price, 0, '', ' ') . " $cur"?>
                                             </div>
                                         <?php endif;?>
                                     </div>
