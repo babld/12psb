@@ -18,6 +18,24 @@ $(document).ready(function() {
         nav:false
     });
 
+	$(".certs__gallery").owlCarousel({
+        margin: 10,
+        autoplay: true,
+        nav: false,
+        loop: false,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 2
+            },
+            900: {
+                items: 3
+            }
+        }
+	});
+
     var owl = $('.order-stend-list');
 	owl.owlCarousel({
 		margin: 10,

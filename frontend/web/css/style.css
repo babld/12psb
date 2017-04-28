@@ -255,7 +255,16 @@ h2.title {
     margin-right:122px;
     line-height: 15px;
 }
+@media screen and (max-width: 400px) {
+    .footer__info {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
 
+.footer__info a {
+    color: #a2ee76;
+}
 .footer__info-item {
     margin-bottom: 9px;
 }
@@ -266,6 +275,12 @@ h2.title {
     overflow: hidden;
     font-size: 15px;
     margin-top:20px;
+}
+@media screen and (max-width: 600px) {
+    .footer-company-cities {
+        width: 100%;
+        float: none;
+    }
 }
 
 .footer-company-cities li {
@@ -278,7 +293,7 @@ h2.title {
 }
 
 .footer-fillials li.active {
-    background: url(../i/tre.png) no-repeat 0 0;
+    background: url(../i/tre.png) no-repeat 0 5px;
     text-decoration: underline;
     color: #fff;
 }
@@ -301,7 +316,15 @@ h2.title {
     padding-left: 36px;
     line-height: 22px;
 }
-
+@media screen and (max-width: 600px) {
+    .footer-right {
+        float: none;
+        text-align: center;
+    }
+    .footer-contacts-phone {
+        display: inline;
+    }
+}
 .footer-contacts-address {
     background: url(../i/home-ico.png) no-repeat;
     padding-left: 36px;
@@ -1138,7 +1161,7 @@ a {
 .pluses-bottom-line {
     background: url("../i/pluses-bottom-line.png") no-repeat center;
     position: absolute;
-    bottom: -36px;
+    bottom: -35px;
     height: 36px;
     width: 100%;
     z-index: 1;
@@ -1229,7 +1252,7 @@ a {
     width: 100%;
     background: url(../i/green-bottom-line.png) no-repeat center;
     position: absolute;
-    bottom: -36px;
+    bottom: -35px;
     height: 36px;
     z-index: 1;
 }
@@ -1242,6 +1265,13 @@ a {
     margin-right: 12px;
     border: 6px solid #32852a;
     border-radius: 13px;
+}
+
+@media screen and (max-width: 400px) {
+    .certs img {
+        width: 100%;
+        height:auto;
+    }
 }
 
 /* why we */
@@ -1385,7 +1415,7 @@ a {
     width: 100%;
     background: url(../i/green-bottom-line.png) no-repeat center;
     position: absolute;
-    bottom: -36px;
+    bottom: -35px;
     height: 36px;
     z-index: 1;
 }
@@ -1480,9 +1510,41 @@ table.reviews-table td {
     position: relative;
 }
 
+.footer-manager-wrap img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+@media screen and (max-width: 700px) {
+    .footer-manager-wrap {
+        float: none;
+        width: 256px;
+        margin: 0 auto;
+        margin-bottom:15px;
+    }
+}
+
 .footer-form-wrap {
     float: right;
-    width: 818px;
+    width: 70%;
+}
+
+@media screen and (max-width: 950px) {
+    .footer-form-wrap {
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .footer-form-wrap {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .footer-form-wrap {
+        width:100%;
+    }
 }
 
 .feedback-textarea {
@@ -1496,7 +1558,7 @@ table.reviews-table td {
     border-left: 3px solid #747576;
     border-bottom: none;
     border-right: none;
-    background: url("../i/white-bg.png");
+    background: rgba(255,255,255,0.5);
     border-radius: 10px;
     color: #000;
     outline: none;
@@ -1508,6 +1570,7 @@ table.reviews-table td {
     text-align: center;
     font-size: 19px;
     line-height: 21px;
+    margin-bottom:10px;
 }
 
 .footer-form-title span {
@@ -1526,23 +1589,16 @@ table.reviews-table td {
 }
 
 .feedback-submit {
-    background: url("../i/feedback-but.png") no-repeat;
-    width: 235px;
-    height: 43px;
-    border: none;
-    float: right;
-    color: #fff;
-    font-size: 19px;
-    cursor: pointer;
-    margin-top: 12px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin-top: 18px;
+    padding: 4px 11px;
 }
-
-.feedback-submit:hover {
-    background-position: 0 -42px;
-}
-
-.feedback-submit:active {
-    background-position: 0 -84px;
+@media screen and (max-width: 450px) {
+    .feedback-submit {
+        width: 100%;
+    }
 }
 
 .feedback-phone-wrapper {
@@ -1551,7 +1607,16 @@ table.reviews-table td {
 }
 
 .feedback-phone {
+    width: 177px;
     padding-left: 26px;
+}
+@media screen and (max-width: 450px) {
+    .feedback-phone-wrapper {
+        width: 100%;
+    }
+    .feedback-phone {
+        width: 100%;
+    }
 }
 
 .feedback-phone-wrapper i {
@@ -1720,8 +1785,7 @@ table.reviews-table td {
     color: #000;
 }
 
-.article table tr:first-child td,
-.article table th td {
+.article table tr th {
     background: #333;
     color: #fff;
 }
