@@ -9,16 +9,17 @@ $cur = "р.";
                 <?php foreach($goods as $good) :
                     if($good['is_promo'] == "yes"):?>
                         <div class="main-block-slider-item">
-                            <a href="<?=$good['detailUrl']?>">
+                            <a href="<?=$good['detailUrl']?>" class="main-block__imglink">
                                 <img width="320" height="291"
                                      src="/images/store/<?=$good['mainImage']->filePath;?>"
                                      class="main-block-12psb"/>
+                                <?php if($good['available'] == "yes"):?>
+                                    <i class="main-block-stock">В Наличии</i>
+                                <?php else: ?>
+                                    <i class="main-block-stock">Под заказ</i>
+                                <?php endif;?>
                             </a>
-                            <?php if($good['available'] == "yes"):?>
-                                <div class="main-block-stock">В Наличии</div>
-                            <?php else: ?>
-                                <div class="main-block-stock">Под заказ</div>
-                            <?php endif;?>
+
                             <div class="main-block-announce-wrap">
                                 <div class="main-block-annonce">
                                     <div class="main-block-title"><?=$good['name']?></div>

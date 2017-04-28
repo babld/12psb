@@ -41,7 +41,7 @@ $menuItems = [
 ];?>
 <div class="fixed-menu">
     <div class="container">
-        <div class="navigator navbar row">
+        <div class="navigator navbar">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#responsive-menu">
                     <span class="sr-only">Открыть навигацию</span>
@@ -50,11 +50,11 @@ $menuItems = [
                     <span class="icon-bar"></span>
                 </button>
             </div>
-            <div class="navbar-collapse collapse" id="responsive-menu">
-                <div class="nav navbar-nav navbar-right">
+            <div class="row navbar-collapse collapse header__menu" id="responsive-menu">
+                <div class="fl-r hidden-xs">
                     <div class="header-email">
                         <a href="mailto:<?=Yii::getAlias('@mail')?>">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <i class="fa fa-envelope corp-col" aria-hidden="true"></i>
                             <span><?=Yii::getAlias('@mail')?></span>
                         </a>
                     </div>
@@ -65,6 +65,7 @@ $menuItems = [
                         </a>
                     </div>
                 </div>
+
                 <ul class="nav navbar-nav">
                     <li><a href="/">Главная</a></li>
                     <li class="dropdown">
@@ -81,17 +82,20 @@ $menuItems = [
                     <li>
                         <a href="/delivery/">Доставка и оплата</a>
                     </li><?php /*
-                    <li>
-                        <a href="/contacts/">Видео по работе</a>
-                    </li>*/?>
+                <li>
+                    <a href="/contacts/">Видео по работе</a>
+                </li>*/?>
                     <li>
                         <a href="/contacts/">Контакты</a>
                     </li>
                 </ul>
+
+
             </div>
         </div>
     </div>
 </div>
+
 <div class="header gray-block-bg">
     <div class="container">
         <div class="row">

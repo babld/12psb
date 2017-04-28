@@ -37,9 +37,7 @@
   position: absolute;
   width: 100%;
 }
-.main-block .owl-theme .owl-dots {
-  bottom: -36px;
-}
+
   .owl-theme .owl-dots .owl-dot {
     display: inline-block;
     zoom: 1;

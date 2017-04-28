@@ -1560,7 +1560,7 @@ pre code {
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
-}
+}/*
 @media (min-width: 768px) {
   .container {
     width: 750px;
@@ -1570,7 +1570,7 @@ pre code {
   .container {
     width: 970px;
   }
-}
+}*/
 @media (min-width: 1200px) {
   .container {
     width: 1170px;
@@ -4260,11 +4260,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-toggle {
   position: relative;
-  float: right;
-  margin-right: 15px;
   padding: 9px 10px;
-  margin-top: 8px;
-  margin-bottom: 8px;
   background-color: transparent;
   background-image: none;
   border: 1px solid transparent;
