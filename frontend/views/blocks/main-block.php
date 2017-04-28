@@ -15,9 +15,9 @@ $cur = "р.";
                                      class="main-block-12psb"/>
                                 <?php if($good['available'] == "yes"):?>
                                     <i class="main-block-stock">В Наличии</i>
-                                <?php else: ?>
+                                <?php else:?>
                                     <i class="main-block-stock">Под заказ</i>
-                                <?php endif;?>
+                                <?php endif?>
                             </a>
 
                             <div class="main-block-announce-wrap">

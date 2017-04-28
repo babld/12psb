@@ -1069,9 +1069,9 @@ a {
 
 /* about */
 .about {
-    background: url("../i/about-bg.jpg") no-repeat center 0;
+    background: url("../i/about-bg.jpg") center 0;
     padding-top: 47px;
-    height: 586px;
+    padding-bottom: 30px;
 }
 
 .about-title {
@@ -1106,9 +1106,9 @@ a {
 /* /about */
 
 .pluses {
+    padding-bottom:20px;
     background: #f7f7f8;
     padding-top: 13px;
-    height: 295px;
     position: relative;
 }
 
@@ -1145,6 +1145,8 @@ a {
     padding-bottom: 10px;
     margin-bottom: 10px;
 }
+
+
 
 .plus-item.left {
     width: 357px;
@@ -1254,44 +1256,69 @@ a {
     color: #269e00;
 }
 
+.why-we-table tr td {
+    padding: 5px;
+}
+
+.why-we-item .positive, .why-we-item .negative {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .why-we-table tr td {
+        float: left;
+    }
+
+    .why-we-table th.negative, .why-we-table th.positive {
+        display: none;
+    }
+
+    .why-we-item .positive, .why-we-item .negative {
+        display: block;
+        text-align: center;
+    }
+}
+
 .why-we-table .positive.posrednik .why-we-icon {
-    background: url(../i/positive-posrednik.png) no-repeat 183px 54px;
+    background: url(../i/positive-posrednik.png) no-repeat center;
     height: 109px;
     margin-bottom: 3px;
 }
 
 .why-we-table .negative.posrednik .why-we-icon {
-    background: url(../i/negative-posrednik.png) no-repeat 157px 13px;
+    background: url(../i/negative-posrednik.png) no-repeat center;
     height: 109px;
 }
 
+
+
 .why-we-table .positive.price .why-we-icon {
-    background: url(../i/positive-price.png) no-repeat 214px 11px;
+    background: url(../i/positive-price.png) no-repeat center;
     height: 71px;
 }
 
 .why-we-table .negative.price .why-we-icon {
-    background: url(../i/negative-price.png) no-repeat 214px 11px;
+    background: url(../i/negative-price.png) no-repeat center;
     height: 71px;
 }
 
 .why-we-table .positive.delivery .why-we-icon {
-    background: url(../i/positive-delivery.png) no-repeat 171px 17px;
+    background: url(../i/positive-delivery.png) no-repeat center;
     height: 109px;
 }
 
 .why-we-table .negative.delivery .why-we-icon {
-    background: url(../i/negative-delivery.png) no-repeat 211px 10px;
+    background: url(../i/negative-delivery.png) no-repeat center;
     height: 102px;
 }
 
 .why-we-table .positive.q .why-we-icon {
-    background: url(../i/positive-q.png) no-repeat 175px 26px;
+    background: url(../i/positive-q.png) no-repeat center;
     height: 153px;
 }
 
 .why-we-table .negative.q .why-we-icon {
-    background: url(../i/negative-q.png) no-repeat 195px 9px;
+    background: url(../i/negative-q.png) no-repeat center;
     height: 124px;
 }
 
@@ -1306,7 +1333,6 @@ a {
     background: #fbfcfd;
     border: 3px solid #a5a5a5;
     border-radius: 15px;
-    width: 409px;
     margin: 0 auto;
     padding: 3px 8px 10px 6px;
     text-align: justify;

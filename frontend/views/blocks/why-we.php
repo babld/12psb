@@ -12,6 +12,7 @@
             </tr>
             <tr>
                 <td class="why-we-item positive posrednik">
+                    <div class="positive">Как работаем мы</div>
                     <div class="why-we-icon"></div>
                     <div class="why-we-title">Работаем без посредников</div>
                     <div class="why-we-descr">Основной деятельностью компании СибирьТрансАзия является доставка и таможенное оформление оборудования из Китая.
@@ -21,6 +22,7 @@
                         для тестирования ТНВД и Common Rail в наличии и под заказ от китайского производителя "Taian Nantai Experimental Equipment Co. Ltd.".</div>
                 </td>
                 <td class="why-we-item negative posrednik">
+                    <div class="negative">Как работают другие</div>
                     <div class="why-we-icon"></div>
                     <div class="why-we-title">Работа через посредников</div>
                     <div class="why-we-descr">Не редко компании, продающие оборудование для тестирования ТНВД и Common Rail, покупают его у других поставщиков в России.
@@ -31,6 +33,7 @@
             </tr>
             <tr>
                 <td class="why-we-item positive price">
+                    <div class="positive">Как работаем мы</div>
                     <div class="why-we-icon"></div>
                     <div class="why-we-title">Всегда отличные цены</div>
                     <div class="why-we-descr">Мы покупаем стенды ТНВД средними и крупными партиями у одного производителя с 2009 года, и за годы тесного сотрудничества
@@ -40,6 +43,7 @@
                         Вас индивидуальную скидку!</div>
                 </td>
                 <td class="why-we-item negative price">
+                    <div class="negative">Как работают другие</div>
                     <div class="why-we-icon"></div>
                     <div class="why-we-title">Цены завышены</div>
                     <div class="why-we-descr">Компании-посредники, закупающие оборудование ТНВД в Китае, пользуются услугами российских компаний по доставке и растаможке
@@ -51,6 +55,7 @@
             </tr>
             <tr>
                 <td class="why-we-item positive delivery">
+                    <div class="positive">Как работаем мы</div>
                     <div class="why-we-icon"></div>
                     <div class="why-we-title">Быстрая доставка оборудования под заказ</div>
                     <div class="why-we-descr">Не всегда оборудование, которое имеется в России, подходит под требования клиента.
@@ -61,6 +66,7 @@
                         Вашего города от нашего склада).</div>
                 </td>
                 <td class="why-we-item negative delivery">
+                    <div class="negative">Как работают другие</div>
                     <div class="why-we-icon"></div>
                     <div class="why-we-title">Отсутствие нужных стендов в наличии</div>
                     <div class="why-we-descr">В условиях экономического кризиса многие компании, занимающиеся продажей оборудования для тестирования Common Rail и ТНВД,
@@ -72,6 +78,7 @@
             </tr>
             <tr>
                 <td class="why-we-item positive q">
+                    <div class="positive">Как работаем мы</div>
                     <div class="why-we-icon"></div>
                     <div class="why-we-title">Проверенное качество оборудования</div>
                     <div class="why-we-descr">Годы работы с производителем оборудования "Taian Nantai Experimental Equipment" позволили нам убедиться в том, что оборудование
@@ -79,6 +86,7 @@
                         качеству оборудования является лучшей гарантией. Производитель стендов обязуется в рамках годовой гарантии отработать все рекламации.</div>
                 </td>
                 <td class="why-we-item negative q">
+                    <div class="negative">Как работают другие</div>
                     <div class="why-we-icon"></div>
                     <div class="why-we-title">Плохое качество оборудования</div>
                     <div class="why-we-descr">Многие компании в погоне за коммерческой выгодой часто меняют поставщиков оборудования, получая более низкую цену стендов при приобретении.
