@@ -642,7 +642,34 @@ a {
 }
 
 .audiojs .scrubber {
-    width: 67%;
+    width: 61%;
+}
+@media screen and (min-width: 901px) and (max-width: 1100px) {
+    .audiojs .scrubber {
+        width: 56%;
+    }
+}
+@media screen and (min-width: 800px) and (max-width: 900px) {
+    .audiojs .scrubber {
+        width: 48%;
+    }
+}
+@media screen and (max-width: 600px) {
+    .audiojs .scrubber {
+        width: 56%;
+    }
+}
+@media screen and (max-width: 400px) {
+    .audiojs .scrubber {
+        width: 45%;
+    }
+}
+
+
+.audiojs .time {
+    margin-left: 0;
+    float: right;
+    width: 98px;
 }
 
 .audiojs p {
@@ -650,7 +677,7 @@ a {
 }
 
 .audiojs .play-pause {
-    width: 7%;
+    width: 36px;
 }
 
 .fixed-menu {
@@ -1375,9 +1402,16 @@ a {
 
 table.reviews-table td {
     width:50%;
-    padding-left: 35px;
     color: #fff;
-    padding-right: 37px;
+    padding: 0 10px;
+}
+
+@media screen and (max-width: 800px) {
+    table.reviews-table td {
+        width: 100%;
+        float: left;
+        padding:0;
+    }
 }
 
 .review-author {
@@ -1404,6 +1438,25 @@ table.reviews-table td {
     color: #000;
     margin-bottom: 13px;
     line-height: 21px;
+}
+
+@media screen and (max-width: 1000px) {
+    .review-text {
+        height: 205px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .review-text {
+        height: 250px;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .review-text {
+        height: inherit;
+    }
 }
 
 .reviews object {
