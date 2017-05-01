@@ -52,6 +52,7 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
 ?>
 <div class="container article">
     <div class="breadcrumbs">
+        <a href="/" class="breadcrumb">Главная</a>
         <?php foreach($breadcrumbs as $breadcrumb):?>
             <a href="/<?=$breadcrumb['link']?>" class="breadcrumb"><?=$breadcrumb['name']?></a>
         <?php endforeach;?>
@@ -63,8 +64,8 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
             <div class="tovar__gallery owl-carousel owl-theme">
                 <?php foreach($images as $image){?>
                     <div class="tovar__gallery-item">
-                        <?php resize('images/store/' . $image->filePath, 550, 500); // Вызываем функцию?>
-                        <img src="/images/store/<?=$image->filePath?>"/>
+                        <?php resize('images/store/' . $image->filePath, 500, 375); // Вызываем функцию?>
+                        <img src="/images/store/<?=$image->filePath?>" />
                     </div>
                 <?php }?>
             </div>

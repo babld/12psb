@@ -11,7 +11,7 @@ $(document).ready(function() {
 
 	$(".tovar__gallery").owlCarousel({
         items: 1,
-        autoplay: true,
+        autoplay: false,
         //animateOut: 'fadeOut',
         loop: true,
         margin: 10,
