@@ -15,8 +15,8 @@ $this->params['breadcrumbs'][] = "Контакты";
     <h1>Контакты</h1>
     <div class="row">
         <div class="col-md-6">
-            <div>ООО "Консул", ОГРН 1155476008643</div>
-            <div>ИНН 5407203878 / КПП 540701001</div>
+            <p>ООО "Консул", ОГРН 1155476008643</p>
+            <p>ИНН 5407203878 / КПП 540701001</p>
             <div class="YMapWrap border-emul">
                 <div id="YMap">
                     <div class="ymaps-block-address">
@@ -59,32 +59,32 @@ $this->params['breadcrumbs'][] = "Контакты";
             </div>
         </div>
         <div class="col-md-6">
-            <div class="corp-col">Директор</div>
+            <p class="corp-col">Директор</p>
             <div class="contacts__manager-wrap">
-                <div>Балабанов Дмитрий Викторович</div>
+                <p>Балабанов Дмитрий Викторович</p>
 
                 <img src="/i/manager.png" class="contacts__manager-img border-emul"/>
 
             </div>
             <div class="contacts__form-wrap">
-                <a href="skype:coswart">
+                <p><a href="skype:coswart">
                     <i class="fa fa-skype corp-col" aria-hidden="true"></i>
                     <span>coswart</span>
                 </a>
                 <a href="mailto:<?=Yii::getAlias('@mail')?>" class="contacts__email">
                     <i class="fa fa-envelope corp-col" aria-hidden="true"></i>
                     <span><?=Yii::getAlias('@mail')?></span>
-                </a>
+                </a></p>
                 <form class="send contacts__form">
-                    <div class="border-emul mb-10">
+                    <div class="border-emul mb-15">
                         <textarea name="mess" class="contacts__form-ta"
                                   placeholder="Есть вопросы по покупке стендов ТНВД и Common Rail? Я оперативно отвечу на них! Напишите Ваш вопрос здесь"></textarea>
                     </div>
-                    <div class="border-emul mb-10">
+                    <div class="border-emul mb-15">
                         <input type="text" name="phone" placeholder="Ваш телефон" />
                     </div>
                     <div class="border-emul clearfix">
-                        <input type="submit" value="Связаться со мной" class="but-default" />
+                        <input type="submit" value="Связаться со мной" class="but-default contacts__form-submit" />
                     </div>
                 </form>
             </div>

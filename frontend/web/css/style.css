@@ -29,6 +29,10 @@ h2.title {
     margin-bottom:10px;
 }
 
+.mb-15 {
+    margin-bottom:15px;
+}
+
 .header {
     padding-top: 82px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -260,6 +264,10 @@ h2.title {
         margin-left: 0;
         margin-right: 0;
     }
+}
+
+.article a {
+    color: #a2ee76;
 }
 
 .footer__info a {
@@ -534,6 +542,10 @@ span.breadcrumb {
     background: linear-gradient(to bottom,  #fff0e5 0%,#ff4400 86%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff0e5', endColorstr='#ff4400',GradientType=0 );
     border-bottom: 1px solid #ccc;
+}
+
+.but-default a {
+    color: #fff;
 }
 
 .light-block-separator {
@@ -841,9 +853,10 @@ a {
 }
 
 .main-block-title {
-    font-size: 23px;
+    font-size: 21px;
     font-weight: bold;
     margin-bottom: 19px;
+    width: 273px;
 }
 
 .main-block-slider-item {
@@ -987,6 +1000,16 @@ a {
     position: relative;
     padding-bottom: 90px;
     padding-top:60px;
+}
+
+.order:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    height: 21px;
+    background: url(/i/block-bg.png) no-repeat center 0;
 }
 
 .order-bottom {
@@ -2062,7 +2085,9 @@ textarea:-ms-input-placeholder      {color:#ccc;}
 
 }
 
-
+.contacts {
+    margin-bottom:30px;
+}
 .contacts__form-wrap {
     width: 50%;
     float: left;
@@ -2084,14 +2109,21 @@ textarea:-ms-input-placeholder      {color:#ccc;}
     border-radius: 5px;
     font-size: 15px;
     line-height: 22px;
+    padding: 3px 10px;
+    outline:none;
 }
 
 .contacts__form-ta {
-    height: 168px;
+    height: 158px;
+    display: block;
 }
 
 .contacts__form {
     width:100%;
+}
+
+.contacts__form-submit {
+    padding: 5px 0;
 }
 
 .contacts__phones-free,
