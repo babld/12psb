@@ -1825,6 +1825,10 @@ table.reviews-table td {
     width: 53%;
 }
 
+.article img {
+    max-width: 100%;
+}
+
 .article h2,
 .article h3 {
     color: #ff6624;
