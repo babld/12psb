@@ -264,6 +264,8 @@ h2.title {
 
 .footer__info a {
     color: #a2ee76;
+    text-decoration: underline;
+    line-height: 20px;
 }
 .footer__info-item {
     margin-bottom: 9px;
@@ -309,6 +311,7 @@ h2.title {
     border-radius: 0 0 16px 16px;
     color: #000;
     font-size: 15px;
+    width: 185px;
 }
 
 .footer-contacts-phone {
@@ -516,6 +519,23 @@ span.breadcrumb {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff0e5', endColorstr='#ff4400',GradientType=0 );
 }
 
+.but-default:hover {
+    background: #fff0e5;
+    background: -moz-linear-gradient(top,  #fff0e5 9%, #ff4400 99%);
+    background: -webkit-linear-gradient(top,  #fff0e5 9%,#ff4400 99%);
+    background: linear-gradient(to bottom,  #fff0e5 9%,#ff4400 99%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff0e5', endColorstr='#ff4400',GradientType=0 );
+}
+
+.but-default:active {
+    background: #fff0e5;
+    background: -moz-linear-gradient(top,  #fff0e5 0%, #ff4400 86%);
+    background: -webkit-linear-gradient(top,  #fff0e5 0%,#ff4400 86%);
+    background: linear-gradient(to bottom,  #fff0e5 0%,#ff4400 86%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff0e5', endColorstr='#ff4400',GradientType=0 );
+    border-bottom: 1px solid #ccc;
+}
+
 .light-block-separator {
     background: url(/i/pluses-bottom-line.png) center 0;
     height: 36px;
@@ -623,6 +643,7 @@ body {
     line-height: 1.5em;
     color: #000;
     font-family: "Intro", sans-serif;
+    background: #fefefe;
 }
 ol, ul {
     list-style: none;
@@ -1967,10 +1988,14 @@ textarea:-ms-input-placeholder      {color:#ccc;}
 
 .search-form__input {
     width: 100%;
-    border: 1px solid #ff7539;
+    border: 1px solid #a2a2a2;
     height: 28px;
     padding: 0 10px;
     background: transparent;
+}
+
+.search-form__input:focus {
+    border:1px solid #ff7539;
 }
 
 .search-form__submit {
