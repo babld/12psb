@@ -33,8 +33,7 @@
 .modal-quest textarea {
 	height: 80px;
 }
-textarea::-webkit-input-placeholder {color: #87bfc6;}
-textarea:-moz-placeholder {color: #87bfc6;}
+
 
 .modal-thx p {
 	color: #fff;

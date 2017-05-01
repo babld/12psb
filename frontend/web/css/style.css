@@ -393,7 +393,7 @@ h2.title {
 }
 
 span.breadcrumb {
-    color: #aaaaaa;
+    color: #a2a2a2;
 }
 
 .breadcrumb:before {
@@ -1800,11 +1800,16 @@ table.reviews-table td {
     color: #fff;
 }
 
+.article table tr {
+    border-bottom: 1px solid #a2a2a2;
+}
+
 .article tr td {
-    padding: 10px;
+    padding: 5px 10px;
 }
 
 .article table {
+    text-align: justify;
     width: 100%;
     font-size: 14px;
     line-height: 30px;
@@ -1912,7 +1917,10 @@ table.reviews-table td {
     line-height: 19px;
     outline:none;
 }
-
+/*
+textarea::-webkit-input-placeholder {color: #87bfc6;}
+textarea:-moz-placeholder {color: #87bfc6;}
+*/
 .feedback__manager-rang {
     color: #ff6624;
 }
