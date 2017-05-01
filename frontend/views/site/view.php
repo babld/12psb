@@ -50,7 +50,7 @@ $price      = number_format($priceArr[0]->price, 0, "", " ");
 $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
 
 ?>
-<div class="container article">
+<div class="container">
     <div class="breadcrumbs">
         <a href="/" class="breadcrumb">Главная</a>
         <?php foreach($breadcrumbs as $breadcrumb):?>
@@ -58,6 +58,10 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
         <?php endforeach;?>
         <span class="breadcrumb"><?=$product->name?></span>
     </div>
+</div>
+
+<div class="container article">
+
 
     <div class="tovar__main">
         <div class="tovar__gallery-wrap">

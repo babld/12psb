@@ -875,9 +875,9 @@ a {
 
 .main-block-stock {
     position: absolute;
-    top: 229px;
+    top: 182px;
     background: url("/i/white-bg.png");
-    left: 31px;
+    left: 9px;
     width: 168px;
     transform: rotate(-9deg);
     border-radius: 10px;
