@@ -32,12 +32,13 @@ use Imagine\Image\Box;
                                 $height = 240;
                                 $imagePath = $good['mainImage']->filePath;
                                 $path = explode('/', $imagePath);
-                                $filename = $width.'x'.$height . '-' . array_pop($path);
+                                $filename = $width.'x'.$height . '-thumb-' . array_pop($path);
                                 $pathToImg = implode('/', $path);
                                 if(!file_exists(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename)) {
-                                    Image::getImagine()->open(Yii::getAlias('@webroot/images/store/') . $imagePath)->
-                                        thumbnail(new Box($width, $height))->
-                                        save(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename, ['quality' => 90]);
+                                    Image::thumbnail(Yii::getAlias('@webroot/images/store/') . $imagePath, $width, $height)
+                                        ->save(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename, ['quality' => 80]);
+
+
                                 }?>
                                 <img src="<?='/images/cache/' . $pathToImg . '/' . $filename?>" class="order-stend-image"/>
                             </a>
