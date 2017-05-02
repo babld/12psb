@@ -36,7 +36,7 @@ $title = $products[0]->category->name;
             <div class="oborud__image">
                 <a href="<?=$detailUrl?>"><?php
                     $width = 278;
-                    $height = $width * 3 / 4;
+                    $height = 278;
                     $imagePath = $image->filePath;
                     $path = explode('/', $imagePath);
                     $filename = $width.'x'.$height . '-thumb-' . array_pop($path);

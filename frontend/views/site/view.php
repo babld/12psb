@@ -51,7 +51,7 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
                         if(!file_exists(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename)) {
                             Image::getImagine()->open(Yii::getAlias('@webroot/images/store/') . $imagePath)->
                                 thumbnail(new Box($width, $height))->
-                                save(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename, ['quality' => 90]);
+                                save(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename, ['quality' => 100]);
                         }?>
                         <img src="<?='/images/cache/' . $pathToImg . '/' . $filename?>" />
                     </div>
