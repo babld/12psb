@@ -33,13 +33,28 @@
   /* Вызываем функцию с целью уменьшить изображение до ширины в 100 пикселей, а высоту уменьшив пропорционально, чтобы не искажать изображение */
   #resize("image.jpg", 100); // Вызываем функцию
 
-use pistol88\shop\models\Image;
+use pistol88\shop\models\Image as ImagePistol;
 use pistol88\shop\models\Price;
+use yii\imagine\Image;
+use Imagine\Gd;
+use Imagine\Image\Box;
+use Imagine\Image\BoxInterface;
 
-$images     = Image::find()->where(['itemid' => $product->id, 'isMain' => null])->all();
+#Image::crop(Yii::getAlias('@webroot/images/store/1.jpg'), 300, 300)
+#    ->save(Yii::getAlias('@webroot/images/cache/Products/crop-photo.jpg'), ['quality' => 80]);
+
+#Image::thumbnail('@webroot/images/store/1.jpg', 120, 120)
+#    ->save(Yii::getAlias('@webroot/images/cache/Products/crop-photo.jpg'), ['quality' => 80]);
+
+#Image::getImagine()->open(Yii::getAlias('@webroot/images/store/') . ImagePistol::find()->where(['itemid' => $product->id, 'isMain' => 1])->one()->filePath)->
+#    thumbnail(new Box(300, 200))->
+#    save(Yii::getAlias('@webroot/images/cache/Products/crop-photo.jpg') , ['quality' => 90]);
+
+#exit;
+$images     = ImagePistol::find()->where(['itemid' => $product->id, 'isMain' => null])->all();
 
 $mainImg = null;
-if($mainImage = Image::find()->where(['itemid' => $product->id, 'isMain' => 1])->one())
+if($mainImage = ImagePistol::find()->where(['itemid' => $product->id, 'isMain' => 1])->one())
     $mainImg[]  = $mainImage;
 
 $images     = $mainImg ? array_merge($mainImg, $images) : $images;
@@ -61,15 +76,20 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
 </div>
 
 <div class="container article">
-
-
     <div class="tovar__main">
         <div class="tovar__gallery-wrap">
             <div class="tovar__gallery owl-carousel owl-theme">
                 <?php foreach($images as $image){?>
-                    <div class="tovar__gallery-item">
-                        <?php resize('images/store/' . $image->filePath, 500, 375); // Вызываем функцию?>
-                        <img src="/images/store/<?=$image->filePath?>" />
+                    <div class="tovar__gallery-item"><?php
+                        $width = 500;
+                        $height = $width * 3 / 4;
+                        $imagePath = $image->filePath;
+                        $filename = $width.'x'.$height . array_reverse(explode('/', $imagePath))[0];
+
+                        Image::getImagine()->open(Yii::getAlias('@webroot/images/store/') . $imagePath)->
+                            thumbnail(new Box($width, $height))->
+                            save(Yii::getAlias('@webroot/images/cache/') . $imagePath , ['quality' => 90]); ?>
+                        <img src="<?='/images/cache/' . $imagePath?>" />
                     </div>
                 <?php }?>
             </div>

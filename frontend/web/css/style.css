@@ -40,12 +40,26 @@ h2.title {
     margin-bottom: 5px;
 }
 
+
 .header-logo, .footer-logo {
     display: block;
     background: url(../i/logo.png) no-repeat;
     height: 79px;
     width: 306px;
     float: left;
+}
+
+@media screen and (max-width: 400px) {
+    .header-logo {
+        width: 100%;
+        background-size: 90%;
+        background-position: center;
+    }
+
+    .header {
+        padding-top: 50px;
+        padding-bottom: 18px;
+    }
 }
 
 .footer-logo {
@@ -83,6 +97,12 @@ h2.title {
     font-weight: bold;
     font-size: 29.7px;
     margin-bottom: 20px;
+}
+
+@media screen and (max-width: 500px) {
+    .header-title {
+        font-size: 20px;
+    }
 }
 
 .header-subtitle {
@@ -651,11 +671,11 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
 }
+
 body {
     line-height: 1.5em;
     color: #000;
     font-family: "Intro", sans-serif;
-    background: #fefefe;
 }
 ol, ul {
     list-style: none;
@@ -1821,7 +1841,7 @@ table.reviews-table td {
     margin-bottom: 20px;
     float: left;
     max-width: 298px;
-    line-height: 40px;
+    line-height: 30px;
     width: 53%;
 }
 
@@ -2042,6 +2062,11 @@ textarea:-ms-input-placeholder      {color:#ccc;}
     height: auto;
 }
 
+.tovar__gallery-wrap .owl-carousel .owl-item img {
+    margin: 0 auto;
+    width: initial;
+}
+
 @media screen and (max-width: 900px) {
     .main-block-slider.owl-carousel .owl-item img {
         width: 39%;
@@ -2066,7 +2091,7 @@ textarea:-ms-input-placeholder      {color:#ccc;}
 }
 
 .article {
-    margin-bottom:30px;
+    padding-bottom:30px;
 }
 
 .article .nav > li > a {

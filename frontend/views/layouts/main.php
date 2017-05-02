@@ -98,21 +98,21 @@ $menuItems = [
 
 <div class="header gray-block-bg">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                <a href="/" class="header-logo"></a>
-            </div>
-            <div class="col-lg-5">
-                <div class=" header-text">
-                    <div class="header-title">
-                        Стенды ТНВД и Common Rail
-                    </div>
-                    <div class="header-subtitle">
-                        Топливное оборудование в наличии и под заказ.
-                    </div>
+        <div class="row_">
+
+            <a href="/" class="header-logo"></a>
+
+
+            <div class=" header-text">
+                <div class="header-title">
+                    Стенды ТНВД и Common Rail
+                </div>
+                <div class="header-subtitle">
+                    Топливное оборудование в наличии и под заказ.
                 </div>
             </div>
-            <div>
+
+            <div class="header__forms">
                 <form class="header-form send">
                     <i>+7</i>
                     <input type="text" placeholder="(___) ___ __ __" name="phone" class="header-form-phone">
