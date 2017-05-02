@@ -1,4 +1,9 @@
 <?php
+use yii\imagine\Image;
+use Imagine\Gd;
+use Imagine\Image\Box;
+use Imagine\Image\BoxInterface;
+
 $cur = "р.";
 ?>
 <div class="gray-block-bg">
@@ -9,9 +14,20 @@ $cur = "р.";
                 <?php foreach($goods as $good) :
                     if($good['is_promo'] == "yes"):?>
                         <div class="main-block-slider-item">
-                            <a href="<?=$good['detailUrl']?>" class="main-block__imglink">
+                            <a href="<?=$good['detailUrl']?>" class="main-block__imglink"><?php
+                                $width = 320;
+                                $height = $width * 3 / 4;
+                                $imagePath = $good['mainImage']->filePath;
+                                $path = explode('/', $imagePath);
+                                $filename = $width.'x'.$height . '-' . array_pop($path);
+                                $pathToImg = implode('/', $path);
+                                if(!file_exists(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename)) {
+                                    Image::getImagine()->open(Yii::getAlias('@webroot/images/store/') . $imagePath)->
+                                        thumbnail(new Box($width, $height))->
+                                        save(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename, ['quality' => 90]);
+                                }?>
                                 <img width="320" height="291"
-                                     src="/images/store/<?=$good['mainImage']->filePath;?>"
+                                     src="<?='/images/cache/' . $pathToImg . '/' . $filename?>"
                                      class="main-block-12psb"/>
                                 <?php if($good['available'] == "yes"):?>
                                     <i class="main-block-stock">В Наличии</i>

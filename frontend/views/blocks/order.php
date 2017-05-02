@@ -1,4 +1,6 @@
 <?php
+use yii\imagine\Image;
+use Imagine\Image\Box;
 $cur = " р.";
 
 ?>
@@ -27,8 +29,19 @@ $cur = " р.";
                             <?php endif;?>
                         </div>
                         <div class="order-image-wrap">
-                            <a href="<?=$good['detailUrl']?>">
-                                <img src="/images/store/<?=$good['mainImage']->filePath?>" class="order-stend-image"/>
+                            <a href="<?=$good['detailUrl']?>"><?php
+                                $width = 264;
+                                $height = 240;
+                                $imagePath = $good['mainImage']->filePath;
+                                $path = explode('/', $imagePath);
+                                $filename = $width.'x'.$height . '-' . array_pop($path);
+                                $pathToImg = implode('/', $path);
+                                if(!file_exists(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename)) {
+                                    Image::getImagine()->open(Yii::getAlias('@webroot/images/store/') . $imagePath)->
+                                        thumbnail(new Box($width, $height))->
+                                        save(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename, ['quality' => 90]);
+                                }?>
+                                <img src="<?='/images/cache/' . $pathToImg . '/' . $filename?>" class="order-stend-image"/>
                             </a>
                             <div class="order-stend-title"><?=$good['name']?></div>
                         </div>

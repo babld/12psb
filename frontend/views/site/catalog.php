@@ -1,7 +1,6 @@
 <div class="container">
     <div class="breadcrumbs">
-        <a href="/" class="breadcrumb">Главная</a>
-        <?php
+        <a href="/" class="breadcrumb">Главная</a><?php
         $count = count($breadcrumbs);
         for($i = 0; $i < $count; $i++):
             if($i + 1 == $count): ?>
@@ -10,8 +9,6 @@
                 <a href="/<?=$breadcrumbs[$i]['link']?>" class="breadcrumb"><?=$breadcrumbs[$i]['name']?></a>
             <?php endif;?>
         <?php endfor;?>
-
-        <!--span class="breadcrumb">Каталог</span-->
     </div>
 </div>
 <?php
