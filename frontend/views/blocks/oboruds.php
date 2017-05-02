@@ -36,15 +36,14 @@ $title = $products[0]->category->name;
             <div class="oborud__image">
                 <a href="<?=$detailUrl?>"><?php
                     $width = 278;
-                    $height = 209;
+                    $height = 278;
                     $imagePath = $image->filePath;
                     $path = explode('/', $imagePath);
-                    $filename = $width.'x'.$height . '-' . array_pop($path);
+                    $filename = $width.'x'.$height . '-thumb-' . array_pop($path);
                     $pathToImg = implode('/', $path);
                     if(!file_exists(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename)) {
-                        Image::getImagine()->open(Yii::getAlias('@webroot/images/store/') . $imagePath)->
-                        thumbnail(new Box($width, $height))->
-                        save(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename, ['quality' => 90]);
+                        Image::thumbnail(Yii::getAlias('@webroot/images/store/') . $imagePath, $width, $height)
+                            ->save(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename, ['quality' => 80]);
                     }?>
                     <img src="<?='/images/cache/' . $pathToImg . '/' . $filename?>">
                 </a>
