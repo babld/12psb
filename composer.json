@@ -39,7 +39,8 @@
         "league/flysystem": "*",
         "dektrium/yii2-rbac": "1.0.0-alpha@dev",
         "dektrium/yii2-user": "*",
-        "pistol88/yii2-client": "*"
+        "pistol88/yii2-client": "*",
+        "yiisoft/yii2-imagine": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
