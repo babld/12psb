@@ -97,7 +97,7 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
 
         <div class="tovar__info">
             <div class="tovar__head clearfix">
-                <h1><?=$product->name?></h1>
+                <h1 class="title"><?=$product->name?></h1>
                 <div class="tovar__prices">
                     <?php if($priceArr[0]->price_old):?>
                         <div class="fl-l tovar__price-old gray-bg">

@@ -1925,10 +1925,13 @@ table.reviews-table td {
     font-size: 23px;
     font-weight: bold;
     margin-bottom: 20px;
-    float: left;
-    max-width: 298px;
     line-height: 30px;
+}
+
+.article h1.title {
     width: 53%;
+    max-width: 298px;
+    float: left;
 }
 
 .article img {

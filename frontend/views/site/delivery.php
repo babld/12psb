@@ -1,9 +1,11 @@
-
-<div class="container content article">
+<div class="container">
     <div class="breadcrumbs">
         <a href="/" class="breadcrumb">Главная</a>
         <span class="breadcrumb">Доставка и оплата</span>
     </div>
+</div>
+<div class="container content article">
+
 
     <h1>Заказ, доставка и оплата</h1>
 
