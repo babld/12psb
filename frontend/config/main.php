@@ -51,10 +51,6 @@ return [
                 '<action:delivery>'     => 'site/<action>',
                 '<action:zakaz>'        => 'site/<action>',
                 '<catalog:[\w_\/-]+>'   => 'site/catalog',
-
-
-
-
             ],
         ],
 

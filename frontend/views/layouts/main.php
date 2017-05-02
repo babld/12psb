@@ -98,33 +98,27 @@ $menuItems = [
 
 <div class="header gray-block-bg">
     <div class="container">
-        <div class="row_">
-
-            <a href="/" class="header-logo"></a>
-
-
-            <div class=" header-text">
-                <div class="header-title">
-                    Стенды ТНВД и Common Rail
-                </div>
-                <div class="header-subtitle">
-                    Топливное оборудование в наличии и под заказ.
-                </div>
+        <a href="/" class="header-logo"></a>
+        <div class="header-text">
+            <div class="header-title">
+                Стенды ТНВД и Common Rail
             </div>
-
-            <div class="header__forms">
-                <form class="header-form send">
-                    <i>+7</i>
-                    <input type="text" placeholder="(___) ___ __ __" name="phone" class="header-form-phone">
-                    <input type="submit" name="submit" class="header-form-submit but-default" value="Жду звонка">
-                </form>
-                <form class="search-form" action="/search">
-                    <input type="text" name="query" class="search-form__input" placeholder="Поиск.." value="<?=Yii::$app->getRequest()->getQueryParam('query');?>"/>
-                    <button type="submit" value="" class="search-form__submit fa fa-search"></button>
-                </form>
+            <div class="header-subtitle">
+                Топливное оборудование в наличии и под заказ.
             </div>
-
         </div>
+        <div class="header__forms">
+            <form class="header-form send">
+                <i>+7</i>
+                <input type="text" placeholder="(___) ___ __ __" name="phone" class="header-form-phone">
+                <input type="submit" name="submit" class="header-form-submit but-default" value="Жду звонка">
+            </form>
+            <form class="search-form" action="/search">
+                <input type="text" name="query" class="search-form__input" placeholder="Поиск.." value="<?=Yii::$app->getRequest()->getQueryParam('query');?>"/>
+                <button type="submit" value="" class="search-form__submit fa fa-search"></button>
+            </form>
+        </div>
+
     </div>
 </div>
 <?php /*
