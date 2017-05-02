@@ -1,8 +1,6 @@
 <?php
 use yii\imagine\Image;
 use Imagine\Image\Box;
-$cur = " р.";
-
 ?>
 <div class="order">
     <div class="container">
@@ -18,13 +16,13 @@ $cur = " р.";
                             <?php if($good['price'][0]->price_old != NULL):?>
                                 <div class="fl-l tovar__price-old gray-bg">
                                     <div class="crossing">
-                                        <?=number_format($good['price'][0]->price_old, 0, "", " ") . $cur?>
+                                        <?=number_format($good['price'][0]->price_old, 0, "", " ") . Yii::getAlias('@cur')?>
                                     </div>
                                 </div>
                             <?php endif;?>
                             <?php if($good['price'][0]->price != NULL):?>
                                 <div class="tovar__price tovar__price-bg">
-                                    <?=number_format($good['price'][0]->price, 0, "", " ") . $cur?>
+                                    <?=number_format($good['price'][0]->price, 0, "", " ") . Yii::getAlias('@cur')?>
                                 </div>
                             <?php endif;?>
                         </div>

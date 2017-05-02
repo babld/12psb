@@ -564,8 +564,8 @@ span.breadcrumb {
 }
 
 .oborud__image img {
-    width: 100%;
-
+    display: block;
+    margin: 0 auto;
 }
 
 .oborud__title {
