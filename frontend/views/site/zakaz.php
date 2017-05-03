@@ -1,6 +1,6 @@
-<div class="overlay content metal-bg cleafrix">
+<div class="overlay metal-bg cleafrix">
     <h1>Интересует покупка <?=$name?>?</h1>
-    <div class="border-emul fl-l">
+    <div class="border-emul overlay__manager-wrap">
         <div class="overlay__manager">
             <div class="corp-col">Директор</div>
             <div>Балабанов Дмитрий Викторович</div>
