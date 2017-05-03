@@ -10,6 +10,11 @@ if($_POST['submit']) {
     $mes = $mes . "Имя: " . $name . "\n";
     $mes = $mes . "Телефон: " . $phone . "\n";
 
+    if(isset($_POST['email']) and !empty($_POST['email']) ) {
+        $mess   = $_POST['email'];
+        $mes = $mes . "Email: $mess \n";
+    }
+
     if(isset($_POST['mess']) and !empty($_POST['mess']) ) {
         $mess   = $_POST['mess'];
         $mes = $mes . "Cообщение: " . $mess . "\n";
