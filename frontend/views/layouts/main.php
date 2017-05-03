@@ -89,8 +89,6 @@ $menuItems = [
                         <a href="/contacts/">Контакты</a>
                     </li>
                 </ul>
-
-
             </div>
         </div>
     </div>
