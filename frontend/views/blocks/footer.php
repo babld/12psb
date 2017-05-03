@@ -14,7 +14,7 @@
             <ul class="footer__info">
                 <li class="footer__info-item">Топливное оборудование напрямую от поставщиков в наличии и под заказ</li>
                 <li class="footer__info-item"><a href="/catalog">Полный каталог оборудования</a></li>
-                <li class="footer__info-item"><a href="/catalog/stendy-tnvd">Оборудование для диагностики Common Rail</a></li>
+                <li class="footer__info-item"><a href="/catalog/tnvd">Оборудование для диагностики Common Rail</a></li>
                 <li class="footer__info-item"><a href="/catalog/common-rail">Стенды для тестирования ТНВД</a></li>
             </ul>
             <div class="footer-company-cities">

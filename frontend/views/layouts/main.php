@@ -75,7 +75,7 @@ $menuItems = [
                         </a>
                         <ul id="topnav" class="dropdown-menu" style="display: none;">
                             <li><a href="/catalog"><?=$catalogLabel?></a></li>
-                            <li><a href="/catalog/stendy-tnvd">Стенды ТНВД</a></li>
+                            <li><a href="/catalog/tnvd">Стенды ТНВД</a></li>
                             <li><a href="/catalog/common-rail">Стенды Common Rail</a></li>
                         </ul>
                     </li>
