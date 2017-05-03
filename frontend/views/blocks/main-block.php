@@ -26,8 +26,7 @@ $cur = "р.";
                                         thumbnail(new Box($width, $height))->
                                         save(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename, ['quality' => 90]);
                                 }?>
-                                <img width="320" height="291"
-                                     src="<?='/images/cache/' . $pathToImg . '/' . $filename?>"
+                                <img src="<?='/images/cache/' . $pathToImg . '/' . $filename?>"
                                      class="main-block-12psb"/>
                                 <?php if($good['available'] == "yes"):?>
                                     <i class="main-block-stock">В Наличии</i>

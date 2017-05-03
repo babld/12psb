@@ -2276,7 +2276,7 @@ textarea:-ms-input-placeholder      {color:#ccc;}
 }
 
 .main-block-slider.owl-carousel .owl-item img {
-    width: 320px;
+    width:initial;
     height: auto;
 }
 
