@@ -1,5 +1,5 @@
 <div class="overlay content metal-bg cleafrix">
-    <h1>Интересует покупка стенда <?=$name?>?</h1>
+    <h1>Интересует покупка <?=$name?>?</h1>
     <div class="border-emul fl-l">
         <div class="overlay__manager">
             <div class="corp-col">Директор</div>

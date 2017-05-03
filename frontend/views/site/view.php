@@ -38,6 +38,21 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
 <div class="container article">
     <div class="tovar__main">
         <div class="tovar__gallery-wrap">
+            <div class="tovar__head-xsv">
+                <h1 class="title"><?=$product->name?></h1>
+                <div class="tovar__prices">
+                    <?php if($priceArr[0]->price_old):?>
+                        <div class="fl-l tovar__price-old gray-bg">
+                            <div class="crossing">
+                                <?=$priceOld . Yii::getAlias('@cur')?>
+                            </div>
+                        </div>
+                    <?php endif;?>
+                    <div class="tovar__price tovar__price-bg">
+                        <?=$price . Yii::getAlias('@cur')?>
+                    </div>
+                </div>
+            </div>
             <div class="tovar__gallery owl-carousel owl-theme">
                 <?php foreach($images as $image){?>
                     <div class="tovar__gallery-item"><?php
@@ -60,7 +75,7 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
         </div>
 
         <div class="tovar__info">
-            <div class="tovar__head clearfix">
+            <div class="tovar__head tovar__head-xsh clearfix">
                 <h1 class="title"><?=$product->name?></h1>
                 <div class="tovar__prices">
                     <?php if($priceArr[0]->price_old):?>
@@ -84,7 +99,7 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
                     <a href="#">Рассчитать доставку</a>
                 </div>*/ ?>
                 <div class="but-default tovar__order">
-                    <a href="/zakaz?name=<?=$product->code?>" class="fancybox fancybox.ajax">Заказать</a>
+                    <a href="/zakaz?name=<?=str_replace(' ', '%20', $product->code)?>" class="fancybox fancybox.ajax">Заказать</a>
                 </div>
             </div>
         </div>

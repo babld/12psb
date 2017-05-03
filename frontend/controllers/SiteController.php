@@ -148,8 +148,6 @@ class SiteController extends Controller
     public function actionCatalog($catalog) {
 
         $category = $this->urlcheck($catalog);
-
-
         if($categoryIds = $this->categoryIds($category)){
             foreach($categoryIds as $id) {
                 $products[] = [
