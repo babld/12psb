@@ -112,6 +112,8 @@ class SiteController extends Controller
                 where(['id' => $categoryData->parent_id])->
                 one();
 
+
+
             $category[] = $categoryData->slug;
 
             $category = array_reverse($category);
@@ -131,7 +133,8 @@ class SiteController extends Controller
                 'text'          => $good->text,
                 'short_text'    => $good->short_text,
                 'name'          => $good->name,
-                'is_popular'    => $good->is_popular
+                'is_popular'    => $good->is_popular,
+                'product'       => $good,
             ];
         }
 
@@ -146,7 +149,6 @@ class SiteController extends Controller
      * @throws HttpException
      */
     public function actionCatalog($catalog) {
-
         $category = $this->urlcheck($catalog);
         if($categoryIds = $this->categoryIds($category)){
             foreach($categoryIds as $id) {

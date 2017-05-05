@@ -1,5 +1,6 @@
 <?php
 use yii\imagine\Image;
+use pistol88\shop\models\Category;
 use Imagine\Image\Box;
 ?>
 <div class="order">
@@ -10,6 +11,7 @@ use Imagine\Image\Box;
         <?php /*<div class="order-stends-title">Стенды для тестирования отечественных и импортных ТНВД</div>*/ ?>
         <div class="order-stend-list owl-carousel owl-theme">
             <?php foreach($goods as $good):
+                $product = $good['product'];
                 if($good['is_popular'] == "yes"):?>
                     <div class="order-stend">
                         <div class="tovar__prices">
@@ -37,14 +39,24 @@ use Imagine\Image\Box;
                                 if(!file_exists(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename)) {
                                     Image::thumbnail(Yii::getAlias('@webroot/images/store/') . $imagePath, $width, $height)
                                         ->save(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename, ['quality' => 80]);
-
-
                                 }?>
                                 <img src="<?='/images/cache/' . $pathToImg . '/' . $filename?>" class="order-stend-image"/>
                             </a>
                             <div class="order-stend-title"><?=$good['name']?></div>
                         </div>
-                        <a href="<?=$good['detailUrl']?>" class="order-stend__button but-default">
+                        <?php
+                        #Временное решение. Переделать
+                        $tmpUrl = '';
+                        if(Category::findOne(['id' => Category::findOne(['id' => $product->category->parent_id])->parent_id])) {
+                            $tmpUrl = Category::findOne(['id' => Category::findOne(['id' => $product->category->parent_id])->parent_id])->slug . '/';
+                        }
+                        $detailUrl = '/' .
+                            $tmpUrl .
+                            Category::findOne(['id' => $product->category->parent_id])->slug . '/' .
+                            $product->category->slug . '/' .
+                            $product->slug;
+                        ?>
+                        <a href="<?=$detailUrl?>" class="order-stend__button but-default">
                             Подробнее
                         </a>
                     </div>
