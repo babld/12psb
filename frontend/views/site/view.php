@@ -10,6 +10,7 @@ use yii\imagine\Image;
 use Imagine\Gd;
 use Imagine\Image\Box;
 use Imagine\Image\BoxInterface;
+use yii\widgets\Breadcrumbs;
 
 $images     = ImagePistol::find()->where(['itemid' => $product->id, 'isMain' => null])->all();
 
@@ -24,15 +25,15 @@ $priceArr   = Price::find()->where(['product_id' => $product->id])->all();
 $price      = number_format($priceArr[0]->price, 0, "", " ");
 $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
 
-?>
+foreach($breadcrumbs as $breadcrumb):
+    $this->params['breadcrumbs'][] = ['label' => $breadcrumb['name'], 'url' => ['/'. $breadcrumb['link']]];
+endforeach;
+$this->params['breadcrumbs'][] = $product->name;?>
+
 <div class="container">
-    <div class="breadcrumbs">
-        <a href="/" class="breadcrumb">Главная</a>
-        <?php foreach($breadcrumbs as $breadcrumb):?>
-            <a href="/<?=$breadcrumb['link']?>" class="breadcrumb"><?=$breadcrumb['name']?></a>
-        <?php endforeach;?>
-        <span class="breadcrumb"><?=$product->name?></span>
-    </div>
+    <?= Breadcrumbs::widget([
+        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+    ]) ?>
 </div>
 
 <div class="container article">

@@ -6,9 +6,16 @@
 /* @var $exception Exception */
 
 use yii\helpers\Html;
+use yii\widgets\Breadcrumbs;
 
 $this->title = $name;
+$this->params['breadcrumbs'][] = $this->title;
 ?>
+<div class="container">
+    <?= Breadcrumbs::widget([
+        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+    ]) ?>
+</div>
 <div class="site-error container article">
 
     <h1><?= Html::encode($this->title) ?></h1>

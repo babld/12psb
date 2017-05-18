@@ -501,16 +501,16 @@ h2.title {
 }
 
 
-.breadcrumbs {
+.breadcrumb {
     margin-top: 20px;
     margin-bottom:20px;
 }
 @media screen and (max-width: 400px){
-    .breadcrumbs {
+    .breadcrumb {
         text-align: center;
     }
 }
-.breadcrumb {
+.breadcrumb li a {
     display: inline-block;
     margin-bottom: 5px;
     line-height: 17px;
@@ -520,14 +520,14 @@ span.breadcrumb {
     color: #a2a2a2;
 }
 
-.breadcrumb:after {
+.breadcrumb li:after {
     content: '>';
     display: inline-block;
     margin-left: 5px;
     color: #000;
 }
 
-.breadcrumb:last-child:after {
+.breadcrumb li:last-child:after {
     content: '';
     margin: 0;
 }

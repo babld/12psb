@@ -1,15 +1,19 @@
+<?php
+use yii\widgets\Breadcrumbs;
+
+$count = count($breadcrumbs);
+for($i = 0; $i < $count; $i++):
+    if($i + 1 == $count):
+        $this->params['breadcrumbs'][] = $breadcrumbs[$i]['name'];
+    else:
+        $this->params['breadcrumbs'][] = ['label' => $breadcrumbs[$i]['name'], 'url' => ['/'. $breadcrumbs[$i]['link']]];
+    endif;
+endfor;?>
+
 <div class="container">
-    <div class="breadcrumbs">
-        <a href="/" class="breadcrumb">Главная</a><?php
-        $count = count($breadcrumbs);
-        for($i = 0; $i < $count; $i++):
-            if($i + 1 == $count): ?>
-                <span class="breadcrumb"><?=$breadcrumbs[$i]['name']?></span>
-            <?php else:?>
-                <a href="/<?=$breadcrumbs[$i]['link']?>" class="breadcrumb"><?=$breadcrumbs[$i]['name']?></a>
-            <?php endif;?>
-        <?php endfor;?>
-    </div>
+    <?= Breadcrumbs::widget([
+        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+    ]) ?>
 </div>
 <?php
 $i = 0;
