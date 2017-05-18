@@ -2087,6 +2087,10 @@ table.reviews-table td {
     }
 }
 
+.dropdown-menu li:hover a {
+    background-color: #eeeeee;
+}
+
 .tovar__price-old {
     padding: 5px;
     width: 50%;
