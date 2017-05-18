@@ -118,11 +118,13 @@ $menuItems = [
             </div>
         </div>
         <div class="header__forms">
-            <form class="header-form send">
-                <i>+7</i>
-                <input type="text" placeholder="(___) ___ __ __" name="phone" class="header-form-phone">
-                <input type="submit" name="submit" class="header-form-submit but-default" value="Жду звонка">
-            </form>
+            <div class="form-wrapper">
+                <form class="header-form send">
+                    <i>+7</i>
+                    <input type="text" placeholder="(___) ___ __ __" name="phone" class="header-form-phone">
+                    <input type="submit" name="submit" class="header-form-submit but-default" value="Жду звонка">
+                </form>
+            </div>
             <form class="search-form" action="/search">
                 <input type="text" name="query" class="search-form__input" placeholder="Поиск.." value="<?=Yii::$app->getRequest()->getQueryParam('query');?>"/>
                 <button type="submit" value="" class="search-form__submit fa fa-search"></button>

@@ -1,6 +1,6 @@
 <?php
 // если была нажата кнопка "Отправить"
-if($_POST['submit']) {
+if(isset($_POST['submit'])) {
     $name   =   substr(htmlspecialchars(trim($_POST['name'])), 0, 1000);
     $phone  =   substr(htmlspecialchars(trim($_POST['phone'])), 0, 1000000);
 

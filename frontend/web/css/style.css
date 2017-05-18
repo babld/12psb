@@ -1959,6 +1959,18 @@ table.reviews-table td {
     font-size: 20px;
 }
 
+.header__forms .thankyou-bot {
+    margin-top: 0;
+    font-size: 20px;
+    line-height: 21px;
+    font-weight: normal;
+    margin-bottom: 6px;
+}
+
+.header__forms .thankyou-bot span {
+    font-size: 11px;
+}
+
 .tovar__gallery {
     position: relative;
 }
