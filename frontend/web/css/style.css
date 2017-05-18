@@ -2416,6 +2416,9 @@ textarea:-ms-input-placeholder      {color:#ccc;}
 .overlay {
     width: 560px;
     padding:15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
 }
 @media screen and (max-width: 500px) {
     .overlay {
