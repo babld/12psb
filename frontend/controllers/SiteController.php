@@ -220,11 +220,11 @@ class SiteController extends Controller
         foreach(array_filter(explode('/', $catalog)) as $item){
             if(!Category::findOne(['slug' => $item])) {
                 if(!$product = Product::findOne(['slug' => $item]))
-                    throw new HttpException(404 ,'Page not found');
+                    throw new HttpException(404 ,'Страница не найдена');
             } else if($i++ == 0 && Category::findOne(['slug' => $item])->parent_id != NULL) {
                 #Устраняем косяк с открытием одной и той же странице по разным ссылкам
                 # Пример: /catalog/stendy-tnvd и /stendy-tnvd
-                throw new HttpException(404 ,'Page not found');
+                throw new HttpException(404 ,'Страница не найдена');
             }
         }
         return $item;
