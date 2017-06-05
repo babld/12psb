@@ -37,7 +37,6 @@ $cur = "р.";
 
                             <div class="main-block-announce-wrap">
                                 <div class="main-block-annonce">
-                                    <div class="main-block-title"><?=$good['name']?></div>
                                     <div class="main-block-prices">
                                         <?php if($good['price'][0]->price_old != NULL):?>
                                             <div class="main-block-old-price">
@@ -50,6 +49,7 @@ $cur = "р.";
                                             </div>
                                         <?php endif;?>
                                     </div>
+                                    <div class="main-block-title"><?=$good['name']?></div>
                                     <div class="main-block-desc">
                                         <p><?=$good['short_text']?></p>
                                     </div>

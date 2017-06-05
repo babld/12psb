@@ -972,9 +972,10 @@ a {
 .main-block-annonce {
     border-radius: 5px;
     background: #fff;
-    padding: 20px 15px 0px 13px;
+    padding: 0 15px 0px 13px;
     width: 535px;
     position: relative;
+    border-top: 1px solid #ccc;
 }
 
 @media screen and (max-width: 900px) {
@@ -1005,11 +1006,19 @@ a {
     font-size: 21px;
     font-weight: bold;
     margin-bottom: 19px;
-    width: 273px;
+    margin-top: 20px;
 }
 
-.main-block-slider-item {
+@media screen and (max-width:730px) and (min-width: 673px) {
+    .main-block-title {
+        clear: both;
+    }
+}
 
+@media screen and (max-width: 500px) {
+    .main-block-title {
+        clear: both;
+    }
 }
 
 @media screen and (max-width: 676px) {
@@ -1024,7 +1033,7 @@ a {
 
 .main-block-stock {
     position: absolute;
-    top: 182px;
+    bottom: 12px;
     background: url("/i/white-bg.png");
     left: 9px;
     width: 168px;
@@ -1040,14 +1049,13 @@ a {
 }
 
 .main-block-new-price, .main-block-old-price {
-    position: absolute;
-    top: 0px;
     width: 125px;
     background: #ccc;
     color: #fff;
     text-align: center;
     font-size: 16px;
     line-height: 32px;
+    float: left;
 }
 
 .main-block-old-price:before {
@@ -1062,7 +1070,13 @@ a {
 
 .main-block-old-price {
     background-position: 0 0;
-    right: 124px;
+    position: relative;
+}
+
+.main-block-prices {
+    float: right;
+    margin-right: -15px;
+    margin-bottom: 20px;
 }
 
 .main-block-new-price {
