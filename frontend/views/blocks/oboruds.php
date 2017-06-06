@@ -60,12 +60,8 @@ $title = $products[0]->category->name;
                 </div>
                 <div class="oborud__foot">
                     <?php if($priceOld):?>
-                        <div class="fl-l">
-                            <div class="gray-bg">
-                                <div class="crossing oborud__old-price">
-                                    <?=number_format($priceOld, 0, '', ' ') . Yii::getAlias('@cur')?>
-                                </div>
-                            </div>
+                        <div class="gray-bg oborud__old-price">
+                            <?=number_format($priceOld, 0, '', ' ') . Yii::getAlias('@cur')?>
                         </div>
                     <?php endif;?>
                     <a href="<?=$detailUrl?>" class="but-default oborud__more fl-r">Подробнее</a>

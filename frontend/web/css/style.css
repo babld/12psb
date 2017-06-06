@@ -563,8 +563,9 @@ span.breadcrumb {
     width: 50%;
     float: left;
     border-left: 1px solid #ccc;
-    height: 277px;
     position: relative;
+    display: table-cell;
+    height: 100%;
 }
 @media screen and (max-width: 415px) {
     .oborud__info {
@@ -658,7 +659,50 @@ span.breadcrumb {
     font-size: 14px;
     line-height: 27px;
     text-align: center;
-    width: 91px;
+    width: 33.33%;
+}
+
+.oborud__price {
+    background: #fff;
+}
+@media screen and (min-width: 768px) and (max-width: 955px) {
+    .oborud__old-price, .oborud__price {
+        width: 50%;
+    }
+    .oborud__more {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .oborud__old-price, .oborud__price {
+        width: 50%;
+    }
+    .oborud__more {
+        display: none;
+    }
+}
+
+.oborud__old-price {
+    position: relative;
+    float: left;
+}
+
+.oborud__old-price:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to top left,
+        rgba(255,0,0,0) 0%,
+        rgba(255,0,0,0) calc(50% - 2px),
+        rgba(255,0,0,1) 50%,
+        rgba(255,0,0,0) calc(50% + 2px),
+        rgba(255,0,0,0) 100%
+    );
 }
 
 .oborud__more {
