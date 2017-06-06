@@ -938,7 +938,7 @@ a {
 .fixed-menu {
     background: url("/i/header-bg.png") no-repeat;
     font-size: 15px;
-    line-height: 47px;
+    line-height: 42px;
     position: fixed;
     width: 100%;
     top: 0;
