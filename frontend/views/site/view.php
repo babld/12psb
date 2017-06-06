@@ -3,7 +3,6 @@
         return trim($val) == "" ? 'class="hidden"' : '';
     }
 
-
 use pistol88\shop\models\Image as ImagePistol;
 use pistol88\shop\models\Price;
 use yii\imagine\Image;
@@ -77,7 +76,6 @@ $this->params['breadcrumbs'][] = $product->name;?>
 
         <div class="tovar__info">
             <div class="tovar__head tovar__head-xsh clearfix">
-                <h1 class="title"><?=$product->name?></h1>
                 <div class="tovar__prices">
                     <?php if($priceArr[0]->price_old):?>
                         <div class="fl-l tovar__price-old gray-bg">
@@ -90,6 +88,7 @@ $this->params['breadcrumbs'][] = $product->name;?>
                         <?=$price . Yii::getAlias('@cur')?>
                     </div>
                 </div>
+                <h1 class="title"><?=$product->name?></h1>
             </div>
             <div class="tovar__text"><?=$product->short_text?></div>
             <div class="tovar__controls">

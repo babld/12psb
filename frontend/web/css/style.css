@@ -369,6 +369,7 @@ h2.title {
     .footer__info {
         margin-left: 0;
         margin-right: 0;
+        width: 100%;
     }
 }
 
@@ -552,7 +553,7 @@ span.breadcrumb {
     }
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 415px) {
     .oborud {
         height:initial;
     }
@@ -565,7 +566,7 @@ span.breadcrumb {
     height: 277px;
     position: relative;
 }
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 415px) {
     .oborud__info {
         width: 100%;
         float: none;
@@ -597,7 +598,7 @@ span.breadcrumb {
     width:50%;
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 415px) {
     .oborud__image {
         float: none;
         width: 100%;
@@ -1256,7 +1257,7 @@ a {
     display: none;
 }
 
-@media screen and (max-width:400px) {
+@media screen and (max-width:640px) {
     .tovar__head-xsv {
         display: block;
     }
@@ -1994,19 +1995,20 @@ table.reviews-table td {
 }
 .tovar__gallery-wrap {
     float: left;
-
-    width: 500px;
+    width: 50%;
 }
 
 
 .tovar__info {
     float: right;
-    width:50%;
+    width:49%;
+    margin-left: 1%;
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 640px) {
     .tovar__gallery-wrap {
         width: 100%;
         float: none;
+        margin-bottom: 25px;
     }
     .tovar__info {
         width: 100%;
@@ -2018,20 +2020,6 @@ table.reviews-table td {
     font-weight: bold;
     margin-bottom: 20px;
     line-height: 30px;
-}
-
-.article h1.title {
-    width: 53%;
-    max-width: 298px;
-    float: left;
-}
-@media screen and (max-width: 400px) {
-    .article h1.title {
-        width: 100%;
-        float: none;
-        max-width:100%;
-        text-align: center;
-    }
 }
 
 .article img {
@@ -2151,7 +2139,13 @@ table.reviews-table td {
     float: right;
     width:47%;
 }
-@media screen and (max-width: 400px) {
+@media screen and (min-width: 640px) and (max-width: 880px) {
+    .article .tovar__prices {
+        float: none;
+        width: 100%;
+    }
+}
+@media screen and (max-width: 640px) {
     .article .tovar__prices {
         float: none;
         width:100%;
@@ -2195,7 +2189,7 @@ table.reviews-table td {
     max-width: 262px;
     float: right;
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 760px) {
     .article__left-col, .article__right-col {
         width: 100%;
         float: none;
