@@ -46,25 +46,27 @@ $this->params['breadcrumbs'][] = "Контакты";
                 <div class="contacts__phones-free">
                     <p><b>Бесплатный номер:</b></p>
                     <i class="fa fa-phone corp-col" aria-hidden="true"></i>
-                    <span><?=Yii::getAlias('@freephone')?></span>
+                    <span>
+                        <a href="tel:<?=Yii::getAlias('@freephone')?>">
+                            <?=Yii::getAlias('@freephone')?>
+                        </a>
+                    </span>
                 </div>
                 <div class="contacts__phones-city">
                     <p><b>Телефоны в городах:</b></p>
-                    <div>Новосибирск: 8-383-207-8860</div>
-                    <div>Москва: 8-499-346-6799</div>
-                    <div>Санкт-Петербург: 8-812-424-3313</div>
-                    <div>Екатеринбург: 8-343-345-6532</div>
-                    <div>Омск: 8-381-297-2030</div>
+                    <div>Новосибирск: <a href="tel:8-383-207-8860">8-383-207-8860</a></div>
+                    <div>Москва: <a href="tel:8-499-346-6799">8-499-346-6799</a></div>
+                    <div>Санкт-Петербург: <a href="tel:8-812-424-3313">8-812-424-3313</a></div>
+                    <div>Екатеринбург: <a href="tel:8-343-345-6532">8-343-345-6532</a></div>
+                    <div>Омск: <a href="tel:8-381-297-2030">8-381-297-2030</a></div>
                 </div>
             </div>
         </div>
         <div class="col-md-6">
-            <p class="corp-col">Директор</p>
             <div class="contacts__manager-wrap">
+                <p class="corp-col">Директор</p>
                 <p>Балабанов Дмитрий Викторович</p>
-
                 <img src="/i/manager.png" class="contacts__manager-img border-emul"/>
-
             </div>
             <div class="contacts__form-wrap">
                 <p><a href="skype:coswart">
