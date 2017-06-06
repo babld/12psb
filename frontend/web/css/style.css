@@ -2088,7 +2088,23 @@ table.reviews-table td {
         line-height: 23px;
     }
 }
+/* responsive video */
+.video-responsive {
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
 
+.video-responsive iframe, .video-responsive object, .video-responsive embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+/* /responsive video */
 .dropdown-menu li:hover a {
     background-color: #eeeeee;
 }
@@ -2347,6 +2363,11 @@ textarea:-ms-input-placeholder      {color:#ccc;}
     background: linear-gradient(to right,  #575757 0%,#808080 6%,#808080 6%,#808080 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#575757', endColorstr='#808080',GradientType=1 );
 }
+@media screen and (max-width: 685px) {
+    .article .nav > li > a {
+        padding: 3px 5px;
+    }
+}
 
 .nav-tabs > li.active > a {
     color: #fff;
@@ -2530,3 +2551,4 @@ textarea:-ms-input-placeholder      {color:#ccc;}
 }
 
 /* /overlay */
+

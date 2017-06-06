@@ -140,8 +140,11 @@ $this->params['breadcrumbs'][] = $product->name;?>
                     if(!trim($product->getField('video')) == "") {
                         foreach (explode(',', $product->getField('video')) as $link) {
                             $link = explode("watch?v=", $link)[1]; ?>
-                            <iframe width="391" height="238" src="https://www.youtube.com/embed/<?= $link ?>"
+                            <div class="video-responsive">
+                                <iframe width="391" height="238" src="https://www.youtube.com/embed/<?= $link ?>"
                                     frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            
                         <?php }
                     }?>
                 </div>
