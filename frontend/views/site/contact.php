@@ -1,17 +1,18 @@
 <?php
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use yii\widgets\Breadcrumbs;
 
 $this->title = 'Contact';
 $this->params['breadcrumbs'][] = "Контакты";
 ?>
 <script src="http://api-maps.yandex.ru/2.0/?load=package.full&amp;lang=ru-RU" type="text/javascript"></script>
+<div class="container">
+    <?= Breadcrumbs::widget([
+        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+    ]) ?>
+</div>
 <div class="container contacts content">
-    <div class="breadcrumbs">
-        <a href="/" class="breadcrumb">Главная</a>
-        <span class="breadcrumb">Контакты</span>
-    </div>
-
     <h1>Контакты</h1>
     <div class="row">
         <div class="col-md-6">

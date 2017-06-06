@@ -1,8 +1,11 @@
+<?php
+use yii\widgets\Breadcrumbs;
+$this->params['breadcrumbs'][] = "Доставка и оплата";
+?>
 <div class="container">
-    <div class="breadcrumbs">
-        <a href="/" class="breadcrumb">Главная</a>
-        <span class="breadcrumb">Доставка и оплата</span>
-    </div>
+    <?= Breadcrumbs::widget([
+        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+    ]) ?>
 </div>
 <div class="container content article">
 
