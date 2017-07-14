@@ -8,7 +8,7 @@
             <item>
                 <title><?=$product->name?></title>
                 <link>http://12psb.ru</link>
-                <description><?=strip_tags($product->short_text)?></description>
+                <description><?=html_entity_decode(strip_tags($product->short_text))?></description>
                 <g:image_link>
                     http://12psb.ru/images/store/<?=$product->image->filePath;?>
                 </g:image_link>

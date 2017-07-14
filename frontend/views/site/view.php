@@ -168,3 +168,10 @@ $this->params['breadcrumbs'][] = $product->name;?>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    var google_tag_params = {
+        ecomm_prodid: '<?=$product->id?>',
+        ecomm_pagetype: 'product',
+        ecomm_totalvalue: '<?=number_format($product->price, 0, '', '')?>',
+    };
+</script>
