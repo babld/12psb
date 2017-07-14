@@ -348,7 +348,14 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
+    public function actionGoogleFeed() {
+        Yii::$app->response->format = \yii\web\Response::FORMAT_RAW;
+        Yii::$app->response->headers->add('Content-Type', 'text/xml');
 
+        return $this->renderPartial('google-feed', [
+            'products' => Product::find()->all()
+        ]);
+    }
 
     /**
      * Signs user up.

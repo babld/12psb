@@ -53,3 +53,4 @@ environments/
 /frontend/tests
 /frontend/web/images/cache/
 robots.txt
+frontend/web/google*
