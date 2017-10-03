@@ -39,6 +39,13 @@ $this->beginPage();?>
             s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(a, s);
         })(window, 'begun_analytics_params');
     </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5GF6P9Q');</script>
+    <!-- End Google Tag Manager -->
 </head>
 
 <body>
@@ -51,6 +58,11 @@ $menuItems = [
     ['label' => 'Видео по работе',      'url' => '/site/video'],
     ['label' => 'Контакты',             'url' => '/site/contact'],
 ];?>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GF6P9Q"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
 <div class="fixed-menu">
     <div class="container">
         <div class="navigator navbar">
@@ -158,7 +170,7 @@ $menuItems = [
 <!--script type="text/javascript" src="//perezvoni.com/files/widgets/655-45810d447a-0-0d447a-7544dbc734e1bf458-c734e1bf4581.js" charset="UTF-8"></script-->
 <script type="text/javascript" src="//cdn.perezvoni.com/widget/js/przv.js?przv_code=1636-cd7fc9fdf15-90f17d74cd7fc9fdf15-fdf15-20074d0a90f1" ></script>
 <script src="http://callibri.ru/api/module/js/v1/callibri.js" type="text/javascript"></script>
-<!--Google analytics-->
+<?php /* <!--Google analytics-->
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -169,13 +181,13 @@ $menuItems = [
     ga('require', 'displayfeatures');
     ga('send', 'pageview');
 
-    /* Accurate bounce rate by time */
+
     if (!document.referrer ||
         document.referrer.split('/')[2].indexOf(location.hostname) != 0)
         setTimeout(function(){
             ga('send', 'event', 'Новый посетитель', location.pathname);
         }, 15000);</script>
-<!--Google analytics-->
+<!--Google analytics--> */ ?>
 <?php /*
 <!-- Код тега ремаркетинга Google -->
 <!--------------------------------------------------
