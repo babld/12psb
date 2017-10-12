@@ -197,7 +197,7 @@ $(document).ready(function() {
 		});
     }
     
-    cityIP();
+    //cityIP();
 
 	$(".footer-fillials li").click(function(){
 		city = $(this).attr("data-city");

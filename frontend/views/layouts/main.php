@@ -1,16 +1,16 @@
-<?php
+    <?php
 
 /* @var $this \yii\web\View */
 /* @var $content string */
 
 use yii\helpers\Html;
-use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
-use yii\widgets\ActiveForm;
 use app\models\SearchForm;
+use app\components\Helper;
 
 $modelSearch = new SearchForm();
+$utmData = Helper::getUtmData();
 
 AppAsset::register($this);
 $this->beginPage();?>
@@ -83,9 +83,9 @@ $menuItems = [
                         </a>
                     </div>
                     <div class="header-phone">
-                        <a href="tel:<?=Yii::getAlias('@freephone')?>">
+                        <a href="tel:<?= $utmData['phone'] ?>">
                             <i class="fa fa-phone" aria-hidden="true"></i>
-                            <span><?=Yii::getAlias('@freephone')?></span>
+                            <span><?= $utmData['phone'] ?></span>
                         </a>
                     </div>
                 </div>
@@ -135,6 +135,9 @@ $menuItems = [
                     <i>+7</i>
                     <input type="text" placeholder="(___) ___ __ __" name="phone" class="header-form-phone">
                     <input type="submit" name="submit" class="header-form-submit but-default" value="Жду звонка">
+                    <?php if($utmData['utm']) : ?>
+                        <input type="hidden" name="utm" value="<?= $utmData['utm'] ?>" />
+                    <?php endif; ?>
                 </form>
             </div>
             <form class="search-form" action="/search">
@@ -142,7 +145,6 @@ $menuItems = [
                 <button type="submit" value="" class="search-form__submit fa fa-search"></button>
             </form>
         </div>
-
     </div>
 </div>
 <?php /*

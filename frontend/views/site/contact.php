@@ -1,10 +1,12 @@
 <?php
-use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
+use app\components\Helper;
 use yii\widgets\Breadcrumbs;
 
 $this->title = 'Contact';
 $this->params['breadcrumbs'][] = "Контакты";
+
+$utmData = Helper::getUtmData();
+
 ?>
 <script src="http://api-maps.yandex.ru/2.0/?load=package.full&amp;lang=ru-RU" type="text/javascript"></script>
 <div class="container">
@@ -48,8 +50,8 @@ $this->params['breadcrumbs'][] = "Контакты";
                     <p><b>Бесплатный номер:</b></p>
                     <i class="fa fa-phone corp-col" aria-hidden="true"></i>
                     <span>
-                        <a href="tel:<?=Yii::getAlias('@freephone')?>">
-                            <?=Yii::getAlias('@freephone')?>
+                        <a href="tel:<?= $utmData['phone'] ?>">
+                            <?= $utmData['phone'] ?>
                         </a>
                     </span>
                 </div>
@@ -89,6 +91,9 @@ $this->params['breadcrumbs'][] = "Контакты";
                     <div class="border-emul clearfix">
                         <input type="submit" value="Связаться со мной" class="but-default contacts__form-submit" />
                     </div>
+                    <?php if($utmData['utm']) : ?>
+                        <input type="hidden" name="utm" value="<?= $utmData['utm'] ?>" />
+                    <?php endif; ?>
                 </form>
             </div>
         </div>

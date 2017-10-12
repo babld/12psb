@@ -92,6 +92,7 @@ class SiteController extends Controller
         $products = Product::find()->all();
         $goods = [];
 
+        //var_dump($_SESSION);exit;
         foreach($products as $good) {
             $category = [];
             $mainImage = Image::find()->where(['itemid' => $good->id, 'isMain' => 1])->one();

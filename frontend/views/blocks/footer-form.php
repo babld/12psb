@@ -1,3 +1,7 @@
+<?php
+use app\components\Helper;
+$utmData = Helper::getUtmData();
+?>
 <div class="footer-form" id="4">
     <div class="container">
         <div class="footer-form-block">
@@ -21,6 +25,9 @@
                             <input type="text" name="phone" class="feedback-input feedback-phone" placeholder="(___) ___ __ __">
                         </div>
                         <input type="submit" name="submit" class="feedback-submit but-default" value="Получить консультацию"/>
+                        <?php if($utmData['utm']) : ?>
+                            <input type="hidden" name="utm" value="<?= $utmData['utm'] ?>" />
+                        <?php endif; ?>
                     </form>
                 </div>
             </div>

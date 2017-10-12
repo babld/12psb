@@ -24,6 +24,10 @@ if(isset($_POST['submit'])) {
         $mes = $mes . "Модель: " . $_POST['model'] . "\n";
     }
 
+    if(isset($_POST['utm']) and !empty($_POST['utm'])) {
+        $mes = $mes . "UTM метка: " . $_POST['utm'] . "\n";
+    }
+
     $mes = $mes . "\n\n- -\nСообщение сгенерировано автоматически.";
 
     // $to - кому отправляем
