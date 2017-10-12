@@ -182,7 +182,7 @@ h2.title {
 }
 
 .header-phone {
-    line-height: 37px;
+    line-height: 39px;
 }
 
 .header-phone a {
@@ -214,7 +214,7 @@ h2.title {
     color: #ff6624;
     font-size: 22px;
     margin-right: 7px;
-    margin-top: 7px;
+    margin-top: 10px;
     float: left;
 }
 
