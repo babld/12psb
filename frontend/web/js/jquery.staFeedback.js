@@ -62,7 +62,6 @@
 		this.find("input[name='phone']").mask("?(999) 999-99-99");
 
         function submit(form){
-			//console.log(form);
 	        $.post(
                 '/ajax-feedback.php',
                 $(form).serialize(),
@@ -72,6 +71,10 @@
         };
 
         function parseResponce(response) {
+            if(typeof(response.post.target)!= "undefined" && "yaCounter24717443" in window) {
+                yaCounter24717443.reachGoal(response.post.target);
+                ga('send', 'event', response.post.target, '2');
+            }
             if(!settings.overlay) {
                 $(".form-wrapper").replaceWith("<div class='thankyou-bot'>Спасибо за заказ. <br/><span>Мы свяжемся с Вами в ближайшее время</span></div>");
             } else {

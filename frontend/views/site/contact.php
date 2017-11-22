@@ -80,21 +80,24 @@ $utmData = Helper::getUtmData();
                     <i class="fa fa-envelope corp-col" aria-hidden="true"></i>
                     <span><?=Yii::getAlias('@mail')?></span>
                 </a></p>
-                <form class="send contacts__form">
-                    <div class="border-emul mb-15">
-                        <textarea name="mess" class="contacts__form-ta"
-                                  placeholder="Есть вопросы по покупке стендов ТНВД и Common Rail? Я оперативно отвечу на них! Напишите Ваш вопрос здесь"></textarea>
-                    </div>
-                    <div class="border-emul mb-15">
-                        <input type="text" name="phone" placeholder="Ваш телефон" />
-                    </div>
-                    <div class="border-emul clearfix">
-                        <input type="submit" value="Связаться со мной" class="but-default contacts__form-submit" />
-                    </div>
-                    <?php if($utmData['utm']) : ?>
-                        <input type="hidden" name="utm" value="<?= $utmData['utm'] ?>" />
-                    <?php endif; ?>
-                </form>
+                <div class="form-wrapper">
+                    <form class="send contacts__form" <?= YII_ENV == 'prod' ? "onsubmit=\"yaCounter24717443.reachGoal('SEARCH'); return true;\"" : ""?>>
+                        <div class="border-emul mb-15">
+                            <textarea name="mess" class="contacts__form-ta"
+                                      placeholder="Есть вопросы по покупке стендов ТНВД и Common Rail? Я оперативно отвечу на них! Напишите Ваш вопрос здесь"></textarea>
+                        </div>
+                        <div class="border-emul mb-15">
+                            <input type="text" name="phone" placeholder="Ваш телефон" />
+                        </div>
+                        <?= YII_ENV == 'prod' ? '<input type="hidden" name="target" value="CONTACTS" />' : '' ?>
+                        <?php if($utmData['utm']) : ?>
+                            <input type="hidden" name="utm" value="<?= $utmData['utm'] ?>" />
+                        <?php endif; ?>
+                        <div class="border-emul clearfix">
+                            <input type="submit" name="submit" value="Связаться со мной" class="but-default contacts__form-submit" />
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

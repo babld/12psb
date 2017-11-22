@@ -942,7 +942,7 @@ a {
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 4;
+    z-index: 12;
     height: 46px;
 }
 
@@ -2064,6 +2064,7 @@ table.reviews-table td {
     font-weight: bold;
     margin-bottom: 20px;
     line-height: 30px;
+    text-transform: none;
 }
 
 .article img {

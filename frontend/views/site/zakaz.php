@@ -1,3 +1,7 @@
+<?php
+use app\components\Helper;
+$utmData = Helper::getUtmData();
+?>
 <div class="overlay metal-bg cleafrix">
     <h1>Интересует покупка <?=$name?>?</h1>
     <div class="form-wrapper">
@@ -25,6 +29,10 @@
             <div class="border-emul mb-10">
                 <textarea name="mess" class="overlay-ta" placeholder="Комментарий"></textarea>
             </div>
+            <?php if($utmData['utm']) : ?>
+                <input type="hidden" name="utm" value="<?= $utmData['utm'] ?>" />
+            <?php endif; ?>
+            <?= YII_ENV == 'prod' ? '<input type="hidden" name="target" value="PRODUCT_LIGHTBOX" />' : '' ?>
             <div class="border-emul clearfix">
                 <input name="submit" type="submit" value="Связаться со мной" class="but-default overlay__button"/>
             </div>

@@ -10,6 +10,9 @@ use Imagine\Gd;
 use Imagine\Image\Box;
 use Imagine\Image\BoxInterface;
 use yii\widgets\Breadcrumbs;
+use app\components\Helper;
+
+$utmData = Helper::getUtmData();
 
 $images     = ImagePistol::find()->where(['itemid' => $product->id, 'isMain' => null])->all();
 
@@ -162,6 +165,10 @@ $this->params['breadcrumbs'][] = $product->name;?>
                 <form class="feedback__form send">
                     <textarea name="message" class="feedback__border feedback__textarea" placeholder="Есть вопросы по покупке стендов ТНВД и Common Rail? Я оперативно отвечу на них! Напишите Ваш вопрос здесь"></textarea>
                     <input name="phone" class="feedback__border feedback__input" placeholder="Ваш телефон" />
+                    <?php if($utmData['utm']) : ?>
+                        <input type="hidden" name="utm" value="<?= $utmData['utm'] ?>" />
+                    <?php endif; ?>
+                    <?= YII_ENV == 'prod' ? '<input type="hidden" name="target" value="PRODUCT" />' : '' ?>
                     <input name="submit" type="submit" class="but-default feedback__submit" value="Связаться со мной"/>
                 </form>
             </div>

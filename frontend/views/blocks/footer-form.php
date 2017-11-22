@@ -14,7 +14,7 @@ $utmData = Helper::getUtmData();
                     <span>Нужна консультация</span> по выбору оборудования для <br/>тестирования ТНВД и Common Rail?
                 </div>
                 <div class="form-wrapper">
-                    <form class="feedback-form send" onsubmit="ga('send', 'event', 'CALLBACK', '2'); yaCounter24717443.reachGoal('CALLBACK_BOT'); return true;">
+                    <form class="feedback-form send">
                         <div class="feedback-input-wrapper">
                             <textarea class="feedback-input feedback-textarea"
                                       placeholder="Ваше сообщение" name="mess"></textarea>
@@ -24,10 +24,11 @@ $utmData = Helper::getUtmData();
                             <i>+7</i>
                             <input type="text" name="phone" class="feedback-input feedback-phone" placeholder="(___) ___ __ __">
                         </div>
-                        <input type="submit" name="submit" class="feedback-submit but-default" value="Получить консультацию"/>
                         <?php if($utmData['utm']) : ?>
                             <input type="hidden" name="utm" value="<?= $utmData['utm'] ?>" />
                         <?php endif; ?>
+                        <?= YII_ENV == 'prod' ? '<input type="hidden" name="target" value="CALLBACK_BOT" />' : '' ?>
+                        <input type="submit" name="submit" class="feedback-submit but-default" value="Получить консультацию"/>
                     </form>
                 </div>
             </div>
