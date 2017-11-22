@@ -163,7 +163,7 @@ $this->params['breadcrumbs'][] = $product->name;?>
                     <img src="/i/manager.png" class="feedback__manager-img" />
                 </div>
                 <form class="feedback__form send">
-                    <textarea name="message" class="feedback__border feedback__textarea" placeholder="Есть вопросы по покупке стендов ТНВД и Common Rail? Я оперативно отвечу на них! Напишите Ваш вопрос здесь"></textarea>
+                    <textarea name="mess" class="feedback__border feedback__textarea" placeholder="Есть вопросы по покупке стендов ТНВД и Common Rail? Я оперативно отвечу на них! Напишите Ваш вопрос здесь"></textarea>
                     <input name="phone" class="feedback__border feedback__input" placeholder="Ваш телефон" />
                     <?php if($utmData['utm']) : ?>
                         <input type="hidden" name="utm" value="<?= $utmData['utm'] ?>" />
