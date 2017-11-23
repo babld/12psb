@@ -1,3 +1,4 @@
+<?php $this->title = "Топливное оборудование в наличии и под заказ." ?>
 <?=$this->render('/blocks/main-block', [
     'goods' => $goods
 ])?>
