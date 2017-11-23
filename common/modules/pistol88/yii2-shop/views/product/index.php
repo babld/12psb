@@ -70,6 +70,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['attribute' => 'id', 'filter' => false, 'options' => ['style' => 'width: 55px;']],
             'name',
             'price',
+            'code',
             ['class' => 'yii\grid\ActionColumn', 'template' => '{update} {delete}']
         ],
     ]); ?>
