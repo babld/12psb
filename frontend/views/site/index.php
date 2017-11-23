@@ -1,4 +1,8 @@
-<?php $this->title = "Топливное оборудование в наличии и под заказ." ?>
+<?php
+$this->title = "Топливное оборудование ТНВД и Common Rail в наличии и под заказ";
+$this->registerMetaTag(['description' => "Купить стенды ТНВД и Common Rail по лучшим ценам"]);
+?>
+
 <?=$this->render('/blocks/main-block', [
     'goods' => $goods
 ])?>
