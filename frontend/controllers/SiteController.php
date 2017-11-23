@@ -92,7 +92,6 @@ class SiteController extends Controller
         $products = Product::find()->all();
         $goods = [];
 
-        //var_dump($_SESSION);exit;
         foreach($products as $good) {
             $category = [];
             $mainImage = Image::find()->where(['itemid' => $good->id, 'isMain' => 1])->one();
@@ -149,10 +148,11 @@ class SiteController extends Controller
      */
     public function actionCatalog($catalog) {
         $category = $this->urlcheck($catalog);
+
         if($categoryIds = $this->categoryIds($category)){
             foreach($categoryIds as $id) {
                 $products[] = [
-                    'product' => Product::findAll(['category_id' => $id])
+                    'product' => Product::find()->where(['category_id' => $id])->orderBy('sort')->all()
                 ];
             }
 
@@ -162,7 +162,8 @@ class SiteController extends Controller
 
             return $this->render('catalog', [
                 'breadcrumbs' => $breadcrumbs,
-                'products' => $products
+                'products' => $products,
+                'category' => Category::findOne(['slug' => $category])
             ]);
         } else {
             $path = array_filter(explode('/', $catalog));

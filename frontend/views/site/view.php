@@ -30,7 +30,12 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
 foreach($breadcrumbs as $breadcrumb):
     $this->params['breadcrumbs'][] = ['label' => $breadcrumb['name'], 'url' => ['/'. $breadcrumb['link']]];
 endforeach;
-$this->params['breadcrumbs'][] = $product->name;?>
+$this->params['breadcrumbs'][] = $product->name;
+
+$title = $product->name;
+$this->title = $title;
+$this->registerMetaTag(['description' => $product->seo->description]);
+?>
 
 <div class="container">
     <?= Breadcrumbs::widget([
@@ -42,7 +47,7 @@ $this->params['breadcrumbs'][] = $product->name;?>
     <div class="tovar__main">
         <div class="tovar__gallery-wrap">
             <div class="tovar__head-xsv">
-                <h1 class="title"><?=$product->name?></h1>
+                <h1 class="title"><?= $title ?></h1>
                 <div class="tovar__prices">
                     <?php if($priceArr[0]->price_old):?>
                         <div class="fl-l tovar__price-old gray-bg">

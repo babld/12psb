@@ -8,7 +8,12 @@ for($i = 0; $i < $count; $i++):
     else:
         $this->params['breadcrumbs'][] = ['label' => $breadcrumbs[$i]['name'], 'url' => ['/'. $breadcrumbs[$i]['link']]];
     endif;
-endfor;?>
+endfor;
+
+$title = $category->name;
+$this->title = $title;
+$this->registerMetaTag(['description' => $category->seo->description]);
+?>
 
 <div class="container">
     <?= Breadcrumbs::widget([
