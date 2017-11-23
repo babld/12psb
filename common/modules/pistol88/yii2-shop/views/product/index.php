@@ -3,8 +3,6 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use pistol88\shop\models\ProductOption;
-use pistol88\shop\models\Category;
-use pistol88\shop\models\Producer;
 use pistol88\shop\models\Price;
 use kartik\export\ExportMenu;
 
@@ -66,7 +64,14 @@ $this->params['breadcrumbs'][] = $this->title;
     echo \kartik\grid\GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
-        'columns' => $productColumns,
+        'columns' => [
+            ['class' => '\kartik\grid\CheckboxColumn'],
+            ['class' => 'yii\grid\SerialColumn'],
+            ['attribute' => 'id', 'filter' => false, 'options' => ['style' => 'width: 55px;']],
+            'name',
+            'price',
+            ['class' => 'yii\grid\ActionColumn', 'template' => '{update} {delete}']
+        ],
     ]); ?>
 
 </div>
