@@ -13,6 +13,7 @@ endfor;
 $title = $category->name;
 $this->title = $title;
 $this->registerMetaTag(['description' => $category->seo->description]);
+$this->registerMetaTag(['og:title' => $title]);
 ?>
 
 <div class="container">
