@@ -35,6 +35,7 @@ $this->params['breadcrumbs'][] = $product->name;
 $title = $product->name;
 $this->title = $title;
 $this->registerMetaTag(['description' => $product->seo->description]);
+$this->registerMetaTag(['og:title' => $product->seo->title]);
 ?>
 
 <div class="container">

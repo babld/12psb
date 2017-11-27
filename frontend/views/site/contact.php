@@ -2,11 +2,12 @@
 use app\components\Helper;
 use yii\widgets\Breadcrumbs;
 
-$this->title = 'Contact';
-$this->params['breadcrumbs'][] = "Контакты";
-
+$title = 'Контакты';
+$this->params['breadcrumbs'][] = $title;
+$this->title = $title;
+$this->registerMetaTag(['description' => 'Контакты 12PSB.RU: ООО "Консул", пр-т Дзержинского, 1/1 офис 71']);
+$this->registerMetaTag(['og:title' => $title]);
 $utmData = Helper::getUtmData();
-
 ?>
 <script src="http://api-maps.yandex.ru/2.0/?load=package.full&amp;lang=ru-RU" type="text/javascript"></script>
 <div class="container">
