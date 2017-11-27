@@ -45,10 +45,10 @@ $this->registerMetaTag(['og:title' => $product->seo->title]);
 </div>
 
 <div class="container article">
-    <div class="tovar__main">
+    <div class="tovar__main" itemscope itemtype="http://schema.org/Product">
         <div class="tovar__gallery-wrap">
             <div class="tovar__head-xsv">
-                <h1 class="title"><?= $title ?></h1>
+                <h1 class="title" itemprop="name"><?= $title ?></h1>
                 <div class="tovar__prices">
                     <?php if($priceArr[0]->price_old):?>
                         <div class="fl-l tovar__price-old gray-bg">
@@ -57,8 +57,9 @@ $this->registerMetaTag(['og:title' => $product->seo->title]);
                             </div>
                         </div>
                     <?php endif;?>
-                    <div class="tovar__price tovar__price-bg">
-                        <?=$price . Yii::getAlias('@cur')?>
+                    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="tovar__price tovar__price-bg">
+                        <span itemprop="price"><?= $price ?></span>
+                        <span itemprop="priceCurrency"><?= Yii::getAlias('@cur')?></span>
                     </div>
                 </div>
             </div>
@@ -77,7 +78,7 @@ $this->registerMetaTag(['og:title' => $product->seo->title]);
                                 thumbnail(new Box($width, $height))->
                                 save(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename, ['quality' => 100]);
                         }?>
-                        <img src="<?='/images/cache/' . $pathToImg . '/' . $filename?>" />
+                        <img itemprop="image" src="<?='/images/cache/' . $pathToImg . '/' . $filename?>" />
                     </div>
                 <?php }?>
             </div>
@@ -97,9 +98,9 @@ $this->registerMetaTag(['og:title' => $product->seo->title]);
                         <?=$price . Yii::getAlias('@cur')?>
                     </div>
                 </div>
-                <h1 class="title"><?=$product->name?></h1>
+                <h1 class="title" itemprop="name"><?=$product->name?></h1>
             </div>
-            <div class="tovar__text"><?=$product->short_text?></div>
+            <div class="tovar__text" itemprop="description"><?=$product->short_text?></div>
             <div class="tovar__controls">
                 <?php /*<div class="tovar_discount fl-l">
                     <a href="#">Купить дешевле</a>
