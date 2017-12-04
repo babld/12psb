@@ -95,7 +95,8 @@ $this->registerMetaTag(['og:title' => $product->seo->title]);
                         </div>
                     <?php endif;?>
                     <div class="tovar__price tovar__price-bg">
-                        <?=$price . Yii::getAlias('@cur')?>
+                        <span itemprop="price"><?= $price ?></span>
+                        <span itemprop="priceCurrency"><?= Yii::getAlias('@cur')?></span>
                     </div>
                 </div>
                 <h1 class="title" itemprop="name"><?=$product->name?></h1>

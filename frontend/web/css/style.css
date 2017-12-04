@@ -2035,7 +2035,7 @@ table.reviews-table td {
 }
 
 .tovar__prices {
-    height:31px;
+
 }
 .tovar__gallery-wrap {
     float: left;
@@ -2155,10 +2155,9 @@ table.reviews-table td {
 }
 
 .tovar__price-old {
-    padding: 5px;
+    padding: 5px 5px 4px 5px;
     width: 50%;
     text-align: center;
-    line-height: 21px;
 }
 
 .order-stend .tovar__price-old {
