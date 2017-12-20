@@ -66,13 +66,7 @@ $this->beginPage();?>
 <body>
 <?php $this->beginBody();
 $catalogLabel = 'Каталог';
-$menuItems = [
-    ['label' => 'Главная',              'url' => '/'],
-    ['label' => $catalogLabel,          'url' => '/site/catalog'],
-    ['label' => 'Доставка и оплата',    'url' => '/site/delivery'],
-    ['label' => 'Видео по работе',      'url' => '/site/video'],
-    ['label' => 'Контакты',             'url' => '/site/contact'],
-];?>
+?>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GF6P9Q"
                   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -106,7 +100,6 @@ $menuItems = [
                 </div>
 
                 <ul class="nav navbar-nav">
-                    <li><a href="/">Главная</a></li>
                     <li class="dropdown">
                         <a href="/uslugi/" class="dropdown-toggle" data-toggle="dropdown">
                             Каталог

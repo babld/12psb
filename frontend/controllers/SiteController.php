@@ -112,13 +112,7 @@ class SiteController extends Controller
                 where(['id' => $categoryData->parent_id])->
                 one();
 
-            $category[] = $categoryData->slug;
-
-            $category = array_reverse($category);
-
-            $detailUrl = "/";
-            foreach($category as $item) $detailUrl .= $item . '/';
-            $detailUrl .= $good->slug;
+            $detailUrl = '/' . Category::findOne($categoryId)->getUrl() . '/' . $good->slug;
 
             $goods[] = [
                 'mainImage'     => $mainImage,
