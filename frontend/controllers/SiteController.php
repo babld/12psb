@@ -350,6 +350,15 @@ class SiteController extends Controller
             'products' => Product::find()->all()
         ]);
     }
+    
+    public function actionYmlFeed() {
+        Yii::$app->response->format = \yii\web\Response::FORMAT_RAW;
+        Yii::$app->response->headers->add('Content-Type', 'text/xml');
+
+        return $this->renderPartial('yml', [
+            'products' => Product::find()->all()
+        ]);
+    }
 
     /**
      * Signs user up.

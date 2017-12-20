@@ -57,6 +57,11 @@ return [
                     'route' => 'site/<action>',
                     'suffix' => '.xml',
                 ],
+                [
+                    'pattern' => '<action:yml-feed>',
+                    'route' => 'site/<action>',
+                    'suffix' => '.xml',
+                ],
                 'blog'                  => 'blog/index',
                 '<catalog:[\w_\/-]+>'   => 'site/catalog',
             ],
