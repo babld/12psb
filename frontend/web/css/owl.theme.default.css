@@ -42,20 +42,16 @@
     zoom: 1;
     *display: inline; }
     .owl-theme .owl-dots .owl-dot span {
-      width: 25px;
-      height: 25px;
+      width: 15px;
+      height: 15px;
       margin: 5px 7px;
       background: transparent;
       display: block;
       -webkit-backface-visibility: visible;
       transition: opacity 200ms ease;
       border-radius: 30px;
-      border: 2px solid #4e4e4e;
+      background: #808080;
     }
     .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
-      background: #f6692c;
-      background: -moz-linear-gradient(45deg, #f6692c 0%, #ffcdac 100%);
-      background: -webkit-linear-gradient(45deg, #f6692c 0%,#ffcdac 100%);
-      background: linear-gradient(45deg, #f6692c 0%,#ffcdac 100%);
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6692c', endColorstr='#ffcdac',GradientType=1 );
+      background: #ff6624;
     }

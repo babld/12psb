@@ -11,6 +11,8 @@ use Imagine\Image\Box;
 use Imagine\Image\BoxInterface;
 use yii\widgets\Breadcrumbs;
 use app\components\Helper;
+use yii\widgets\ActiveForm;
+use \frontend\models\FeedbackMessForm;
 
 $utmData = Helper::getUtmData();
 
@@ -36,6 +38,8 @@ $title = $product->name;
 $this->title = $title;
 $this->registerMetaTag(['description' => $product->seo->description]);
 $this->registerMetaTag(['og:title' => $product->seo->title]);
+
+$feedbackModel = new FeedbackMessForm();
 ?>
 
 <div class="container">
@@ -117,8 +121,8 @@ $this->registerMetaTag(['og:title' => $product->seo->title]);
     </div>
 </div>
 
-<div class="metal-bg article">
-    <div class="light-block-separator"></div>
+<div class="gray-block-bg article article_padding-top">
+    <?php #<div class="light-block-separator"></div> ?>
     <div class="container">
         <div class="article__left-col">
             <!-- Навигация -->
@@ -164,21 +168,42 @@ $this->registerMetaTag(['og:title' => $product->seo->title]);
         <div class="article__right-col">
             <div class="feedback form-wrapper">
                 <div class="feedback__manager feedback__border">
-                    <div class="feedback__manager-head">
+                    <?php /*<div class="feedback__manager-head">
                         <div class="feedback__manager-rang">Директор</div>
                         <div class="feedback__manager-name">Балабанов Дмитрий Викторович</div>
-                    </div>
+                    </div> */ ?>
                     <img src="/i/manager.png" class="feedback__manager-img" />
                 </div>
-                <form class="feedback__form send">
-                    <textarea name="mess" class="feedback__border feedback__textarea" placeholder="Есть вопросы по покупке стендов ТНВД и Common Rail? Я оперативно отвечу на них! Напишите Ваш вопрос здесь"></textarea>
-                    <input name="phone" class="feedback__border feedback__input" placeholder="Ваш телефон" />
+                <?php
+                $formTableFieldOptions = [
+                    'template' => '{error}{input}',
+                ];
+                ?>
+                <?php $form = ActiveForm::begin(['options' => ['class' => 'feedback__form']])?>
+                    <?= $form->field($feedbackModel,
+                        'phone',
+                        $formTableFieldOptions)->widget(\yii\widgets\MaskedInput::className(), [
+                            'mask' => '+7 (###) ###-##-##',
+                            'clientOptions' => [
+                                'alias' =>  'phone',
+                            ],
+                            'options' => [
+                                'placeholder' => 'Ваш телефон',
+                                'class' => 'feedback__border feedback__input'
+                            ],
+                    ]) ?>
+
+                    <?= $form->field($feedbackModel, 'message', $formTableFieldOptions)->textArea([
+                        'placeholder' => $feedbackModel->getAttributeLabel('Есть вопросы по покупке стендов ТНВД и Common Rail? Я оперативно отвечу на них! Напишите Ваш вопрос здесь'),
+                        'class' => 'feedback__border feedback__textarea'
+                    ]) ?>
+
                     <?php if($utmData['utm']) : ?>
                         <input type="hidden" name="utm" value="<?= $utmData['utm'] ?>" />
                     <?php endif; ?>
                     <?= YII_ENV == 'prod' ? '<input type="hidden" name="target" value="PRODUCT" />' : '' ?>
                     <input name="submit" type="submit" class="but-default feedback__submit" value="Связаться со мной"/>
-                </form>
+                <?php ActiveForm::end(); ?>
             </div>
         </div>
     </div>
