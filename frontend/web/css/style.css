@@ -2107,7 +2107,13 @@ table.reviews-table td {
 
 @media screen and (max-width: 500px) {
     .article tr td {
-        padding: 0;
+        padding: 3px;
+    }
+    
+    .article table p {
+        font-size: 11px;
+        margin-bottom: 0;
+        line-height: 14px;
     }
 }
 
@@ -2210,6 +2216,7 @@ table.reviews-table td {
         float: none;
         width:100%;
         margin-bottom:20px;
+        overflow: hidden;
     }
 }
 
