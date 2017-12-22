@@ -20,9 +20,8 @@
                 'items' => [
                     ['label' => 'Menu', 'options' => ['class' => 'header']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
-                    ['label'=>'Витрина', 'url'=>['/shop/product/index']],
+                    ['label'=>'Каталог', 'url'=>['/shop/product/index']],
                     ['label'=>'Пользователи', 'url'=>['/user/admin/index'],],
-                    ['label' => 'Клиенты', 'url' => ['/client/client/index']],
                     ['label'=>'Email tracking', 'url'=>['/email-tracking'],]
                     /*[
                         'label'=> 'Поля',
