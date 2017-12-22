@@ -40,7 +40,8 @@
         "dektrium/yii2-rbac": "1.0.0-alpha@dev",
         "dektrium/yii2-user": "*",
         "pistol88/yii2-client": "*",
-        "yiisoft/yii2-imagine": "*"
+        "yiisoft/yii2-imagine": "*",
+        "dmstr/yii2-adminlte-asset": "^2.1"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
