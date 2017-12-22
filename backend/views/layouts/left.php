@@ -20,16 +20,6 @@
                 'items' => [
                     ['label' => 'Menu', 'options' => ['class' => 'header']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
-                    [
-                        'label'=> 'Справочники',
-                        'url' => '#',
-                        'icon' => 'list',
-                        'items'=>[
-
-                            #['label'=>'Промокоды', 'url'=>['/promocode/promo-code/index']],
-
-                        ]
-                    ],
                     ['label'=>'Витрина', 'url'=>['/shop/product/index']],
                     ['label'=>'Пользователи', 'url'=>['/user/admin/index'],],
                     ['label' => 'Клиенты', 'url' => ['/client/client/index']],
