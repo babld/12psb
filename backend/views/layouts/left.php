@@ -25,22 +25,25 @@
                         'url' => '#',
                         'icon' => 'list',
                         'items'=>[
-                            ['label'=>'Витрина', 'url'=>['/shop/product/index']],
+
                             #['label'=>'Промокоды', 'url'=>['/promocode/promo-code/index']],
-                            ['label'=>'Пользователи', 'url'=>['/user/admin/index'],],
-                            ['label' => 'Клиенты', 'url' => ['/client/client/index']]
+
                         ]
                     ],
-                    [
+                    ['label'=>'Витрина', 'url'=>['/shop/product/index']],
+                    ['label'=>'Пользователи', 'url'=>['/user/admin/index'],],
+                    ['label' => 'Клиенты', 'url' => ['/client/client/index']],
+                    ['label'=>'Email tracking', 'url'=>['/email-tracking'],]
+                    /*[
                         'label'=> 'Поля',
                         'icon' => 'cog',
                         'url' => '#',
                         'items'=>[
-                            ['label' => 'Фильтры', 'url'=>['/filter/filter']],
-                            ['label' => 'Поля магазина', 'url'=>['/field/field']],
-                            ['label' => 'Поля заказа', 'url' => ['/order/field/index']],
+                            #['label' => 'Фильтры', 'url'=>['/filter/filter']],
+                            #['label' => 'Поля магазина', 'url'=>['/field/field']],
+                            #['label' => 'Поля заказа', 'url' => ['/order/field/index']],
                         ]
-                    ],
+                    ],*/
                 ],
             ]
         ) ?>
