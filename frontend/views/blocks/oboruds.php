@@ -7,10 +7,11 @@ use yii\imagine\Image;
 use Imagine\Gd;
 use Imagine\Image\Box;
 use Imagine\Image\BoxInterface;
+use yii\helpers\Html;
 
 $title = $products[0]->category->name;
 ?>
-<h1 class="text-center title"><?=$title?></h1>
+<?= Html::tag($titleTag, $title, ['class' => 'title text-center']); ?>
 
 <div class="oboruds"><?php
     foreach($products as $product) {

@@ -29,7 +29,8 @@ foreach($products as $product):?>
             if($i > 1):?><div class="dark-block-separator"></div><?php endif;?>
             <div class="container">
                 <?=$this->render('/blocks/oboruds', [
-                    'products'  => $product['product']
+                    'products'  => $product['product'],
+                    'titleTag' => 'h1'
                 ]);?>
             </div>
         <?php else:?>
@@ -37,7 +38,8 @@ foreach($products as $product):?>
                 <div class="light-block-separator"></div>
                 <div class="container">
                     <?=$this->render('/blocks/oboruds', [
-                        'products'  => $product['product']
+                        'products'  => $product['product'],
+                        'titleTag' => 'h2'
                     ]);?>
                 </div>
             </div>
