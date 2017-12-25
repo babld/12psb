@@ -89,6 +89,12 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        if (preg_match('|index.php|', $_SERVER['REQUEST_URI'])){
+            header('HTTP/1.1 301 Moved Permanently');
+            header('Location: /');
+            exit();
+        }
+
         $products = Product::find()->all();
         $goods = [];
 
