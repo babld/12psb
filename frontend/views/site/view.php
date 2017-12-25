@@ -1,4 +1,5 @@
 <?php
+
     function hidetab($val) {
         return trim($val) == "" ? 'class="hidden"' : '';
     }
@@ -35,9 +36,9 @@ endforeach;
 $this->params['breadcrumbs'][] = $product->name;
 
 $title = $product->name;
-$this->title = $title;
+$this->title = !empty($product->seo->title) ? $product->seo->title : $title;
 $this->registerMetaTag(['description' => $product->seo->description]);
-$this->registerMetaTag(['og:title' => $product->seo->title]);
+$this->registerMetaTag(['og:title' => $this->title]);
 
 $feedbackModel = new FeedbackMessForm();
 ?>

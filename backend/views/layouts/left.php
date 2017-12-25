@@ -21,18 +21,9 @@
                     ['label' => 'Menu', 'options' => ['class' => 'header']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     ['label'=>'Каталог', 'url'=>['/shop/product/index']],
+                    ['label'=>'Категории', 'url'=>['/shop/category/index']],
                     ['label'=>'Пользователи', 'url'=>['/user/admin/index'],],
                     ['label'=>'Email tracking', 'url'=>['/email-tracking'],]
-                    /*[
-                        'label'=> 'Поля',
-                        'icon' => 'cog',
-                        'url' => '#',
-                        'items'=>[
-                            #['label' => 'Фильтры', 'url'=>['/filter/filter']],
-                            #['label' => 'Поля магазина', 'url'=>['/field/field']],
-                            #['label' => 'Поля заказа', 'url' => ['/order/field/index']],
-                        ]
-                    ],*/
                 ],
             ]
         ) ?>

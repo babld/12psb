@@ -10,7 +10,7 @@ use Imagine\Image\BoxInterface;
 
 $title = $products[0]->category->name;
 ?>
-<h2 class="text-center title"><?=$title?></h2>
+<h1 class="text-center title"><?=$title?></h1>
 
 <div class="oboruds"><?php
     foreach($products as $product) {
