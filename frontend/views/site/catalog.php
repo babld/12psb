@@ -1,5 +1,6 @@
 <?php
 use yii\widgets\Breadcrumbs;
+use yii\helpers\Html;
 
 $count = count($breadcrumbs);
 for($i = 0; $i < $count; $i++):
@@ -20,6 +21,9 @@ $this->registerMetaTag(['og:title' => $title]);
     <?= Breadcrumbs::widget([
         'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
     ]) ?>
+    <?php if($catalog) : ?>
+    <?= Html::tag('h1', $title, ['class' => 'title text-center']) ?>
+    <?php endif; ?>
 </div>
 <?php
 $i = 0;
@@ -30,7 +34,7 @@ foreach($products as $product):?>
             <div class="container">
                 <?=$this->render('/blocks/oboruds', [
                     'products'  => $product['product'],
-                    'titleTag' => 'h1'
+                    'titleTag' => $catalog ? 'h2' : $i > 1 ? 'h2' : 'h1'
                 ]);?>
             </div>
         <?php else:?>

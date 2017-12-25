@@ -163,7 +163,8 @@ class SiteController extends Controller
             return $this->render('catalog', [
                 'breadcrumbs' => $breadcrumbs,
                 'products' => $products,
-                'category' => Category::findOne(['slug' => $category])
+                'category' => Category::findOne(['slug' => $category]),
+                'catalog' => $category == 'catalog' ? true : false
             ]);
         } else {
             $path = array_filter(explode('/', $catalog));
