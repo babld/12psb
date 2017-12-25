@@ -1280,21 +1280,6 @@ a {
     margin-top: 15px;
 }
 
-.tovar__head-xsv {
-    display: none;
-}
-
-@media screen and (max-width:640px) {
-    .tovar__head-xsv {
-        display: block;
-    }
-    
-    .tovar__head-xsh {
-        display: none;
-    }
-}
-
-
 .order-image-wrap {
     margin: 0 auto;
     width: 263px;
@@ -2182,6 +2167,22 @@ table.reviews-table td {
     background: -webkit-linear-gradient(-45deg,  #ff6624 0%,#ffaf84 50%,#ff8952 61%,#ff6421 100%);
     background: linear-gradient(135deg,  #ff6624 0%,#ffaf84 50%,#ff8952 61%,#ff6421 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff6624', endColorstr='#ff6421',GradientType=1 );
+}
+
+.tovar__head {
+    float: right;
+    width: 50%;
+}
+
+@media (max-width: 640px) {
+    .tovar__head {
+        float: none;
+        width: 100%;
+    }
+
+    .tovar__head h1 {
+        text-align: center;
+    }
 }
 
 .article .tovar__prices {

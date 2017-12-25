@@ -51,23 +51,24 @@ $feedbackModel = new FeedbackMessForm();
 
 <div class="container article">
     <div class="tovar__main" itemscope itemtype="http://schema.org/Product">
-        <div class="tovar__gallery-wrap">
-            <div class="tovar__head-xsv">
-                <h1 class="title" itemprop="name"><?= $title ?></h1>
-                <div class="tovar__prices">
-                    <?php if($priceArr[0]->price_old):?>
-                        <div class="fl-l tovar__price-old gray-bg">
-                            <div class="crossing">
-                                <?=$priceOld . Yii::getAlias('@cur')?>
-                            </div>
+        <div class="tovar__head tovar__head-xsh clearfix">
+            <div class="tovar__prices">
+                <?php if($priceArr[0]->price_old):?>
+                    <div class="fl-l tovar__price-old gray-bg">
+                        <div class="crossing">
+                            <?=$priceOld . Yii::getAlias('@cur')?>
                         </div>
-                    <?php endif;?>
-                    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="tovar__price tovar__price-bg">
-                        <span itemprop="price"><?= $price ?></span>
-                        <span itemprop="priceCurrency"><?= Yii::getAlias('@cur')?></span>
                     </div>
+                <?php endif;?>
+                <div class="tovar__price tovar__price-bg">
+                    <span itemprop="price"><?= $price ?></span>
+                    <span itemprop="priceCurrency"><?= Yii::getAlias('@cur')?></span>
                 </div>
             </div>
+            <h1 class="title" itemprop="name"><?=$product->name?></h1>
+        </div>
+
+        <div class="tovar__gallery-wrap">
             <div class="tovar__gallery owl-carousel owl-theme">
                 <?php foreach($images as $image){?>
                     <div class="tovar__gallery-item"><?php
@@ -89,36 +90,15 @@ $feedbackModel = new FeedbackMessForm();
             </div>
         </div>
 
-        <div class="tovar__info">
-            <div class="tovar__head tovar__head-xsh clearfix">
-                <div class="tovar__prices">
-                    <?php if($priceArr[0]->price_old):?>
-                        <div class="fl-l tovar__price-old gray-bg">
-                            <div class="crossing">
-                                <?=$priceOld . Yii::getAlias('@cur')?>
-                            </div>
-                        </div>
-                    <?php endif;?>
-                    <div class="tovar__price tovar__price-bg">
-                        <span itemprop="price"><?= $price ?></span>
-                        <span itemprop="priceCurrency"><?= Yii::getAlias('@cur')?></span>
-                    </div>
-                </div>
-                <h1 class="title" itemprop="name"><?=$product->name?></h1>
-            </div>
-            <div class="tovar__text" itemprop="description"><?=$product->short_text?></div>
+        <div class="tovar__text" itemprop="description">
+            <?=$product->short_text?>
             <div class="tovar__controls">
-                <?php /*<div class="tovar_discount fl-l">
-                    <a href="#">Купить дешевле</a>
-                </div>
-                <div class="tovar__calc fl-l">
-                    <a href="#">Рассчитать доставку</a>
-                </div>*/ ?>
                 <div class="but-default tovar__order">
                     <a href="/zakaz?name=<?=str_replace(' ', '%20', $product->code)?>" class="fancybox fancybox.ajax">Заказать</a>
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 
