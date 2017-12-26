@@ -1762,13 +1762,6 @@ table.reviews-table td {
     border-radius: 15px;
 }
 
-.footer-form__ny-cap {
-    position: absolute;
-    top: 5px;
-    left: 98px;
-    width: 60px;
-}
-
 @media screen and (max-width: 700px) {
     .footer-manager-wrap {
         float: none;

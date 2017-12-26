@@ -6,9 +6,6 @@ $utmData = Helper::getUtmData();
     <div class="container">
         <div class="footer-form-block">
             <div class="footer-manager-wrap">
-                <?php if(date('n') == 12 and date('j') > 20 or date('n') == 1 and date('j') < 20): ?>
-                    <img src="../i/ny-cap.png" class="footer-form__ny-cap">
-                <?php endif;?>
                 <img src="../i/manager.png" class="footer-form__manager"/>
                 <div class="footer-managet-notice">Дмитрий<br/>Менеджер по продаже стендов</div>
             </div>
