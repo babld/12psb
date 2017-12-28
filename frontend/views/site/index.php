@@ -1,8 +1,8 @@
 <?php
-$title = "Топливное оборудование ТНВД и Common Rail в наличии и под заказ";
+$title = "Оборудование для ремонта ТНВД и форсунок";
 $this->title = $title;
 $this->registerMetaTag(['og:title' => $title]);
-$this->registerMetaTag(['description' => "Купить стенды ТНВД и Common Rail по лучшим ценам"]);
+$this->registerMetaTag(['description' => "Продажа оборудования для ремонта и регулировки топливной аппаратуры. Низкие цены на стенды для ТНВД и форсунок. Доставка по всей России ☎ 8-800-775-6758"]);
 ?>
 
 <?=$this->render('/blocks/main-block', [
