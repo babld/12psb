@@ -11,7 +11,7 @@ for($i = 0; $i < $count; $i++):
     endif;
 endfor;
 
-$title = $category->name;
+$title = !empty($category->seo->title) ? $category->seo->title : $category->name;
 $this->title = $title;
 $this->registerMetaTag(['description' => $category->seo->description]);
 $this->registerMetaTag(['og:title' => $title]);
