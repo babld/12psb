@@ -4,6 +4,7 @@ namespace pistol88\shop\models;
 use Yii;
 use pistol88\shop\models\category\CategoryQuery;
 use yii\helpers\Url;
+use yii\behaviors\TimestampBehavior;
 
 class Category extends \yii\db\ActiveRecord
 {
@@ -23,6 +24,12 @@ class Category extends \yii\db\ActiveRecord
             'field' => [
                 'class' => 'pistol88\field\behaviors\AttachFields',
             ],
+            [
+                'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => 'created_at',
+                'updatedAtAttribute' => 'updated_at',
+                'value' => time(),
+            ]
         ];
     }
     
@@ -57,7 +64,9 @@ class Category extends \yii\db\ActiveRecord
             'image' => 'Картинка',
             'sort' => 'Сортировка',
             'description' => 'Описание',
-            'cond' => 'Условие'
+            'cond' => 'Условие',
+            'created_at' => 'Время создания',
+            'updated_at' => 'Время изменения'
         ];
     }
     

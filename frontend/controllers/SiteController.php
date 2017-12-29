@@ -455,13 +455,22 @@ class SiteController extends Controller
 
     public function sitemapGen() {
         $products = Product::find()->all();
+        $categories = Category::find()->all();
         $return = '<?xml version="1.0" encoding="UTF-8"?>';
         $return .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
 
         foreach($products as $product):
-
             $return .= '<url>';
             $return .= '<loc>http://12psb.ru/' . $product->category->getUrl() . '/' . $product->slug . '</loc>';
+            $return .= '<lastmod>' . date('Y-m-d', $product->updated_at) . '</lastmod>';
+            $return .= '<changefreq>daily</changefreq>';
+            $return .= '<priority>0.8</priority>';
+            $return .= '</url>';
+        endforeach;
+
+        foreach($categories as $category):
+            $return .= '<url>';
+            $return .= "<loc>http://12psb.ru/$category->url</loc>";
             $return .= '<lastmod>' . date('Y-m-d', $product->updated_at) . '</lastmod>';
             $return .= '<changefreq>daily</changefreq>';
             $return .= '<priority>0.8</priority>';

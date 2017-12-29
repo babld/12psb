@@ -5,7 +5,6 @@ use Yii;
 use yii\helpers\Url;
 use pistol88\shop\models\product\ProductQuery;
 use yii\db\ActiveQuery;
-use yii\db\Expression;
 use yii\behaviors\TimestampBehavior;
 
 class Product extends \yii\db\ActiveRecord implements \pistol88\relations\interfaces\Torelate, \pistol88\cart\interfaces\CartElement
@@ -97,6 +96,8 @@ class Product extends \yii\db\ActiveRecord implements \pistol88\relations\interf
             'sort' => 'Сортировка',
             'slug' => 'СЕО-имя',
             'amount_in_stock' => 'Количество на складах',
+            'created_at' => 'Время создания',
+            'updated_at' => 'Время изменения'
         ];
     }
 
