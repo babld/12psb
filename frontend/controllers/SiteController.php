@@ -477,6 +477,17 @@ class SiteController extends Controller
             $return .= '</url>';
         endforeach;
 
+        $return .= '<url>';
+        $return .= "<loc>http://12psb.ru/delivery</loc>";
+        $return .= '<priority>0.8</priority>';
+        $return .= '</url>';
+
+        $return .= '<url>';
+        $return .= "<loc>http://12psb.ru/contacts</loc>";
+        $return .= '<priority>0.8</priority>';
+        $return .= '</url>';
+
+
         $return .= '</urlset>';
         echo $return;
     }
