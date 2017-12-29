@@ -41,7 +41,6 @@ yii.bat
 requirements.php
 Vagrantfile
 /advanced
-/console
 init
 init.bat
 LICENSE.md
