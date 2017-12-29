@@ -49,10 +49,6 @@ class ProductController extends Controller
         ]);
     }
 
-    public function actionTest() {
-        echo "test";
-    }
-
     public function actionView($id)
     {
         return $this->render('view', [
@@ -108,8 +104,7 @@ class ProductController extends Controller
         $typeParams['PriceSearch']['product_id'] = $id;
         $dataProvider = $searchModel->search($typeParams);
         $priceModel = $this->module->getService('price');
-        
-        $modificationModel = $this->module->getService('modification');
+
         $searchModificationModel = new ModificationSearch();
         $typeParams['ModificationSearch']['product_id'] = $id;
         $modificationDataProvider = $searchModificationModel->search($typeParams);

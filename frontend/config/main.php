@@ -62,6 +62,11 @@ return [
                     'route' => 'site/<action>',
                     'suffix' => '.xml',
                 ],
+                [
+                    'pattern' => '<action:sitemap>',
+                    'route' => 'site/<action>',
+                    'suffix' => '.xml',
+                ],
                 'blog'                  => 'blog/index',
                 '<catalog:[\w_\/-]+>'   => 'site/catalog',
             ],

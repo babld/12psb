@@ -5,6 +5,8 @@ use Yii;
 use yii\helpers\Url;
 use pistol88\shop\models\product\ProductQuery;
 use yii\db\ActiveQuery;
+use yii\db\Expression;
+use yii\behaviors\TimestampBehavior;
 
 class Product extends \yii\db\ActiveRecord implements \pistol88\relations\interfaces\Torelate, \pistol88\cart\interfaces\CartElement
 {
@@ -38,6 +40,12 @@ class Product extends \yii\db\ActiveRecord implements \pistol88\relations\interf
             'field' => [
                 'class' => 'pistol88\field\behaviors\AttachFields',
             ],
+            [
+                'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => 'created_at',
+                'updatedAtAttribute' => 'updated_at',
+                'value' => time(),
+            ]
         ];
     }
 

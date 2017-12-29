@@ -436,4 +436,39 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+
+    public function actionSitemap() {
+        Yii::$app->response->format = \yii\web\Response::FORMAT_RAW;
+        Yii::$app->response->headers->add('Content-Type', 'text/xml');
+
+        $this->sitemapGen();
+        /*$file = 'files/sitemap.xml';
+        if(filectime($file) - 86400 > 0) {
+            $fp = fopen($file, 'w+');
+
+            fwrite($fp, 'file content');
+            fclose($fp);
+        }
+
+        return $this->render('@frontend/web/files/sitemap.xml');*/
+    }
+
+    public function sitemapGen() {
+        $products = Product::find()->all();
+        $return = '<?xml version="1.0" encoding="UTF-8"?>';
+        $return .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+
+        foreach($products as $product):
+
+            $return .= '<url>';
+            $return .= '<loc>http://12psb.ru/' . $product->category->getUrl() . '/' . $product->slug . '</loc>';
+            $return .= '<lastmod>' . date('Y-m-d', $product->updated_at) . '</lastmod>';
+            $return .= '<changefreq>daily</changefreq>';
+            $return .= '<priority>0.8</priority>';
+            $return .= '</url>';
+        endforeach;
+
+        $return .= '</urlset>';
+        echo $return;
+    }
 }
