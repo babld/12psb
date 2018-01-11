@@ -1,3 +1,6 @@
+<?php
+use pistol88\shop\models\Category;
+?>
 <yml_catalog date="<?= date('Y-m-d h:i') ?>">
     <shop>
 		<name>12PSB.RU</name>
@@ -12,8 +15,19 @@
 		</categories>
 		<offers>		
 			<?php foreach($products as $product) :?>
+                <?php
+                $tmpUrl = '';
+                if(Category::findOne(['id' => Category::findOne(['id' => $product->category->parent_id])->parent_id])) {
+                    $tmpUrl = Category::findOne(['id' => Category::findOne(['id' => $product->category->parent_id])->parent_id])->slug . '/';
+                }
+                $detailUrl = '/' .
+                    $tmpUrl .
+                    Category::findOne(['id' => $product->category->parent_id])->slug . '/' .
+                    $product->category->slug . '/' .
+                    $product->slug;
+                ?>
 				<offer id='<?=$product->id?>'>
-					<url>http://12psb.ru</url>
+					<url>http://12psb.ru<?= $detailUrl ?></url>
 					<name><?=$product->name?></name>
 					<model><?=$product->name?></model>
 					<price><?=number_format($product->price, 0, '','')?></price>
