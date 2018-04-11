@@ -19,7 +19,7 @@ if(isset($_POST['submit'])) {
 
     // $to - кому отправляем
     #$to = ($_COOKIE["from_direct"] == 1)?'kps@sibtransasia.ru':'kps@sibtransasia.ru';
-    $to = "info@12psb.ru";
+    $to = "info@12psb.ru, allorders@sibtransasia.ru";
     // $from - от кого
     $from='no-reply@12psb.ru';
 
