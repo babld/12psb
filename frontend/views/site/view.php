@@ -37,7 +37,7 @@ $this->params['breadcrumbs'][] = $product->name;
 
 $title = $product->name;
 $this->title = !empty($product->seo->title) ? $product->seo->title : $title;
-$this->registerMetaTag(['description' => $product->seo->description]);
+$this->registerMetaTag(['name' => 'description', 'content' => $product->seo->description]);
 $this->registerMetaTag(['og:title' => $this->title]);
 
 $feedbackModel = new FeedbackMessForm();

@@ -5,7 +5,7 @@ use yii\widgets\Breadcrumbs;
 $title = 'Контакты';
 $this->params['breadcrumbs'][] = $title;
 $this->title = $title;
-$this->registerMetaTag(['description' => 'Контакты 12PSB.RU: ООО "Консул", пр-т Дзержинского, 1/1 офис 71']);
+$this->registerMetaTag(['name' => 'description', 'content' => 'Контакты 12PSB.RU: ООО "Консул", пр-т Дзержинского, 1/1 офис 71']);
 $this->registerMetaTag(['og:title' => $title]);
 $utmData = Helper::getUtmData();
 ?>

@@ -3,7 +3,7 @@ use yii\widgets\Breadcrumbs;
 $title = "Доставка и оплата";
 $this->params['breadcrumbs'][] = $title;
 $this->title = $title;
-$this->registerMetaTag(['description' => "Условия доставки и оплаты оборудования для тестирования ТНВД и Common Rail"]);
+$this->registerMetaTag(['name' => 'description', 'content' => "Условия доставки и оплаты оборудования для тестирования ТНВД и Common Rail"]);
 $this->registerMetaTag(['og:title' => $title]);
 ?>
 <div class="container">

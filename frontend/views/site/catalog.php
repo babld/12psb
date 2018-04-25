@@ -13,7 +13,7 @@ endfor;
 
 $title = !empty($category->seo->title) ? $category->seo->title : $category->name;
 $this->title = $title;
-$this->registerMetaTag(['description' => $category->seo->description]);
+$this->registerMetaTag(['name' => 'description', 'content' => $category->seo->description]);
 $this->registerMetaTag(['og:title' => $title]);
 ?>
 
