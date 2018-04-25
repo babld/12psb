@@ -50,8 +50,21 @@
         "codeception/base": "^2.2.3",
         "codeception/verify": "~0.3.1"
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
     "config": {
-        "process-timeout": 1800
+        "process-timeout": 1800,
+        "fxp-asset":{
+            "enabled": false,
+            "installer-paths": {
+                "npm-asset-library": "vendor/npm",
+                "bower-asset-library": "vendor/bower"
+            }
+        }
     },
     "extra": {
         "asset-installer-paths": {

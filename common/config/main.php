@@ -5,6 +5,10 @@ return [
     'language' => 'ru-RU',
 	'timeZone' => 'Etc/GMT-3',
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
+    'aliases' => [
+        '@bower' => '@vendor/bower-asset',
+        '@npm'   => '@vendor/npm-asset',
+    ],
     'extensions' => yii\helpers\ArrayHelper::merge(
         require(dirname(dirname(__DIR__)) . '/vendor/yiisoft/extensions.php'),
         [
