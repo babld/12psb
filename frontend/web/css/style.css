@@ -2111,6 +2111,10 @@ table.reviews-table td {
         line-height: 23px;
     }
 }
+
+.article table p {
+    margin-bottom: 0;
+}
 /* responsive video */
 .video-responsive {
     margin-bottom: 20px;
@@ -2399,7 +2403,7 @@ textarea:-ms-input-placeholder      {color:#ccc;}
 
 .article .nav > li > a {
     color: #fff;
-    padding: 3px 19px;
+    padding: 6px 27px;
     background: #575757;
     background: -moz-linear-gradient(left,  #575757 0%, #808080 6%, #808080 6%, #808080 100%);
     background: -webkit-linear-gradient(left,  #575757 0%,#808080 6%,#808080 6%,#808080 100%);
@@ -2411,7 +2415,17 @@ textarea:-ms-input-placeholder      {color:#ccc;}
         padding: 3px 5px;
     }
 }
-
+.article .nav > li > a .article__notification {
+    background: red;
+    display: inline-block;
+    width: 17px;
+    text-align: center;
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    font-size: 12px;
+    border-radius: 27%;
+}
 .nav-tabs > li.active > a {
     color: #fff;
     background: #b94a1a;

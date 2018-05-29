@@ -1,9 +1,7 @@
 <?php
-
-    function hidetab($val) {
-        return trim($val) == "" ? 'class="hidden"' : '';
-    }
-
+function hidetab($val) {
+    return trim($val) == "" ? 'class="hidden"' : '';
+}
 use pistol88\shop\models\Image as ImagePistol;
 use pistol88\shop\models\Price;
 use yii\imagine\Image;
@@ -110,7 +108,10 @@ $feedbackModel = new FeedbackMessForm();
             <ul class="nav nav-tabs" role="tablist">
                 <li <?=hidetab($product->text)?> class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Описание</a></li>
                 <li <?=hidetab($product->getField('video'))?>>
-                    <a role="button" href="#video" aria-controls="video" role="tab" data-toggle="tab">Видео</a>
+                    <a role="button" href="#video" aria-controls="video" role="tab" data-toggle="tab">
+                        Видео
+                        <span class="article__notification"><?= count(explode(',', $product->getField('video'))) ?></span>
+                    </a>
                 </li>
                 <li <?=hidetab($product->characteristics)?>><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Характеристики</a></li>
                 <li <?=hidetab(trim($product->photo))?>><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Интерфейс</a></li>
