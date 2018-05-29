@@ -120,6 +120,9 @@ $catalogLabel = 'Каталог';
                     <li>
                         <a href="/contacts/">Контакты</a>
                     </li>
+                    <li>
+                        <a href="/review/">Отзывы</a>
+                    </li>
                 </ul>
             </div>
         </div>

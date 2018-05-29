@@ -1,0 +1,1 @@
+<?=$this->render('/blocks/reviews');?>
