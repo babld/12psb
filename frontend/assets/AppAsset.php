@@ -14,6 +14,7 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/fonts.css',
         'css/bootstrap.css',
+        'css/form.css',
         'css/style.css',
         'css/overlay.css',
         '/css/jquery.fancybox.css',

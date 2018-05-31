@@ -20,10 +20,11 @@
                 'items' => [
                     ['label' => 'Menu', 'options' => ['class' => 'header']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
-                    ['label'=>'Каталог', 'url'=>['/shop/product/index']],
-                    ['label'=>'Категории', 'url'=>['/shop/category/index']],
-                    ['label'=>'Пользователи', 'url'=>['/user/admin/index'],],
-                    ['label'=>'Email tracking', 'url'=>['/email-tracking'],]
+                    ['label' => 'Каталог', 'url'=>['/shop/product/index']],
+                    ['label' => 'Категории', 'url'=>['/shop/category/index']],
+                    ['label' => 'Пользователи', 'url'=>['/user/admin/index'],],
+                    ['label' => 'Email tracking', 'url'=>['/email-tracking'],],
+                    ['label' => 'Отзывы', 'url'=>['/product-review'],]
                 ],
             ]
         ) ?>

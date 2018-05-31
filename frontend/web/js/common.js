@@ -228,5 +228,18 @@ $(document).ready(function() {
 				break;
 		}
 	});
+
+    $('.review__form').on('beforeSubmit', function(e) {
+    	//console.log($(e.currentTarget).parent());
+    	$.post('/feedback-review', $(e.currentTarget).serialize(), function(responce) {
+    		if(responce.success == 'success') {
+                $(e.currentTarget).parent().addClass('review-form_success');
+                console.log('yes review ok');
+    		}
+
+		});
+
+    	return false;
+	});
     
 });

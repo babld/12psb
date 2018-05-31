@@ -1,8 +1,10 @@
 <?php
 return [
-    'adminEmail' => 'admin@example.com',
+    'adminEmail' => 'info@12psb.ru',
     'freephone' => '8-800-775-6758',
     'freephone_utm' => '8-800-100-7240',
     'mail' => 'info@12psb.ru',
-    'cookieName' => 'utm_source'
+    'cookieName' => 'utm_source',
+    'robotEmail' => 'no-reply@12psb.ru',
+    'feedbackSubject' => 'На сайте 12psb.ru оставлен отзыв'
 ];

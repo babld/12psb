@@ -19,6 +19,7 @@ use frontend\models\ContactForm;
 use pistol88\shop\models\Product;
 use pistol88\shop\models\Image;
 use pistol88\shop\models\Price;
+use common\models\ProductReview;
 
 /**
  * Site controller
@@ -223,7 +224,7 @@ class SiteController extends Controller
                 if(!$product = Product::findOne(['slug' => $item]))
                     throw new HttpException(404 ,'Страница не найдена');
             } else if($i++ == 0 && Category::findOne(['slug' => $item])->parent_id != NULL) {
-                #Устраняем косяк с открытием одной и той же странице по разным ссылкам
+                # Устраняем косяк с открытием одной и той же странице по разным ссылкам
                 # Пример: /catalog/stendy-tnvd и /stendy-tnvd
                 throw new HttpException(404 ,'Страница не найдена');
             }
@@ -367,5 +368,74 @@ class SiteController extends Controller
 
     public function actionReview() {
         return $this->render('review');
+    }
+
+    public function actionFeedbackReview() {
+        if($postData = yii::$app->request->post()) {
+            $formData = $postData['ProductReview'];
+            \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+            // Спам защита. Если пусто скрытое поле значит форму заполнял не бот
+            if(empty($formData['fullname'])) {
+                $model = new ProductReview();
+
+                if($model->load($postData) and $model->save()) {
+                    if($adminEmail = \Yii::$app->params['adminEmail']) {
+                        if(self::adminEmail($formData)) {
+                            if(self::clientEmail($formData))
+                                return ['success' => 'success'];
+
+                            return ['success' => 'false', 'message' => 'client send error'];
+                        } else {
+                            return ['success' => 'false', 'message' => 'send to admin error'];
+                        }
+                    }
+                    return ['success' => 'false', 'message' => 'admin email empty'];
+                } else {
+                    throw new HttpException(404 ,'Ошибка загрузки данных формы');
+                }
+            }
+            return ['success' => 'ok'];
+        }
+        throw new HttpException(404 ,'Страница не найдена');
+    }
+
+    public static function adminEmail($data) {
+        $mailer = Yii::$app->mailer->compose([
+            'html' => 'feedback-html',
+            'text' => 'feedback-text'
+        ], [
+            'post' => $data
+        ])
+            ->setTo([
+                yii::$app->params['adminEmail']
+            ])
+            ->setFrom([yii::$app->params['robotEmail'] => 'Автоматическое уведомление'])
+            ->setSubject(yii::$app->params['feedbackSubject'])
+            ->send();
+        if($mailer)
+            return true;
+
+        return false;
+    }
+
+    public static function clientEmail($data) {
+        $mailer = Yii::$app->mailer->compose([
+            'html' => 'feedbackClient-html',
+            'text' => 'feedbackClient-text'
+        ], [
+            'post' => $data
+        ])
+            ->setTo([
+                $data['email']
+            ])
+            ->setFrom([\Yii::$app->params['robotEmail'] => '12psb'])
+            ->setSubject(yii::$app->params['feedbackSubject'])
+            ->send();
+
+        if($mailer)
+            return true;
+
+        return false;
     }
 }

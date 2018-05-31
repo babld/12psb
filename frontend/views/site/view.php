@@ -12,6 +12,8 @@ use yii\widgets\Breadcrumbs;
 use app\components\Helper;
 use yii\widgets\ActiveForm;
 use \frontend\models\FeedbackMessForm;
+use common\models\ProductReview;
+$reviews = $reviews = ProductReview::findAll(['item_id' => $product->id, 'is_active' => 'yes']);
 
 $utmData = Helper::getUtmData();
 
@@ -117,6 +119,12 @@ $feedbackModel = new FeedbackMessForm();
                 <li <?=hidetab(trim($product->photo))?>><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Интерфейс</a></li>
                 <li <?=hidetab(trim($product->equipment))?>><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Комплектация</a></li>
                 <li <?=hidetab(trim($product->extra))?>><a href="#extra" aria-controls="extra" role="tab" data-toggle="tab">Доп. опции</a></li>
+                <li <?=hidetab(trim($product->extra))?>>
+                    <a href="#review" aria-controls="review" role="tab" data-toggle="tab">
+                        Отзывы
+                        <span class="article__notification"><?= !empty($reviews) ? count($reviews) : 'new' ?></span>
+                    </a>
+                </li>
             </ul>
             <!-- Содержимое вкладок -->
             <div class="tab-content content">
@@ -141,9 +149,27 @@ $feedbackModel = new FeedbackMessForm();
                                 <iframe width="391" height="238" src="https://www.youtube.com/embed/<?= $link ?>"
                                     frameborder="0" allowfullscreen></iframe>
                             </div>
-                            
                         <?php }
                     }?>
+                </div>
+                <div role="tabpane" class="tab-pane" id="review">
+                    <div class="article__review">
+                        <?php if(!empty($reviews)): ?>
+                            <div class="article__review-items">
+                                <h4>Отзывы о данном стенде:</h4>
+                            <?php
+                            foreach($reviews as $review) : ?>
+                                <div class="article__review-item">
+                                    <b><i><?= $review->name ?></i></b>
+                                    <p><?= $review->message ?></p>
+                                </div>
+                            <?php endforeach; ?>
+                            </div>
+                        <?php else : ?>
+                            <h4>На данный момент нет отзывов о данном продукте. Будьте первым!</h4>
+                        <?php endif; ?>
+                        <?= $this->render('/blocks/review-form', ['product' => $product]) ?>
+                    </div>
                 </div>
             </div>
         </div>
