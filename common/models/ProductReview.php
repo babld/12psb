@@ -46,12 +46,12 @@ class ProductReview extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'message' => 'Message',
-            'phone' => 'Phone',
-            'is_active' => 'Is Active',
+            'name' => 'Имя',
+            'message' => 'Сообщение',
+            'phone' => 'Телефон',
+            'is_active' => 'Активность',
             'created_at' => 'Created At',
-            'company' => 'Company',
+            'company' => 'Компания',
         ];
     }
 }
