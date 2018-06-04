@@ -92,7 +92,17 @@ $feedbackModel = new FeedbackMessForm();
 
         <div class="tovar__text" itemprop="description">
             <?=$product->short_text?>
+            <br><br>
             <div class="tovar__controls">
+                <a href="/service">
+                    <img src="/images/st-ic-rassrochka.png"/>
+                    Сервис
+                </a>
+                <a href="/maintenance">
+                    <img src="/images/st-ic-garantiya.png"/>
+                    Гарантия
+                </a>
+                <div class="clear"></div>
                 <div class="but-default tovar__order">
                     <a href="/zakaz?name=<?=str_replace(' ', '%20', $product->code)?>" class="fancybox fancybox.ajax">Заказать</a>
                 </div>

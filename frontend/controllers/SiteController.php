@@ -20,6 +20,8 @@ use pistol88\shop\models\Product;
 use pistol88\shop\models\Image;
 use pistol88\shop\models\Price;
 use common\models\ProductReview;
+use common\models\Service;
+use common\models\Maintenance;
 
 /**
  * Site controller
@@ -368,6 +370,14 @@ class SiteController extends Controller
 
     public function actionReview() {
         return $this->render('review');
+    }
+
+    public function actionService() {
+        return $this->render('service', ['model' => Service::findOne(1)]);
+    }
+
+    public function actionMaintenance() {
+        return $this->render('maintenance', ['model' => Maintenance::findOne(1)]);
     }
 
     public function actionFeedbackReview() {

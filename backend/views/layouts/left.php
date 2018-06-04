@@ -24,7 +24,9 @@
                     ['label' => 'Категории', 'url'=>['/shop/category/index']],
                     ['label' => 'Пользователи', 'url'=>['/user/admin/index'],],
                     ['label' => 'Email tracking', 'url'=>['/email-tracking'],],
-                    ['label' => 'Отзывы', 'url'=>['/product-review'],]
+                    ['label' => 'Отзывы', 'url'=>['/product-review']],
+                    ['label' => 'Сервис', 'url'=>['/service']],
+                    ['label' => 'Гарантии', 'url'=>['/maintenance']]
                 ],
             ]
         ) ?>
