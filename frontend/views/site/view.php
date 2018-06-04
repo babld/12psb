@@ -119,7 +119,7 @@ $feedbackModel = new FeedbackMessForm();
                 <li <?=hidetab(trim($product->photo))?>><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Интерфейс</a></li>
                 <li <?=hidetab(trim($product->equipment))?>><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Комплектация</a></li>
                 <li <?=hidetab(trim($product->extra))?>><a href="#extra" aria-controls="extra" role="tab" data-toggle="tab">Доп. опции</a></li>
-                <li <?=hidetab(trim($product->extra))?>>
+                <li>
                     <a href="#review" aria-controls="review" role="tab" data-toggle="tab">
                         Отзывы
                         <span class="article__notification"><?= !empty($reviews) ? count($reviews) : 'new' ?></span>
