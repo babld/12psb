@@ -9,6 +9,10 @@ use pistol88\gallery\widgets\Gallery;
 use kartik\select2\Select2;
 use pistol88\seo\widgets\SeoForm;
 
+use skeeks\yii2\ckeditor\CKEditorWidget;
+use skeeks\yii2\ckeditor\CKEditorPresets;
+use mihaildev\elfinder\ElFinder;
+
 \pistol88\shop\assets\BackendAsset::register($this);
 ?>
 
@@ -107,18 +111,11 @@ use pistol88\seo\widgets\SeoForm;
         ]
     ) ?>
 
-    <?php echo $form->field($model, 'text')->widget(
-        \yii\imperavi\Widget::className(),
-        [
-            'plugins' => ['fullscreen', 'fontcolor', 'video', 'table', 'fontsize', 'fontfamily', 'textexpander', 'textdirection', 'clips', 'counter', 'limiter'],
-            'options'=>[
-                'minHeight' => 400,
-                'maxHeight' => 400,
-                'buttonSource' => true,
-                'imageUpload' => Url::toRoute(['tools/upload-imperavi'])
-            ]
-        ]
-    ) ?>
+    <?= $form->field($model, 'text')->widget(CKEditorWidget::className(), [
+        'options' => ['rows' => 6],
+        'preset' => CKEditorPresets::FULL,
+        'clientOptions' => ElFinder::ckeditorOptions('elfinder',['language' => 'ru']),
+    ]) ?>
 
     <?php echo $form->field($model, 'characteristics')->widget(
         \yii\imperavi\Widget::className(),

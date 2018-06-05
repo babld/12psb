@@ -123,6 +123,12 @@ $catalogLabel = 'Каталог';
                     <li>
                         <a href="/review/">Отзывы</a>
                     </li>
+                    <li>
+                        <a href="/service/">Сервис</a>
+                    </li>
+                    <li>
+                        <a href="/maintenance/">Гарантия</a>
+                    </li>
                 </ul>
             </div>
         </div>
