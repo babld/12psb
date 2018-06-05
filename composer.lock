@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2260004f62d943d97b4cee6de2eb351b",
+    "content-hash": "b69612a20dfda71265a57f287641f594",
     "packages": [
         {
             "name": "2amigos/yii2-dosamigos-asset-bundle",
@@ -2068,12 +2068,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "23273458016888baf2d2238a1937934b95abb924"
+                "reference": "cfd694a76182f68ac662f8d60852dd42fd2d0892"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/23273458016888baf2d2238a1937934b95abb924",
-                "reference": "23273458016888baf2d2238a1937934b95abb924",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/cfd694a76182f68ac662f8d60852dd42fd2d0892",
+                "reference": "cfd694a76182f68ac662f8d60852dd42fd2d0892",
                 "shasum": ""
             },
             "require": {
@@ -2108,7 +2108,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2018-05-31T19:43:12+00:00"
+            "time": "2018-06-03T10:06:13+00:00"
         },
         {
             "name": "newerton/yii2-fancybox",
@@ -3109,12 +3109,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "5a7f446fface40bd2bde2656c2cadd97403aefb0"
+                "reference": "c5101efdb4c716704726c55196897fced9b0456c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/5a7f446fface40bd2bde2656c2cadd97403aefb0",
-                "reference": "5a7f446fface40bd2bde2656c2cadd97403aefb0",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/c5101efdb4c716704726c55196897fced9b0456c",
+                "reference": "c5101efdb4c716704726c55196897fced9b0456c",
                 "shasum": ""
             },
             "require": {
@@ -3159,7 +3159,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2018-05-27T12:34:25+00:00"
+            "time": "2018-06-04T12:40:36+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4879,12 +4879,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-timer.git",
-                "reference": "0753e54e87486014ef2b77d4bf50ce4f7cf9ce21"
+                "reference": "9ef9968ba27999219d76ae3cef97aa0fa87bd90f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/0753e54e87486014ef2b77d4bf50ce4f7cf9ce21",
-                "reference": "0753e54e87486014ef2b77d4bf50ce4f7cf9ce21",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/9ef9968ba27999219d76ae3cef97aa0fa87bd90f",
+                "reference": "9ef9968ba27999219d76ae3cef97aa0fa87bd90f",
                 "shasum": ""
             },
             "require": {
@@ -4920,7 +4920,7 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2018-05-15T05:50:31+00:00"
+            "time": "2018-06-04T07:17:52+00:00"
         },
         {
             "name": "phpunit/php-token-stream",
@@ -5312,12 +5312,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "227f803c33aad0c004f77ca61815ee8e76d94788"
+                "reference": "2a0d4bdbed1e7937f2e8b7a30b6ec5752bb1b0f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/227f803c33aad0c004f77ca61815ee8e76d94788",
-                "reference": "227f803c33aad0c004f77ca61815ee8e76d94788",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/2a0d4bdbed1e7937f2e8b7a30b6ec5752bb1b0f6",
+                "reference": "2a0d4bdbed1e7937f2e8b7a30b6ec5752bb1b0f6",
                 "shasum": ""
             },
             "require": {
@@ -5360,7 +5360,7 @@
                 "unidiff",
                 "unified diff"
             ],
-            "time": "2018-05-28T13:38:20+00:00"
+            "time": "2018-06-02T06:39:54+00:00"
         },
         {
             "name": "sebastian/environment",
@@ -6473,12 +6473,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-gii.git",
-                "reference": "c54431694e605dab8fa2bb0e84dc34b8dec2377f"
+                "reference": "ab8ba3b32767e929541e092007205972ebc677eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/c54431694e605dab8fa2bb0e84dc34b8dec2377f",
-                "reference": "c54431694e605dab8fa2bb0e84dc34b8dec2377f",
+                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/ab8ba3b32767e929541e092007205972ebc677eb",
+                "reference": "ab8ba3b32767e929541e092007205972ebc677eb",
                 "shasum": ""
             },
             "require": {
@@ -6514,7 +6514,7 @@
                 "gii",
                 "yii2"
             ],
-            "time": "2018-05-22T11:51:18+00:00"
+            "time": "2018-06-01T17:00:18+00:00"
         }
     ],
     "aliases": [],
@@ -6529,7 +6529,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.4.0"
+        "php": ">=5.4.0",
+        "ext-xmlreader": "*"
     },
     "platform-dev": []
 }

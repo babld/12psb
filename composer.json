@@ -24,6 +24,7 @@
         "pistol88/yii2-promocode": "*",
         "pistol88/yii2-seo": "*",
         "pistol88/yii2-filter": "*",
+        "ext-xmlreader": "*",
         "pistol88/yii2-field": "*",
         "kartik-v/yii2-grid": "*",
         "pistol88/yii2-cart": "*",
