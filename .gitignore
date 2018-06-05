@@ -22,7 +22,6 @@ Thumbs.db
 
 # composer itself is not needed
 composer.phar
-composer.json
 
 # Mac DS_Store Files
 .DS_Store
@@ -43,7 +42,6 @@ Vagrantfile
 LICENSE.md
 README.md
 codeception.yml
-composer.lock
 /frontend/runtime
 /frontend/tests
 /frontend/web/images/cache/
