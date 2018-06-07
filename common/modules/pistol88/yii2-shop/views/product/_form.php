@@ -98,18 +98,11 @@ use mihaildev\elfinder\ElFinder;
         </div>
     </div>
 
-    <?php echo $form->field($model, 'short_text')->widget(
-        \yii\imperavi\Widget::className(),
-        [
-            'plugins' => ['fullscreen', 'fontcolor', 'video', 'table'],
-            'options'=>[
-                'minHeight' => 400,
-                'maxHeight' => 400,
-                'buttonSource' => true,
-                'imageUpload' => Url::toRoute(['tools/upload-imperavi'])
-            ]
-        ]
-    ) ?>
+    <?= $form->field($model, 'short_text')->widget(CKEditorWidget::className(), [
+        'options' => ['rows' => 6],
+        'preset' => CKEditorPresets::FULL,
+        'clientOptions' => ElFinder::ckeditorOptions('elfinder',['language' => 'ru']),
+    ]) ?>
 
     <?= $form->field($model, 'text')->widget(CKEditorWidget::className(), [
         'options' => ['rows' => 6],
@@ -117,57 +110,29 @@ use mihaildev\elfinder\ElFinder;
         'clientOptions' => ElFinder::ckeditorOptions('elfinder',['language' => 'ru']),
     ]) ?>
 
-    <?php echo $form->field($model, 'characteristics')->widget(
-        \yii\imperavi\Widget::className(),
-        [
-            'plugins' => ['fullscreen', 'fontcolor', 'video', 'table'],
-            'options'=>[
-                'minHeight' => 400,
-                'maxHeight' => 400,
-                'buttonSource' => true,
-                'imageUpload' => Url::toRoute(['tools/upload-imperavi'])
-            ]
-        ]
-    ) ?>
+    <?= $form->field($model, 'characteristics')->widget(CKEditorWidget::className(), [
+        'options' => ['rows' => 6],
+        'preset' => CKEditorPresets::FULL,
+        'clientOptions' => ElFinder::ckeditorOptions('elfinder',['language' => 'ru']),
+    ]) ?>
 
-    <?php echo $form->field($model, 'equipment')->widget(
-        \yii\imperavi\Widget::className(),
-        [
-            'plugins' => ['fullscreen', 'fontcolor', 'video', 'table'],
-            'options'=>[
-                'minHeight' => 400,
-                'maxHeight' => 400,
-                'buttonSource' => true,
-                'imageUpload' => Url::toRoute(['tools/upload-imperavi'])
-            ]
-        ]
-    ) ?>
+    <?= $form->field($model, 'equipment')->widget(CKEditorWidget::className(), [
+        'options' => ['rows' => 6],
+        'preset' => CKEditorPresets::FULL,
+        'clientOptions' => ElFinder::ckeditorOptions('elfinder',['language' => 'ru']),
+    ]) ?>
 
-    <?php echo $form->field($model, 'extra')->widget(
-        \yii\imperavi\Widget::className(),
-        [
-            'plugins' => ['fullscreen', 'fontcolor', 'video', 'table'],
-            'options'=>[
-                'minHeight' => 400,
-                'maxHeight' => 400,
-                'buttonSource' => true,
-                'imageUpload' => Url::toRoute(['tools/upload-imperavi'])
-            ]
-        ]
-    ) ?>
+    <?= $form->field($model, 'extra')->widget(CKEditorWidget::className(), [
+        'options' => ['rows' => 6],
+        'preset' => CKEditorPresets::FULL,
+        'clientOptions' => ElFinder::ckeditorOptions('elfinder',['language' => 'ru']),
+    ]) ?>
 
-    <?php echo $form->field($model, 'photo')->widget(
-        \yii\imperavi\Widget::className(),
-        [
-            'plugins' => ['fullscreen', 'fontcolor', 'video', 'table'],
-            'options'=>[
-                'minHeight' => 400,
-                'maxHeight' => 400,
-                'buttonSource' => true,
-                'imageUpload' => Url::toRoute(['tools/upload-imperavi'])
-            ]
-        ]
-    ) ?>
+    <?= $form->field($model, 'photo')->widget(CKEditorWidget::className(), [
+        'options' => ['rows' => 6],
+        'preset' => CKEditorPresets::FULL,
+        'clientOptions' => ElFinder::ckeditorOptions('elfinder',['language' => 'ru']),
+    ]) ?>
 
     <?=Gallery::widget(['model' => $model]); ?>
 
