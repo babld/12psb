@@ -18,7 +18,10 @@ use pistol88\shop\models\Category;
     </div>
     <?php $url = Category::findOne($good->category->id)->getUrl() . '/' .$good->slug; ?>
     <div class="order-image-wrap">
-        <a href="<?= $url ?>"><img src="<?= $good->image->getUrl('264x240') ?>" class="order-stend-image"/></a>
+        <a href="<?= $url ?>">
+            <img src="<?= $good->image->getUrl('264x240') ?>" class="order-stend-image"/>
+            <i class="product-stock"><?= ($good['available'] == "yes") ? "В Наличии" : "Под заказ" ?></i>
+        </a>
         <div class="order-stend-title"><?= $good['name'] ?></div>
     </div>
 

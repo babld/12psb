@@ -1101,7 +1101,7 @@ a {
 }
 
 
-.main-block-stock {
+.product-stock {
     position: absolute;
     bottom: 12px;
     background: url("/i/white-bg.png");
@@ -1116,6 +1116,10 @@ a {
     text-align: center;
     font-weight: bold;
     line-height: 32px;
+}
+
+.order-stend .product-stock {
+    bottom: 65px;
 }
 
 .main-block-new-price, .main-block-old-price {

@@ -28,11 +28,9 @@ $cur = "р.";
                                 }?>
                                 <img src="<?='/images/cache/' . $pathToImg . '/' . $filename?>"
                                      class="main-block-12psb"/>
-                                <?php if($good['available'] == "yes"):?>
-                                    <i class="main-block-stock">В Наличии</i>
-                                <?php else:?>
-                                    <i class="main-block-stock">Под заказ</i>
-                                <?php endif?>
+                                    <i class="product-stock">
+                                        <?= ($good['available'] == "yes") ? "В Наличии" : "Под заказ" ?>
+                                    </i>
                             </a>
 
                             <div class="main-block-announce-wrap">

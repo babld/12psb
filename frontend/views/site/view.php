@@ -85,6 +85,7 @@ $feedbackModel = new FeedbackMessForm();
                                 save(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename, ['quality' => 100]);
                         }?>
                         <img itemprop="image" src="<?='/images/cache/' . $pathToImg . '/' . $filename?>" />
+                        <i class="product-stock"><?= ($product->available == "yes") ? "В Наличии" : "Под заказ" ?></i>
                     </div>
                 <?php }?>
             </div>
