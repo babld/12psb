@@ -66,7 +66,10 @@ return [
                     'route' => 'site/<action>',
                     'suffix' => '.xml',
                 ],
-                '<catalog:[\w_\/-]+>'   => 'site/catalog',
+                //'<catalog:[\w_\/-]+>'   => 'site/catalog',
+                [
+                    'class' => 'app\components\CatalogUrlRule'
+                ],
             ],
         ],
 

@@ -140,7 +140,8 @@ class SiteController extends Controller
         }
 
         return $this->render('index', [
-            'goods'         => $goods
+            'goods'         => $goods,
+            'products'      => $products
         ]);
     }
 
@@ -373,11 +374,13 @@ class SiteController extends Controller
     }
 
     public function actionService() {
-        return $this->render('service', ['model' => Service::findOne(1)]);
+        $goods = Product::findAll(['is_popular' => 'yes']);
+        return $this->render('service', ['model' => Service::findOne(1), 'goods' => $goods]);
     }
 
     public function actionMaintenance() {
-        return $this->render('maintenance', ['model' => Maintenance::findOne(1)]);
+        $goods = Product::findAll(['is_popular' => 'yes']);
+        return $this->render('maintenance', ['model' => Maintenance::findOne(1), 'goods' => $goods]);
     }
 
     public function actionFeedbackReview() {

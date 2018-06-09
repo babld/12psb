@@ -87,10 +87,10 @@ return [
         ],
         'gallery' => [
             'class' => 'pistol88\gallery\Module',
-            'imagesStorePath' => dirname(dirname(__DIR__)). DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR . 'web' .DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR . 'store', //path to origin images
-            'imagesCachePath' => dirname(dirname(__DIR__)). DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR . 'web' .DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR . 'cache', //path to resized copies
+            'imagesStorePath' => dirname(dirname(__DIR__)) . '/frontend/web/images/store', //path to origin images
+            'imagesCachePath' => dirname(dirname(__DIR__)) . '/frontend/web/images/cache', //path to resized copies
             'graphicsLibrary' => 'GD',
-            'placeHolderPath' => '@frontend/web/images/placeHolder.png',
+            'placeHolderPath' => '@webroot/images/placeHolder.png',
         ],
         'filter' => [
             'class' => 'pistol88\filter\Module',

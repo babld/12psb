@@ -58,8 +58,19 @@ $(document).ready(function() {
 		}
 	});
 
-	$(".main-block-slider").owlCarousel({
+	$('.article__right-owl').owlCarousel({
+        margin: 1,
+		autoplay: false,
+        nav: false,
+        loop: false,
+        responsive: {
+            0: {
+                items: 1
+            }
+        }
+	});
 
+	$(".main-block-slider").owlCarousel({
         loop: true,
         responsive: {
             0: {
