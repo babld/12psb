@@ -38,11 +38,11 @@ use pistol88\shop\models\Category;
 					<vendorCode>12PSB.RU</vendorCode>					
 					<param name="Артикул"><?=$product->code?></param>
 					<description><?=html_entity_decode(strip_tags($product->short_text))?></description>
-					<picture>
 					<?php foreach($product->getImages() as $image) : ?>
-					http://12psb.ru/images/store/<?= $image->filePath ?>
+                    <picture>
+					    http://12psb.ru/images/store/<?= $image->filePath ?>
+                    </picture>
                     <?php endforeach; ?>
-					</picture>
 				</offer>
 			<?php endforeach; ?>
 		</offers>
