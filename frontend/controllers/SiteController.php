@@ -370,7 +370,10 @@ class SiteController extends Controller
     }
 
     public function actionReview() {
-        return $this->render('review');
+
+        return $this->render('review', [
+            'productReviews' => ProductReview::findAll(['is_active' => 'yes'])
+        ]);
     }
 
     public function actionService() {

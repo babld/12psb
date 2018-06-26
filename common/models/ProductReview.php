@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use pistol88\shop\models\Product;
 use Yii;
 
 /**
@@ -53,5 +54,10 @@ class ProductReview extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
             'company' => 'Компания',
         ];
+    }
+
+    public function getProduct()
+    {
+        return $this->hasOne(Product::className(), ['id' => 'item_id']);
     }
 }
