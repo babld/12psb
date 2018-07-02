@@ -1345,7 +1345,8 @@ a {
 }
 
 .order-stend-list.owl-theme .owl-dots,
-.article__right-owl.owl-theme .owl-dots {
+.article__right-owl.owl-theme .owl-dots,
+.video-owl-carousel.owl-theme .owl-dots {
     bottom: -50px;
 }
 
@@ -1557,13 +1558,14 @@ a {
 }
 
 /* certs */
-.certs {
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#37982d+0,37982d+50,317a29+100 */
+.gradient-bg {
     background: #37982d; /* Old browsers */
     background: -moz-linear-gradient(top,  #37982d 0%, #37982d 50%, #317a29 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(top,  #37982d 0%,#37982d 50%,#317a29 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom,  #37982d 0%,#37982d 50%,#317a29 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#37982d', endColorstr='#317a29',GradientType=0 ); /* IE6-9 */
+}
+.certs {
     position: relative;
     padding-top: 112px;
     padding-bottom: 26px;
@@ -2714,3 +2716,45 @@ textarea:-ms-input-placeholder      {color:#ccc;}
 
 /* /overlay */
 
+.video {
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+
+    .video__item:after {
+        content: '\f16a';
+        display: block;
+        position: absolute;
+        top: 41%;
+        left: 47%;
+        font-size: 47px;
+        color: red;
+    }
+
+        .video__item:hover:after {
+            color: #ff510f;
+        }
+
+    .video__item-link {
+        display: block;
+        position: relative;
+    }
+
+    .video__item-title {
+        position: absolute;
+        bottom: -1px;
+        width: 100%;
+        background: url(../i/dark-bg.png);
+        color: #fff;
+        line-height: 20px;
+        font-family: "Intro", sans-serif;
+        padding: 10px;
+    }
+
+    .video h3 {
+        font-size: 29px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 34px;
+        color: #fff;
+    }

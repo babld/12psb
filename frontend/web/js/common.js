@@ -58,6 +58,24 @@ $(document).ready(function() {
 		}
 	});
 
+    $('.video-owl-carousel').owlCarousel({
+        margin: 10,
+        autoplay: true,
+        nav: false,
+        loop: false,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 2
+            },
+            900: {
+                items: 3
+            }
+        }
+    });
+
 	$('.article__right-owl').owlCarousel({
         margin: 1,
 		autoplay: false,
@@ -252,5 +270,15 @@ $(document).ready(function() {
 
     	return false;
 	});
-    
+
+    $('.video__item-link').magnificPopup({
+        disableOn: 700,
+        type: 'iframe',
+        mainClass: 'mfp-fade',
+        removalDelay: 160,
+        preloader: false,
+
+        fixedContentPos: false
+    });
+
 });

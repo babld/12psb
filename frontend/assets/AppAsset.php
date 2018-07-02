@@ -20,7 +20,8 @@ class AppAsset extends AssetBundle
         '/css/jquery.fancybox.css',
         'css/font-awesome.css',
         '/css/owl.carousel.min.css',
-        '/css/owl.theme.default.css'
+        '/css/owl.theme.default.css',
+        '/css/magnific-popup.css'
     ];
     public $js = [
         '/js/bootstrap.js',
@@ -35,7 +36,8 @@ class AppAsset extends AssetBundle
         '/js/jquery.staFeedback.js',
         '/js/jquery.placeholder.js',
         '/js/common.js',
-        '/js/audio.min.js'
+        '/js/audio.min.js',
+        '/js/jquery.magnific-popup.min.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',

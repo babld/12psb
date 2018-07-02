@@ -26,7 +26,8 @@
                     ['label' => 'Email tracking', 'url'=>['/email-tracking'],],
                     ['label' => 'Отзывы', 'url'=>['/product-review']],
                     ['label' => 'Сервис', 'url'=>['/service']],
-                    ['label' => 'Гарантии', 'url'=>['/maintenance']]
+                    ['label' => 'Гарантии', 'url'=>['/maintenance']],
+                    ['label' => 'Видео', 'url'=>['/video'], 'icon' => 'youtube']
                 ],
             ]
         ) ?>

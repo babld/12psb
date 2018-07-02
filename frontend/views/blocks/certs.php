@@ -1,4 +1,4 @@
-<div class="certs">
+<div class="certs gradient-bg">
     <div class="container">
         <div class="certs__gallery owl-carousel owl-theme">
             <a href="i/cert1-big.jpg" rel="fancybox-button" class="lbox" alt="Сертификат" title="Сертификат">

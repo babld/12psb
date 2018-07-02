@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 use app\models\SearchForm;
+use common\models\Video;
 use yii\web\HttpException;
 use pistol88\shop\models\Category;
 use Yii;
@@ -116,11 +117,6 @@ class SiteController extends Controller
 
             $category[] = $categoryData->slug;
 
-            $categoryData = Category::find()->
-                select('slug, parent_id')->
-                where(['id' => $categoryData->parent_id])->
-                one();
-
             $detailUrl = '/' . Category::findOne($categoryId)->getUrl() . '/' . $good->slug;
 
             $goods[] = [
@@ -135,13 +131,14 @@ class SiteController extends Controller
                 'short_text'    => $good->short_text,
                 'name'          => $good->name,
                 'is_popular'    => $good->is_popular,
-                'product'       => $good,
+                'product'       => $good
             ];
         }
 
         return $this->render('index', [
             'goods'         => $goods,
-            'products'      => $products
+            'products'      => $products,
+            'videos'        => Video::findAll(['active' => 'yes'])
         ]);
     }
 
