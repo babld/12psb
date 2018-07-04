@@ -2721,7 +2721,7 @@ textarea:-ms-input-placeholder      {color:#ccc;}
     padding-bottom: 75px;
 }
 
-    .video__item:after {
+    .video__item a:after {
         content: '\f16a';
         display: block;
         position: absolute;
@@ -2731,7 +2731,7 @@ textarea:-ms-input-placeholder      {color:#ccc;}
         color: red;
     }
 
-        .video__item:hover:after {
+        .video__item a:hover:after {
             color: #ff510f;
         }
 
