@@ -66,10 +66,12 @@ class Product extends \yii\db\ActiveRecord implements \pistol88\relations\interf
         return [
             [['name'], 'required'],
             [['category_id', 'producer_id', 'sort', 'amount'], 'integer'],
-            [['text', 'available', 'code', 'is_new', 'is_promo', 'is_popular', 'characteristics', 'equipment', 'short_text', 'photo', 'extra'], 'string'],
+            [['text', 'available', 'code', 'is_new', 'is_promo', 'is_popular', 'characteristics', 'equipment',
+                'short_text', 'photo', 'extra', 'sales_notes'], 'string'],
             [['category_ids'], 'each', 'rule' => ['integer']],
             [['name'], 'string', 'max' => 200],
-            [['slug'], 'string', 'max' => 255]
+            [['slug'], 'string', 'max' => 255],
+
         ];
     }
 
@@ -97,7 +99,8 @@ class Product extends \yii\db\ActiveRecord implements \pistol88\relations\interf
             'slug' => 'СЕО-имя',
             'amount_in_stock' => 'Количество на складах',
             'created_at' => 'Время создания',
-            'updated_at' => 'Время изменения'
+            'updated_at' => 'Время изменения',
+            'sales_notes' => 'Описание продажи для Яндекса'
         ];
     }
 

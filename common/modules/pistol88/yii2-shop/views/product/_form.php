@@ -60,8 +60,6 @@ use mihaildev\elfinder\ElFinder;
         </div>
     </div>
 
-
-
     <div class="row">
         <div class="col-lg-6 col-xs-6">
             <?= $form->field($model, 'category_id')
@@ -121,6 +119,8 @@ use mihaildev\elfinder\ElFinder;
         'preset' => CKEditorPresets::FULL,
         'clientOptions' => ElFinder::ckeditorOptions('elfinder',['language' => 'ru']),
     ]) ?>
+
+    <?= $form->field($model, 'sales_notes')->textArea() ?>
 
     <?= $form->field($model, 'extra')->widget(CKEditorWidget::className(), [
         'options' => ['rows' => 6],

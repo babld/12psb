@@ -43,6 +43,9 @@ use pistol88\shop\models\Category;
 					    http://12psb.ru/images/store/<?= $image->filePath ?>
                     </picture>
                     <?php endforeach; ?>
+                    <?php if(!empty($product->sales_notes)): ?>
+                        <sales_notes><?= $product->sales_notes ?></sales_notes>
+                    <?php endif; ?>
 				</offer>
 			<?php endforeach; ?>
 		</offers>
