@@ -44,7 +44,8 @@
         "yiisoft/yii2-imagine": "*",
         "dmstr/yii2-adminlte-asset": "^2.1",
         "skeeks/yii2-ckeditor": "*",
-        "mihaildev/yii2-elfinder": "*"
+        "mihaildev/yii2-elfinder": "*",
+        "2amigos/yii2-editable-widget" : "~1.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
