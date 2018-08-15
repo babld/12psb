@@ -273,7 +273,7 @@ h2.title {
     width: 151px;
     line-height: 21px;
     border: none;
-    padding: 0 0px 1px 24px;
+    padding: 0 0px 1px 4px;
     border-bottom: 1px dashed #000;
     position: absolute;
     top: 5px;
@@ -1932,7 +1932,6 @@ table.reviews-table td {
 
 .feedback-phone {
     width: 177px;
-    padding-left: 26px;
 }
 @media screen and (max-width: 450px) {
     .feedback-phone-wrapper {

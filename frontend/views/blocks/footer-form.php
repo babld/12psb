@@ -21,8 +21,7 @@ $utmData = Helper::getUtmData();
                         </div>
                         <div class="feedback-phone-wrapper">
                             <div class="feedback-input-text">Ваш телефон:</div>
-                            <i>+7</i>
-                            <input type="text" name="phone" class="feedback-input feedback-phone" placeholder="(___) ___ __ __">
+                            <input type="text" name="phone" class="feedback-input feedback-phone" placeholder="Телефон">
                         </div>
                         <?php if($utmData['utm']) : ?>
                             <input type="hidden" name="utm" value="<?= $utmData['utm'] ?>" />

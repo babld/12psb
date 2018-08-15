@@ -149,8 +149,7 @@ $catalogLabel = 'Каталог';
         <div class="header__forms">
             <div class="form-wrapper">
                 <form class="header-form send">
-                    <i>+7</i>
-                    <input type="text" placeholder="(___) ___ __ __" name="phone" class="header-form-phone">
+                    <input type="text" placeholder="Телефон" name="phone" class="header-form-phone">
                     <?= YII_ENV == 'prod' ? '<input type="hidden" name="target" value="CALLBACK1" />' : '' ?>
                     <?php if($utmData['utm']) : ?>
                         <input type="hidden" name="utm" value="<?= $utmData['utm'] ?>" />

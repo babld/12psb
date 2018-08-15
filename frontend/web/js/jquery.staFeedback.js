@@ -13,8 +13,8 @@
                     required:true
                 },
                 phone: {
-                    required:true,
-					ruPhoneFormat: true
+                    required:true
+					//ruPhoneFormat: true
                 },
 	            email: {
 		            required: true,
@@ -59,7 +59,7 @@
             submitHandler: submit
         });
 		
-		this.find("input[name='phone']").mask("?(999) 999-99-99");
+		//this.find("input[name='phone']").mask("9(999) 999-99-99");
 
         function submit(form){
 	        $.post(
