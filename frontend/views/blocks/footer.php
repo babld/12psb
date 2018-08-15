@@ -28,6 +28,12 @@
             </div>
             <div class="footer-right">
                 <div class="footer-contacts-phone">8-383-207-8860</div>
+                <div class="footer__social">
+                    <a rel="nofollow" class="footer__social_vk" href="https://vk.com/12psb" target="_blank"><i class="fa fa-vk" aria-hidden="true"></i></a>
+                    <a rel="nofollow" class="footer__social_fb" href="https://www.facebook.com/12psb.ru" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a rel="nofollow" class="footer__social_youtube" href="https://www.youtube.com/channel/UCV4obhEY6NCIocc9tJck-6A" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                    <a rel="nofollow" class="footer__social_inst" href="https://www.instagram.com/12psb.ru/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                </div>
             </div>
         </div>
     </div>

@@ -435,18 +435,32 @@ h2.title {
 
 .footer-right {
     float: right;
-    background: #efeff0;
-    padding: 19px 17px 12px 12px;
-    border-radius: 0 0 16px 16px;
     color: #000;
-    font-size: 15px;
-    width: 185px;
+}
+
+.footer__social a {
+    font-size: 24px;
+    padding: 0 3px;
+    color: #ccc;
+    border-radius: 50%;
+    border: 1px solid;
+    width: 41px;
+    height: 41px;
+    display: inline-block;
+    text-align: center;
+    line-height: 36px;
 }
 
 .footer-contacts-phone {
-    background: url(../i/phone-ico.png) no-repeat;
+    background: url(../i/phone-ico.png) no-repeat 7px center;
     padding-left: 36px;
     line-height: 22px;
+    padding: 14px 17px 14px 33px;
+    width: 185px;
+    border-radius: 0 0 16px 16px;
+    background-color: #efeff0;
+    font-size: 15px;
+    margin-bottom: 20px;
 }
 @media screen and (max-width: 600px) {
     .footer-right {
