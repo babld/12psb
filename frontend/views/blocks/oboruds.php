@@ -13,7 +13,7 @@ $title = $products[0]->category->name;
 ?>
 <?= Html::tag($titleTag, $title, ['class' => 'title text-center']); ?>
 
-<div class="oboruds"><?php
+<div class="oboruds clearfix"><?php
     foreach($products as $product) {
         #Временное решение. Переделать
         $tmpUrl = '';

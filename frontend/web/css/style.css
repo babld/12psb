@@ -1595,14 +1595,16 @@ a {
     z-index: 1;
 }
 
-.certs a:last-child img {
+/*.certs a:last-child img {
     margin-right: 0;
-}
+}*/
 
 .certs img {
     margin-right: 12px;
     border: 6px solid #32852a;
     border-radius: 13px;
+    width: initial !important;
+    margin: 0 auto;
 }
 
 @media screen and (max-width: 400px) {
@@ -2205,6 +2207,19 @@ table.reviews-table td {
 .article table p {
     margin-bottom: 0;
 }
+
+.article ul li,
+.article ol li {
+    margin-bottom: 10px;
+    list-style: decimal;
+    list-style-position: inside;
+}
+
+.article ul,
+.article ol {
+    padding: 10px 15px;
+}
+
 /* responsive video */
 .video-responsive {
     margin-bottom: 20px;
@@ -2772,3 +2787,7 @@ textarea:-ms-input-placeholder      {color:#ccc;}
         margin-bottom: 34px;
         color: #fff;
     }
+.product-text {
+    margin-bottom: 30px;
+    text-align: justify;
+}

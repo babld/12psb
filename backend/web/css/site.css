@@ -3,10 +3,6 @@ body {
     height: 100%;
 }
 
-.field-seo-keywords, .field-seo-h1, .field-seo-text, .field-seo-meta_index, .field-seo-redirect_301 {
-    display: none;
-}
-
 .wrap {
     min-height: 100%;
     height: auto;

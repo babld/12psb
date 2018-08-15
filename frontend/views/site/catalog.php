@@ -36,6 +36,9 @@ foreach($products as $product):?>
                     'products'  => $product['product'],
                     'titleTag' => $catalog ? 'h2' : $i > 1 ? 'h2' : 'h1'
                 ]);?>
+                <div class="product-text article">
+                    <?= $category->text ?>
+                </div>
             </div>
         <?php else:?>
             <div class="metal-bg">
