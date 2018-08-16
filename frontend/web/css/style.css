@@ -438,6 +438,10 @@ h2.title {
     color: #000;
 }
 
+.footer__social {
+    margin-bottom: 20px;
+}
+
 .footer__social a {
     font-size: 24px;
     padding: 0 3px;
@@ -462,13 +466,22 @@ h2.title {
     font-size: 15px;
     margin-bottom: 20px;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1024px) {
+    .footer-company-info {
+        float: none;
+    }
+    .footer-right:before {
+        display: block;
+        content: '';
+        clear: both;
+    }
+
     .footer-right {
         float: none;
         text-align: center;
     }
     .footer-contacts-phone {
-        display: inline;
+        margin: 0 auto 20px;
     }
 }
 .footer-contacts-address {
