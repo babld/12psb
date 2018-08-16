@@ -137,14 +137,14 @@ $catalogLabel = 'Каталог';
 
 <div class="header gray-block-bg">
     <div class="container">
-        <a href="/" class="header-logo"></a>
+        <?php if(yii::$app->request->pathinfo): ?>
+            <?= Html::a('', '/', ['class' => 'header-logo']) ?>
+        <?php else: ?>
+            <?= Html::tag('span', '', ['class' => 'header-logo']) ?>
+        <?php endif ?>
         <div class="header-text">
-            <div class="header-title">
-                Стенды ТНВД и Common Rail
-            </div>
-            <div class="header-subtitle">
-                Топливное оборудование в наличии и под заказ.
-            </div>
+            <?= Html::tag('div', 'Стенды ТНВД и Common Rail', ['class' => 'header-title']) ?>
+            <?= Html::tag('div', 'Топливное оборудование в наличии и под заказ.', ['class' => 'header-subtitle']) ?>
         </div>
         <div class="header__forms">
             <div class="form-wrapper">

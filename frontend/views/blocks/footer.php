@@ -1,10 +1,17 @@
+<?php
+use yii\helpers\Html;
+?>
 <div class="gray-line"></div>
 <div class="footer">
     <div class="container clearfix">
         <div class="footer-info">
             <div class="footer-company-info">
                 <div class="clearfix">
-                    <a href="/" class="footer-logo"></a>
+                    <?php if(yii::$app->request->pathinfo): ?>
+                        <?= Html::a('', '/', ['class' => 'header-logo']) ?>
+                    <?php else: ?>
+                        <?= Html::tag('span', '', ['class' => 'header-logo']) ?>
+                    <?php endif ?>
                 </div>
 
                 <div class="footer-company-name">
