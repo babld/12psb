@@ -1605,6 +1605,7 @@ a {
     border-radius: 13px;
     width: initial !important;
     margin: 0 auto;
+    max-width: 100%;
 }
 
 @media screen and (max-width: 400px) {
