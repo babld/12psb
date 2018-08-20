@@ -2255,12 +2255,6 @@ table.reviews-table td {
     background-color: #eeeeee;
 }
 
-.tovar__price-old {
-    padding: 5px 5px 4px 5px;
-    width: 50%;
-    text-align: center;
-}
-
 .order-stend .tovar__price-old {
     -webkit-border-radius: 10px 0 0 0;
     -moz-border-radius: 10px 0 0 0;
@@ -2280,13 +2274,18 @@ table.reviews-table td {
     margin-bottom:20px;
 }
 
-.tovar__price {
+.tovar__price, .tovar__price-old {
     text-align: center;
     float: right;
     line-height:31px;
     color: #fff;
     width: 50%;
 }
+
+.tovar__price-old {
+    float: left;
+}
+
 
 .tovar__price-bg {
     background: #ff6624;

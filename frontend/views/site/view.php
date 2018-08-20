@@ -56,7 +56,7 @@ $feedbackModel = new FeedbackMessForm();
                 <?php if($priceArr[0]->price_old):?>
                     <div class="fl-l tovar__price-old gray-bg">
                         <div class="crossing">
-                            <?=$priceOld . Yii::getAlias('@cur')?>
+                            <span><?=$priceOld . Yii::getAlias('@cur')?></span>
                         </div>
                     </div>
                 <?php endif;?>
