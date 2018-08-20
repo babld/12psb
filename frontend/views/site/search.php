@@ -23,7 +23,8 @@ $this->registerMetaTag([
         <?=$this->render('/blocks/oboruds', [
             'title'     => $query,
             'products'  => $products,
-            'catalog'   => ''
+            'catalog'   => '',
+            'titleTag'  => 'div'
         ]);?>
     <?php endif;?>
 </div>
