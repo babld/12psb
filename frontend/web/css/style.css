@@ -1373,7 +1373,8 @@ a {
 
 .order-stend-list.owl-theme .owl-dots,
 .article__right-owl.owl-theme .owl-dots,
-.video-owl-carousel.owl-theme .owl-dots {
+.video-owl-carousel.owl-theme .owl-dots,
+.owl-three.owl-theme .owl-dots {
     bottom: -50px;
 }
 
@@ -2803,4 +2804,8 @@ textarea:-ms-input-placeholder      {color:#ccc;}
 .product-text {
     margin-bottom: 30px;
     text-align: justify;
+}
+
+.instagram {
+    padding: 100px 0;
 }

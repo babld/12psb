@@ -13,4 +13,5 @@ $this->registerMetaTag(['name' => 'description', 'content' => "Продажа о
 <?= $this->render('/blocks/certs') ?>
 <?= $this->render('/blocks/why-we') ?>
 <?= $this->render('/blocks/reviews') ?>
+<?= $this->render('/blocks/instagramm', ['images' => $instImages]) ?>
 <?= $this->render('/blocks/footer-form') ?>

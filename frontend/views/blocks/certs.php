@@ -1,6 +1,6 @@
 <div class="certs gradient-bg">
     <div class="container">
-        <div class="certs__gallery owl-carousel owl-theme">
+        <div class="owl-three certs__gallery owl-carousel owl-theme">
             <a href="i/cert1-big.jpg" rel="fancybox-button" class="lbox" alt="Сертификат" title="Сертификат">
                 <img width="322" height="422" class="" alt="Сертификат" title="Сертификат" src="/i/cert1-big.jpg">
             </a>

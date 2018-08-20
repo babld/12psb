@@ -132,7 +132,8 @@ class SiteController extends Controller
         return $this->render('index', [
             'goods'         => $goods,
             'products'      => $products,
-            'videos'        => Video::findAll(['active' => 'yes'])
+            'videos'        => Video::findAll(['active' => 'yes']),
+            'instImages'    => $this->instagramPhotos(),
         ]);
     }
 
@@ -444,5 +445,16 @@ class SiteController extends Controller
             return true;
 
         return false;
+    }
+
+    public function instagramPhotos()
+    {
+        $pageContent = file_get_contents("https://www.instagram.com/12psb.ru/");
+        $pageContent = explode("window._sharedData", $pageContent)[1];
+        $pageContent = explode("</script>", $pageContent);
+        $pageContent = substr($pageContent[0], 3);
+        $pageContent = rtrim($pageContent, ";");
+        $pageContent = json_decode($pageContent);
+        return $pageContent->entry_data->ProfilePage[0]->graphql->user->edge_owner_to_timeline_media->edges;
     }
 }

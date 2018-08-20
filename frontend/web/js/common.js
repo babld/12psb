@@ -58,7 +58,7 @@ $(document).ready(function() {
 		}
 	});
 
-    $('.video-owl-carousel').owlCarousel({
+    $('.video-owl-carousel, .owl-three').owlCarousel({
         margin: 10,
         autoplay: true,
         nav: false,
