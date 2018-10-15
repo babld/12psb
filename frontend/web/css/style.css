@@ -281,8 +281,6 @@ h2.title {
     background: transparent;
 }
 
-
-
 .header-form-phone.error {
     border-left: 1px solid red;
 
@@ -308,13 +306,11 @@ h2.title {
 }
 
 .navbar-toggle .icon-bar {
-    background-color: #fff;
+    background-color: #000;
 }
 
-
-
 .navbar-toggle, .navbar-toggle:focus {
-    border: 1px solid #fff;
+    border: 1px solid #000;
     outline: none;
 }
 
@@ -1019,7 +1015,7 @@ a {
 .fixed-menu {
     background-color: #f0f0f0;
     font-size: 15px;
-    line-height: 42px;
+    line-height: 47px;
     position: fixed;
     width: 100%;
     top: 0;
