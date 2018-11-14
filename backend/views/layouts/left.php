@@ -27,7 +27,8 @@
                     ['label' => 'Отзывы', 'url'=>['/product-review']],
                     ['label' => 'Сервис', 'url'=>['/service']],
                     ['label' => 'Гарантии', 'url'=>['/maintenance']],
-                    ['label' => 'Видео', 'url'=>['/video'], 'icon' => 'youtube']
+                    ['label' => 'Видео', 'url'=>['/video'], 'icon' => 'youtube'],
+                    ['label' => 'Сертификаты', 'url'=>['/cert'], 'icon' => 'certificate']
                 ],
             ]
         ) ?>
