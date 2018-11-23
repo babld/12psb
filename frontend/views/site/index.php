@@ -5,13 +5,13 @@ $this->registerMetaTag(['og:title' => $title]);
 $this->registerMetaTag(['name' => 'description', 'content' => "Продажа оборудования для ремонта и регулировки топливной аппаратуры. Низкие цены на стенды для ТНВД и форсунок. Доставка по всей России ☎ 8-800-775-6758"]);
 ?>
 
-<?= $this->render('/blocks/main-block', ['goods' => $goods]) ?>
-<?= $this->render('/blocks/order', ['goods' => $products]);?>
-<?= $this->render('/blocks/video', ['videos' => $videos]) ?>
-<?= $this->render('/blocks/about') ?>
-<?= $this->render('/blocks/pluses') ?>
-<?= $this->render('/blocks/certs') ?>
-<?= $this->render('/blocks/why-we') ?>
-<?= $this->render('/blocks/reviews') ?>
-<?= $this->render('/blocks/instagramm', ['images' => $instImages]) ?>
-<?= $this->render('/blocks/footer-form') ?>
+<?= $this->render('@frontend/views/blocks/main-block', ['goods' => $goods]) ?>
+<?= $this->render('@frontend/views/blocks/order', ['goods' => $products]);?>
+<?= $this->render('@frontend/views/blocks/video', ['videos' => $videos]) ?>
+<?= $this->render('@frontend/views/blocks/about') ?>
+<?= $this->render('@frontend/views/blocks/pluses') ?>
+<?= $this->render('@frontend/views/blocks/certs') ?>
+<?= $this->render('@frontend/views/blocks/why-we') ?>
+<?= $this->render('@frontend/views/blocks/reviews') ?>
+<?= $this->render('@frontend/views/blocks/instagramm', ['images' => $instImages]) ?>
+<?= $this->render('@frontend/views/blocks/footer-form') ?>
