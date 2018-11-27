@@ -1,5 +1,7 @@
 <?php
 use yii\helpers\Html;
+
+if(!empty($images)):
 ?>
 <section class="instagram section">
     <div class="container">
@@ -25,3 +27,4 @@ use yii\helpers\Html;
         </div>
     </div>
 </section>
+<?php endif ?>

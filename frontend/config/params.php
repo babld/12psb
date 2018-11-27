@@ -6,5 +6,6 @@ return [
     'mail' => 'info@12psb.ru',
     'cookieName' => 'utm_source',
     'robotEmail' => 'no-reply@12psb.ru',
-    'feedbackSubject' => 'На сайте 12psb.ru оставлен отзыв'
+    'feedbackSubject' => 'На сайте 12psb.ru оставлен отзыв',
+    'instagram' => 'https://www.instagram.com/12psb.ru/',
 ];

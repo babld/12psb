@@ -449,12 +449,15 @@ class SiteController extends Controller
 
     public function instagramPhotos()
     {
-        $pageContent = file_get_contents("https://www.instagram.com/12psb.ru/");
-        $pageContent = explode("window._sharedData", $pageContent)[1];
-        $pageContent = explode("</script>", $pageContent);
-        $pageContent = substr($pageContent[0], 3);
-        $pageContent = rtrim($pageContent, ";");
-        $pageContent = json_decode($pageContent);
-        return $pageContent->entry_data->ProfilePage[0]->graphql->user->edge_owner_to_timeline_media->edges;
+        return [];
+        if(!stripos(get_headers(yii::$app->params['instagram'])[0], '50')) {
+            $pageContent = file_get_contents(yii::$app->params['instagram']);
+            $pageContent = explode("window._sharedData", $pageContent)[1];
+            $pageContent = explode("</script>", $pageContent);
+            $pageContent = substr($pageContent[0], 3);
+            $pageContent = rtrim($pageContent, ";");
+            $pageContent = json_decode($pageContent);
+            return $pageContent->entry_data->ProfilePage[0]->graphql->user->edge_owner_to_timeline_media->edges;
+        }
     }
 }
