@@ -11,7 +11,7 @@ $utmData = Helper::getUtmData();
                     <div class="corp-col">Директор</div>
                     <div>Балабанов Дмитрий Викторович</div>
                 </div>
-                <img src="/i/manager.png" class=""/>
+                <img src="/i/manager.jpg" class=""/>
             </div>
         </div>
 

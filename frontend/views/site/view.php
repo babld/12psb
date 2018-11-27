@@ -191,7 +191,7 @@ $feedbackModel = new FeedbackMessForm();
                         <div class="feedback__manager-rang">Директор</div>
                         <div class="feedback__manager-name">Балабанов Дмитрий Викторович</div>
                     </div> */ ?>
-                    <img src="/i/manager.png" class="feedback__manager-img" />
+                    <img src="/i/manager.jpg" class="feedback__manager-img" />
                 </div>
                 <?php
                 $formTableFieldOptions = [

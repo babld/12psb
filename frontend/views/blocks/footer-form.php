@@ -6,7 +6,7 @@ $utmData = Helper::getUtmData();
     <div class="container">
         <div class="footer-form-block">
             <div class="footer-manager-wrap">
-                <img src="../i/manager.png" class="footer-form__manager"/>
+                <img src="../i/manager.jpg" class="footer-form__manager"/>
                 <div class="footer-managet-notice">Дмитрий<br/>Менеджер по продаже стендов</div>
             </div>
             <div class="footer-form-wrap">

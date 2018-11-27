@@ -64,6 +64,7 @@ $(document).ready(function() {
         autoplay: true,
         nav: false,
         loop: false,
+        lazyLoad:true,
         responsive: {
             0: {
                 items: 1

@@ -70,7 +70,7 @@ $utmData = Helper::getUtmData();
             <div class="contacts__manager-wrap">
                 <p class="corp-col">Директор</p>
                 <p>Балабанов Дмитрий Викторович</p>
-                <img src="/i/manager.png" class="contacts__manager-img border-emul"/>
+                <img src="/i/manager.jpg" class="contacts__manager-img border-emul"/>
             </div>
             <div class="contacts__form-wrap">
                 <p><a href="skype:coswart">

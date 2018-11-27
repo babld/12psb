@@ -35,7 +35,7 @@ use Imagine\Image\BoxInterface;
                         save(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename, ['quality' => 90]);
                     }
                     ?>
-                    <img alt="Сертификат" title="Сертификат" src="<?='/images/cache/' . $pathToImg . '/' . $filename?>" />
+                    <img class="owl-lazy" data-src="<?='/images/cache/' . $pathToImg . '/' . $filename?>" />
                 </a>
             <?php endforeach ?>
         </div>

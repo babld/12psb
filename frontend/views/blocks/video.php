@@ -6,8 +6,9 @@
                 <div class="video__item fa">
                     <a class="video__item-link" href="<?= $video->url ?>">
                         <img
+                            class="owl-lazy"
                             itemprop="contentUrl"
-                            src="https://img.youtube.com/vi/<?= explode('watch?v=', $video->url)[1] ?>/maxresdefault.jpg"
+                            data-src="https://img.youtube.com/vi/<?= explode('watch?v=', $video->url)[1] ?>/0.jpg"
                         />
                         <div class="video__item-title"><?= $video->title ?></div>
                     </a>
