@@ -41,6 +41,7 @@ return [
     'components' => [
         'assetManager' => [
             //'forceCopy' => true,
+            'linkAssets' => true,
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',

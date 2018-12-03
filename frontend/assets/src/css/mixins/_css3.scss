@@ -1,0 +1,6 @@
+@mixin inline-block($alignment: middle) {
+    display: inline-block;
+    @if $alignment and $alignment != none {
+        vertical-align: $alignment;
+    }
+}

@@ -1,6 +1,7 @@
 <?php
 $title = "Оборудование для ремонта ТНВД и форсунок";
 $this->title = $title;
+$this->params['pageComponent'] = 'index';
 $this->registerMetaTag(['og:title' => $title]);
 $this->registerMetaTag(['name' => 'description', 'content' => "Продажа оборудования для ремонта и регулировки топливной аппаратуры. Низкие цены на стенды для ТНВД и форсунок. Доставка по всей России ☎ 8-800-775-6758"]);
 ?>

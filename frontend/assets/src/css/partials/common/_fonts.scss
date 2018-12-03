@@ -1,0 +1,17 @@
+$fonts-dir: '../fonts/';
+
+@each $font in (
+        ( name: 'bold',    weight: $bold ),
+        ( name: 'regular', weight: $regular ),
+) {
+  $path-name: '#{$fonts-dir}intro/intro_#{map-get($font, name)}';
+
+  @font-face {
+    font-family: $intro-family;
+    src: url('#{$path-name}.woff2') format('woff2'),
+    url('#{$path-name}.woff') format('woff'),
+    url('#{$path-name}.ttf') format('truetype');
+    font-weight: map-get($font, weight);
+    font-style: normal;
+  }
+}

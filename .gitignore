@@ -47,3 +47,4 @@ codeception.yml
 /frontend/web/images/cache/
 robots.txt
 frontend/web/google*
+node_modules

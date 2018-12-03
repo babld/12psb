@@ -1,0 +1,13 @@
+.collapse {
+    display: none;
+
+    &.in { display: block; }
+}
+
+.collapsing {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    transition: .3s ease;
+    transition-property: height, visibility;
+}

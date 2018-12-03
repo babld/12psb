@@ -8,14 +8,8 @@ $this->registerMetaTag([
     'name' => 'keywords',
     'content' => $query
 ]);?>
-<div class="container">
-    <?php
-    if(empty($query)):?>
-        <h1>Задан пустой поисковой запрос</h1>
-    <?php else:?>
-        <h1>Результаты поиска:</h1>
-    <?php endif;?>
-
+<div class="container search-page">
+    <h1 class="text-center"><?= empty($query) ? "Задан пустой поисковой запрос" : "Результаты поиска: $query" ?></h1>
     <?php
     if(empty($products)):?>
         <p>Ничего не найдено</p>

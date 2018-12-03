@@ -9,38 +9,20 @@ use yii\web\AssetBundle;
  */
 class AppAsset extends AssetBundle
 {
-    public $basePath = '@webroot';
+    public $sourcePath = YII_ENV_DEV ? '@frontend/assets/dist/dev' : '@frontend/assets/dist/prod';
     public $baseUrl = '@web';
     public $css = [
-        'css/fonts.css',
-        'css/bootstrap.css',
-        'css/form.css',
-        'css/style.css',
-        'css/overlay.css',
-        '/css/jquery.fancybox.css',
-        'css/font-awesome.css',
-        '/css/owl.carousel.min.css',
-        '/css/owl.theme.default.css',
-        '/css/magnific-popup.css'
+        YII_ENV_DEV ? 'css/all.css' : 'css/all.min.css',
     ];
     public $js = [
-        '/js/bootstrap.js',
-        '/js/owl.carousel.min.js',
-        '/js/jquery.fancybox.pack.js',
-        '/js/jquery.cookie.js',
-        '/js/jquery.inputmask.bundle.min.js',
-        '/js/jquery.fancybox.pack.js',
-        '/js/jquery.validate.min.js',
-        '/js/jquery.maskedinput.js',
-        '/js/additional-methods.js',
-        '/js/jquery.staFeedback.js',
-        '/js/jquery.placeholder.js',
-        '/js/common.js',
-        '/js/audio.min.js',
-        '/js/jquery.magnific-popup.min.js'
+        YII_ENV_DEV ? 'js/vendor.js' : 'js/vendor.min.js',
+        YII_ENV_DEV ? 'js/all.js' : 'js/all.min.js',
     ];
-    public $depends = [
-        'yii\web\YiiAsset',
-        //'yii\bootstrap\BootstrapAsset',
+    public $depends = [];
+    public $publishOptions = [
+        'only' => [
+            '*.min.css',
+            '*.min.js',
+        ],
     ];
 }

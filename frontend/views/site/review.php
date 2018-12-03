@@ -1,5 +1,6 @@
 <?php
 $this->title = 'Отзывы наших клиентов | 12psb.ru';
+$this->params['pageComponent'] = 'review';
 ?>
 <?=$this->render('/blocks/reviews');?>
 <div class="container">

@@ -1,0 +1,66 @@
+src:
+  entryScss: ./frontend/assets/src/css/**/[!_]*.scss
+  watchScss: ./frontend/assets/src/css/**/*.scss
+  fonts: ./frontend/assets/src/fonts/**/*.@(ttf|woff|woff2)
+  svgSprite: './frontend/assets/src/svg/sprite/**/*.svg'
+  entryJs:
+    vendor: ./frontend/assets/src/js/vendor.js
+    all: ./frontend/assets/src/js/all.js
+
+dist:
+  dev:
+    css: ./frontend/assets/dist/dev/css
+    js: ./frontend/assets/dist/dev/js
+    fonts: ./frontend/assets/dist/dev/fonts
+    svg: ./frontend/assets/dist/dev/svg
+
+  prod:
+    css: ./frontend/assets/dist/prod/css
+    js: ./frontend/assets/dist/prod/js
+    fonts: ./frontend/assets/dist/prod/fonts
+    svg: ./frontend/assets/dist/prod/svg
+
+sass:
+  includePaths:
+    - './frontend/assets/src/css/'
+    - './node_modules/'
+
+assets:
+  loadPaths:
+    - './frontend/assets/src/'
+  cachebuster: true
+  relative: false
+
+cssnano:
+  preset: 'default'
+
+svgSprite:
+  shape:
+    transform:
+      - svgo:
+          plugins:
+              removeTitle: true
+
+  mode:
+    inline: true
+    symbol:
+      dest: ''
+      sprite: 'sprite.svg'
+      prefix: '.sprite_%s'
+      dimensions: '%s'
+      render:
+        scss:
+          template: 'frontend/assets/src/css/partials/common/_sprite-dims.scss.mustache'
+          dest: '../../../src/css/partials/common/_sprite-dims.scss'
+
+webpack:
+  resolve:
+    modules:
+      - ./frontend/assets/src/js
+      - ./node_modules
+
+browserSync:
+    proxy: '127.0.0.1:8000'
+    port: 3001
+    ui: false
+    ghostMode: false
