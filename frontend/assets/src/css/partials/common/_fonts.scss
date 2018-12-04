@@ -9,7 +9,7 @@ $fonts-dir: '../fonts/';
   @font-face {
     font-family: $intro-family;
     font-display: fallback;
-    src: url('#{$path-name}.woff2') format('woff2'),
+    src: /*url('#{$path-name}.woff2') format('woff2'),*/
     url('#{$path-name}.woff') format('woff'),
     url('#{$path-name}.ttf') format('truetype');
     font-weight: map-get($font, weight);

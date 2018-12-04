@@ -15,8 +15,8 @@ module.exports = merge(devConfig, {
     new webpack.LoaderOptionsPlugin({
       minimize: true,
       debug: false
-    })//,
-    /*new webpack.optimize.UglifyJsPlugin({
+    }),
+    new webpack.optimize.UglifyJsPlugin({
       beautify: false,
       mangle: {
         screw_ie8: true,
@@ -26,6 +26,6 @@ module.exports = merge(devConfig, {
         screw_ie8: true
       },
       comments: false
-    })*/
+    })
   ]
 });
