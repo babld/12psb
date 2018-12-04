@@ -6,7 +6,8 @@ var Page = require('components/page/page');
 /* eslint-disable global-require */
 var pages = {
     index: require('components/page/index-page'),
-    review: require('components/page/review-page')
+    review: require('components/page/review-page'),
+    product: require('components/page/product-page')
     //contacts: require('components/page/contacts'),
     //catalog: require('components/page/catalog'),
     //article: require('components/page/article'),

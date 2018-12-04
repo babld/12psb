@@ -5,7 +5,5 @@ module.exports = Page.extend({
     initialize: function initialize() {
         Page.prototype.initialize.apply(this, arguments);
         AudioJs.audiojs.createAll();
-        console.log('review');
-
     }
 });

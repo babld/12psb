@@ -565,6 +565,10 @@ span.breadcrumb {
   color: #000;
 }
 
+.breadcrumb li:before {
+  content: '' !important;
+}
+
 .breadcrumb li:last-child:after {
   content: '';
   margin: 0;

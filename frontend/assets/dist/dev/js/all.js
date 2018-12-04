@@ -2242,7 +2242,8 @@ var Page = __webpack_require__(4);
 /* eslint-disable global-require */
 var pages = {
     index: __webpack_require__(69),
-    review: __webpack_require__(70)
+    review: __webpack_require__(70),
+    product: __webpack_require__(76)
     //contacts: require('components/page/contacts'),
     //catalog: require('components/page/catalog'),
     //article: require('components/page/article'),
@@ -7412,8 +7413,6 @@ module.exports = Page.extend({
     initialize: function initialize() {
         Page.prototype.initialize.apply(this, arguments);
         AudioJs.audiojs.createAll();
-        console.log('review');
-
     }
 });
 
@@ -9363,6 +9362,26 @@ b,d){return this.bind(b,function(e){var f=c(e.target);if(f.is(a))return d.apply(
     }
 })(jQuery);
 
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function($) {var Page = __webpack_require__(4);
+
+module.exports = Page.extend({
+    initialize: function initialize() {
+        $(".tovar__gallery").owlCarousel({
+            items: 1,
+            autoplay: false,
+            lazyLoad:true,
+            loop: true,
+            margin: 10,
+            nav:false
+        });
+    }
+});
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ })
