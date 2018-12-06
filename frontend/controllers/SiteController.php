@@ -460,4 +460,13 @@ class SiteController extends Controller
             return $pageContent->entry_data->ProfilePage[0]->graphql->user->edge_owner_to_timeline_media->edges;
         }
     }
+
+    public function actionRobots() {
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_RAW;
+        header("Content-Type: text/plain");
+        if(yii::$app->params['subdomen'] == 'omsk') {
+            return $this->renderPartial('@frontend/views/site/robots/omsk.php');
+        }
+        return $this->renderPartial ('@frontend/views/site/robots/robots');
+    }
 }
