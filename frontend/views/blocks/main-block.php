@@ -1,8 +1,6 @@
 <?php
 use yii\imagine\Image;
-use Imagine\Gd;
 use Imagine\Image\Box;
-use Imagine\Image\BoxInterface;
 use app\components\Helper;
 
 $cur = "р.";
@@ -37,11 +35,11 @@ $cur = "р.";
                             <div class="main-block-announce-wrap">
                                 <div class="main-block-annonce">
                                     <div class="main-block-prices">
-                                        <?php /* if($product->price[0]->price_old != NULL):?>
+                                        <?php if($product->oldPrice != NULL):?>
                                             <div class="main-block-old-price">
-                                                <?=number_format($product->price[0]->price_old, 0, "", " ") . " $cur"?>
+                                                <?=number_format($product->oldPrice, 0, "", " ") . " $cur"?>
                                             </div>
-                                        <?php endif; */?>
+                                        <?php endif ?>
                                         <?php if($product->price != NULL):?>
                                             <div class="main-block-new-price tovar__price-bg">
                                                 <?=number_format($product->price, 0, '', ' ') . " $cur"?>
