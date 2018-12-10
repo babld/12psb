@@ -3,6 +3,7 @@ use yii\imagine\Image;
 use Imagine\Gd;
 use Imagine\Image\Box;
 use Imagine\Image\BoxInterface;
+use app\components\Helper;
 
 $cur = "р.";
 ?>
@@ -11,13 +12,13 @@ $cur = "р.";
         <h3 class="block-title">Акционные предложения</h3>
         <div class="main-block-slider-wrap">
             <div class="main-block-slider owl-carousel owl-theme">
-                <?php foreach($goods as $good) :
-                    if($good['is_promo'] == "yes"):?>
+                <?php foreach($products as $product) :
+                    if($product->is_promo == "yes"):?>
                         <div class="main-block-slider-item">
-                            <a href="<?=$good['detailUrl']?>" class="main-block__imglink"><?php
+                            <a href="<?= $product->category->getUrl() . $product->slug ?>" class="main-block__imglink"><?php
                                 $width = 320;
                                 $height = $width * 3 / 4;
-                                $imagePath = $good['mainImage']->filePath;
+                                $imagePath = $product->image->filePath;
                                 $path = explode('/', $imagePath);
                                 $filename = $width.'x'.$height . '-' . array_pop($path);
                                 $pathToImg = implode('/', $path);
@@ -28,31 +29,31 @@ $cur = "р.";
                                 }?>
                                 <img src="<?='/images/cache/' . $pathToImg . '/' . $filename?>"
                                      class="main-block-12psb"/>
-                                    <i class="product-stock">
-                                        <?= ($good['available'] == "yes") ? "В Наличии" : "Под заказ" ?>
-                                    </i>
+                                <i class="product-stock">
+                                    <?= ($product->available == "yes") ? "В Наличии" : "Под заказ" ?>
+                                </i>
                             </a>
 
                             <div class="main-block-announce-wrap">
                                 <div class="main-block-annonce">
                                     <div class="main-block-prices">
-                                        <?php if($good['price'][0]->price_old != NULL):?>
+                                        <?php /* if($product->price[0]->price_old != NULL):?>
                                             <div class="main-block-old-price">
-                                                <?=number_format($good['price'][0]->price_old, 0, "", " ") . " $cur"?>
+                                                <?=number_format($product->price[0]->price_old, 0, "", " ") . " $cur"?>
                                             </div>
-                                        <?php endif;?>
-                                        <?php if($good['price'][0]->price != NULL):?>
+                                        <?php endif; */?>
+                                        <?php if($product->price != NULL):?>
                                             <div class="main-block-new-price tovar__price-bg">
-                                                <?=number_format($good['price'][0]->price, 0, '', ' ') . " $cur"?>
+                                                <?=number_format($product->price, 0, '', ' ') . " $cur"?>
                                             </div>
                                         <?php endif;?>
                                     </div>
-                                    <div class="main-block-title"><?=$good['name']?></div>
+                                    <div class="main-block-title"><?= Helper::textHandl($product->name) ?></div>
                                     <div class="main-block-desc">
-                                        <p><?=$good['short_text']?></p>
+                                        <p><?= Helper::textHandl($product->short_text) ?></p>
                                     </div>
                                     <div class="clearfix">
-                                        <a href="<?=$good['detailUrl']?>" class="main-block__link but-default">Подробнее...</a>
+                                        <a href="<?= $product->category->getUrl() . $product->slug ?>" class="main-block__link but-default">Подробнее...</a>
                                     </div>
                                 </div>
                             </div>

@@ -462,11 +462,16 @@ class SiteController extends Controller
     }
 
     public function actionRobots() {
+        $subdomen = yii::$app->params['subdomen'];
         \Yii::$app->response->format = \yii\web\Response::FORMAT_RAW;
         header("Content-Type: text/plain");
-        if(yii::$app->params['subdomen'] == 'omsk') {
-            return $this->renderPartial('@frontend/views/site/robots/omsk.php');
-        }
+        if($subdomen)
+            switch ($subdomen) {
+                case "omsk":
+                    return $this->renderPartial('@frontend/views/site/robots/omsk.php');
+                default:
+                    return $this->renderPartial('@frontend/views/site/robots/disalowAll.php');
+            }
         return $this->renderPartial ('@frontend/views/site/robots/robots');
     }
 }

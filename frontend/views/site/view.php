@@ -34,11 +34,11 @@ $priceOld   = number_format($priceArr[0]->price_old, 0, "", " ");
 foreach($breadcrumbs as $breadcrumb):
     $this->params['breadcrumbs'][] = ['label' => $breadcrumb['name'], 'url' => ['/'. $breadcrumb['link']]];
 endforeach;
-$this->params['breadcrumbs'][] = $product->name;
 
-$title = $product->name;
-$this->title = !empty($product->seo->title) ? $product->seo->title : $title;
-$this->registerMetaTag(['name' => 'description', 'content' => $product->seo->description]);
+$title = Helper::textHandl($product->name);
+$this->params['breadcrumbs'][] = $title;
+$this->title = !empty($product->seo->title) ? Helper::textHandl($product->seo->title) : $title;
+$this->registerMetaTag(['name' => 'description', 'content' => Helper::textHandl($product->seo->description)]);
 $this->registerMetaTag(['og:title' => $this->title]);
 
 $feedbackModel = new FeedbackMessForm();
@@ -66,7 +66,7 @@ $feedbackModel = new FeedbackMessForm();
                     <span itemprop="priceCurrency"><?= Yii::getAlias('@cur')?></span>
                 </div>
             </div>
-            <h1 class="title" itemprop="name"><?=$product->name?></h1>
+            <h1 class="title" itemprop="name"><?= Helper::textHandl($product->name) ?></h1>
         </div>
 
         <div class="tovar__gallery-wrap">
@@ -93,7 +93,7 @@ $feedbackModel = new FeedbackMessForm();
         </div>
 
         <div class="tovar__text" itemprop="description">
-            <?=$product->short_text?>
+            <?= Helper::textHandl($product->short_text) ?>
             <br><br>
             <div class="tovar__controls">
                 <a href="/service">
@@ -110,7 +110,6 @@ $feedbackModel = new FeedbackMessForm();
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
@@ -140,18 +139,18 @@ $feedbackModel = new FeedbackMessForm();
             </ul>
             <!-- Содержимое вкладок -->
             <div class="tab-content content">
-                <div role="tabpanel" class="tab-pane active" id="home"><?=$product->text?></div>
+                <div role="tabpanel" class="tab-pane active" id="home"><?= Helper::textHandl($product->text) ?></div>
                 <div role="tabpanel" class="tab-pane" id="profile">
-                    <?=$product->characteristics;?>
+                    <?= Helper::textHandl($product->characteristics) ?>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="messages">
-                    <?=$product->photo;?>
+                    <?= Helper::textHandl($product->photo) ?>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="settings">
-                    <?=$product->equipment;?>
+                    <?= Helper::textHandl($product->equipment) ?>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="extra">
-                    <?=$product->extra;?>
+                    <?= Helper::textHandl($product->extra) ?>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="video"><?php
                     if(!trim($product->getField('video')) == "") {

@@ -1,6 +1,7 @@
 <?php
 use yii\widgets\Breadcrumbs;
 use yii\helpers\Html;
+use app\components\Helper;
 
 $count = count($breadcrumbs);
 for($i = 0; $i < $count; $i++):
@@ -11,9 +12,9 @@ for($i = 0; $i < $count; $i++):
     endif;
 endfor;
 
-$title = !empty($category->seo->title) ? $category->seo->title : $category->name;
+$title = !empty($category->seo->title) ? Helper::textHandl($category->seo->title) : Helper::textHandl($category->name);
 $this->title = $title;
-$this->registerMetaTag(['name' => 'description', 'content' => $category->seo->description]);
+$this->registerMetaTag(['name' => 'description', 'content' => Helper::textHandl($category->seo->description)]);
 $this->registerMetaTag(['og:title' => $title]);
 ?>
 
@@ -37,7 +38,7 @@ foreach($products as $product):?>
                     'titleTag' => $catalog ? 'h2' : $i > 1 ? 'h2' : 'h1'
                 ]);?>
                 <div class="product-text article">
-                    <?= $category->text ?>
+                    <?= Helper::textHandl($category->text) ?>
                 </div>
             </div>
         <?php else:?>

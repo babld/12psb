@@ -1,9 +1,9 @@
 <?php
 namespace app\components;
+use Yii;
 
 class Helper
 {
-
     public static function getUtmData() {
         $session = \Yii::$app->session;
         $phone = \Yii::$app->params['freephone'];
@@ -32,5 +32,9 @@ class Helper
             'value' => $cookieValue,
             'expire' => time() + 86400 * 14
         ]));
+    }
+    
+    public static function textHandl($text) {
+        return str_replace('#city#', yii::$app->params['city']['name'], $text);
     }
 }
