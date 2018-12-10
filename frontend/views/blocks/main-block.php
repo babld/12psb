@@ -11,9 +11,10 @@ $cur = "р.";
         <div class="main-block-slider-wrap">
             <div class="main-block-slider owl-carousel owl-theme">
                 <?php foreach($products as $product) :
-                    if($product->is_promo == "yes"):?>
+                    if($product->is_promo == "yes"):
+                        $productUrl = $product->category->getUrl() . '/' . $product->slug;?>
                         <div class="main-block-slider-item">
-                            <a href="<?= $product->category->getUrl() . $product->slug ?>" class="main-block__imglink"><?php
+                            <a href="<?= $productUrl ?>" class="main-block__imglink"><?php
                                 $width = 320;
                                 $height = $width * 3 / 4;
                                 $imagePath = $product->image->filePath;
@@ -37,7 +38,7 @@ $cur = "р.";
                                     <div class="main-block-prices">
                                         <?php if($product->oldPrice != NULL):?>
                                             <div class="main-block-old-price">
-                                                <?=number_format($product->oldPrice, 0, "", " ") . " $cur"?>
+                                                <?= number_format($product->oldPrice, 0, "", " ") . " $cur"?>
                                             </div>
                                         <?php endif ?>
                                         <?php if($product->price != NULL):?>
@@ -51,7 +52,7 @@ $cur = "р.";
                                         <p><?= Helper::textHandl($product->short_text) ?></p>
                                     </div>
                                     <div class="clearfix">
-                                        <a href="<?= $product->category->getUrl() . $product->slug ?>" class="main-block__link but-default">Подробнее...</a>
+                                        <a href="<?= $productUrl ?>" class="main-block__link but-default">Подробнее...</a>
                                     </div>
                                 </div>
                             </div>

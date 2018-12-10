@@ -93,45 +93,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $products = Product::find()->all();
-        $goods = [];
-
-        foreach($products as $good) {
-            $category = [];
-            $mainImage = Image::find()->where(['itemid' => $good->id, 'isMain' => 1])->one();
-            $images = Image::find()->where(['itemid' => $good->id])->all();
-            $price = Price::find()->where(['product_id' => $good->id])->all();
-
-            if(!$mainImage) $mainImage = $images[0];
-            $categoryId = $good->category_id;
-            $categoryData = Category::find()->
-                select('slug, parent_id')->
-                where(['id' => $categoryId])->
-                one();
-
-            $category[] = $categoryData->slug;
-
-            $detailUrl = '/' . Category::findOne($categoryId)->getUrl() . '/' . $good->slug;
-
-            $goods[] = [
-                'mainImage'     => $mainImage,
-                'images'        => $images,
-                'price'         => $price,
-                'is_promo'      => $good->is_promo,
-                'category'      => $category,
-                'detailUrl'     => $detailUrl,
-                'available'     => $good->available,
-                'text'          => $good->text,
-                'short_text'    => $good->short_text,
-                'name'          => $good->name,
-                'is_popular'    => $good->is_popular,
-                'product'       => $good
-            ];
-        }
 
         return $this->render('index', [
-            'goods'         => $goods,
-            'products'      => $products,
+            'products'      => Product::find()->all(),
             'videos'        => Video::findAll(['active' => 'yes']),
             'instImages'    => $this->instagramPhotos(),
         ]);
