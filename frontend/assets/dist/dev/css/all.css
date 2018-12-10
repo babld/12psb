@@ -9535,7 +9535,8 @@ h2.title {
 .navbar-toggle, .navbar-toggle:focus {
   border: 1px solid #000;
   outline: none;
-  float: none; }
+  float: none;
+  margin-top: 0; }
 
 .footer-managet-notice {
   position: absolute;
@@ -11592,6 +11593,9 @@ textarea:-ms-input-placeholder {
 
 .instagram {
   padding: 100px 0; }
+
+.fancybox-overlay {
+  background: url("/i/fancybox_overlay.png"); }
 
 .audiojs .play {
   background: url("/js/player-graphics.gif"); }

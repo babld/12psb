@@ -38,18 +38,6 @@ module.exports = toString;
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var root = __webpack_require__(40);
-
-/** Built-in value references. */
-var Symbol = root.Symbol;
-
-module.exports = Symbol;
-
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
 /* WEBPACK VAR INJECTION */(function(backbone, $) {var Header = __webpack_require__(67);
 var rightBlockOwl = __webpack_require__(68);
 //var CartElements = require('components/common/cart-elements');
@@ -178,6 +166,18 @@ module.exports = backbone.View.extend({
 });
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(0)))
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var root = __webpack_require__(40);
+
+/** Built-in value references. */
+var Symbol = root.Symbol;
+
+module.exports = Symbol;
+
 
 /***/ }),
 /* 5 */
@@ -2116,7 +2116,7 @@ module.exports = backbone.View.extend({
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(3),
+var Symbol = __webpack_require__(4),
     getRawTag = __webpack_require__(45),
     objectToString = __webpack_require__(46);
 
@@ -2237,13 +2237,13 @@ setVolume:function(b){this.element.volume=b},trackEnded:function(){this.skipTo.a
 /* WEBPACK VAR INJECTION */(function($) {var camelCase = __webpack_require__(37);
 var isFunction = __webpack_require__(64);
 var raf = __webpack_require__(6);
-var Page = __webpack_require__(4);
+var Page = __webpack_require__(3);
 
 /* eslint-disable global-require */
 var pages = {
     index: __webpack_require__(69),
     review: __webpack_require__(70),
-    product: __webpack_require__(76)
+    product: __webpack_require__(71)
     //contacts: require('components/page/contacts'),
     //catalog: require('components/page/catalog'),
     //article: require('components/page/article'),
@@ -2261,11 +2261,11 @@ window.__forceSmoothScrollPolyfill__ = true; // eslint-disable-line no-underscor
 //require('./plugins/owl-carousel');
 //require('./plugins/count-spinner');
 // require('./plugins/magnific-popup');
-__webpack_require__(71);
 __webpack_require__(72);
 __webpack_require__(73);
 __webpack_require__(74);
 __webpack_require__(75);
+__webpack_require__(76);
 
 
 (function bootstrap(components) {
@@ -2348,7 +2348,7 @@ module.exports = capitalize;
 /* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(3),
+var Symbol = __webpack_require__(4),
     arrayMap = __webpack_require__(42),
     isArray = __webpack_require__(43),
     isSymbol = __webpack_require__(44);
@@ -2511,7 +2511,7 @@ module.exports = isSymbol;
 /* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(3);
+var Symbol = __webpack_require__(4);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -7330,7 +7330,7 @@ module.exports = backbone.View.extend({
 /* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function($) {var Page = __webpack_require__(4);
+/* WEBPACK VAR INJECTION */(function($) {var Page = __webpack_require__(3);
 var AudioJs = __webpack_require__(13);
 // var config = require('services/config');
 
@@ -7406,7 +7406,7 @@ module.exports = Page.extend({
 /* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Page = __webpack_require__(4);
+var Page = __webpack_require__(3);
 var AudioJs = __webpack_require__(13);
 
 module.exports = Page.extend({
@@ -7419,6 +7419,32 @@ module.exports = Page.extend({
 
 /***/ }),
 /* 71 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function($) {var Page = __webpack_require__(3);
+
+module.exports = Page.extend({
+    initialize: function initialize() {
+        $(".tovar__gallery").owlCarousel({
+            items: 1,
+            autoplay: false,
+            lazyLoad:true,
+            loop: true,
+            margin: 10,
+            nav:false
+        });
+
+        $('.fancybox').fancybox({
+            padding: 15,
+            scrolling: 'auto',
+            wrapCSS: "order-wrap"
+        });
+    }
+});
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_provided_window_dot_jQuery) {/**
@@ -7947,7 +7973,7 @@ __webpack_provided_window_dot_jQuery(function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_provided_window_dot_jQuery) {/**
@@ -8753,7 +8779,7 @@ __webpack_provided_window_dot_jQuery(function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/**
@@ -9212,7 +9238,7 @@ yii.validation = (function ($) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {﻿/**
@@ -9270,7 +9296,7 @@ b,d){return this.bind(b,function(e){var f=c(e.target);if(f.is(a))return d.apply(
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {(function( $ ){
@@ -9362,26 +9388,6 @@ b,d){return this.bind(b,function(e){var f=c(e.target);if(f.is(a))return d.apply(
     }
 })(jQuery);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 76 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function($) {var Page = __webpack_require__(4);
-
-module.exports = Page.extend({
-    initialize: function initialize() {
-        $(".tovar__gallery").owlCarousel({
-            items: 1,
-            autoplay: false,
-            lazyLoad:true,
-            loop: true,
-            margin: 10,
-            nav:false
-        });
-    }
-});
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ })

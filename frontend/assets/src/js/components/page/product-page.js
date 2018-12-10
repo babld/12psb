@@ -10,5 +10,11 @@ module.exports = Page.extend({
             margin: 10,
             nav:false
         });
+
+        $('.fancybox').fancybox({
+            padding: 15,
+            scrolling: 'auto',
+            wrapCSS: "order-wrap"
+        });
     }
 });

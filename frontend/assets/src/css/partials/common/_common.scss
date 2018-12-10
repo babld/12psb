@@ -312,6 +312,7 @@ h2.title {
   border: 1px solid #000;
   outline: none;
   float: none;
+  margin-top: 0;
 }
 
 .footer-managet-notice {
@@ -2809,4 +2810,8 @@ textarea:-ms-input-placeholder      {color:#ccc;}
 
 .instagram {
   padding: 100px 0;
+}
+
+.fancybox-overlay {
+  background: url('/i/fancybox_overlay.png');
 }
