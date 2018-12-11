@@ -1,6 +1,6 @@
 <?php
 $subdomen = explode('.', $_SERVER["HTTP_HOST"])[0] != '12psb' ?: false;
-$cityName = false;
+$cityName = $cityDatName = false;
 if($subdomen) {
     switch ($subdomen) {
         case "omsk":            $cityName = 'Омск';             $cityDatName = 'Омске'; break;
