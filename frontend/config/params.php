@@ -1,6 +1,8 @@
 <?php
-$subdomen = explode('.', $_SERVER["HTTP_HOST"])[0] != '12psb' ?: false;
+$subdomen = explode('.', $_SERVER["HTTP_HOST"])[0];
+$subdomen = $subdomen != '12psb' ? $subdomen : false;
 $cityName = $cityDatName = false;
+
 if($subdomen) {
     switch ($subdomen) {
         case "omsk":            $cityName = 'Омск';             $cityDatName = 'Омске'; break;
@@ -19,6 +21,7 @@ if($subdomen) {
         case 'krasnojarsk':     $cityName = 'Красноярск';       $cityDatName = 'Красноярске'; break;
     }
 }
+
 
 return [
     'adminEmail' => 'info@12psb.ru',
