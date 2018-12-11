@@ -27,7 +27,8 @@ $utmData = Helper::getUtmData();
                         <span class="corp-col">
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
                             <i>Главный офис:</i>
-                        </span>630112, Новосибирск, пр. Дзержинского, 1/1, 5 этаж, оф. 71
+                        </span>
+                        630112, Новосибирск, пр. Дзержинского, 1/1, 5 этаж, оф. 71
                     </div>
                 </div>
             </div>

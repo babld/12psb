@@ -35,6 +35,7 @@ class Helper
     }
     
     public static function textHandl($text) {
-        return str_replace('#city#', yii::$app->params['city']['name'], $text);
+        $str = str_replace('#city_dat#', yii::$app->params['city']['nameDat'], $text);
+        return str_replace('#city#', yii::$app->params['city']['name'], $str);
     }
 }
