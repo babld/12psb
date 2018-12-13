@@ -41,7 +41,6 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'robots.txt' => 'site/robots',
                 #'<action>/test' => 'site/<action>',
                 #'<action>/hello' => 'site/<action>',
                 #'<action>' => 'site/<action>',
