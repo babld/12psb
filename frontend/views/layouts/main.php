@@ -38,18 +38,6 @@ $this->beginPage();?>
 
         <!--script type="text/javascript" async="" src="http://mc.yandex.ru/metrika/watch.js"></script>
         <meta name='yandex-verification' content='7761988de9d78f78' /-->
-        <!-- Traffic tracking code -->
-        <script type="text/javascript">
-            (function(w, p) {
-                var a, s;
-                (w[p] = w[p] || []).push({
-                    counter_id: 378028002
-                });
-                a = document.createElement('script'); a.type = 'text/javascript'; a.async = true;
-                a.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'autocontext.begun.ru/analytics.js';
-                s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(a, s);
-            })(window, 'begun_analytics_params');
-        </script>
         <!-- Google Tag Manager -->
         <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
                 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
