@@ -7336,7 +7336,6 @@ var AudioJs = __webpack_require__(13);
 
 module.exports = Page.extend({
     initialize: function initialize() {
-        console.log('index');
         Page.prototype.initialize.apply(this, arguments);
         this.initializeCarousel();
     },
@@ -7425,6 +7424,7 @@ module.exports = Page.extend({
 
 module.exports = Page.extend({
     initialize: function initialize() {
+        Page.prototype.initialize.apply(this, arguments);
         $(".tovar__gallery").owlCarousel({
             items: 1,
             autoplay: false,

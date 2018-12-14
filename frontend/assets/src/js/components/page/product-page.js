@@ -2,6 +2,7 @@ var Page = require('components/page/page');
 
 module.exports = Page.extend({
     initialize: function initialize() {
+        Page.prototype.initialize.apply(this, arguments);
         $(".tovar__gallery").owlCarousel({
             items: 1,
             autoplay: false,

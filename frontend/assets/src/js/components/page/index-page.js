@@ -4,7 +4,6 @@ var AudioJs = require('plugins/audio.min');
 
 module.exports = Page.extend({
     initialize: function initialize() {
-        console.log('index');
         Page.prototype.initialize.apply(this, arguments);
         this.initializeCarousel();
     },
