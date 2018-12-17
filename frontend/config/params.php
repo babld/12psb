@@ -1,7 +1,15 @@
 <?php
-$subdomen = explode('.', $_SERVER["HTTP_HOST"])[0];
+$subdomenData = explode('.', $_SERVER["HTTP_HOST"]);
+$subdomen = $subdomenData[0];
+$domen = $subdomenData[1];
 $subdomen = $subdomen != '12psb' ? $subdomen : false;
 $cityName = $cityDatName = false;
+$subdomens = ['', 'omsk', 'moskva', 'sankt-peterburg', 'ekaterinburg', 'nizhnij-novgorod', 'kazan', 'cheljabinsk', 'rostov-na-donu', 'ufa', 'perm', 'voronezh', 'volgograd', 'samara', 'krasnojarsk'];
+
+# Появились сайты с dns редиректами на 12psb.ru. (или наш IP), который открывает 12psb. Это плохо для сео. Пример siec.nsk.su, mail.12psb.ru, mail.sibtransasia.ru Пресечение подобных случаев
+if(!in_array($subdomen, $subdomens) or ($domen != '12psb' and $domen != 'ru')) {
+    exit();
+}
 
 if($subdomen) {
     switch ($subdomen) {
@@ -21,7 +29,6 @@ if($subdomen) {
         case 'krasnojarsk':     $cityName = 'Красноярск';       $cityDatName = 'Красноярске'; break;
     }
 }
-
 
 return [
     'adminEmail' => 'info@12psb.ru',
