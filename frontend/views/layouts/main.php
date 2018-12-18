@@ -1,8 +1,4 @@
-    <?php
-
-/* @var $this \yii\web\View */
-/* @var $content string */
-
+<?php
 use yii\helpers\Html;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
@@ -108,6 +104,9 @@ $catalogLabel = 'Каталог';
                 </li>*/?>
                     <li>
                         <a href="/review/">Отзывы</a>
+                    </li>
+                    <li>
+                        <a href="/partners/">Партнерам</a>
                     </li>
                     <li>
                         <a href="/service/">Сервис</a>

@@ -46,7 +46,7 @@ return [
                 #'<action>' => 'site/<action>',
                 #'<action>/<id:\d+>' => 'site/view',
                 #'<catalog:[\w_\/-]+>/<id:[\d]+>'=>'site/view',
-                '<action:contacts|review|feedback-review|service|maintenance|delivery>'     => 'site/<action>',
+                '<action:contacts|review|feedback-review|service|maintenance|delivery|partners>' => 'site/<action>',
                 '<action:search>'       => 'site/<action>',
                 '<action:zakaz>'        => 'site/<action>',
                 #'<action:google-feed>'  => 'site/<action>',

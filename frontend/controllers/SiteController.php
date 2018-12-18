@@ -2,24 +2,18 @@
 namespace frontend\controllers;
 
 use app\models\SearchForm;
+use common\models\Page;
 use common\models\Video;
 use yii\web\HttpException;
 use pistol88\shop\models\Category;
 use Yii;
-use yii\base\InvalidParamException;
-use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\helpers\Html;
-use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
-use frontend\models\SignupForm;
-use frontend\models\ContactForm;
 use pistol88\shop\models\Product;
-use pistol88\shop\models\Image;
-use pistol88\shop\models\Price;
 use common\models\ProductReview;
 use common\models\Service;
 use common\models\Maintenance;
@@ -425,17 +419,10 @@ class SiteController extends Controller
         }
     }
 
-    public function actionRobots() {
-        $subdomen = yii::$app->params['subdomen'];
-        \Yii::$app->response->format = \yii\web\Response::FORMAT_RAW;
-        header("Content-Type: text/plain");
-        if($subdomen)
-            switch ($subdomen) {
-                case "omsk":
-                    return $this->renderPartial('@frontend/views/site/robots/omsk.php');
-                default:
-                    return $this->renderPartial('@frontend/views/site/robots/disalowAll.php');
-            }
-        return $this->renderPartial ('@frontend/views/site/robots/robots');
+    public function actionPartners() {
+        return $this->render('partners', [
+            'model' => Page::findOne(['type' => 'partners']),
+            'goods' => Product::findAll(['is_popular' => 'yes'])
+        ]);
     }
 }
