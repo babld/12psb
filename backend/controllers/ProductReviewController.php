@@ -35,7 +35,7 @@ class ProductReviewController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['logout', 'index', 'view', 'create', 'update'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
