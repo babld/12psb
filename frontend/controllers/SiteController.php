@@ -268,7 +268,8 @@ class SiteController extends Controller
         Yii::$app->response->format = \yii\web\Response::FORMAT_RAW;
         Yii::$app->response->headers->add('Content-Type', 'text/xml');
 
-        $this->sitemapGen();
+        $sitemap = $this->sitemapGen();
+        return $this->renderPartial('sitemap', ['sitemap' => $sitemap]);
         /*$file = 'files/sitemap.xml';
         if(filectime($file) - 86400 > 0) {
             $fp = fopen($file, 'w+');
@@ -316,7 +317,7 @@ class SiteController extends Controller
 
 
         $return .= '</urlset>';
-        echo $return;
+        return $return;
     }
 
     public function actionReview() {
