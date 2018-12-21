@@ -69,7 +69,7 @@ $catalogLabel = 'Каталог';
                 </button>
             </div>
             <div class="row navbar-collapse collapse header__menu" id="responsive-menu">
-                <div class="fl-r hidden-xs">
+                <div class="fl-r hidden-sm">
                     <div class="header-email">
                         <a href="mailto:<?=Yii::getAlias('@mail')?>">
                             <i class="fa fa-envelope corp-col" aria-hidden="true"></i>
