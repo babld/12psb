@@ -42,6 +42,7 @@ return [
         'assetManager' => [
             //'forceCopy' => true,
             'linkAssets' => true,
+            'appendTimestamp' => true
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
