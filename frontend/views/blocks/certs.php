@@ -2,7 +2,6 @@
 use common\models\Cert;
 use yii\imagine\Image;
 use Imagine\Image\Box;
-use Imagine\Image\BoxInterface;
 ?>
 <div class="certs gradient-bg">
     <div class="container">

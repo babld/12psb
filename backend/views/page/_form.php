@@ -1,13 +1,10 @@
 <?php
-
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use skeeks\yii2\ckeditor\CKEditorWidget;
 use skeeks\yii2\ckeditor\CKEditorPresets;
 use mihaildev\elfinder\ElFinder;
-/* @var $this yii\web\View */
-/* @var $model common\models\Page */
-/* @var $form yii\widgets\ActiveForm */
+use pistol88\seo\widgets\SeoForm;
 ?>
 
 <div class="page-form">
@@ -33,6 +30,11 @@ use mihaildev\elfinder\ElFinder;
     <?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'type')->textInput(['maxlength' => true]) ?>
+
+    <?= SeoForm::widget([
+        'model' => $model,
+        'form' => $form,
+    ]); ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

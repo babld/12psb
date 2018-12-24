@@ -11,5 +11,6 @@ return [
     'city' => [
         'name' => '',
         'nameDat' => ''
-    ]
+    ],
+    'www' => $_SERVER['HTTP_HOST']
 ];

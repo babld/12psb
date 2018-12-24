@@ -1,7 +1,6 @@
 <?php
 use yii\widgets\Breadcrumbs;
 
-$this->title = 'Гарантии | 12psb.ru';
 $title = $model->title;
 $this->params['breadcrumbs'][] = $title;
 $this->title = $title;
@@ -23,7 +22,6 @@ $this->title = $title;
                 <div class="aritcle__right-order-title">Популярное</div>
                 <div class="article__right-owl owl-carousel owl-theme">
                     <?php foreach($goods as $good):
-                        // $product = $good['product'];
                         if($good['is_popular'] == "yes"):
                             echo $this->render('@frontend/views/blocks/_orderStand', [/*'product' => $product,*/ 'good' => $good]);
                         endif;

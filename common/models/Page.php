@@ -17,6 +17,21 @@ use Yii;
  */
 class Page extends \yii\db\ActiveRecord
 {
+    function behaviors()
+    {
+        return [
+            'images' => [
+                'class' => 'pistol88\gallery\behaviors\AttachImages',
+                'mode' => 'gallery',
+            ],
+            'slug' => [
+                'class' => 'Zelenin\yii\behaviors\Slug',
+            ],
+            'seo' => [
+                'class' => 'pistol88\seo\behaviors\SeoFields',
+            ],
+        ];
+    }
     /**
      * {@inheritdoc}
      */
