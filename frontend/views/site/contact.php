@@ -9,7 +9,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => 'Контакты 
 $this->registerMetaTag(['og:title' => $title]);
 $utmData = Helper::getUtmData();
 ?>
-<script src="http://api-maps.yandex.ru/2.0/?load=package.full&amp;lang=ru-RU" type="text/javascript"></script>
+<script src="//api-maps.yandex.ru/2.0/?load=package.full&amp;lang=ru-RU" type="text/javascript"></script>
 <div class="container">
     <?= Breadcrumbs::widget([
         'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
