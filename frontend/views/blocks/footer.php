@@ -26,13 +26,25 @@ use yii\helpers\Html;
             </ul>
             <div class="footer-company-cities">
                 <ul class="footer-fillials">
-                    <?php foreach(\common\models\Contact::findAll(['active' => 'yes']) as $item) : ?>
-                        <li data-phone="<?= $item['phone'] ?>" data-city="<?= $item['code'] ?>" class="<?= $item['code'] == 'nsk' ? 'active' : '' ?>"><?= $item['city'] ?></li>
-                    <?php endforeach ?>
+                    <?php if($currentCity = \common\models\Contact::findOne([
+                        'active' => 'yes',
+                        'code' => yii::$app->params['city']['city']
+                    ])) : ?>
+                        <li data-phone="<?= $currentCity['phone'] ?>"
+                            data-city="<?= $currentCity['code'] ?>"
+                            class="<?= $currentCity['code'] == 'nsk' ? 'active' : '' ?>">
+                                <?= $currentCity['city'] ?>
+                                <p class="footer-city-address">
+                                    <?= $currentCity->address ?>
+                                </p>
+                        </li>
+                    <?php endif ?>
                 </ul>
             </div>
             <div class="footer-right">
-                <div class="footer-contacts-phone">8-383-207-8860</div>
+                <?php if($currentCity): ?>
+                <div class="footer-contacts-phone"><?= $currentCity->phone ?></div>
+                <?php endif ?>
                 <div class="footer__social">
                     <a rel="nofollow" class="footer__social_vk" href="https://vk.com/12psb" target="_blank"><i class="fa fa-vk" aria-hidden="true"></i></a>
                     <a rel="nofollow" class="footer__social_fb" href="https://www.facebook.com/12psb.ru" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
