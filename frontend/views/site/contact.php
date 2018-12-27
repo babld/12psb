@@ -59,11 +59,9 @@ $utmData = Helper::getUtmData();
                 </div>
                 <div class="contacts__phones-city">
                     <p><b>Телефоны в городах:</b></p>
-                    <div>Новосибирск: <a href="tel:8-383-207-8860">8-383-207-8860</a></div>
-                    <div>Москва: <a href="tel:8-499-346-6799">8-499-346-6799</a></div>
-                    <div>Санкт-Петербург: <a href="tel:8-812-424-3313">8-812-424-3313</a></div>
-                    <div>Екатеринбург: <a href="tel:8-343-345-6532">8-343-345-6532</a></div>
-                    <div>Омск: <a href="tel:8-381-297-2030">8-381-297-2030</a></div>
+                    <?php foreach(\common\models\Contact::findAll(['active' => 'yes']) as $item): ?>
+                        <div><?= $item->city ?>: <a href="tel:<?= $item->phone ?>"><?= $item->phone ?></a></div>
+                    <?php endforeach ?>
                 </div>
             </div>
         </div>

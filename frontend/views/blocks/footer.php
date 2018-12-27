@@ -26,11 +26,9 @@ use yii\helpers\Html;
             </ul>
             <div class="footer-company-cities">
                 <ul class="footer-fillials">
-                    <li data-city="nsk" class='active'>Новосибирск</li>
-                    <li data-city="omsk">Омск</li>
-                    <li data-city="ekb" >Екатеринбург</li>
-                    <li data-city="msk" >Москва</li>
-                    <li data-city="spb" >Санкт-Петербург</li>
+                    <?php foreach(\common\models\Contact::findAll(['active' => 'yes']) as $item) : ?>
+                        <li data-phone="<?= $item['phone'] ?>" data-city="<?= $item['code'] ?>" class="<?= $item['code'] == 'nsk' ? 'active' : '' ?>"><?= $item['city'] ?></li>
+                    <?php endforeach ?>
                 </ul>
             </div>
             <div class="footer-right">

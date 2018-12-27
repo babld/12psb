@@ -29,7 +29,8 @@
                     ['label' => 'Гарантии', 'url'=>['/maintenance']],
                     ['label' => 'Видео', 'url'=>['/video'], 'icon' => 'youtube'],
                     ['label' => 'Сертификаты', 'url'=>['/cert'], 'icon' => 'certificate'],
-                    ['label' => 'Страницы', 'url'=>['/page'], 'icon' => 'list']
+                    ['label' => 'Страницы', 'url'=>['/page'], 'icon' => 'list'],
+                    ['label' => 'Контакты', 'url'=>['/contact'], 'icon' => 'list']
                 ],
             ]
         ) ?>

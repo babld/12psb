@@ -69,44 +69,19 @@ module.exports = backbone.View.extend({
         }); // on
 
         $(".footer-fillials li").click(function(){
-            console.log('footer click');
             city = $(this).attr("data-city");
             phoneContainer = $(".footer-contacts-phone");
             addressContainer = $(".footer-contacts-address");
+            phoneContainer.text($(this).data('phone'));
             $(this).parent().find("li").removeClass("active");
             $(this).addClass("active");
-            switch(city){
-                case "nsk":
-                    phoneContainer.text("8-383-207-8860");
-                    addressContainer.text("пр. Дзержинского, 1/1, оф. 71");
-                    break;
-                case "omsk":
-                    phoneContainer.text("8-381-297-2030");
-                    addressContainer.text("ул. Маяковского, 81");
-                    break;
-                case "msk":
-                    phoneContainer.text("8-499-346-6799");
-                    addressContainer.text("ул. Сущевский Вал, 5, стр. 3.");
-                    break;
-                case "spb":
-                    phoneContainer.text("8-812-424-3313");
-                    addressContainer.text("просп. Обуховской Обороны, 271");
-                    break;
-                case "ekb":
-                    phoneContainer.text("8-343-345-6532");
-                    addressContainer.text("ул. Завокзальная 5а, офис 306");
-                    break;
-            }
         });
 
         $('.review__form').on('beforeSubmit', function(e) {
-            //console.log($(e.currentTarget).parent());
             $.post('/feedback-review', $(e.currentTarget).serialize(), function(responce) {
                 if(responce.success == 'success') {
                     $(e.currentTarget).parent().addClass('review-form_success');
-                    console.log('yes review ok');
                 }
-
             });
 
             return false;
