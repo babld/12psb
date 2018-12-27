@@ -33,7 +33,9 @@ use yii\helpers\Html;
                         <li data-phone="<?= $currentCity['phone'] ?>"
                             data-city="<?= $currentCity['code'] ?>"
                             class="<?= $currentCity['code'] == 'nsk' ? 'active' : '' ?>">
-                                <?= $currentCity['city'] ?>
+                                <p class="footer-city">
+                                    <?= $currentCity['city'] ?>
+                                </p>
                                 <p class="footer-city-address">
                                     <?= $currentCity->address ?>
                                 </p>

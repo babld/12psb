@@ -384,7 +384,7 @@ h2.title {
   margin-left: 36px;
   font-size: 15px;
   margin-top: 20px;
-  margin-right:90px;
+  margin-right:30px;
   line-height: 15px;
 }
 @media screen and (max-width: 400px) {
@@ -410,7 +410,7 @@ h2.title {
 
 .footer-company-cities {
   float: left;
-  width: 150px;
+  width: 225px;
   overflow: hidden;
   font-size: 15px;
   margin-top:20px;
@@ -423,22 +423,7 @@ h2.title {
 }
 
 .footer-company-cities li {
-  cursor: pointer;
-  padding-left: 21px;
   margin-bottom: 14px;
-}
-.footer-company-cities li:hover {
-  color: #c2c7c1
-}
-
-.footer-fillials li.active {
-  background: url(/i/tre.png) no-repeat 0 5px;
-  text-decoration: underline;
-  color: #fff;
-}
-
-.footer-fillials {
-  color: #a2ee76;
 }
 
 .footer-right {
@@ -461,6 +446,10 @@ h2.title {
   display: inline-block;
   text-align: center;
   line-height: 36px;
+}
+
+.footer-city-address {
+  font-size: 12px;
 }
 
 .footer-contacts-phone {

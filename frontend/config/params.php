@@ -9,8 +9,9 @@ return [
     'feedbackSubject' => 'На сайте 12psb.ru оставлен отзыв',
     'instagram' => 'https://www.instagram.com/12psb.ru/',
     'city' => [
-        'name' => '',
-        'nameDat' => ''
+        'name' => 'Новосибирск',
+        'nameDat' => 'Новосибирске',
+        'city' => 'nsk'
     ],
     'www' => $_SERVER['HTTP_HOST']
 ];

@@ -58,10 +58,13 @@ $utmData = Helper::getUtmData();
                     </span>
                 </div>
                 <div class="contacts__phones-city">
-                    <p><b>Телефоны в городах:</b></p>
-                    <?php foreach(\common\models\Contact::findAll(['active' => 'yes']) as $item): ?>
-                        <div><?= $item->city ?>: <a href="tel:<?= $item->phone ?>"><?= $item->phone ?></a></div>
-                    <?php endforeach ?>
+                    <p><b>Телефон городе <?= yii::$app->params['city']['name'] ?>:</b></p>
+                    <?php if($currentCity = \common\models\Contact::findOne([
+                        'active' => 'yes',
+                        'code' => yii::$app->params['city']['city']
+                    ])): ?>
+                        <div><a href="tel:<?= $currentCity->phone ?>"><?= $currentCity->phone ?></a></div>
+                    <?php endif ?>
                 </div>
             </div>
         </div>

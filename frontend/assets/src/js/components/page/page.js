@@ -68,15 +68,6 @@ module.exports = backbone.View.extend({
             }); // ajax
         }); // on
 
-        $(".footer-fillials li").click(function(){
-            city = $(this).attr("data-city");
-            phoneContainer = $(".footer-contacts-phone");
-            addressContainer = $(".footer-contacts-address");
-            phoneContainer.text($(this).data('phone'));
-            $(this).parent().find("li").removeClass("active");
-            $(this).addClass("active");
-        });
-
         $('.review__form').on('beforeSubmit', function(e) {
             $.post('/feedback-review', $(e.currentTarget).serialize(), function(responce) {
                 if(responce.success == 'success') {
