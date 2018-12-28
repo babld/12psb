@@ -27,6 +27,7 @@ $currentCity = \common\models\Contact::findOne([
             <p>ИНН 5407203878 / КПП 540701001</p>
             <div class="YMapWrap border-emul">
                 <div id="YMap">
+                    <?php if($currentCity and !empty($currentCity->address)): ?>
                     <div class="ymaps-block-address">
                         <?php if(yii::$app->params['city']['code'] == 'nsk'): ?>
                         <span class="corp-col">
@@ -36,8 +37,9 @@ $currentCity = \common\models\Contact::findOne([
                         <?php endif ?>
                         <?= $currentCity and !empty($currentCity->city) ? $currentCity->city . ', ' : '' ?>
 
-                        <?= $currentCity and !empty($currentCity->address) ? $currentCity->address : '' ?>
+                        <?= $currentCity->address ?>
                     </div>
+                    <?php endif ?>
                 </div>
             </div>
             <script>
