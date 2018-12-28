@@ -35,6 +35,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'phone',
             'active',
             'sort',
+            'lat',
+            'lon',
         ],
     ]) ?>
 

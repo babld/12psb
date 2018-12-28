@@ -14,6 +14,8 @@ use Yii;
  * @property string $phone
  * @property string $active
  * @property int $sort
+ * @property string $lat
+ * @property string $lon
  */
 class Contact extends \yii\db\ActiveRecord
 {
@@ -31,10 +33,10 @@ class Contact extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['city', 'code', 'address', 'phone'], 'required'],
+            [['city', 'code', 'address', 'phone', 'lat', 'lon'], 'required'],
             [['active'], 'string'],
             [['sort'], 'integer'],
-            [['city', 'code', 'address', 'phone'], 'string', 'max' => 255],
+            [['city', 'code', 'address', 'phone', 'lat', 'lon'], 'string', 'max' => 255],
         ];
     }
 
@@ -51,6 +53,8 @@ class Contact extends \yii\db\ActiveRecord
             'phone' => Yii::t('app', 'Phone'),
             'active' => Yii::t('app', 'Active'),
             'sort' => Yii::t('app', 'Sort'),
+            'lat' => Yii::t('app', 'Lat'),
+            'lon' => Yii::t('app', 'Lon'),
         ];
     }
 }

@@ -24,6 +24,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'sort')->textInput() ?>
 
+    <?= $form->field($model, 'lat')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'lon')->textInput(['maxlength' => true]) ?>
+
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
     </div>

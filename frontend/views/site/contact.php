@@ -25,6 +25,7 @@ $currentCity = \common\models\Contact::findOne([
         <div class="col-md-6">
             <p>ООО "Консул", ОГРН 1155476008643</p>
             <p>ИНН 5407203878 / КПП 540701001</p>
+            <?php if($currentCity and !empty($currentCity->lat) and !empty($currentCity->lon)): ?>
             <div class="YMapWrap border-emul">
                 <div id="YMap">
                     <?php if($currentCity and !empty($currentCity->address)): ?>
@@ -42,12 +43,13 @@ $currentCity = \common\models\Contact::findOne([
                     <?php endif ?>
                 </div>
             </div>
+            <?php endif ?>
             <script>
                 function init () {
                     var myMap = new ymaps.Map(
                         "YMap",
                         {
-                            center: [55.04329723164, 82.949294433604],
+                            center: [],
                             zoom: 16,
                         }
                     );
