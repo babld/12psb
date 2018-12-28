@@ -53,7 +53,7 @@ $currentCity = \common\models\Contact::findOne([
                         }
                     );
                     myMap.controls.add('zoomControl');//.add('typeSelector').add('mapTools');
-                    myPlacemark = new ymaps.Placemark([55.04329723164, 82.949294433604]);
+                    myPlacemark = new ymaps.Placemark([<?= $currentCity->lat ?>, <?= $currentCity->lon ?> ]);
                     myMap.geoObjects.add(myPlacemark);
                 }
                 ymaps.ready(init);
