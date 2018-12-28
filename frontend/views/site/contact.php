@@ -65,12 +65,12 @@ $currentCity = \common\models\Contact::findOne([
                         </a>
                     </span>
                 </div>
+                <?php if($currentCity and !empty($currentCity->phone)): ?>
                 <div class="contacts__phones-city">
                     <p><b>Телефон городе <?= yii::$app->params['city']['name'] ?>:</b></p>
-                    <?php if($currentCity): ?>
-                        <div><a href="tel:<?= $currentCity->phone ?>"><?= $currentCity->phone ?></a></div>
-                    <?php endif ?>
+                    <div><a href="tel:<?= $currentCity->phone ?>"><?= $currentCity->phone ?></a></div>
                 </div>
+                <?php endif ?>
             </div>
         </div>
         <div class="col-md-6">
