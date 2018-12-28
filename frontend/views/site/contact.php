@@ -34,7 +34,7 @@ $currentCity = \common\models\Contact::findOne([
                             <i>Главный офис:</i>
                         </span>
                         <?php endif ?>
-                        <?= $currentCity ? $currentCity->city . ' ' . $currentCity->address : '' ?>
+                        <?= $currentCity->city ? $currentCity->city . ', ' : '' ?><?= $currentCity ? $currentCity->address : '' ?>
                     </div>
                 </div>
             </div>
