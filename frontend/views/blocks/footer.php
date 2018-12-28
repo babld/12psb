@@ -24,25 +24,25 @@ use yii\helpers\Html;
                 <li class="footer__info-item"><a href="/catalog/common-rail">Оборудование для диагностики Common Rail</a></li>
                 <li class="footer__info-item"><a href="/catalog/tnvd">Стенды для тестирования ТНВД</a></li>
             </ul>
+            <?php if($currentCity = \common\models\Contact::findOne([
+                'active' => 'yes',
+                'code' => yii::$app->params['city']['code']
+            ])) : ?>
             <div class="footer-company-cities">
                 <ul class="footer-fillials">
-                    <?php if($currentCity = \common\models\Contact::findOne([
-                        'active' => 'yes',
-                        'code' => yii::$app->params['city']['code']
-                    ])) : ?>
-                        <li data-phone="<?= $currentCity['phone'] ?>"
-                            data-city="<?= $currentCity['code'] ?>"
-                            class="<?= $currentCity['code'] == 'nsk' ? 'active' : '' ?>">
-                                <p class="footer-city">
-                                    <?= $currentCity['city'] ?>
-                                </p>
-                                <p class="footer-city-address">
-                                    <?= $currentCity->address ?>
-                                </p>
-                        </li>
-                    <?php endif ?>
+                    <li data-phone="<?= $currentCity['phone'] ?>"
+                        data-city="<?= $currentCity['code'] ?>"
+                        class="<?= $currentCity['code'] == 'nsk' ? 'active' : '' ?>">
+                        <p class="footer-city">
+                            <?= $currentCity['city'] ?>
+                        </p>
+                        <p class="footer-city-address">
+                            <?= $currentCity->address ?>
+                        </p>
+                    </li>
                 </ul>
             </div>
+            <?php endif ?>
             <div class="footer-right">
                 <?php if($currentCity): ?>
                 <div class="footer-contacts-phone"><?= $currentCity->phone ?></div>
