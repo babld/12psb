@@ -43,13 +43,12 @@ $currentCity = \common\models\Contact::findOne([
                     <?php endif ?>
                 </div>
             </div>
-            <?php endif ?>
             <script>
                 function init () {
                     var myMap = new ymaps.Map(
                         "YMap",
                         {
-                            center: [],
+                            center: [<?= $currentCity->lat ?>, <?= $currentCity->lon ?> ],
                             zoom: 16,
                         }
                     );
@@ -59,6 +58,7 @@ $currentCity = \common\models\Contact::findOne([
                 }
                 ymaps.ready(init);
             </script>
+            <?php endif ?>
             <div class="contacts__phones">
                 <div class="contacts__phones-free">
                     <p><b>Бесплатный номер:</b></p>
