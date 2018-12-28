@@ -8,6 +8,10 @@ $this->title = $title;
 $this->registerMetaTag(['name' => 'description', 'content' => 'Контакты 12PSB.RU: ООО "Консул", пр-т Дзержинского, 1/1 офис 71']);
 $this->registerMetaTag(['og:title' => $title]);
 $utmData = Helper::getUtmData();
+$currentCity = \common\models\Contact::findOne([
+    'active' => 'yes',
+    'code' => yii::$app->params['city']['code']
+])
 ?>
 <script src="//api-maps.yandex.ru/2.0/?load=package.full&amp;lang=ru-RU" type="text/javascript"></script>
 <div class="container">
@@ -24,11 +28,13 @@ $utmData = Helper::getUtmData();
             <div class="YMapWrap border-emul">
                 <div id="YMap">
                     <div class="ymaps-block-address">
+                        <?php if(yii::$app->params['city']['code'] == 'nsk'): ?>
                         <span class="corp-col">
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
                             <i>Главный офис:</i>
                         </span>
-                        630112, Новосибирск, пр. Дзержинского, 1/1, 5 этаж, оф. 71
+                        <?php endif ?>
+                        <?= $currentCity ? $currentCity->address : '' ?>
                     </div>
                 </div>
             </div>
@@ -59,10 +65,7 @@ $utmData = Helper::getUtmData();
                 </div>
                 <div class="contacts__phones-city">
                     <p><b>Телефон городе <?= yii::$app->params['city']['name'] ?>:</b></p>
-                    <?php if($currentCity = \common\models\Contact::findOne([
-                        'active' => 'yes',
-                        'code' => yii::$app->params['city']['city']
-                    ])): ?>
+                    <?php if($currentCity): ?>
                         <div><a href="tel:<?= $currentCity->phone ?>"><?= $currentCity->phone ?></a></div>
                     <?php endif ?>
                 </div>

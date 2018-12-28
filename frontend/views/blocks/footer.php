@@ -28,7 +28,7 @@ use yii\helpers\Html;
                 <ul class="footer-fillials">
                     <?php if($currentCity = \common\models\Contact::findOne([
                         'active' => 'yes',
-                        'code' => yii::$app->params['city']['city']
+                        'code' => yii::$app->params['city']['code']
                     ])) : ?>
                         <li data-phone="<?= $currentCity['phone'] ?>"
                             data-city="<?= $currentCity['code'] ?>"

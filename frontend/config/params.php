@@ -11,7 +11,7 @@ return [
     'city' => [
         'name' => 'Новосибирск',
         'nameDat' => 'Новосибирске',
-        'city' => 'nsk'
+        'code' => 'nsk'
     ],
     'www' => $_SERVER['HTTP_HOST']
 ];
