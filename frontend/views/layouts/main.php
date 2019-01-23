@@ -168,7 +168,7 @@ $catalogLabel = 'Каталог';
 <?php if(YII_ENV == 'prod') : ?>
 <!--script type="text/javascript" src="//perezvoni.com/files/widgets/655-45810d447a-0-0d447a-7544dbc734e1bf458-c734e1bf4581.js" charset="UTF-8"></script-->
 <script type="text/javascript" src="//cdn.perezvoni.com/widget/js/przv.js?przv_code=1636-cd7fc9fdf15-90f17d74cd7fc9fdf15-fdf15-20074d0a90f1" ></script>
-<script src="http://callibri.ru/api/module/js/v1/callibri.js" type="text/javascript"></script>
+<script src="//callibri.ru/api/module/js/v1/callibri.js" type="text/javascript"></script>
 <?php /* <!--Google analytics-->
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
