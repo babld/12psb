@@ -9337,7 +9337,7 @@ h2.title {
   float: left;
   position: relative; }
 
-.header-logo:before {
+.header-logo_new-year:before {
   position: absolute;
   content: '';
   display: block;
