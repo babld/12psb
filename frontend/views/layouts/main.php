@@ -129,9 +129,9 @@ $catalogLabel = 'Каталог';
 
 <div class="header gray-block-bg">
     <div class="container">
-        <?php if(yii::$app->request->pathinfo):
-            $headerLogoClass = $newYearTime ? 'header-logo header-logo_new-year': 'header-logo';
-            ?>
+        <?php
+        $headerLogoClass = $newYearTime ? 'header-logo header-logo_new-year': 'header-logo';
+        if(yii::$app->request->pathinfo): ?>
             <?= Html::a('', '/', ['class' => $headerLogoClass]) ?>
         <?php else: ?>
             <?= Html::tag('span', '', ['class' => $headerLogoClass]) ?>
