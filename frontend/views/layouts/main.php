@@ -9,7 +9,11 @@ $modelSearch = new SearchForm();
 $utmData = Helper::getUtmData();
 
 AppAsset::register($this);
-$this->beginPage();?>
+$this->beginPage();
+$month = (int)date('m');
+$day = (int)date('j');
+$newYearTime = ($month == 12 and $day >= 15 or $month == 1 and $day < 15);
+?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
@@ -125,10 +129,12 @@ $catalogLabel = 'Каталог';
 
 <div class="header gray-block-bg">
     <div class="container">
-        <?php if(yii::$app->request->pathinfo): ?>
-            <?= Html::a('', '/', ['class' => 'header-logo']) ?>
+        <?php if(yii::$app->request->pathinfo):
+            $headerLogoClass = $newYearTime ? 'header-logo header-logo_new-year': 'header-logo';
+            ?>
+            <?= Html::a('', '/', ['class' => $headerLogoClass]) ?>
         <?php else: ?>
-            <?= Html::tag('span', '', ['class' => 'header-logo']) ?>
+            <?= Html::tag('span', '', ['class' => $headerLogoClass]) ?>
         <?php endif ?>
         <div class="header-text">
             <?= Html::tag('div', 'Стенды ТНВД и Common Rail', ['class' => 'header-title']) ?>
