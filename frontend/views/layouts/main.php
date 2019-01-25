@@ -141,16 +141,14 @@ $catalogLabel = 'Каталог';
             <?= Html::tag('div', 'Топливное оборудование в наличии и под заказ.', ['class' => 'header-subtitle']) ?>
         </div>
         <div class="header__forms">
-            <div class="form-wrapper">
-                <form class="header-form send">
-                    <input type="text" placeholder="Телефон" name="phone" class="header-form-phone">
-                    <?= YII_ENV == 'prod' ? '<input type="hidden" name="target" value="CALLBACK1" />' : '' ?>
-                    <?php if($utmData['utm']) : ?>
-                        <input type="hidden" name="utm" value="<?= $utmData['utm'] ?>" />
-                    <?php endif; ?>
-                    <input type="submit" name="submit" class="header-form-submit but-default" value="Жду звонка">
-                </form>
-            </div>
+            <form class="header-form send">
+                <input type="text" placeholder="Телефон" name="phone" class="header-form-phone">
+                <?= YII_ENV == 'prod' ? '<input type="hidden" name="target" value="CALLBACK1" />' : '' ?>
+                <?php if($utmData['utm']) : ?>
+                    <input type="hidden" name="utm" value="<?= $utmData['utm'] ?>" />
+                <?php endif; ?>
+                <input type="submit" name="submit" class="header-form-submit but-default" value="Жду звонка">
+            </form>
             <form class="search-form" action="/search" <?= YII_ENV == 'prod' ? "onsubmit=\"ga('send', 'event', 'SEARCH', '2'); yaCounter24717443.reachGoal('SEARCH'); return true;\"" : ""?>>
                 <input type="text" name="query" class="search-form__input" placeholder="Поиск.." value="<?=Yii::$app->getRequest()->getQueryParam('query');?>"/>
                 <button type="submit" value="" class="search-form__submit fa fa-search"></button>

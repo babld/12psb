@@ -198,7 +198,7 @@ $feedbackModel = new FeedbackMessForm();
                     'template' => '{error}{input}',
                 ];
                 ?>
-                <?php $form = ActiveForm::begin(['options' => ['class' => 'feedback__form']])?>
+                <?php $form = ActiveForm::begin(['options' => ['class' => 'feedback__form send']])?>
                     <?= $form->field($feedbackModel,
                         'phone',
                         $formTableFieldOptions)->widget(\yii\widgets\MaskedInput::className(), [
