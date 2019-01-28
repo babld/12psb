@@ -2450,6 +2450,10 @@ textarea:-moz-placeholder {color: #87bfc6;}
   border: 1px solid red;
 }
 
+.form__fullname {
+  display: none;
+}
+
 .feedback__submit {
   width: 100%;
   border: none;

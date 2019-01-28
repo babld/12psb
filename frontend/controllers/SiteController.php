@@ -17,6 +17,7 @@ use pistol88\shop\models\Product;
 use common\models\ProductReview;
 use common\models\Service;
 use common\models\Maintenance;
+use frontend\models\FeedbackMessForm;
 
 /**
  * Site controller
@@ -337,42 +338,60 @@ class SiteController extends Controller
         return $this->render('maintenance', ['model' => Maintenance::findOne(1), 'goods' => $goods]);
     }
 
-    public function actionFeedbackReview() {
+    public function actionFeedback() {
         if($postData = yii::$app->request->post()) {
-            $formData = $postData['ProductReview'];
+            $modelName = $postData['modelName'];
+            $formName = array_reverse(explode('\\', $modelName))[0];
+            $formData = $postData[$formName];
             \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
             // Спам защита. Если пусто скрытое поле значит форму заполнял не бот
             if(empty($formData['fullname'])) {
-                $model = new ProductReview();
-
-                if($model->load($postData) and $model->save()) {
-                    if($adminEmail = \Yii::$app->params['adminEmail']) {
-                        if(self::adminEmail($formData)) {
-                            if(self::clientEmail($formData))
-                                return ['success' => 'success'];
-
-                            return ['success' => 'false', 'message' => 'client send error'];
-                        } else {
-                            return ['success' => 'false', 'message' => 'send to admin error'];
+                $model = new $modelName();
+                if($model->load($postData)) {
+                    if(method_exists($model, 'save')) {
+                        if($model->save()) {
+                            return $this->sendEmails($formData, 'review');
                         }
+                    } else {
+                        return $this->sendEmails($formData, 'feedback');
                     }
-                    return ['success' => 'false', 'message' => 'admin email empty'];
                 } else {
                     throw new HttpException(404 ,'Ошибка загрузки данных формы');
                 }
+            } else {
+                return ['success' => 'ok'];
             }
-            return ['success' => 'ok'];
+        } else {
+            throw new HttpException(404 ,'Страница не найдена');
         }
-        throw new HttpException(404 ,'Страница не найдена');
     }
 
-    public static function adminEmail($data) {
+    public function sendEmails($formData, $requestType) {
+        if($adminEmail = \Yii::$app->params['adminEmail']) {
+            if(self::adminEmail($formData, $requestType)) {
+                if(!empty($formData['email']) and self::clientEmail($formData, $requestType)) {
+                    $return = ['success' => 'success'];
+                } else {
+                    $return = ['success' => 'false', 'message' => 'client send error'];
+                }
+            } else {
+                $return = ['success' => 'false', 'message' => 'send to admin error'];
+            }
+        } else {
+            $return = ['success' => 'false', 'message' => 'admin email empty'];
+        }
+
+        return $return;
+    }
+
+    public static function adminEmail($data, $requestType = 'review') {
         $mailer = Yii::$app->mailer->compose([
             'html' => 'feedback-html',
             'text' => 'feedback-text'
         ], [
-            'post' => $data
+            'post' => $data,
+            'requestType' => $requestType
         ])
             ->setTo([
                 yii::$app->params['adminEmail']
@@ -386,12 +405,13 @@ class SiteController extends Controller
         return false;
     }
 
-    public static function clientEmail($data) {
+    public static function clientEmail($data, $requestType = 'review') {
         $mailer = Yii::$app->mailer->compose([
             'html' => 'feedbackClient-html',
             'text' => 'feedbackClient-text'
         ], [
-            'post' => $data
+            'post' => $data,
+            'requestType' => $requestType
         ])
             ->setTo([
                 $data['email']

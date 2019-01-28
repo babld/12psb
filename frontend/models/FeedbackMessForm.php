@@ -12,6 +12,7 @@ class FeedbackMessForm extends Model
 {
     public $message;
     public $phone;
+    public $fullname;
 
     /**
      * @inheritdoc

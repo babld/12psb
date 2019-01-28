@@ -109,9 +109,12 @@ module.exports = backbone.View.extend({
         }); // on
 
         $('.review__form').on('beforeSubmit', function(e) {
-            $.post('/feedback-review', $(e.currentTarget).serialize(), function(responce) {
+            console.log('review__form');
+            $.post('/site/feedback', $(e.currentTarget).serialize(), function(responce) {
+                console.log('review__form2');
                 if(responce.success == 'success') {
                     $(e.currentTarget).parent().addClass('review-form_success');
+
                 }
             });
 
@@ -130,22 +133,10 @@ module.exports = backbone.View.extend({
     }
 });
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(0)))
 
 /***/ }),
 /* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var root = __webpack_require__(40);
-
-/** Built-in value references. */
-var Symbol = root.Symbol;
-
-module.exports = Symbol;
-
-
-/***/ }),
-/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Backbone.js 1.3.3
@@ -2073,6 +2064,18 @@ module.exports = Symbol;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var root = __webpack_require__(40);
+
+/** Built-in value references. */
+var Symbol = root.Symbol;
+
+module.exports = Symbol;
+
+
+/***/ }),
 /* 6 */,
 /* 7 */,
 /* 8 */,
@@ -2081,7 +2084,7 @@ module.exports = Symbol;
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(4),
+var Symbol = __webpack_require__(5),
     getRawTag = __webpack_require__(45),
     objectToString = __webpack_require__(46);
 
@@ -2226,11 +2229,11 @@ window.__forceSmoothScrollPolyfill__ = true; // eslint-disable-line no-underscor
 //require('./plugins/owl-carousel');
 //require('./plugins/count-spinner');
 // require('./plugins/magnific-popup');
-__webpack_require__(72);
 __webpack_require__(73);
 __webpack_require__(74);
 __webpack_require__(75);
 __webpack_require__(76);
+__webpack_require__(77);
 
 
 (function bootstrap(components) {
@@ -2313,7 +2316,7 @@ module.exports = capitalize;
 /* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(4),
+var Symbol = __webpack_require__(5),
     arrayMap = __webpack_require__(42),
     isArray = __webpack_require__(43),
     isSymbol = __webpack_require__(44);
@@ -2476,7 +2479,7 @@ module.exports = isSymbol;
 /* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(4);
+var Symbol = __webpack_require__(5);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -7264,7 +7267,7 @@ module.exports = backbone.View.extend({
     }
 });
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(0)))
 
 /***/ }),
 /* 68 */
@@ -7289,7 +7292,7 @@ module.exports = backbone.View.extend({
     }
 })
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(0)))
 
 /***/ }),
 /* 69 */
@@ -7386,10 +7389,12 @@ module.exports = Page.extend({
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {var Page = __webpack_require__(3);
+var Feedback = __webpack_require__(72);
 
 module.exports = Page.extend({
     initialize: function initialize() {
         Page.prototype.initialize.apply(this, arguments);
+        new Feedback();
         $(".tovar__gallery").owlCarousel({
             items: 1,
             autoplay: false,
@@ -7410,6 +7415,42 @@ module.exports = Page.extend({
 
 /***/ }),
 /* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(backbone, $) {// var variables = require('services/variables');
+// var cart = require('services/cart');
+// var winSrv = require('services/window');
+
+module.exports = backbone.View.extend({
+    el: '.feedback',
+
+    events: {
+        'beforeSubmit .feedback__form': 'onFeedbackFormBeforeSubmit'
+    },
+
+    initialize: function initialize() {
+        this.ui = {
+            $form: this.$('.feedback__form')
+        };
+    },
+
+    onFeedbackFormBeforeSubmit: function onFeedbackFormBeforeSubmit() {
+        $.post(
+            this.ui.$form.attr('action'),
+            this.ui.$form.serialize(),
+            function() {
+                $('.feedback').empty().append('<div class="thankyou-message">Спасибо</div>');
+            }
+        );
+
+        return false;
+    }
+});
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(0)))
+
+/***/ }),
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_provided_window_dot_jQuery) {/**
@@ -7938,7 +7979,7 @@ __webpack_provided_window_dot_jQuery(function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_provided_window_dot_jQuery) {/**
@@ -8744,7 +8785,7 @@ __webpack_provided_window_dot_jQuery(function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/**
@@ -9203,7 +9244,7 @@ yii.validation = (function ($) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {﻿/**
@@ -9261,7 +9302,7 @@ b,d){return this.bind(b,function(e){var f=c(e.target);if(f.is(a))return d.apply(
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {(function( $ ){

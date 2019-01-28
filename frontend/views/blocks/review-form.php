@@ -8,8 +8,9 @@ $model = new ProductReview();
 
 <section class="review-form">
     <h3>Оставьте свой отзыв</h3>
-    <?php $form = ActiveForm::begin(['options' => ['class' => "form review__form"], 'action' => ['site/feedback-review']]); ?>
+    <?php $form = ActiveForm::begin(['options' => ['class' => "form review__form"], 'action' => ['site/feedback']]); ?>
     <?= Html::activeHiddenInput($model, 'item_id', ['value' => $product->id]) ?>
+    <?= Html::hiddenInput('modelName', $model::className()); ?>
 
     <?= $form->field($model, 'fullname', ['options' => ['class' => 'form__fullname form__field']])->textInput([
         'maxlength' => true,

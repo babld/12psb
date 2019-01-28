@@ -6,17 +6,12 @@ function hidetab($val) {
 use pistol88\shop\models\Image as ImagePistol;
 use pistol88\shop\models\Price;
 use yii\imagine\Image;
-use Imagine\Gd;
 use Imagine\Image\Box;
-use Imagine\Image\BoxInterface;
 use yii\widgets\Breadcrumbs;
 use app\components\Helper;
-use yii\widgets\ActiveForm;
-use \frontend\models\FeedbackMessForm;
 use common\models\ProductReview;
-$reviews = $reviews = ProductReview::findAll(['item_id' => $product->id, 'is_active' => 'yes']);
 
-$utmData = Helper::getUtmData();
+$reviews = $reviews = ProductReview::findAll(['item_id' => $product->id, 'is_active' => 'yes']);
 
 $images     = ImagePistol::find()->where(['itemid' => $product->id, 'isMain' => null])->all();
 
@@ -40,8 +35,6 @@ $this->params['breadcrumbs'][] = $title;
 $this->title = !empty($product->seo->title) ? Helper::textHandl($product->seo->title) : $title;
 $this->registerMetaTag(['name' => 'description', 'content' => Helper::textHandl($product->seo->description)]);
 $this->registerMetaTag(['og:title' => $this->title]);
-
-$feedbackModel = new FeedbackMessForm();
 ?>
 
 <div class="container">
@@ -193,36 +186,7 @@ $feedbackModel = new FeedbackMessForm();
                     </div> */ ?>
                     <img src="/i/manager.jpg" class="feedback__manager-img" />
                 </div>
-                <?php
-                $formTableFieldOptions = [
-                    'template' => '{error}{input}',
-                ];
-                ?>
-                <?php $form = ActiveForm::begin(['options' => ['class' => 'feedback__form send']])?>
-                    <?= $form->field($feedbackModel,
-                        'phone',
-                        $formTableFieldOptions)->widget(\yii\widgets\MaskedInput::className(), [
-                            'mask' => '+7 (###) ###-##-##',
-                            'clientOptions' => [
-                                'alias' =>  'phone',
-                            ],
-                            'options' => [
-                                'placeholder' => 'Ваш телефон',
-                                'class' => 'feedback__border feedback__input'
-                            ],
-                    ]) ?>
-
-                    <?= $form->field($feedbackModel, 'message', $formTableFieldOptions)->textArea([
-                        'placeholder' => $feedbackModel->getAttributeLabel('Есть вопросы по покупке стендов ТНВД и Common Rail? Я оперативно отвечу на них! Напишите Ваш вопрос здесь'),
-                        'class' => 'feedback__border feedback__textarea'
-                    ]) ?>
-
-                    <?php if($utmData['utm']) : ?>
-                        <input type="hidden" name="utm" value="<?= $utmData['utm'] ?>" />
-                    <?php endif; ?>
-                    <?= YII_ENV == 'prod' ? '<input type="hidden" name="target" value="PRODUCT" />' : '' ?>
-                    <input name="submit" type="submit" class="but-default feedback__submit" value="Связаться со мной"/>
-                <?php ActiveForm::end(); ?>
+                <?= $this->render('@frontend/views/blocks/feedback-form.php') ?>
             </div>
         </div>
     </div>

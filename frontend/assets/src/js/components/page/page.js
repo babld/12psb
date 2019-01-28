@@ -69,7 +69,7 @@ module.exports = backbone.View.extend({
         }); // on
 
         $('.review__form').on('beforeSubmit', function(e) {
-            $.post('/feedback-review', $(e.currentTarget).serialize(), function(responce) {
+            $.post('/site/feedback', $(e.currentTarget).serialize(), function(responce) {
                 if(responce.success == 'success') {
                     $(e.currentTarget).parent().addClass('review-form_success');
                 }

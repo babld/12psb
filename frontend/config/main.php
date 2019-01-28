@@ -41,16 +41,9 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                #'<action>/test' => 'site/<action>',
-                #'<action>/hello' => 'site/<action>',
-                #'<action>' => 'site/<action>',
-                #'<action>/<id:\d+>' => 'site/view',
-                #'<catalog:[\w_\/-]+>/<id:[\d]+>'=>'site/view',
-                '<action:contacts|review|feedback-review|service|maintenance|delivery|partners>' => 'site/<action>',
+                '<action:contacts|review|service|maintenance|delivery|partners>' => 'site/<action>',
                 '<action:search>'       => 'site/<action>',
                 '<action:zakaz>'        => 'site/<action>',
-                #'<action:google-feed>'  => 'site/<action>',
-                '<action:test>' => 'site/<action>',
                 [
                     'pattern' => '<action:google-feed>',
                     'route' => 'site/<action>',
@@ -66,7 +59,6 @@ return [
                     'route' => 'site/<action>',
                     'suffix' => '.xml',
                 ],
-                //'<catalog:[\w_\/-]+>'   => 'site/catalog',
                 [
                     'class' => 'app\components\CatalogUrlRule'
                 ],
