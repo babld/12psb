@@ -81,11 +81,11 @@ return [
     'modules' => [
         'rbac' => [
             'class' => 'dektrium\rbac\RbacWebModule',
-            'admins' => ['bdv'],
+            'admins' => ['pash'],
         ],
         'user' => [
             'class' => 'dektrium\user\Module',
-            'admins' => ['bdv'],
+            'admins' => ['pash'],
         ],
         'gallery' => [
             'class' => 'pistol88\gallery\Module',
