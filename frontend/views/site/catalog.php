@@ -16,6 +16,8 @@ $title = !empty($category->seo->title) ? Helper::textHandl($category->seo->title
 $this->title = $title;
 $this->registerMetaTag(['name' => 'description', 'content' => Helper::textHandl($category->seo->description)]);
 $this->registerMetaTag(['og:title' => $title]);
+$subdomen = yii::$app->params['city']['code'];
+$field = $subdomen == 'nsk' ? 'text' : $field = "text_$subdomen";
 ?>
 
 <div class="container">
@@ -33,25 +35,29 @@ foreach($products as $product):?>
         if($i % 2 == 0):
             if($i > 1):?><div class="dark-block-separator"></div><?php endif;?>
             <div class="container">
-                <?=$this->render('/blocks/oboruds', [
+                <?= $this->render('/blocks/oboruds', [
                     'products'  => $product['product'],
                     'titleTag' => $catalog ? 'h2' : $i > 1 ? 'h2' : 'h1'
-                ]);?>
-                <div class="product-text article">
-                    <?= Helper::textHandl($category->text) ?>
-                </div>
+                ]) ?>
             </div>
-        <?php else:?>
+        <?php else: ?>
             <div class="metal-bg">
                 <div class="light-block-separator"></div>
                 <div class="container">
-                    <?=$this->render('/blocks/oboruds', [
+                    <?= $this->render('/blocks/oboruds', [
                         'products'  => $product['product'],
                         'titleTag' => 'h2'
-                    ]);?>
+                    ]) ?>
                 </div>
             </div>
         <?php endif;
         $i++;
-    endif;?>
-<?php endforeach; ?>
+    endif ?>
+<?php endforeach ?>
+<?php if(!empty($category->$field)): ?>
+<div class="container">
+    <div class="product-text article">
+        <?= Helper::textHandl($category->$field) ?>
+    </div>
+</div>
+<?php endif ?>

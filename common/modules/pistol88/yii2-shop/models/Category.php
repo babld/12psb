@@ -48,7 +48,10 @@ class Category extends \yii\db\ActiveRecord
         return [
             [['parent_id', 'sort'], 'integer'],
             [['name'], 'required'],
-            [['text', 'code', 'cond'], 'string'],
+            [['text', 'code', 'cond', 'text_omsk', 'text_moskva', 'text_sankt_peterburg',
+                'text_ekaterinburg', 'text_nizhnij_novgorod', 'text_kazan', 'text_cheljabinsk',
+                'text_rostov_na_donu', 'text_ufa', 'text_perm', 'text_voronezh', 'text_volgograd',
+                'text_samara', 'text_krasnojarsk'], 'string'],
             [['name', 'code', 'slug'], 'string', 'max' => 55],
         ];
     }

@@ -112,7 +112,9 @@ $this->registerMetaTag(['og:title' => $this->title]);
         <div class="article__left-col">
             <!-- Навигация -->
             <ul class="nav nav-tabs" role="tablist">
-                <li <?=hidetab($product->text)?> class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Описание</a></li>
+                <li <?=hidetab($product->text)?> class="active">
+                    <a href="#home" aria-controls="home" role="tab" data-toggle="tab">Описание</a>
+                </li>
                 <li <?=hidetab($product->getField('video'))?>>
                     <a role="button" href="#video" aria-controls="video" role="tab" data-toggle="tab">
                         Видео

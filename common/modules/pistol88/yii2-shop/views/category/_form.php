@@ -1,15 +1,11 @@
 <?php
 use yii\helpers\Url;
 use yii\helpers\Html;
-use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
 use pistol88\shop\models\Category;
 use pistol88\gallery\widgets\Gallery;
 use kartik\select2\Select2;
-use pistol88\seo\widgets\SeoForm;
-
 ?>
-
 <div class="category-form">
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
@@ -21,19 +17,53 @@ use pistol88\seo\widgets\SeoForm;
     <?= $form->field($model, 'slug')->textInput(['placeholder' => 'Не обязательно']) ?>
 	
 	<?= $form->field($model, 'sort')->textInput() ?>
-	
-    <?php echo $form->field($model, 'text')->widget(
-        \yii\imperavi\Widget::className(),
-        [
-            'plugins' => ['fullscreen', 'fontcolor', 'video'],
-            'options'=>[
-                'minHeight' => 400,
-                'maxHeight' => 400,
-                'buttonSource' => true,
-                'imageUpload' => Url::toRoute(['tools/upload-imperavi'])
-            ]
-        ]
-    ) ?>
+    <ul class="nav nav-tabs">
+        <?php foreach(yii::$app->params['subdomens'] as $subdomen): ?>
+            <li <?= $subdomen == 'nsk' ? 'class="active"' : ''?>>
+                <a href="#subdomen-<?= $subdomen ?>" data-toggle="tab">
+                    <?= $subdomen ?>
+                </a>
+            </li>
+        <?php endforeach ?>
+    </ul>
+
+    <div class="tab-content product-updater">
+        <?php foreach(yii::$app->params['subdomens'] as $subdomen): ?>
+            <?php if($subdomen == 'nsk') : ?>
+                <div class="tab-pane active" id="subdomen-<?= $subdomen ?>">
+                    <?= $form->field($model, 'text')->widget(
+                        \yii\imperavi\Widget::className(),
+                        [
+                            'plugins' => ['fullscreen', 'fontcolor', 'video'],
+                            'options'=>[
+                                'minHeight' => 400,
+                                'maxHeight' => 400,
+                                'buttonSource' => true,
+                                'imageUpload' => Url::toRoute(['tools/upload-imperavi'])
+                            ]
+                        ]
+                    ) ?>
+                </div>
+            <?php else: ?>
+                <div class="tab-pane active" id="subdomen-<?= $subdomen ?>">
+                    <?php $field = "text_" . str_replace('-', '_', $subdomen) ?>
+                    <?= $form->field($model, $field)->widget(
+                        \yii\imperavi\Widget::className(),
+                        [
+                            'plugins' => ['fullscreen', 'fontcolor', 'video'],
+                            'options'=>[
+                                'minHeight' => 400,
+                                'maxHeight' => 400,
+                                'buttonSource' => true,
+                                'imageUpload' => Url::toRoute(['tools/upload-imperavi'])
+                            ]
+                        ]
+                    ) ?>
+                </div>
+            <?php endif ?>
+
+        <?php endforeach ?>
+    </div>
     
     <?= $form->field($model, 'parent_id')
             ->widget(Select2::classname(), [
@@ -57,5 +87,4 @@ use pistol88\seo\widgets\SeoForm;
     </div>
 
     <?php ActiveForm::end(); ?>
-
 </div>

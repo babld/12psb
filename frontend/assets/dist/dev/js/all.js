@@ -109,12 +109,9 @@ module.exports = backbone.View.extend({
         }); // on
 
         $('.review__form').on('beforeSubmit', function(e) {
-            console.log('review__form');
             $.post('/site/feedback', $(e.currentTarget).serialize(), function(responce) {
-                console.log('review__form2');
                 if(responce.success == 'success') {
                     $(e.currentTarget).parent().addClass('review-form_success');
-
                 }
             });
 
