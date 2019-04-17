@@ -30,7 +30,8 @@
                     ['label' => 'Видео', 'url'=>['/video'], 'icon' => 'youtube'],
                     ['label' => 'Сертификаты', 'url'=>['/cert'], 'icon' => 'certificate'],
                     ['label' => 'Страницы', 'url'=>['/page'], 'icon' => 'list'],
-                    ['label' => 'Контакты', 'url'=>['/contact'], 'icon' => 'list']
+                    ['label' => 'Контакты', 'url'=>['/contact'], 'icon' => 'list'],
+                    ['label' => 'Блог', 'url'=>['/blog'], 'icon' => '']
                 ],
             ]
         ) ?>

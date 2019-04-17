@@ -10544,7 +10544,6 @@ a {
   margin-bottom: -17px; }
 
 .plus-item {
-  background: url();
   padding-top: 34px;
   padding-left: 104px;
   font-size: 15px;
@@ -11601,6 +11600,23 @@ textarea:-ms-input-placeholder {
 
 .audiojs .play {
   background: url("/js/player-graphics.gif"); }
+
+.blog__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+
+.blog__item {
+  width: 49%; }
+
+@media (max-width: 991px) {
+  .blog__item {
+    width: 100%; } }
 
 .search-page {
   margin-bottom: 50px;
