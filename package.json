@@ -8,11 +8,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://RomanAkhma@bitbucket.org/babld/sonner-af-vinden.git"
+    "url": ""
   },
   "author": "",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/babld/sonner-af-vinden#readme",
+  "homepage": "",
   "dependencies": {
     "font-awesome": "^4.7.0",
     "autoprefixer": "^7.1.6",

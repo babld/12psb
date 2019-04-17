@@ -9,3 +9,13 @@ $light: 200;
 $regular: 400;
 $bold: 700;
 $black: 700;
+
+// Брикпоинты
+$screen-xs-min: 320px;
+$screen-sm-min: 468px;
+$screen-md-min: 768px;
+$screen-lg-min: 992px;
+
+$screen-xs-max: $screen-sm-min - 1;
+$screen-sm-max: $screen-md-min - 1;
+$screen-md-max: $screen-lg-min - 1;
