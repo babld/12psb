@@ -19,7 +19,6 @@ $this->registerMetaTag(['og:title' => $this->title]);
 
     <h1><?= $model->title ?></h1>
     <div>
-        <img src="<?= $model->image->getUrl('300x300') ?>" />
         <?= $model->text ?>
     </div>
 </div>
