@@ -11517,6 +11517,9 @@ textarea:-ms-input-placeholder {
 .article ul {
   list-style-type: decimal; }
 
+.article ol {
+  list-style-type: circle; }
+
 .article .tovar__prices {
   float: right;
   width: 47%; }
