@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $title;
         <article class="blog__item article">
             <a href="/blog/<?= $model->slug?>">
                 <h3><?= $model->title ?></h3>
-                <img src="<?= $model->image->getUrl('300x300') ?>" />
+                <img src="<?= $model->image->getUrl('365x274') ?>" />
             </a>
         </article>
     <?php endforeach ?>
