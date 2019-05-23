@@ -3,7 +3,6 @@
 namespace common\models;
 
 use pistol88\shop\models\Product;
-use Yii;
 
 /**
  * This is the model class for table "product_review".

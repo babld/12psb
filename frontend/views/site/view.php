@@ -11,11 +11,11 @@ use yii\widgets\Breadcrumbs;
 use app\components\Helper;
 use common\models\ProductReview;
 
-$reviews = $reviews = ProductReview::findAll(['item_id' => $product->id, 'is_active' => 'yes']);
+$reviews    = ProductReview::findAll(['item_id' => $product->id, 'is_active' => 'yes']);
 
 $images     = ImagePistol::find()->where(['itemid' => $product->id, 'isMain' => null])->all();
 
-$mainImg = null;
+$mainImg    = null;
 if($mainImage = ImagePistol::find()->where(['itemid' => $product->id, 'isMain' => 1])->one())
     $mainImg[]  = $mainImage;
 

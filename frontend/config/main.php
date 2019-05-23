@@ -41,10 +41,8 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '<action:contacts|review|service|maintenance|delivery|partners>' => 'site/<action>',
-                '<action:search>'       => 'site/<action>',
-                '<action:zakaz>'        => 'site/<action>',
-                'blog/<slug:[A-Za-z0-9 -_.]+>' => 'blog/view',
+                '<action:contacts|review|service|maintenance|delivery|partners|search|zakaz>' => 'site/<action>',
+                'blog/<slug:[A-Za-z0-9-_.]+>' => 'blog/view',
                 [
                     'pattern' => '<action:google-feed>',
                     'route' => 'site/<action>',

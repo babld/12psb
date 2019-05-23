@@ -17,7 +17,8 @@ use pistol88\shop\models\Product;
 use common\models\ProductReview;
 use common\models\Service;
 use common\models\Maintenance;
-use frontend\models\FeedbackMessForm;
+use common\models\Blog;
+
 
 /**
  * Site controller
@@ -140,7 +141,6 @@ class SiteController extends Controller
     }
 
     public function actionZakaz($name) {
-
         return $this->renderAjax('zakaz', [
             'name' => $name
         ]);
@@ -287,10 +287,12 @@ class SiteController extends Controller
         $categories = Category::find()->all();
         $return = '<?xml version="1.0" encoding="UTF-8"?>';
         $return .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+        $protocol = 'https://';
+        $host = '12psb.ru';
 
         foreach($products as $product):
             $return .= '<url>';
-            $return .= '<loc>http://12psb.ru/' . $product->category->getUrl() . '/' . $product->slug . '</loc>';
+            $return .= "<loc>$protocol$host/" . $product->category->getUrl() . '/' . $product->slug . '</loc>';
             $return .= '<lastmod>' . date('Y-m-d', $product->updated_at) . '</lastmod>';
             $return .= '<changefreq>daily</changefreq>';
             $return .= '<priority>0.8</priority>';
@@ -299,7 +301,7 @@ class SiteController extends Controller
 
         foreach($categories as $category):
             $return .= '<url>';
-            $return .= "<loc>http://12psb.ru/$category->url</loc>";
+            $return .= "<loc>$protocol$host/$category->url</loc>";
             $return .= '<lastmod>' . date('Y-m-d', $product->updated_at) . '</lastmod>';
             $return .= '<changefreq>daily</changefreq>';
             $return .= '<priority>0.8</priority>';
@@ -307,15 +309,28 @@ class SiteController extends Controller
         endforeach;
 
         $return .= '<url>';
-        $return .= "<loc>http://12psb.ru/delivery</loc>";
+        $return .= "<loc>$protocol$host/delivery</loc>";
         $return .= '<priority>0.8</priority>';
         $return .= '</url>';
 
         $return .= '<url>';
-        $return .= "<loc>http://12psb.ru/contacts</loc>";
+        $return .= "<loc>$protocol$host/contacts</loc>";
         $return .= '<priority>0.8</priority>';
         $return .= '</url>';
 
+        $return .= '<url>';
+        $return .= "<loc>$protocol$host/blog</loc>";
+        $return .= '<priority>0.8</priority>';
+        $return .= '</url>';
+
+        foreach(Blog::findAll(['active' => 'yes']) as $item) {
+            $return .= '<url>';
+            $return .= "<loc>$protocol$host/blog/$item->slug</loc>";
+            $return .= '<lastmod>' . date('Y-m-d', $product->updated_at) . '</lastmod>';
+            $return .= '<changefreq>daily</changefreq>';
+            $return .= '<priority>0.8</priority>';
+            $return .= '</url>';
+        }
 
         $return .= '</urlset>';
         return $return;

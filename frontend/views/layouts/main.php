@@ -101,10 +101,13 @@ $catalogLabel = 'Каталог';
                             <span class="caret"></span>
                         </a>
                         <ul id="topnav" class="dropdown-menu" style="display: none;">
-                            <li><a href="/catalog"><?=$catalogLabel?></a></li>
+                            <li><a href="/catalog"><?= $catalogLabel ?></a></li>
                             <li><a href="/catalog/tnvd">Стенды ТНВД</a></li>
                             <li><a href="/catalog/common-rail">Стенды Common Rail</a></li>
                         </ul>
+                    </li>
+                    <li>
+                        <a href="/blog/">Блог</a>
                     </li>
                     <li>
                         <a href="/delivery/">Доставка и оплата</a>
