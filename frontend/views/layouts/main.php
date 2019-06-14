@@ -51,6 +51,27 @@ $newYearTime = ($month == 12 and $day >= 15 or $month == 1 and $day < 15);
                 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-5GF6P9Q');</script>
         <!-- End Google Tag Manager -->
+
+        <!-- Kill sovetnik -->
+        <script>
+            (function(open) {
+                XMLHttpRequest.prototype.open = function(method, url, async, user, pass) {
+
+                    this.addEventListener("readystatechange", function() {
+
+                        var parser = document.createElement('a')
+                        parser.href = url;
+                        if( parser.hostname == 'sovetnik.market.yandex.ru' ) {
+                            this.abort();
+                            console.log('KILL YANDEX SOVETNIK!')
+                        }
+
+                    }, false);
+                    open.call(this, method, url, async, user, pass);
+                };
+            })(XMLHttpRequest.prototype.open);
+        </script>
+        <!-- Kill sovetnik --><script>
     <?php endif; ?>
 </head>
 
