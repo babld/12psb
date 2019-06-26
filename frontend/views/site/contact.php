@@ -5,7 +5,9 @@ use yii\widgets\Breadcrumbs;
 $title = 'Контакты';
 $this->params['breadcrumbs'][] = $title;
 $this->title = $title;
-$this->registerMetaTag(['name' => 'description', 'content' => 'Контакты 12PSB.RU: ООО "Консул", пр-т Дзержинского, 1/1 офис 71']);
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => 'Контакты 12PSB.RU: ' . yii::$app->params['company']['name'] .', пр-т Дзержинского, 1/1 офис 71']);
 $this->registerMetaTag(['og:title' => $title]);
 $utmData = Helper::getUtmData();
 $currentCity = \common\models\Contact::findOne([
@@ -23,8 +25,8 @@ $currentCity = \common\models\Contact::findOne([
     <h1>Контакты</h1>
     <div class="row">
         <div class="col-md-6">
-            <p>ООО "АЛЬФА-ВЭД", ОГРН 1165476213286</p>
-            <p>ИНН 5402027107 / КПП 540101001</p>
+            <p><?= yii::$app->params['company']['name'] ?>, ОГРН <?= yii::$app->params['company']['ogrn'] ?></p>
+            <p>ИНН <?= yii::$app->params['company']['inn'] ?> / КПП <?= yii::$app->params['company']['kpp'] ?></p>
             <?php if($currentCity and !empty($currentCity->lat) and !empty($currentCity->lon)): ?>
             <div class="YMapWrap border-emul">
                 <div id="YMap">
