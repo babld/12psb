@@ -23,8 +23,8 @@ $currentCity = \common\models\Contact::findOne([
     <h1>Контакты</h1>
     <div class="row">
         <div class="col-md-6">
-            <p>ООО "Консул", ОГРН 1155476008643</p>
-            <p>ИНН 5407203878 / КПП 540701001</p>
+            <p>ООО "АЛЬФА-ВЭД", ОГРН 1165476213286</p>
+            <p>ИНН 5402027107 / КПП 540101001</p>
             <?php if($currentCity and !empty($currentCity->lat) and !empty($currentCity->lon)): ?>
             <div class="YMapWrap border-emul">
                 <div id="YMap">
