@@ -8,7 +8,7 @@ $utmData = Helper::getUtmData();
         <div class="border-emul overlay__manager-wrap">
             <div class="overlay__manager">
                 <div class="overlay__manager-person">
-                    <div class="corp-col">Директор</div>
+                    <?php // <div class="corp-col">Директор</div>?>
                     <div>Балабанов Дмитрий Викторович</div>
                 </div>
                 <img src="/i/manager.jpg" class=""/>
