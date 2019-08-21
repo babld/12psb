@@ -71,7 +71,6 @@
         };
 
         function parseResponce(response) {
-            console.log(response.post);
             if(typeof(response.post.target)!= "undefined" && "yaCounter24717443" in window) {
                 yaCounter24717443.reachGoal(response.post.target);
                 ga('send', 'event', response.post.target, '2');
