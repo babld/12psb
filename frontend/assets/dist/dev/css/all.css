@@ -11051,6 +11051,8 @@ table.reviews-table td {
 
 .tovar__order {
   padding: 0 29px; }
+  .tovar__order a {
+    color: #fff !important; }
 
 .tovar__controls {
   line-height: 34px; }
@@ -11515,10 +11517,10 @@ textarea:-ms-input-placeholder {
   padding: 10px 15px; }
 
 .article ul {
-  list-style-type: decimal; }
+  list-style-type: circle; }
 
 .article ol {
-  list-style-type: circle; }
+  list-style-type: decimal; }
 
 .article .tovar__prices {
   float: right;

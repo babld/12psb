@@ -9375,6 +9375,7 @@ b,d){return this.bind(b,function(e){var f=c(e.target);if(f.is(a))return d.apply(
         };
 
         function parseResponce(response) {
+            console.log(response.post);
             if(typeof(response.post.target)!= "undefined" && "yaCounter24717443" in window) {
                 yaCounter24717443.reachGoal(response.post.target);
                 ga('send', 'event', response.post.target, '2');
