@@ -47,7 +47,7 @@
     "reset-css": "^2.2.1",
     "run-sequence": "^2.2.0",
     "smoothscroll-polyfill": "^0.4.0",
-    "urijs": "^1.19.0",
+    "urijs": "^1.19.6",
     "webpack": "3.8.1",
     "webpack-merge": "^4.1.1",
     "webpack-stream": "^4.0.3",
