@@ -11,8 +11,6 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\helpers\Html;
-use frontend\models\PasswordResetRequestForm;
-use frontend\models\ResetPasswordForm;
 use pistol88\shop\models\Product;
 use common\models\ProductReview;
 use common\models\Service;
@@ -134,6 +132,25 @@ class SiteController extends Controller
                 'breadcrumbs' => $breadcrumbs
             ]);
         }
+    }
+
+    public function actionTurbo()
+    {
+        Yii::$app->response->format = \yii\web\Response::FORMAT_RAW;
+        Yii::$app->response->headers->add('Content-Type', 'text/xml');
+
+
+        $categoryIds = $this->categoryIds('catalog');
+        foreach($categoryIds as $id) {
+            $products[] = [
+                'product' => Product::find()->where(['category_id' => $id])->orderBy('sort')->all()
+            ];
+        }
+
+
+        return $this->renderPartial('turbo', [
+            'products' => $products,
+        ]);
     }
 
     public function actionDelivery() {
@@ -461,4 +478,6 @@ class SiteController extends Controller
             'goods' => Product::findAll(['is_popular' => 'yes'])
         ]);
     }
+
+
 }
