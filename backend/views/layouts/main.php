@@ -1,4 +1,5 @@
 <?php
+
 use yii\helpers\Html;
 
 
@@ -14,7 +15,7 @@ if (Yii::$app->controller->action->id === 'login') {
 } else {
 
     if (class_exists('backend\assets\AppAsset')) {
-        backend\assets\AppAsset::register($this);
+        \backend\assets\AppAsset::register($this);
     } else {
         app\assets\AppAsset::register($this);
     }

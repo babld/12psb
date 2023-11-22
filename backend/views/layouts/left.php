@@ -31,7 +31,8 @@
                     ['label' => 'Сертификаты', 'url'=>['/cert'], 'icon' => 'certificate'],
                     ['label' => 'Страницы', 'url'=>['/page'], 'icon' => 'list'],
                     ['label' => 'Контакты', 'url'=>['/contact'], 'icon' => 'list'],
-                    ['label' => 'Блог', 'url'=>['/blog'], 'icon' => '']
+                    ['label' => 'Блог', 'url'=>['/blog'], 'icon' => ''],
+                    ['label' => 'Настройки', 'url' => ['/setting'], 'icon' => 'cogs'],
                 ],
             ]
         ) ?>

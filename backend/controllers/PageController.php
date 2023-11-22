@@ -2,13 +2,13 @@
 
 namespace backend\controllers;
 
-use Yii;
 use common\models\Page;
+use Yii;
 use yii\data\ActiveDataProvider;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 
 /**
  * PageController implements the CRUD actions for Page model.
