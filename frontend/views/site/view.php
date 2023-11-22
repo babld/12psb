@@ -115,12 +115,14 @@ $this->registerMetaTag(['og:title' => $this->title]);
                 <li <?=hidetab($product->text)?> class="active">
                     <a href="#home" aria-controls="home" role="tab" data-toggle="tab">Описание</a>
                 </li>
+                <?php if((!trim($product->getField('video')) == "") && (@explode(',', $product->getField('video'))[1])):?>
                 <li <?=hidetab($product->getField('video'))?>>
                     <a role="button" href="#video" aria-controls="video" role="tab" data-toggle="tab">
                         Видео
                         <span class="article__notification"><?= count(explode(',', $product->getField('video'))) ?></span>
                     </a>
                 </li>
+                <?php endif?>
                 <li <?=hidetab($product->characteristics)?>><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Характеристики</a></li>
                 <li <?=hidetab(trim($product->photo))?>><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Интерфейс</a></li>
                 <li <?=hidetab(trim($product->equipment))?>><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Комплектация</a></li>
@@ -147,17 +149,16 @@ $this->registerMetaTag(['og:title' => $this->title]);
                 <div role="tabpanel" class="tab-pane" id="extra">
                     <?= Helper::textHandl($product->extra) ?>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="video"><?php
-                    if(!trim($product->getField('video')) == "") {
-                        foreach (explode(',', $product->getField('video')) as $link) {
-                            $link = explode("watch?v=", $link)[1]; ?>
+                <?php if((!trim($product->getField('video')) == "") && (@explode(',', $product->getField('video'))[1])):?>
+                    <div role="tabpanel" class="tab-pane" id="video">
+                        <?php foreach (explode(',', $product->getField('video')) as $link) :?>
+                            <?php $link = explode("watch?v=", $link)[1]; ?>
                             <div class="video-responsive">
-                                <iframe width="391" height="238" src="https://www.youtube.com/embed/<?= $link ?>"
-                                    frameborder="0" allowfullscreen></iframe>
+                                <iframe width="391" height="238" src="https://www.youtube.com/embed/<?= $link ?>" frameborder="0" allowfullscreen></iframe>
                             </div>
-                        <?php }
-                    }?>
-                </div>
+                        <?php endforeach?>
+                    </div>
+                <?php endif?>
                 <div role="tabpane" class="tab-pane" id="review">
                     <div class="article__review">
                         <?php if(!empty($reviews)): ?>

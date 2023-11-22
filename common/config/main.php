@@ -49,7 +49,7 @@ return [
         ],
         'user' => [
             //'class' => 'yii\web\User',
-            'enableRegistration' => false,
+//            'enableRegistration' => false,
             'identityClass' => 'dektrium\user\models\User',
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-common', 'httpOnly' => true],
