@@ -30,27 +30,7 @@ $newYearTime = ($month == 12 and $day >= 15 or $month == 1 and $day < 15);
     <meta name="theme-color" content="#ffffff">
     <?php $this->head() ?>
     <?php if(YII_ENV == 'prod') : ?>
-        <!-- Yandex.Metrika counter -->
-        <script type="text/javascript">
-            (function (d, w, c) { (w[c] = w[c] || []).push(function() {
-                try {
-                    w.yaCounter24717443 = new Ya.Metrika({
-                        id:24717443, webvisor:true, clickmap:true,
-                        trackLinks:true, accurateTrackBounce:true,
-                        trackHash:true});
-                } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script>
-        <noscript><div><img src="//mc.yandex.ru/watch/24717443" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-        <!-- /Yandex.Metrika counter -->
-
-        <!--script type="text/javascript" async="" src="http://mc.yandex.ru/metrika/watch.js"></script>
-        <meta name='yandex-verification' content='7761988de9d78f78' /-->
-        <!-- Google Tag Manager -->
-        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-5GF6P9Q');</script>
-        <!-- End Google Tag Manager -->
+        <?= \common\models\Setting::findOne(['key' => 'code-head', 'is_active' => true])->value ?? ''?>
     <?php endif; ?>
 </head>
 
@@ -59,6 +39,9 @@ if (isset($this->params['pageComponent'])) {
     echo ' data-component="' . $this->params['pageComponent'] . '"';
 }
 ?>>
+<?php if(YII_ENV == 'prod') : ?>
+    <?= \common\models\Setting::findOne(['key' => 'code-body-top', 'is_active' => true])->value ?? ''?>
+<?php endif; ?>
 <?php $this->beginBody();
 $catalogLabel = 'Каталог';
 ?>
@@ -179,71 +162,7 @@ $catalogLabel = 'Каталог';
 
 <?php $this->endBody(); ?>
 <?php if(YII_ENV == 'prod') : ?>
-<!--script type="text/javascript" src="//perezvoni.com/files/widgets/655-45810d447a-0-0d447a-7544dbc734e1bf458-c734e1bf4581.js" charset="UTF-8"></script-->
-<script type="text/javascript" src="//cdn.perezvoni.com/widget/js/przv.js?przv_code=1636-cd7fc9fdf15-90f17d74cd7fc9fdf15-fdf15-20074d0a90f1" ></script>
-<script src="//callibri.ru/api/module/js/v1/callibri.js" type="text/javascript"></script>
-<?php /* <!--Google analytics-->
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-69485351-1', 'auto');
-    ga('require', 'displayfeatures');
-    ga('send', 'pageview');
-
-
-    if (!document.referrer ||
-        document.referrer.split('/')[2].indexOf(location.hostname) != 0)
-        setTimeout(function(){
-            ga('send', 'event', 'Новый посетитель', location.pathname);
-        }, 15000);</script>
-<!--Google analytics--> */ ?>
-<?php /*
-<!-- Код тега ремаркетинга Google -->
-<!--------------------------------------------------
-С помощью тега ремаркетинга запрещается собирать информацию,
-по которой можно идентифицировать личность пользователя.
-Также запрещается размещать тег на страницах с контентом деликатного характера.
-Подробнее об этих требованиях и о настройке тега читайте на странице http://google.com/ads/remarketingsetup.
----------------------------------------------------> */?>
-<script type="text/javascript">/* <![CDATA[ */
-    var google_conversion_id = 849906326;
-    var google_custom_params = window.google_tag_params;
-    var google_remarketing_only = true;
-/* ]]> */</script>
-<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
-<noscript>
-    <div style="display:inline;">
-        <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/849906326/?guid=ON&amp;script=0"/>
-    </div>
-</noscript>
-
-<!-- BEGIN JIVOSITE CODE {literal} -->
-<script type='text/javascript'>
-    (function(){ var widget_id = 'vTd4DpcOsM';
-        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//code.jivosite.com/script/widget/'+widget_id; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);})();</script>
-<!-- {/literal} END JIVOSITE CODE -->
-    <script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?160",t.onload=function(){VK.Retargeting.Init("VK-RTRG-326367-ggWKw"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><noscript><img src="https://vk.com/rtrg?p=VK-RTRG-326367-ggWKw" style="position:fixed; left:-999px;" alt=""/></noscript>
-    <!-- Facebook Pixel Code -->
-    <script>
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '703714543357126');
-        fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-                   src="https://www.facebook.com/tr?id=703714543357126&ev=PageView&noscript=1"
-        /></noscript>
-    <!-- End Facebook Pixel Code -->
-    <script src="//qd.fast-cn.ru/js/main.js" id="quiz-script" data-id="3"></script>
+    <?= \common\models\Setting::findOne(['key' => 'code-body-bottom', 'is_active' => true])->value ?? ''?>
 <?php endif; ?>
 </body>
 </html>
