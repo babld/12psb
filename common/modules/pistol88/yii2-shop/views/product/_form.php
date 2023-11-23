@@ -93,25 +93,25 @@ use moonland\tinymce\TinyMCE;
         </div>
     </div>
 
-    <?= $form->field($model, 'short_text')->widget(TinyMCE::class(), [
+    <?= $form->field($model, 'short_text')->widget(TinyMCE::class, [
         'toggle' => [
             'active' => true,
         ]
     ]);?>
 
-    <?= $form->field($model, 'text')->widget(TinyMCE::class(), [
+    <?= $form->field($model, 'text')->widget(TinyMCE::class, [
         'toggle' => [
             'active' => true,
         ]
     ]);?>
 
-    <?= $form->field($model, 'characteristics')->widget(TinyMCE::class(), [
+    <?= $form->field($model, 'characteristics')->widget(TinyMCE::class, [
         'toggle' => [
             'active' => true,
         ]
     ]);?>
 
-    <?= $form->field($model, 'equipment')->widget(TinyMCE::class(), [
+    <?= $form->field($model, 'equipment')->widget(TinyMCE::class, [
         'toggle' => [
             'active' => true,
         ]
@@ -119,13 +119,13 @@ use moonland\tinymce\TinyMCE;
 
     <?= $form->field($model, 'sales_notes')->textArea() ?>
 
-    <?= $form->field($model, 'extra')->widget(TinyMCE::class(), [
+    <?= $form->field($model, 'extra')->widget(TinyMCE::class, [
         'toggle' => [
             'active' => true,
         ]
     ]);?>
 
-    <?= $form->field($model, 'photo')->widget(TinyMCE::class(), [
+    <?= $form->field($model, 'photo')->widget(TinyMCE::class, [
         'toggle' => [
             'active' => true,
         ]

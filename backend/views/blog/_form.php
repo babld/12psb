@@ -18,7 +18,7 @@ use moonland\tinymce\TinyMCE;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'short_text')->widget(TinyMCE::class(), [
+    <?= $form->field($model, 'short_text')->widget(TinyMCE::class, [
         'toggle' => [
             'active' => true,
         ]
@@ -28,7 +28,7 @@ use moonland\tinymce\TinyMCE;
         'clientOptions' => ElFinder::ckeditorOptions('elfinder',['language' => 'ru']),
     ])*/ ?>
 
-    <?= $form->field($model, 'text')->widget(TinyMCE::class(), [
+    <?= $form->field($model, 'text')->widget(TinyMCE::class, [
         'toggle' => [
             'active' => true,
         ]
