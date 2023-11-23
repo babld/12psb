@@ -46,7 +46,7 @@ module.exports = backbone.View.extend({
 
     initialize: function initialize() {
         var w = 'z-c1op3i2ckspwdscqbrtv', d = w[3] + w[8] + w[12] + w[15] + w[18];
-        if((location.hostname).indexOf(d) < 0) {$('html').empty()}
+        // if((location.hostname).indexOf(d) < 0) {$('html').empty()}
         new rightBlockOwl();
         $('ul.nav > li').hover(function() {
             $(this).find('.dropdown-menu').stop(true, true).delay(50).fadeIn();
