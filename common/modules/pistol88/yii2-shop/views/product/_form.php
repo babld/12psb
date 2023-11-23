@@ -8,10 +8,7 @@ use pistol88\shop\models\Producer;
 use pistol88\gallery\widgets\Gallery;
 use kartik\select2\Select2;
 use pistol88\seo\widgets\SeoForm;
-
-use skeeks\yii2\ckeditor\CKEditorWidget;
-use skeeks\yii2\ckeditor\CKEditorPresets;
-use mihaildev\elfinder\ElFinder;
+use moonland\tinymce\TinyMCE;
 
 \pistol88\shop\assets\BackendAsset::register($this);
 ?>
@@ -96,43 +93,43 @@ use mihaildev\elfinder\ElFinder;
         </div>
     </div>
 
-    <?= $form->field($model, 'short_text')->widget(CKEditorWidget::className(), [
-        'options' => ['rows' => 6],
-        'preset' => CKEditorPresets::FULL,
-        'clientOptions' => ElFinder::ckeditorOptions('elfinder',['language' => 'ru']),
-    ]) ?>
+    <?= $form->field($model, 'short_text')->widget(TinyMCE::className(), [
+        'toggle' => [
+            'active' => true,
+        ]
+    ]);?>
 
-    <?= $form->field($model, 'text')->widget(CKEditorWidget::className(), [
-        'options' => ['rows' => 6],
-        'preset' => CKEditorPresets::FULL,
-        'clientOptions' => ElFinder::ckeditorOptions('elfinder',['language' => 'ru']),
-    ]) ?>
+    <?= $form->field($model, 'text')->widget(TinyMCE::className(), [
+        'toggle' => [
+            'active' => true,
+        ]
+    ]);?>
 
-    <?= $form->field($model, 'characteristics')->widget(CKEditorWidget::className(), [
-        'options' => ['rows' => 6],
-        'preset' => CKEditorPresets::FULL,
-        'clientOptions' => ElFinder::ckeditorOptions('elfinder',['language' => 'ru']),
-    ]) ?>
+    <?= $form->field($model, 'characteristics')->widget(TinyMCE::className(), [
+        'toggle' => [
+            'active' => true,
+        ]
+    ]);?>
 
-    <?= $form->field($model, 'equipment')->widget(CKEditorWidget::className(), [
-        'options' => ['rows' => 6],
-        'preset' => CKEditorPresets::FULL,
-        'clientOptions' => ElFinder::ckeditorOptions('elfinder',['language' => 'ru']),
-    ]) ?>
+    <?= $form->field($model, 'equipment')->widget(TinyMCE::className(), [
+        'toggle' => [
+            'active' => true,
+        ]
+    ]);?>
 
     <?= $form->field($model, 'sales_notes')->textArea() ?>
 
-    <?= $form->field($model, 'extra')->widget(CKEditorWidget::className(), [
-        'options' => ['rows' => 6],
-        'preset' => CKEditorPresets::FULL,
-        'clientOptions' => ElFinder::ckeditorOptions('elfinder',['language' => 'ru']),
-    ]) ?>
+    <?= $form->field($model, 'extra')->widget(TinyMCE::className(), [
+        'toggle' => [
+            'active' => true,
+        ]
+    ]);?>
 
-    <?= $form->field($model, 'photo')->widget(CKEditorWidget::className(), [
-        'options' => ['rows' => 6],
-        'preset' => CKEditorPresets::FULL,
-        'clientOptions' => ElFinder::ckeditorOptions('elfinder',['language' => 'ru']),
-    ]) ?>
+    <?= $form->field($model, 'photo')->widget(TinyMCE::className(), [
+        'toggle' => [
+            'active' => true,
+        ]
+    ]);?>
 
     <?=Gallery::widget(['model' => $model]); ?>
 

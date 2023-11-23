@@ -30,7 +30,6 @@
         "pistol88/yii2-cart": "*",
         "pistol88/yii2-order": "*",
         "pistol88/yii2-relations": "*",
-        "voskobovich/yii2-many-many-behavior": "^3.0",
         "kartik-v/yii2-widget-select2": "*",
         "asofter/yii2-imperavi-redactor": "dev-master@dev",
         "zelenin/yii2-slug-behavior": "~1.5.1",
@@ -45,7 +44,8 @@
         "dmstr/yii2-adminlte-asset": "^2.1",
         "skeeks/yii2-ckeditor": "*",
         "mihaildev/yii2-elfinder": "*",
-        "2amigos/yii2-editable-widget" : "~1.0"
+        "2amigos/yii2-editable-widget" : "~1.0",
+        "moonlandsoft/yii2-tinymce": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

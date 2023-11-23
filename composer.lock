@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c95d87617362c4e75f502c43b69c60f",
+    "content-hash": "2d3b69427745b700ace5c8ef3d403e75",
     "packages": [
         {
             "name": "2amigos/yii2-dosamigos-asset-bundle",
@@ -2207,6 +2207,101 @@
             "time": "2020-04-03T16:27:25+00:00"
         },
         {
+            "name": "moonlandsoft/helpers",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/moonlandsoft/helpers.git",
+                "reference": "8a8c981b17112f04e1da0bd0de8d56adfb8e5adf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/moonlandsoft/helpers/zipball/8a8c981b17112f04e1da0bd0de8d56adfb8e5adf",
+                "reference": "8a8c981b17112f04e1da0bd0de8d56adfb8e5adf",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "moonland\\helpers\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Moh Khoirul Anam",
+                    "email": "moh.khoirul.anaam@gmail.com"
+                }
+            ],
+            "description": "Helper for all widgets",
+            "keywords": [
+                "extension",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/moonlandsoft/helpers/issues",
+                "source": "https://github.com/moonlandsoft/helpers/tree/1.0.0"
+            },
+            "time": "2015-01-23T14:45:15+00:00"
+        },
+        {
+            "name": "moonlandsoft/yii2-tinymce",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/moonlandsoft/yii2-tinymce.git",
+                "reference": "4f7e7f8fc8ef8b62046233be5d2945a21e3fa61c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/moonlandsoft/yii2-tinymce/zipball/4f7e7f8fc8ef8b62046233be5d2945a21e3fa61c",
+                "reference": "4f7e7f8fc8ef8b62046233be5d2945a21e3fa61c",
+                "shasum": ""
+            },
+            "require": {
+                "moonlandsoft/helpers": "*",
+                "yiisoft/yii2": "*"
+            },
+            "default-branch": true,
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "moonland\\tinymce\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Moh Khoirul Anam",
+                    "email": "moh.khoirul.anaam@gmail.com"
+                }
+            ],
+            "description": "The TinyMCE Extension for yii framework",
+            "keywords": [
+                "editor",
+                "extension",
+                "text",
+                "tinymce",
+                "wyswyg",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/moonlandsoft/yii2-tinymce/issues",
+                "source": "https://github.com/moonlandsoft/yii2-tinymce/tree/master"
+            },
+            "time": "2015-09-03T12:25:17+00:00"
+        },
+        {
             "name": "mpdf/mpdf",
             "version": "v8.2.2",
             "source": {
@@ -4147,67 +4242,6 @@
             },
             "abandoned": "yii2-starter-kit/yii2-file-kit",
             "time": "2020-07-20T14:38:27+00:00"
-        },
-        {
-            "name": "voskobovich/yii2-many-many-behavior",
-            "version": "v3.3.0.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/voskobovich/yii2-many-to-many-behavior.git",
-                "reference": "9020f97e43582faba90d882401f43f7e44156d99"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/voskobovich/yii2-many-to-many-behavior/zipball/9020f97e43582faba90d882401f43f7e44156d99",
-                "reference": "9020f97e43582faba90d882401f43f7e44156d99",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "yiisoft/yii2": "^2"
-            },
-            "require-dev": {
-                "codeception/codeception": "*",
-                "yiisoft/yii2-codeception": "^2"
-            },
-            "type": "yii2-behavior",
-            "autoload": {
-                "psr-4": {
-                    "voskobovich\\manytomany\\": "src",
-                    "voskobovich\\manytomany\\updaters\\": "src/updaters",
-                    "voskobovich\\manytomany\\interfaces\\": "src/interfaces"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Vitaly Voskobovich",
-                    "email": "vitaly@voskobovich.com",
-                    "homepage": "http://voskobovich.com"
-                },
-                {
-                    "name": "Konstantin Sirotkin",
-                    "email": "beowulfenator@gmail.com",
-                    "homepage": "http://beowulfenator.github.io"
-                }
-            ],
-            "description": "This behavior makes it easy to maintain relations many-to-many in the your ActiveRecord model.",
-            "homepage": "https://github.com/voskobovich/ManyToManyBehavior",
-            "keywords": [
-                "Active Record",
-                "Behavior",
-                "many-to-many",
-                "relation",
-                "yii2"
-            ],
-            "support": {
-                "issues": "https://github.com/voskobovich/ManyToManyBehavior/issues",
-                "source": "https://github.com/voskobovich/ManyToManyBehavior"
-            },
-            "time": "2016-07-27T21:24:35+00:00"
         },
         {
             "name": "yii2mod/yii2-ion-slider",
@@ -8578,7 +8612,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.4.0",
+        "php": ">=7.1",
         "ext-xmlreader": "*"
     },
     "platform-dev": [],

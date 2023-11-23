@@ -249,11 +249,11 @@ $this->params['breadcrumbs'][] = 'Обновить';
 
 
         <div class="tab-pane" id="product-fields">
-            <?php if($fieldPanel = \pistol88\field\widgets\Choice::widget(['model' => $model])) { ?>
+            <?php /*if($fieldPanel = \pistol88\field\widgets\Choice::widget(['model' => $model])) { ?>
                 <?=$fieldPanel;?>
             <?php } else { ?>
                 <p>Поля не заданы. Задать можно <?=Html::a('здесь', ['/field/field/index']);?>.</p>
-            <?php } ?>
+            <?php } */?>
         </div>
     </div>
 </div>
