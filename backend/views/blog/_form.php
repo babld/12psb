@@ -4,8 +4,8 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use pistol88\seo\widgets\SeoForm;
 use pistol88\gallery\widgets\Gallery;
+use mihaildev\ckeditor\CKEditor;
 use mihaildev\elfinder\ElFinder;
-use moonland\tinymce\TinyMCE;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Blog */
@@ -18,20 +18,12 @@ use moonland\tinymce\TinyMCE;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'short_text')->widget(TinyMCE::class, [
-        'toggle' => [
-            'active' => true,
-        ]
-    ]);/*->widget(CKEditorWidget::className(), [
-        'options' => ['rows' => 6],
-        'preset' => CKEditorPresets::FULL,
-        'clientOptions' => ElFinder::ckeditorOptions('elfinder',['language' => 'ru']),
-    ])*/ ?>
+    <?= $form->field($model, 'short_text')->widget(CKEditor::class, [
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder'),
+    ]);?>
 
-    <?= $form->field($model, 'text')->widget(TinyMCE::class, [
-        'toggle' => [
-            'active' => true,
-        ]
+    <?= $form->field($model, 'text')->widget(CKEditor::class, [
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder'),
     ]); ?>
 
     <?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>

@@ -8,7 +8,8 @@ use pistol88\shop\models\Producer;
 use pistol88\gallery\widgets\Gallery;
 use kartik\select2\Select2;
 use pistol88\seo\widgets\SeoForm;
-use moonland\tinymce\TinyMCE;
+use mihaildev\ckeditor\CKEditor;
+use mihaildev\elfinder\ElFinder;
 
 \pistol88\shop\assets\BackendAsset::register($this);
 ?>
@@ -93,42 +94,30 @@ use moonland\tinymce\TinyMCE;
         </div>
     </div>
 
-    <?= $form->field($model, 'short_text')->widget(TinyMCE::class, [
-        'toggle' => [
-            'active' => true,
-        ]
+    <?= $form->field($model, 'short_text')->widget(CKEditor::class, [
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder'),
     ]);?>
 
-    <?= $form->field($model, 'text')->widget(TinyMCE::class, [
-        'toggle' => [
-            'active' => true,
-        ]
+    <?= $form->field($model, 'text')->widget(CKEditor::class, [
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder'),
     ]);?>
 
-    <?= $form->field($model, 'characteristics')->widget(TinyMCE::class, [
-        'toggle' => [
-            'active' => true,
-        ]
+    <?= $form->field($model, 'characteristics')->widget(CKEditor::class, [
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder'),
     ]);?>
 
-    <?= $form->field($model, 'equipment')->widget(TinyMCE::class, [
-        'toggle' => [
-            'active' => true,
-        ]
+    <?= $form->field($model, 'equipment')->widget(CKEditor::class, [
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder'),
     ]);?>
 
     <?= $form->field($model, 'sales_notes')->textArea() ?>
 
-    <?= $form->field($model, 'extra')->widget(TinyMCE::class, [
-        'toggle' => [
-            'active' => true,
-        ]
+    <?= $form->field($model, 'extra')->widget(CKEditor::class, [
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder'),
     ]);?>
 
-    <?= $form->field($model, 'photo')->widget(TinyMCE::class, [
-        'toggle' => [
-            'active' => true,
-        ]
+    <?= $form->field($model, 'photo')->widget(CKEditor::class, [
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder'),
     ]);?>
 
     <?=Gallery::widget(['model' => $model]); ?>

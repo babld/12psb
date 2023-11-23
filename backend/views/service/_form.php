@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use mihaildev\elfinder\ElFinder;
-use moonland\tinymce\TinyMCE;
+use mihaildev\ckeditor\CKEditor;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Service */
@@ -16,17 +16,13 @@ use moonland\tinymce\TinyMCE;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'short_text')->widget(TinyMCE::class, [
-        'toggle' => [
-            'active' => true,
-        ]
+    <?= $form->field($model, 'short_text')->widget(CKEditor::class, [
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder'),
     ]); ?>
 
-    <?= $form->field($model, 'text')->widget(TinyMCE::class, [
-        'toggle' => [
-            'active' => true,
-        ]
-    ]); ?>
+    <?= $form->field($model, 'text')->widget(CKEditor::class, [
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder'),
+    ]);?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

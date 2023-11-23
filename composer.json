@@ -44,7 +44,7 @@
         "dmstr/yii2-adminlte-asset": "^2.1",
         "mihaildev/yii2-elfinder": "*",
         "2amigos/yii2-editable-widget" : "~1.0",
-        "moonlandsoft/yii2-tinymce": "*"
+        "mihaildev/yii2-ckeditor": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
