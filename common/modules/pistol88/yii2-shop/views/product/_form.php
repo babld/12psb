@@ -61,7 +61,7 @@ use mihaildev\elfinder\ElFinder;
     <div class="row">
         <div class="col-lg-6 col-xs-6">
             <?= $form->field($model, 'category_id')
-                ->widget(Select2::class(), [
+                ->widget(Select2::class, [
                     'data' => Category::buildTextTree(),
                     'language' => 'ru',
                     'options' => ['placeholder' => 'Выберите категорию ...'],
@@ -71,7 +71,7 @@ use mihaildev\elfinder\ElFinder;
                 ]); ?>
 
             <?= $form->field($model, 'producer_id')
-                ->widget(Select2::class(), [
+                ->widget(Select2::class, [
                     'data' => ArrayHelper::map(Producer::find()->all(), 'id', 'name'),
                     'language' => 'ru',
                     'options' => ['placeholder' => 'Выберите бренд ...'],
@@ -83,7 +83,7 @@ use mihaildev\elfinder\ElFinder;
         <div class="col-lg-6 col-xs-6">
             <?= $form->field($model, 'category_ids')
                 ->label('Прочие категории')
-                ->widget(Select2::class(), [
+                ->widget(Select2::class, [
                     'data' => Category::buildTextTree(),
                     'language' => 'ru',
                     'options' => ['multiple' => true, 'placeholder' => 'Доп. категории ...'],
