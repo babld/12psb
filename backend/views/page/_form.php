@@ -3,6 +3,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use mihaildev\elfinder\ElFinder;
 use pistol88\seo\widgets\SeoForm;
+use moonland\tinymce\TinyMCE;
 ?>
 
 <div class="page-form">

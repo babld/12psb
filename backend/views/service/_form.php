@@ -2,9 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use skeeks\yii2\ckeditor\CKEditorWidget;
-use skeeks\yii2\ckeditor\CKEditorPresets;
 use mihaildev\elfinder\ElFinder;
+use moonland\tinymce\TinyMCE;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Service */

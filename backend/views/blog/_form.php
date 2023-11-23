@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 use pistol88\seo\widgets\SeoForm;
 use pistol88\gallery\widgets\Gallery;
 use mihaildev\elfinder\ElFinder;
+use moonland\tinymce\TinyMCE;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Blog */
