@@ -2,10 +2,7 @@
 namespace pistol88\shop\models;
 
 use Yii;
-use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
-use pistol88\shop\models\StockToProduct;
-use yii\db\ActiveQuery;
 
 class Stock extends \yii\db\ActiveRecord
 {
@@ -17,12 +14,12 @@ class Stock extends \yii\db\ActiveRecord
             'field' => [
                 'class' => 'pistol88\field\behaviors\AttachFields',
             ],
-            [
-                'class' => \voskobovich\manytomany\ManyToManyBehavior::className(),
-                'relations' => [
-                    'user_ids' => 'users',
-                ],
-            ],
+//            [
+//                'class' => \voskobovich\manytomany\ManyToManyBehavior::className(),
+//                'relations' => [
+//                    'user_ids' => 'users',
+//                ],
+//            ],
         ];
     }
 	
