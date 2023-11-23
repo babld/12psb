@@ -4,8 +4,6 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use pistol88\seo\widgets\SeoForm;
 use pistol88\gallery\widgets\Gallery;
-use skeeks\yii2\ckeditor\CKEditorWidget;
-use skeeks\yii2\ckeditor\CKEditorPresets;
 use mihaildev\elfinder\ElFinder;
 
 /* @var $this yii\web\View */
@@ -19,17 +17,21 @@ use mihaildev\elfinder\ElFinder;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'short_text')->widget(CKEditorWidget::className(), [
+    <?= $form->field($model, 'short_text')->widget(TinyMCE::class(), [
+        'toggle' => [
+            'active' => true,
+        ]
+    ]);/*->widget(CKEditorWidget::className(), [
         'options' => ['rows' => 6],
         'preset' => CKEditorPresets::FULL,
         'clientOptions' => ElFinder::ckeditorOptions('elfinder',['language' => 'ru']),
-    ]) ?>
+    ])*/ ?>
 
-    <?= $form->field($model, 'text')->widget(CKEditorWidget::className(), [
-        'options' => ['rows' => 6],
-        'preset' => CKEditorPresets::FULL,
-        'clientOptions' => ElFinder::ckeditorOptions('elfinder',['language' => 'ru']),
-    ]) ?>
+    <?= $form->field($model, 'text')->widget(TinyMCE::class(), [
+        'toggle' => [
+            'active' => true,
+        ]
+    ]); ?>
 
     <?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2d3b69427745b700ace5c8ef3d403e75",
+    "content-hash": "9692d92a090fa88e4287dab6a0eafd85",
     "packages": [
         {
             "name": "2amigos/yii2-dosamigos-asset-bundle",
@@ -3928,57 +3928,6 @@
                 }
             ],
             "time": "2023-09-28T10:46:27+00:00"
-        },
-        {
-            "name": "skeeks/yii2-ckeditor",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/skeeks-semenov/yii2-ckeditor.git",
-                "reference": "7f7483ff413aeac49ab573fc263a6682455c0d6c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/skeeks-semenov/yii2-ckeditor/zipball/7f7483ff413aeac49ab573fc263a6682455c0d6c",
-                "reference": "7f7483ff413aeac49ab573fc263a6682455c0d6c",
-                "shasum": ""
-            },
-            "require": {
-                "yiisoft/yii2": "^2.0"
-            },
-            "default-branch": true,
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "skeeks\\yii2\\ckeditor\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "SkeekS",
-                    "email": "support@skeeks.com",
-                    "homepage": "https://skeeks.com"
-                },
-                {
-                    "name": "Semenov Alexander",
-                    "email": "semenov@skeeks.com"
-                }
-            ],
-            "description": "CKEditor extension for Yii2.",
-            "keywords": [
-                "CKEditor",
-                "extension",
-                "yii2"
-            ],
-            "support": {
-                "issues": "https://github.com/skeeks-semenov/yii2-ckeditor/issues",
-                "source": "https://github.com/skeeks-semenov/yii2-ckeditor/tree/1.1.5"
-            },
-            "time": "2023-06-13T08:52:04+00:00"
         },
         {
             "name": "studio-42/elfinder",

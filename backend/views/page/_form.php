@@ -1,8 +1,6 @@
 <?php
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use skeeks\yii2\ckeditor\CKEditorWidget;
-use skeeks\yii2\ckeditor\CKEditorPresets;
 use mihaildev\elfinder\ElFinder;
 use pistol88\seo\widgets\SeoForm;
 ?>
@@ -13,17 +11,17 @@ use pistol88\seo\widgets\SeoForm;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'short_text')->widget(CKEditorWidget::className(), [
-        'options' => ['rows' => 6],
-        'preset' => CKEditorPresets::FULL,
-        'clientOptions' => ElFinder::ckeditorOptions('elfinder',['language' => 'ru']),
-    ]) ?>
+    <?= $form->field($model, 'short_text')->widget(TinyMCE::class(), [
+        'toggle' => [
+            'active' => true,
+        ]
+    ]); ?>
 
-    <?= $form->field($model, 'text')->widget(CKEditorWidget::className(), [
-        'options' => ['rows' => 6],
-        'preset' => CKEditorPresets::FULL,
-        'clientOptions' => ElFinder::ckeditorOptions('elfinder',['language' => 'ru']),
-    ]) ?>
+    <?= $form->field($model, 'text')->widget(TinyMCE::class(), [
+        'toggle' => [
+            'active' => true,
+        ]
+    ]); ?>
 
     <?= $form->field($model, 'active')->dropDownList([ 'yes' => 'Yes', 'no' => 'No', ], ['prompt' => '']) ?>
 

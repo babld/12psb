@@ -17,17 +17,17 @@ use mihaildev\elfinder\ElFinder;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'short_text')->widget(CKEditorWidget::className(), [
-        'options' => ['rows' => 6],
-        'preset' => CKEditorPresets::FULL,
-        'clientOptions' => ElFinder::ckeditorOptions('elfinder',['language' => 'ru']),
-    ]) ?>
+    <?= $form->field($model, 'short_text')->widget(TinyMCE::class(), [
+        'toggle' => [
+            'active' => true,
+        ]
+    ]);?>
 
-    <?= $form->field($model, 'text')->widget(CKEditorWidget::className(), [
-        'options' => ['rows' => 6],
-        'preset' => CKEditorPresets::FULL,
-        'clientOptions' => ElFinder::ckeditorOptions('elfinder',['language' => 'ru']),
-    ]) ?>
+    <?= $form->field($model, 'text')->widget(TinyMCE::class(), [
+        'toggle' => [
+            'active' => true,
+        ]
+    ]);?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
