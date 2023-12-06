@@ -119,14 +119,14 @@ $this->registerMetaTag(['og:title' => $this->title]);
                 <li <?=hidetab($product->text)?> class="active">
                     <a href="#home" aria-controls="home" role="tab" data-toggle="tab">Описание</a>
                 </li>
-                <?php if((!trim($product->getField('video')) == "") && (@explode(',', $product->getField('video'))[1])):?>
+                <?php /* if((!trim($product->getField('video')) == "") && (@explode(',', $product->getField('video'))[1])):?>
                 <li <?=hidetab($product->getField('video'))?>>
                     <a role="button" href="#video" aria-controls="video" role="tab" data-toggle="tab">
                         Видео
                         <span class="article__notification"><?= count(explode(',', $product->getField('video'))) ?></span>
                     </a>
                 </li>
-                <?php endif ?>
+                <?php endif */ ?>
                 <li <?=hidetab($product->characteristics)?>><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Характеристики</a></li>
                 <li <?=hidetab(trim($product->photo))?>><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Интерфейс</a></li>
                 <li <?=hidetab(trim($product->equipment))?>><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Комплектация</a></li>
