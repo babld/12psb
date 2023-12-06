@@ -73,8 +73,12 @@
         function parseResponce(response) {
             if(typeof(response.post.target)!= "undefined" && "yaCounter24717443" in window) {
                 yaCounter24717443.reachGoal(response.post.target);
+            }
+
+            if(typeof(response.post.target)!= "undefined" && "ga" in window) {
                 ga('send', 'event', response.post.target, '2');
             }
+
             if(!settings.overlay) {
                 $(".form-wrapper").replaceWith("<div class='thankyou-bot'>Спасибо за заказ. <br/><span>Мы свяжемся с Вами в ближайшее время</span></div>");
             } else {

@@ -16,6 +16,6 @@
 	</div>
 
 	<div class="pos-relative">
-		<input type="submit" class="indexButton1" name="submit" value="ОСТАВИТЬ ЗАЯВКУ" onclick="ga('send', 'event', 'CALLABACK', '1'); yaCounter24717443.reachGoal('CALLBACK1'); return true;">
+		<input type="submit" class="indexButton1" name="submit" value="ОСТАВИТЬ ЗАЯВКУ" onclick="if ('ga' in window) {ga('send', 'event', 'CALLABACK', '1');} yaCounter24717443.reachGoal('CALLBACK1'); return true;">
 	</div>
 </form>

@@ -141,7 +141,7 @@ $catalogLabel = 'Каталог';
                 <?php endif; ?>
                 <input type="submit" name="submit" class="header-form-submit but-default" value="Жду звонка">
             </form>
-            <form class="search-form" action="/search" <?= YII_ENV == 'prod' ? "onsubmit=\"ga('send', 'event', 'SEARCH', '2'); yaCounter24717443.reachGoal('SEARCH'); return true;\"" : ""?>>
+            <form class="search-form" action="/search" <?= YII_ENV == 'prod' ? "onsubmit=\"if ('ga' in window) { ga('send', 'event', 'SEARCH', '2');} yaCounter24717443.reachGoal('SEARCH'); return true;\"" : ""?>>
                 <input type="text" name="query" class="search-form__input" placeholder="Поиск.." value="<?=Yii::$app->getRequest()->getQueryParam('query');?>"/>
                 <button type="submit" value="" class="search-form__submit fa fa-search"></button>
             </form>

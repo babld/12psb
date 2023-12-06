@@ -6,6 +6,9 @@ use yii\helpers\Url;
 use pistol88\shop\models\product\ProductQuery;
 use yii\behaviors\TimestampBehavior;
 
+/**
+ * @property int $id
+ */
 class Product extends \yii\db\ActiveRecord implements \pistol88\relations\interfaces\Torelate, \pistol88\cart\interfaces\CartElement
 {
     public $category_ids;
