@@ -82,7 +82,7 @@ $currentCity = \common\models\Contact::findOne([
         <div class="col-md-6">
             <div class="contacts__manager-wrap">
                 <?php // <p class="corp-col">Директор</p> ?>
-                <p>Балабанов Дмитрий Викторович</p>
+                <p>Юдин Алексей</p>
                 <img src="/i/manager.jpg" class="contacts__manager-img border-emul"/>
             </div>
             <div class="contacts__form-wrap">
