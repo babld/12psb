@@ -5,7 +5,7 @@ services:
   frontend:
     build: frontend
     ports:
-      - 20081:80
+      - 20083:80
     volumes:
       # Re-use local composer cache via host-volume
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
@@ -15,7 +15,7 @@ services:
   backend:
     build: backend
     ports:
-      - 21082:80
+      - 21084:80
     volumes:
       # Re-use local composer cache via host-volume
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
@@ -25,7 +25,7 @@ services:
   mysql:
     image: mysql:8.1.0
     ports:
-      - 33062:3306
+      - 33063:3306
     environment:
       MYSQL_DB: yii2advanced
       MYSQL_USER: yii2advanced
