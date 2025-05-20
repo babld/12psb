@@ -10,9 +10,9 @@ return [
     'instagram' => 'https://www.instagram.com/12psb.ru/',
     'www' => $_SERVER['HTTP_HOST'],
     'company' => [
-        'inn' => 5402027107,
-        'kpp' => 540101001,
-        'name' => 'ООО "АЛЬФА-ВЭД"',
-        'ogrn' => 1165476213286
+        'inn' => 5406816670,
+        'kpp' => 540601001,
+        'name' => 'ООО "Трансфер"',
+        'ogrn' => 1215400044936
     ]
 ];
