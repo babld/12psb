@@ -15,9 +15,13 @@ use Imagine\Image\Box;
                 $filename = $width.'x'.$height . '-' . array_pop($path);
                 $pathToImg = implode('/', $path);
                 if(!file_exists(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename)) {
-                    Image::getImagine()->open(Yii::getAlias('@webroot/images/store/') . $imagePath)->
-                    thumbnail(new Box($width, $height))->
-                    save(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename, ['quality' => 90]);
+                    try {
+                        Image::getImagine()->open(Yii::getAlias('@webroot/images/store/') . $imagePath)->
+                        thumbnail(new Box($width, $height))->
+                        save(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename, ['quality' => 90]);
+                    } catch (\Exception $exception) {
+
+                    }
                 }
                 ?>
                 <a href="<?='/images/cache/' . $pathToImg . '/' . $filename?>" rel="fancybox-button" class="lbox" alt="Сертификат" title="Сертификат">
@@ -29,9 +33,13 @@ use Imagine\Image\Box;
                     $filename = $width.'x'.$height . '-' . array_pop($path);
                     $pathToImg = implode('/', $path);
                     if(!file_exists(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename)) {
-                        Image::getImagine()->open(Yii::getAlias('@webroot/images/store/') . $imagePath)->
-                        thumbnail(new Box($width, $height))->
-                        save(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename, ['quality' => 90]);
+                        try {
+                            Image::getImagine()->open(Yii::getAlias('@webroot/images/store/') . $imagePath)->
+                            thumbnail(new Box($width, $height))->
+                            save(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename, ['quality' => 90]);
+                        } catch (\Exception $exception) {
+
+                        }
                     }
                     ?>
                     <img class="owl-lazy" data-src="<?='/images/cache/' . $pathToImg . '/' . $filename?>" />

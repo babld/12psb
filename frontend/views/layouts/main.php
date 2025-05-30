@@ -5,6 +5,10 @@ use common\widgets\Alert;
 use app\models\SearchForm;
 use app\components\Helper;
 
+/**
+ * @var string $content
+ */
+
 $modelSearch = new SearchForm();
 $utmData = Helper::getUtmData();
 
@@ -156,6 +160,7 @@ $catalogLabel = 'Каталог';
 </div>*/ ?>
 
 <?= Alert::widget() ?>
+<?= \frontend\widgets\Plashka::widget()?>
 <?= $content ?>
 
 <?=$this->render('/blocks/footer');?>

@@ -22,9 +22,21 @@ $cur = "р.";
                                 $filename = $width.'x'.$height . '-' . array_pop($path);
                                 $pathToImg = implode('/', $path);
                                 if(!file_exists(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename)) {
-                                    Image::getImagine()->open(Yii::getAlias('@webroot/images/store/') . $imagePath)->
+                                    $original = Yii::getAlias('@webroot/images/store/') . $imagePath;
+
+                                    if (!file_exists($original)) {
+                                        $moduleGallery = Yii::$app->getModule('gallery');
+
+                                        $original = Yii::getAlias($moduleGallery->placeHolderPath);
+                                    }
+
+                                    try {
+                                        Image::getImagine()->open($original)->
                                         thumbnail(new Box($width, $height))->
                                         save(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename, ['quality' => 90]);
+                                    } catch (\Exception $exception) {
+
+                                    }
                                 }?>
                                 <img src="<?='/images/cache/' . $pathToImg . '/' . $filename?>"
                                      class="main-block-12psb"/>
