@@ -31,13 +31,13 @@
         margin-right: 70px;
     }
     .plashka-text a {
-        color: #4CC574; 
+        color: #ff6624;
         text-decoration: none; 
         cursor: pointer;
     }
 
     .plashka-text a:hover {
-        color: #3D9E5D; 
+        color: #ff9263;
     }
     #closeplashka {
         background-color: #FFFFFF; 
@@ -166,7 +166,7 @@
     <div class="plashka-all">
         <div class="plashka-text">
             Мы используем файлы cookie для вашего удобства пользования сайтом. Оставаясь на сайте, вы соглашаетесь с 
-            <a href="https://sibtransasia.ru/agreement" target="_blank">
+            <a href="https://12psb.ru/doc/politic.pdf" target="_blank">
                 условиями использования файлов cookies.
             </a>
         </div>
