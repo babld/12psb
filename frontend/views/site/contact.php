@@ -86,7 +86,7 @@ $currentCity = \common\models\Contact::findOne([
                 <img src="/i/manager.jpg" class="contacts__manager-img border-emul"/>
             </div>
             <div class="contacts__form-wrap">
-                <a href="mailto:<?=Yii::getAlias('@mail')?>" class="contacts__email">
+                <a href="mailto:<?=Yii::getAlias('@mail')?>">
                     <i class="fa fa-envelope corp-col" aria-hidden="true"></i>
                     <span><?=Yii::getAlias('@mail')?></span>
                 </a></p>
