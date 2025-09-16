@@ -3,6 +3,11 @@ use yii\widgets\Breadcrumbs;
 use yii\helpers\Html;
 use app\components\Helper;
 
+/**
+ * @var array $breadcrumbs
+ */
+
+
 $count = count($breadcrumbs);
 for($i = 0; $i < $count; $i++):
     if($i + 1 == $count):

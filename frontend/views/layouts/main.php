@@ -4,6 +4,7 @@ use frontend\assets\AppAsset;
 use common\widgets\Alert;
 use app\models\SearchForm;
 use app\components\Helper;
+use yii\widgets\ActiveForm;
 
 /**
  * @var string $content
@@ -36,6 +37,7 @@ $newYearTime = ($month == 12 and $day >= 15 or $month == 1 and $day < 15);
     <?php if(YII_ENV == 'prod') : ?>
         <?= \common\models\Setting::findOne(['key' => 'code-head', 'is_active' => true])->value ?? ''?>
     <?php endif; ?>
+    <?php Helper::getUtmData() ?>
 </head>
 
 <body <?php
@@ -137,14 +139,55 @@ $catalogLabel = 'Каталог';
             <?= Html::tag('div', 'Топливное оборудование в наличии и под заказ.', ['class' => 'header-subtitle']) ?>
         </div>
         <div class="header__forms">
-            <form class="header-form send">
-                <input type="text" placeholder="Телефон" name="phone" class="header-form-phone">
+            <?php $model = new \app\models\PhoneForm(); ?>
+            <?php $form = ActiveForm::begin(['options' => ['class' => 'header-form send2']]) ?>
+                <?= $form->field($model, 'phone')->textInput([
+                    'placeholder' => 'Телефон',
+                    'name' => 'phone',
+                    'class' => 'header-form-phone',
+                    'template'=>'{input}{error}'
+                ])->label(false)->widget(\yii\widgets\MaskedInput::className(), [
+                    'mask' => '+7 (###) ###-##-##',
+                    'clientOptions' => [
+                        'alias' =>  'phone',
+                    ],
+                    'options' => [
+                        'placeholder' => 'Ваш телефон',
+                        'class' => 'header-form-phone'
+                    ]
+                ]) ?>
                 <?= YII_ENV == 'prod' ? '<input type="hidden" name="target" value="CALLBACK1" />' : '' ?>
                 <?php if($utmData['utm']) : ?>
                     <input type="hidden" name="utm" value="<?= $utmData['utm'] ?>" />
                 <?php endif; ?>
                 <input type="submit" name="submit" class="header-form-submit but-default" value="Жду звонка">
-            </form>
+            <?php ActiveForm::end() ?>
+            <?php
+            $this->registerJs(<<<JS
+$('.send2').on('beforeSubmit', function(e) {
+    let form = $(this);
+    form.find("input[name='submit']").attr('disabled', 'disabled');
+    
+    $.post(
+        '/ajax-feedback',
+        form.serialize(),
+        function (response) {
+            if(typeof(response.post.target)!= "undefined" && "yaCounter24717443" in window) {
+                yaCounter24717443.reachGoal(response.post.target);
+            }
+            if (typeof(response.post.target)!= "undefined" && "ga" in window) {
+                ga('send', 'event', response.post.target, '2');
+            }
+            form.find("input[name='submit']").attr('disabled', false);
+            form.trigger('reset');
+        });
+    
+    return false;
+});
+
+JS, \yii\web\View::POS_END)
+            ?>
+
             <form class="search-form" action="/search" <?= YII_ENV == 'prod' ? "onsubmit=\"if ('ga' in window) { ga('send', 'event', 'SEARCH', '2');} yaCounter24717443.reachGoal('SEARCH'); return true;\"" : ""?>>
                 <input type="text" name="query" class="search-form__input" placeholder="Поиск.." value="<?=Yii::$app->getRequest()->getQueryParam('query');?>"/>
                 <button type="submit" value="" class="search-form__submit fa fa-search"></button>
@@ -152,6 +195,28 @@ $catalogLabel = 'Каталог';
         </div>
     </div>
 </div>
+<style>
+    .header-form-submit {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .header-form .has-error input {
+        border: 1px dashed #9a6565;
+    }
+    .header-form .help-block {
+        position: absolute;
+        top: -30px;
+    }
+    .header-form-phone {
+        border: none;
+        border-bottom: 1px dashed #000;
+        top: 1px;
+        font-size: 17px;
+        background: transparent;
+        padding: 5px 5px 0 8px;
+    }
+</style>
 <?php /*
 <div class="container">
     <?= Breadcrumbs::widget([
@@ -166,9 +231,9 @@ $catalogLabel = 'Каталог';
 <?=$this->render('/blocks/footer');?>
 
 <?php $this->endBody(); ?>
-<?php if(YII_ENV == 'prod') : ?>
+<?php // if (YII_ENV == 'prod') : ?>
     <?= \common\models\Setting::findOne(['key' => 'code-body-bottom', 'is_active' => true])->value ?? ''?>
-<?php endif; ?>
+<?php // endif; ?>
 </body>
 </html>
 <?php $this->endPage(); ?>

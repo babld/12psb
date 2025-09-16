@@ -1,12 +1,18 @@
 <?php
 namespace frontend\controllers;
 
+use app\components\SendToBitrix;
 use app\models\SearchForm;
+use common\models\FeedbackForm;
 use common\models\Page;
+use common\models\UserReview;
 use common\models\Video;
+use frontend\components\Helpers;
+use frontend\models\ContactForm;
+use yii\helpers\ArrayHelper;
 use yii\web\HttpException;
 use pistol88\shop\models\Category;
-use Yii;
+use yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
@@ -16,6 +22,7 @@ use common\models\ProductReview;
 use common\models\Service;
 use common\models\Maintenance;
 use common\models\Blog;
+use app\components\Helper;
 
 
 /**
@@ -87,7 +94,6 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-
         return $this->render('index', [
             'products'      => Product::find()->all(),
             'videos'        => Video::findAll(['active' => 'yes']),
@@ -147,7 +153,6 @@ class SiteController extends Controller
             ];
         }
 
-
         return $this->renderPartial('turbo', [
             'products' => $products,
         ]);
@@ -158,8 +163,11 @@ class SiteController extends Controller
     }
 
     public function actionZakaz($name) {
+        $model = new ContactForm();
+
         return $this->renderAjax('zakaz', [
-            'name' => $name
+            'name' => $name,
+//            'model' => $model,
         ]);
     }
 
@@ -371,32 +379,67 @@ class SiteController extends Controller
     }
 
     public function actionFeedback() {
-        if($postData = yii::$app->request->post()) {
-            $modelName = $postData['modelName'];
-            $formName = array_reverse(explode('\\', $modelName))[0];
-            $formData = $postData[$formName];
-            \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-
-            // Спам защита. Если пусто скрытое поле значит форму заполнял не бот
-            if(empty($formData['fullname'])) {
-                $model = new $modelName();
-                if($model->load($postData)) {
-                    if(method_exists($model, 'save')) {
-                        if($model->save()) {
-                            return $this->sendEmails($formData, 'review');
-                        }
-                    } else {
-                        return $this->sendEmails($formData, 'feedback');
-                    }
-                } else {
-                    throw new HttpException(404 ,'Ошибка загрузки данных формы');
-                }
-            } else {
-                return ['success' => 'ok'];
-            }
-        } else {
+        if (!$postData = yii::$app->request->post()) {
             throw new HttpException(404 ,'Страница не найдена');
         }
+
+        $modelName = $postData['modelName'];
+        $formName = array_reverse(explode('\\', $modelName))[0];
+        $formData = $postData[$formName];
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        // Спам защита. Если пусто скрытое поле значит форму заполнял не бот
+        if(!empty($formData['fullname'])) {
+            return ['success' => 'ok'];
+        }
+
+        $model = new $modelName();
+        if (!$model->load($postData)) {
+            throw new HttpException(404 ,'Ошибка загрузки данных формы');
+        }
+
+        $formName = Helper::formName($postData);
+        $modelFrom = $model->from ?? '';
+        $to = $model->to ?? '';
+
+        $name = ArrayHelper::getValue($model, 'name', 'Нет имени');
+        $phone = Helper::getDigits(ArrayHelper::getValue($model, 'phone'));
+        $email = ArrayHelper::getValue($model, 'email');
+        $weight = ArrayHelper::getValue($model, 'weight');
+        $volume = ArrayHelper::getValue($model, 'volume');
+
+        $bitrixData = [
+            'title' => $formName,
+            'name' => $name,
+            'status_id' => 'NEW',
+            'opened' => 'Y',
+            'assigned_by_id' => 18,
+            'source_id' => 5,
+            'source_description' => $formName,
+            'comments' => '',
+            'phone' => [
+                ['VALUE' => $phone, 'VALUE_TYPE' => 'WORK']
+            ],
+            'email' => [
+                ['VALUE' => $email, 'VALUE_TYPE' => 'WORK'],
+            ],
+            'from' => $modelFrom, // Пункт отправления (если есть)
+            'to' => $to, // Пункт назначения (если есть)
+            'weight' => $weight, // Вес (строка) (если есть)
+            'volume' => $volume, // Объем (строка) (если есть)
+        ];
+
+        (new SendToBitrix())->send($bitrixData);
+
+        if (!method_exists($model, 'save')) {
+            return $this->sendEmails($formData, 'feedback');
+        }
+
+        if (!$model->save()) {
+            return;
+        }
+
+        return $this->sendEmails($formData, 'review');
     }
 
     public function sendEmails($formData, $requestType) {
@@ -438,6 +481,10 @@ class SiteController extends Controller
     }
 
     public static function clientEmail($data, $requestType = 'review') {
+        if (YII_ENV_DEV) {
+            return true;
+        }
+
         $mailer = Yii::$app->mailer->compose([
             'html' => 'feedbackClient-html',
             'text' => 'feedbackClient-text'

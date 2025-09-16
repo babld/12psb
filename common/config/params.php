@@ -4,7 +4,7 @@ $subdomens = '';
 $cityName = '';
 $cityDatName = '';
 
-if(!empty($_SERVER["HTTP_HOST"])) {
+if(!empty($_SERVER["HTTP_HOST"]) && YII_ENV_PROD) {
     $subdomenData = explode('.', $_SERVER["HTTP_HOST"]);
     $subdomen = $subdomenData[0];
     $domen = !empty($subdomenData[1]) ? $subdomenData[1] : $subdomen;

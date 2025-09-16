@@ -61,14 +61,14 @@
 		
 		//this.find("input[name='phone']").mask("9(999) 999-99-99");
 
-        function submit(form){
+        /*function submit(form){
 	        $.post(
                 '/ajax-feedback.php',
                 $(form).serialize(),
                 parseResponce);
 
 	        $(thisForm).find("input[name='submit']").attr('disabled', 'disabled');
-        };
+        };*/
 
         function parseResponce(response) {
             if(typeof(response.post.target)!= "undefined" && "yaCounter24717443" in window) {
