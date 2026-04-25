@@ -47,6 +47,11 @@ return [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'imageCache' => [
+            'class' => 'common\components\ImageCache',
+            'storePath' => dirname(dirname(__DIR__)) . '/frontend/web/images/store',
+            'cachePath' => dirname(dirname(__DIR__)) . '/frontend/web/images/cache',
+        ],
         'user' => [
             //'class' => 'yii\web\User',
 //            'enableRegistration' => false,

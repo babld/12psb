@@ -1,7 +1,6 @@
 <?php
-use yii\imagine\Image;
-use Imagine\Image\Box;
 use app\components\Helper;
+use Yii;
 
 $cur = "р.";
 ?>
@@ -16,29 +15,16 @@ $cur = "р.";
                         <div class="main-block-slider-item">
                             <a href="<?= $productUrl ?>" class="main-block__imglink"><?php
                                 $width = 320;
-                                $height = $width * 3 / 4;
+                                $height = (int) ($width * 3 / 4);
                                 $imagePath = $product->image->filePath;
-                                $path = explode('/', $imagePath);
-                                $filename = $width.'x'.$height . '-' . array_pop($path);
-                                $pathToImg = implode('/', $path);
-                                if(!file_exists(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename)) {
-                                    $original = Yii::getAlias('@webroot/images/store/') . $imagePath;
-
-                                    if (!file_exists($original)) {
-                                        $moduleGallery = Yii::$app->getModule('gallery');
-
-                                        $original = Yii::getAlias($moduleGallery->placeHolderPath);
-                                    }
-
-                                    try {
-                                        Image::getImagine()->open($original)->
-                                        thumbnail(new Box($width, $height))->
-                                        save(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename, ['quality' => 90]);
-                                    } catch (\Exception $exception) {
-
-                                    }
-                                }?>
-                                <img src="<?='/images/cache/' . $pathToImg . '/' . $filename?>"
+                                $original = Yii::getAlias('@webroot/images/store/') . $imagePath;
+                                $fallback = is_file($original) ? null : Yii::getAlias(Yii::$app->getModule('gallery')->placeHolderPath);
+                                $imgUrl = Yii::$app->imageCache->getThumbnailUrl($imagePath, $width, $height, [
+                                    'quality' => 90,
+                                    'fallbackSource' => $fallback,
+                                ]);
+                                ?>
+                                <img src="<?= $imgUrl ?>"
                                      class="main-block-12psb"/>
                                 <i class="product-stock">
                                     <?= ($product->available == "yes") ? "В Наличии" : "Под заказ" ?>

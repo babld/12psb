@@ -1,48 +1,18 @@
 <?php
 use common\models\Cert;
-use yii\imagine\Image;
-use Imagine\Image\Box;
+use Yii;
 ?>
 <div class="certs gradient-bg">
     <div class="container">
         <div class="owl-three certs__gallery owl-carousel owl-theme">
             <?php foreach(Cert::findAll(['active' => 'yes']) as $item): ?>
                 <?php
-                $width = 421;
-                $height = 562;
                 $imagePath = $item->image->filePath;
-                $path = explode('/', $imagePath);
-                $filename = $width.'x'.$height . '-' . array_pop($path);
-                $pathToImg = implode('/', $path);
-                if(!file_exists(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename)) {
-                    try {
-                        Image::getImagine()->open(Yii::getAlias('@webroot/images/store/') . $imagePath)->
-                        thumbnail(new Box($width, $height))->
-                        save(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename, ['quality' => 90]);
-                    } catch (\Exception $exception) {
-
-                    }
-                }
+                $hrefUrl = Yii::$app->imageCache->getThumbnailUrl($imagePath, 421, 562, ['quality' => 90]);
+                $thumbUrl = Yii::$app->imageCache->getThumbnailUrl($imagePath, 322, 422, ['quality' => 90]);
                 ?>
-                <a href="<?='/images/cache/' . $pathToImg . '/' . $filename?>" rel="fancybox-button" class="lbox" alt="Сертификат" title="Сертификат">
-                    <?php
-                    $width = 322;
-                    $height = 422;
-                    $imagePath = $item->image->filePath;
-                    $path = explode('/', $imagePath);
-                    $filename = $width.'x'.$height . '-' . array_pop($path);
-                    $pathToImg = implode('/', $path);
-                    if(!file_exists(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename)) {
-                        try {
-                            Image::getImagine()->open(Yii::getAlias('@webroot/images/store/') . $imagePath)->
-                            thumbnail(new Box($width, $height))->
-                            save(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename, ['quality' => 90]);
-                        } catch (\Exception $exception) {
-
-                        }
-                    }
-                    ?>
-                    <img class="owl-lazy" data-src="<?='/images/cache/' . $pathToImg . '/' . $filename?>" />
+                <a href="<?= $hrefUrl ?>" rel="fancybox-button" class="lbox" alt="Сертификат" title="Сертификат">
+                    <img class="owl-lazy" data-src="<?= $thumbUrl ?>" />
                 </a>
             <?php endforeach ?>
         </div>

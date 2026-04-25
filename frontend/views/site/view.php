@@ -7,8 +7,7 @@ function hidetab($val)
 
 use pistol88\shop\models\Image as ImagePistol;
 use pistol88\shop\models\Price;
-use yii\imagine\Image;
-use Imagine\Image\Box;
+use Yii;
 use yii\widgets\Breadcrumbs;
 use app\components\Helper;
 use common\models\ProductReview;
@@ -73,19 +72,12 @@ $this->registerMetaTag(['og:title' => $this->title]);
                 <?php foreach ($images as $image) { ?>
                     <div class="tovar__gallery-item"><?php
                         $width = 600;
-                        $height = $width * 3 / 4;
+                        $height = (int) ($width * 3 / 4);
                         $imagePath = $image->filePath;
-                        $path = explode('/', $imagePath);
-                        $filename = $width . 'x' . $height . '-' . array_pop($path);
-                        $pathToImg = implode('/', $path);
-
-                        if (!file_exists(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename)) {
-                            Image::getImagine()->open(Yii::getAlias('@webroot/images/store/') . $imagePath)->
-                            thumbnail(new Box($width, $height))->
-                            save(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename, ['quality' => 100]);
-                        } ?>
-                        <img data-filename="<?= $filename ?>" itemprop="image"
-                             data-src="<?= '/images/cache/' . $pathToImg . '/' . $filename ?>" class="owl-lazy"
+                        $thumb = Yii::$app->imageCache->getThumbnail($imagePath, $width, $height, ['quality' => 100]);
+                        ?>
+                        <img data-filename="<?= $thumb['filename'] ?>" itemprop="image"
+                             data-src="<?= $thumb['url'] ?>" class="owl-lazy"
                              width="374" height="374"/>
                         <i class="product-stock"><?= ($product->available == "yes") ? "В Наличии" : "Под заказ" ?></i>
                     </div>

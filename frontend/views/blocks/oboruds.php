@@ -2,7 +2,7 @@
 use pistol88\shop\models\Category;
 use pistol88\shop\models\Image as PistolImage;
 use pistol88\shop\models\Price;
-use yii\imagine\Image;
+use Yii;
 use yii\helpers\Html;
 
 $title = $products[0]->category->name;
@@ -36,14 +36,12 @@ $title = $products[0]->category->name;
                     $width = 278;
                     $height = 278;
                     $imagePath = $image->filePath;
-                    $path = explode('/', $imagePath);
-                    $filename = $width.'x'.$height . '-thumb-' . array_pop($path);
-                    $pathToImg = implode('/', $path);
-                    if(!file_exists(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename)) {
-                        Image::thumbnail(Yii::getAlias('@webroot/images/store/') . $imagePath, $width, $height)
-                            ->save(Yii::getAlias('@webroot/images/cache/') . $pathToImg . '/' . $filename, ['quality' => 100]);
-                    }?>
-                    <img src="<?='/images/cache/' . $pathToImg . '/' . $filename?>">
+                    $imgUrl = Yii::$app->imageCache->getThumbnailUrl($imagePath, $width, $height, [
+                        'quality' => 100,
+                        'filenamePrefix' => 'thumb-',
+                    ]);
+                    ?>
+                    <img src="<?= $imgUrl ?>">
                 </a>
             </div>
             <div class="oborud__info">
