@@ -1,0 +1,32 @@
+name: Deploy to production
+
+on:
+  push:
+    branches: [ master ]
+
+concurrency:
+  group: deploy-prod
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy over SSH (git pull + composer + migrate)
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.PROD_HOST }}
+          username: ${{ secrets.PROD_USER }}
+          key: ${{ secrets.PROD_SSH_KEY }}
+          port: ${{ secrets.PROD_SSH_PORT || 22 }}
+          script: |
+            set -euo pipefail
+            cd "${{ secrets.PROD_PATH }}"
+
+            git fetch origin master
+            git checkout master
+            git pull --ff-only origin master
+
+            php7.4 composer.phar install --no-interaction --no-progress --prefer-dist --optimize-autoloader
+
+            php7.4 yii migrate --interactive=0
