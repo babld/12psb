@@ -106,6 +106,11 @@
   ol {
     list-style-type: decimal;
   }
+
+  // .content.article (delivery): keep single green counter from .content rules.
+  &.content ol {
+    list-style-type: none;
+  }
 }
 
   .article .tovar__prices {
