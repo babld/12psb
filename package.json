@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build:js": "node -e \"const webpack=require('webpack');const config=require('./tools/webpack.prod.js');webpack(config,(err,stats)=>{if(err||stats.hasErrors()){console.error(err||stats.toString());process.exit(1);}console.log(stats.toString({colors:true}));});\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -34,11 +35,11 @@
     "inputmask": "^3.3.11",
     "intl": "^1.2.5",
     "ion-rangeslider": "^2.2.0",
-    "jquery": "^3.2.1",
-    "jquery-ui": "^1.12.1",
+    "jquery": "^3.7.1",
+    "jquery-ui": "^1.13.2",
     "jquery.cookie": "*",
     "js-yaml": "^3.10.0",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.21",
     "magnific-popup": "^1.1.0",
     "matchmedia-polyfill": "^0.3.0",
     "owl.carousel": "^2.2.0",
@@ -47,7 +48,7 @@
     "reset-css": "^2.2.1",
     "run-sequence": "^2.2.0",
     "smoothscroll-polyfill": "^0.4.0",
-    "urijs": "^1.19.0",
+    "urijs": "^1.19.11",
     "webpack": "3.8.1",
     "webpack-merge": "^4.1.1",
     "webpack-stream": "^4.0.3",
