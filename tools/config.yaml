@@ -1,5 +1,5 @@
 src:
-  entryScss: ./frontend/assets/src/css/**/[!_]*.scss
+  entryScss: ./frontend/assets/src/css/all.scss
   watchScss: ./frontend/assets/src/css/**/*.scss
   fonts: ./frontend/assets/src/fonts/**/*.@(ttf|woff|woff2)
   svgSprite: './frontend/assets/src/svg/sprite/**/*.svg'
