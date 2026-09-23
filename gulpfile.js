@@ -1,34 +1,43 @@
 /* eslint-disable no-console */
 
-var gulp = require('gulp');
-var yargs = require('yargs');
+var { src, dest, watch, series, parallel } = require('gulp');
 var fs = require('fs');
-var exec = require('child_process').exec;
+var path = require('path');
+var { exec } = require('child_process');
 var yaml = require('js-yaml');
 var browserSync = require('browser-sync').create();
 var gulpIf = require('gulp-if');
 var sourcemaps = require('gulp-sourcemaps');
-var sass = require('gulp-sass');
+var gulpSass = require('gulp-sass')(require('sass'));
 var postcss = require('gulp-postcss');
 var assets = require('postcss-assets');
 var autoprefixer = require('autoprefixer');
 var cssnano = require('cssnano');
 var rename = require('gulp-rename');
-var runSequence = require('run-sequence').use(gulp);
 var svgSprite = require('gulp-svg-sprite');
-var webpack = require('webpack-stream');
+var webpack = require('webpack');
 var del = require('del');
 
 var wpDevConfig = require('./tools/webpack.dev.js');
 var wpProdConfig = require('./tools/webpack.prod.js');
-var config = yaml.safeLoad(fs.readFileSync('./tools/config.yaml', 'utf8'));
-var argv = yargs.argv;
+var config = yaml.load(fs.readFileSync(path.resolve(__dirname, 'tools/config.yaml'), 'utf8'));
+var argv = {
+  production: process.argv.indexOf('--production') !== -1,
+  bs: process.argv.indexOf('--bs') !== -1
+};
 
 function getDist(key) {
   return config.dist[argv.production ? 'prod' : 'dev'][key];
 }
 
-gulp.task('css', function cssTask() {
+function sassOptions() {
+  return Object.assign({}, config.sass, {
+    loadPaths: config.sass.includePaths || config.sass.loadPaths || [],
+    silenceDeprecations: ['import', 'legacy-js-api', 'global-builtin', 'color-functions']
+  });
+}
+
+function css() {
   var postcssPlugins = [
     assets(config.assets),
     autoprefixer()
@@ -38,54 +47,61 @@ gulp.task('css', function cssTask() {
     postcssPlugins.push(cssnano(config.cssnano));
   }
 
-  return gulp.src(config.src.entryScss)
+  return src(config.src.entryScss)
     .pipe(gulpIf(!argv.production, sourcemaps.init()))
-    .pipe(sass(config.sass).on('error', sass.logError))
+    .pipe(gulpSass(sassOptions()).on('error', gulpSass.logError))
     .pipe(postcss(postcssPlugins))
     .pipe(gulpIf(!argv.production, sourcemaps.write('./maps/')))
     .pipe(gulpIf(argv.production, rename({ suffix: '.min' })))
-    .pipe(gulp.dest(getDist('css')))
+    .pipe(dest(getDist('css')))
     .pipe(gulpIf(argv.bs, browserSync.stream({ match: '**/*.css' })));
-});
+}
 
-gulp.task('js', function jsTask() {
+function compileJs(done) {
   var wpConfig = argv.production ? wpProdConfig : wpDevConfig;
 
-  return gulp.src(config.src.entryJs.all)
-    .pipe(webpack(wpConfig))
-    .pipe(gulp.dest(getDist('js')));
-});
+  webpack(wpConfig, function webpackCallback(err, stats) {
+    if (err) {
+      done(err);
+      return;
+    }
 
-gulp.task('watch', ['css'], function watchTask() {
+    console.log(stats.toString({ colors: true }));
+
+    if (stats.hasErrors()) {
+      done(new Error('webpack finished with errors'));
+      return;
+    }
+
+    done();
+  });
+}
+
+function watchJs() {
+  webpack(wpDevConfig).watch({}, function watchCallback(err, stats) {
+    if (err) {
+      console.error(err);
+      return;
+    }
+
+    console.log(stats.toString({ colors: true }));
+
+    if (argv.bs) {
+      browserSync.reload();
+    }
+  });
+}
+
+function watchTask() {
   if (argv.bs) {
     browserSync.init(config.browserSync);
   }
 
-  gulp.watch(config.src.watchScss, ['css']);
+  watch(config.src.watchScss, css);
+  watchJs();
+}
 
-  gulp.src(config.src.entryJs.all)
-    .pipe(webpack(Object.assign({
-      watch: true
-    }, wpDevConfig)))
-    .pipe(gulp.dest(getDist('js')));
-});
-
-gulp.task('start', ['serve', 'watch']);
-
-gulp.task('svg', function svgTask() {
-  return gulp.src(config.src.svgSprite)
-    .pipe(svgSprite(config.svgSprite))
-    .pipe(gulp.dest(getDist('svg')));
-});
-
-gulp.task('assets', function assetsTask() {
-  var fonts = gulp.src(config.src.fonts)
-    .pipe(gulp.dest(getDist('fonts')));
-
-  return fonts;
-});
-
-gulp.task('serve', function serveTask() {
+function serve(done) {
   exec(
     'php ./yii serve --docroot=frontend/web ' + config.browserSync.proxy,
     function execCallback(err, stdout, stderr) {
@@ -93,33 +109,47 @@ gulp.task('serve', function serveTask() {
       console.log(stderr);
     }
   );
-});
+  done();
+}
 
-gulp.task('clean', function cleanTask() {
+function svg() {
+  return src(config.src.svgSprite)
+    .pipe(svgSprite(config.svgSprite))
+    .pipe(dest(getDist('svg')));
+}
+
+function copyAssets() {
+  return src(config.src.fonts, { encoding: false, allowEmpty: true })
+    .pipe(dest(getDist('fonts')));
+}
+
+function clean() {
   return del([
     getDist('css'),
     getDist('js'),
     getDist('fonts'),
     getDist('svg')
   ]);
-});
+}
 
-gulp.task('build', function buildTask(cb) {
+function enableProduction(done) {
   argv.production = true;
+  done();
+}
 
-  // https://github.com/gulpjs/gulp/blob/master/docs/recipes/running-tasks-in-series.md
-  // Gulp умеет выполнять задачи по очереди через зависимости,
-  // но данная реализация неуклюжа, поэтому используется сторонний модуль.
-  // При обновлении до Gulp 4 необходимо заменить на нативные средства.
-  runSequence('clean', /*'svg',*/ [
-    'assets',
-    'css',
-    'js'
-  ], cb);
-});
+var build = series(enableProduction, clean, parallel(copyAssets, css, compileJs));
 
-gulp.task('default', ['build']);
-
-gulp.task('test', function(){
+exports.css = css;
+exports.js = compileJs;
+exports.watch = series(css, watchTask);
+exports.start = parallel(serve, exports.watch);
+exports.svg = svg;
+exports.assets = copyAssets;
+exports.serve = serve;
+exports.clean = clean;
+exports.build = build;
+exports.default = build;
+exports.test = function test(done) {
   console.log('test task ok');
-});
+  done();
+};

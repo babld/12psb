@@ -2,34 +2,40 @@ var path = require('path');
 var webpack = require('webpack');
 var yaml = require('js-yaml');
 var fs = require('fs');
-var config = yaml.safeLoad(fs.readFileSync('tools/config.yaml', 'utf8'));
+var config = yaml.load(fs.readFileSync(path.resolve(__dirname, 'config.yaml'), 'utf8'));
 
 module.exports = {
-  entry: config.src.entryJs,
+  mode: 'development',
+  devtool: false,
+  context: path.resolve(__dirname, '..'),
+  entry: {
+    vendor: config.src.entryJs.vendor,
+    all: {
+      import: config.src.entryJs.all,
+      dependOn: 'vendor'
+    }
+  },
   resolve: {
-    modules: config.webpack.resolve.modules,
+    modules: config.webpack.resolve.modules.map(function resolveModule(modulePath) {
+      return path.resolve(modulePath);
+    }),
     alias: {
-      underscore: 'lodash/core' // FIXME: дублирует cherry pick
+      underscore: 'lodash/core'
     }
   },
   output: {
     filename: '[name].js',
-    path: path.resolve(config.dist.dev.js)
+    path: path.resolve(config.dist.dev.js),
+    publicPath: ''
   },
   module: {
     rules: [
       {
         test: require.resolve('jquery'),
-        use: [
-          {
-            loader: 'expose-loader',
-            options: 'jQuery'
-          },
-          {
-            loader: 'expose-loader',
-            options: '$'
-          }
-        ]
+        loader: 'expose-loader',
+        options: {
+          exposes: ['$', 'jQuery']
+        }
       }
     ]
   },
@@ -39,10 +45,9 @@ module.exports = {
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
       backbone: 'backbone'
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: Infinity
     })
-  ]
+  ],
+  optimization: {
+    splitChunks: false
+  }
 };
