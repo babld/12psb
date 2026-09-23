@@ -616,9 +616,11 @@ setVolume:function(b){this.element.volume=b},trackEnded:function(){this.skipTo.a
 		        $('#' + e.attr('name') + 'error1').parent().removeClass('error1');
 	        },*/
 
-            submitHandler: submit
+            submitHandler: function submit(form) {
+                return false;
+            }
         });
-		
+
 		//this.find("input[name='phone']").mask("9(999) 999-99-99");
 
         /*function submit(form){
