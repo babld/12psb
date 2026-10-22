@@ -7,7 +7,6 @@ function hidetab($val)
 
 use pistol88\shop\models\Image as ImagePistol;
 use pistol88\shop\models\Price;
-use Yii;
 use yii\widgets\Breadcrumbs;
 use app\components\Helper;
 use common\models\ProductReview;

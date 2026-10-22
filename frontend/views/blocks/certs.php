@@ -1,6 +1,5 @@
 <?php
 use common\models\Cert;
-use Yii;
 ?>
 <div class="certs gradient-bg">
     <div class="container">

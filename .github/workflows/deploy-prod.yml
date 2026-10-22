@@ -27,6 +27,6 @@ jobs:
             git checkout master
             git pull --ff-only origin master
 
-            php7.4 composer.phar install --no-interaction --no-progress --prefer-dist --optimize-autoloader
+            /opt/php85-sec/bin/php composer.phar install --no-interaction --no-progress --prefer-dist --optimize-autoloader
 
-            php7.4 yii migrate --interactive=0
+            /opt/php85-sec/bin/php yii migrate --interactive=0

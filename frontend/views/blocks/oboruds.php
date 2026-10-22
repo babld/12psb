@@ -2,7 +2,6 @@
 use pistol88\shop\models\Category;
 use pistol88\shop\models\Image as PistolImage;
 use pistol88\shop\models\Price;
-use Yii;
 use yii\helpers\Html;
 
 $title = $products[0]->category->name;

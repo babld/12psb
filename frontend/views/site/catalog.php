@@ -42,7 +42,7 @@ foreach($products as $product):?>
             <div class="container">
                 <?= $this->render('/blocks/oboruds', [
                     'products'  => $product['product'],
-                    'titleTag' => $catalog ? 'h2' : $i > 1 ? 'h2' : 'h1'
+                    'titleTag' => $catalog ? 'h2' : ($i > 1 ? 'h2' : 'h1')
                 ]) ?>
             </div>
         <?php else: ?>

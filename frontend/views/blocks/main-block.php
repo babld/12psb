@@ -1,6 +1,5 @@
 <?php
 use app\components\Helper;
-use Yii;
 
 $cur = "р.";
 ?>
