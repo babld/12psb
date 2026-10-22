@@ -34,6 +34,7 @@ return [
             ],
         ],
         'errorHandler' => [
+            'class' => \common\components\WebErrorHandler::class,
             'errorAction' => 'site/error',
         ],
 

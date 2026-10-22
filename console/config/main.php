@@ -18,6 +18,7 @@ return [
           ],
     ],
     'components' => [
+        'errorHandler' => ['class' => \common\components\ConsoleErrorHandler::class],
         'log' => [
             'targets' => [
                 [
