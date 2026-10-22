@@ -9,6 +9,7 @@ use common\models\UserReview;
 use common\models\Video;
 use frontend\components\Helpers;
 use frontend\models\ContactForm;
+use frontend\models\FeedbackMessForm;
 use yii\helpers\ArrayHelper;
 use yii\web\HttpException;
 use pistol88\shop\models\Category;
@@ -383,7 +384,12 @@ class SiteController extends Controller
             throw new HttpException(404 ,'Страница не найдена');
         }
 
-        $modelName = $postData['modelName'];
+        // Класс модели приходит из формы: принимаем только модели форм сайта,
+        // иначе можно создать объект любого класса.
+        $modelName = $postData['modelName'] ?? '';
+        if (!in_array($modelName, [ProductReview::class, FeedbackMessForm::class], true)) {
+            throw new HttpException(400, 'Неизвестная форма');
+        }
         $formName = array_reverse(explode('\\', $modelName))[0];
         $formData = $postData[$formName];
         Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
